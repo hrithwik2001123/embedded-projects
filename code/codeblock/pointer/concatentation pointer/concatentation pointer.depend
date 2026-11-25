@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1727273686 source:d:\codeblock\pointer\concatentation pointer\main.c
+	<stdio.h>
+	<stdlib.h>
+

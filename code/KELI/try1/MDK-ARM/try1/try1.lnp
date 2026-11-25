@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp.sp
+"try1\startup_stm32f401xc.o"
+"try1\main_1.o"
+"try1\stm32f4xx_it_1.o"
+"try1\stm32f4xx_hal_msp_1.o"
+"try1\system_stm32f4xx.o"
+"try1\syscalls.o"
+"try1\sysmem.o"
+"try1\stm32f4xx_hal_i2c.o"
+"try1\stm32f4xx_hal_i2c_ex.o"
+"try1\stm32f4xx_hal_rcc.o"
+"try1\stm32f4xx_hal_rcc_ex.o"
+"try1\stm32f4xx_hal_flash.o"
+"try1\stm32f4xx_hal_flash_ex.o"
+"try1\stm32f4xx_hal_flash_ramfunc.o"
+"try1\stm32f4xx_hal_gpio.o"
+"try1\stm32f4xx_hal_dma_ex.o"
+"try1\stm32f4xx_hal_dma.o"
+"try1\stm32f4xx_hal_pwr.o"
+"try1\stm32f4xx_hal_pwr_ex.o"
+"try1\stm32f4xx_hal_cortex.o"
+"try1\stm32f4xx_hal.o"
+"try1\stm32f4xx_hal_exti.o"
+"try1\system_stm32f4xx_1.o"
+--strict --scatter "try1\try1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "try1.map" -o try1\try1.axf

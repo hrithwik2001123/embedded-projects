@@ -1,0 +1,23 @@
+--cpu=Cortex-M4.fp.sp
+"blink2\startup_stm32f401xc.o"
+"blink2\main.o"
+"blink2\stm32f4xx_it.o"
+"blink2\stm32f4xx_hal_msp.o"
+"blink2\stm32f4xx_hal_rcc.o"
+"blink2\stm32f4xx_hal_rcc_ex.o"
+"blink2\stm32f4xx_hal_flash.o"
+"blink2\stm32f4xx_hal_flash_ex.o"
+"blink2\stm32f4xx_hal_flash_ramfunc.o"
+"blink2\stm32f4xx_hal_gpio.o"
+"blink2\stm32f4xx_hal_dma_ex.o"
+"blink2\stm32f4xx_hal_dma.o"
+"blink2\stm32f4xx_hal_pwr.o"
+"blink2\stm32f4xx_hal_pwr_ex.o"
+"blink2\stm32f4xx_hal_cortex.o"
+"blink2\stm32f4xx_hal.o"
+"blink2\stm32f4xx_hal_exti.o"
+"blink2\system_stm32f4xx.o"
+--strict --scatter "BLINK2\BLINK2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "BLINK2.map" -o BLINK2\BLINK2.axf

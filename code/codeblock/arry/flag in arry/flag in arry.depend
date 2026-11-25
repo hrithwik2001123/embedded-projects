@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1723615372 source:d:\codeblock\arry\flag in arry\main.c
+	<stdio.h>
+	<stdlib.h>
+

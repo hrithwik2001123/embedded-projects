@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1724301694 source:d:\codeblock\string\string printing\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1725545824 source:d:\codeblock\function\annagram\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

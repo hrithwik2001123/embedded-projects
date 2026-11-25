@@ -1,0 +1,5 @@
+1 hrithwik 100
+2 anu 78
+3 athira 54
+4 athul 34
+6 ammu 20

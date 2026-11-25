@@ -1,0 +1,805 @@
+Archive member included because of file (symbol)
+
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_mulsi3.o)
+                              test.o (__mulsi3)
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodqi4.o)
+                              test.o (__udivmodqi4)
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o)
+                              test.o (__divmodhi4)
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodsi4.o)
+                              ucos_ii.o (__udivmodsi4)
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o (exit)
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+                              test.o (__do_clear_bss)
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodhi4.o)
+                              /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o) (__udivmodhi4)
+/usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+                              test.o (sprintf)
+/usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                              /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o) (vfprintf)
+/usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+                              /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (strlen_P)
+/usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+                              /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (strnlen_P)
+/usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen.o)
+                              /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (strnlen)
+/usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(fputc.o)
+                              /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o) (fputc)
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_prologue.o)
+                              /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o) (__prologue_saves__)
+/usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_epilogue.o)
+                              /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o) (__epilogue_restores__)
+
+Allocating common symbols
+Common symbol       size              file
+
+OSLockNesting       0x1               ucos_ii.o
+OSRunning           0x1               ucos_ii.o
+OSIdleCtr           0x4               ucos_ii.o
+OSPrioHighRdy       0x1               ucos_ii.o
+MsgBox_axis         0x2               test.o
+pSem                0x2               test.o
+OSPrioCur           0x1               ucos_ii.o
+OSTCBList           0x2               ucos_ii.o
+ySem                0x2               test.o
+OSCtxSwCtr          0x4               ucos_ii.o
+Task2Stack          0x200             test.o
+OSTCBFreeList       0x2               ucos_ii.o
+xSem                0x2               test.o
+MsgBox_score        0x2               test.o
+OSTaskCtr           0x1               ucos_ii.o
+OSTCBHighRdy        0x2               ucos_ii.o
+OSRdyGrp            0x1               ucos_ii.o
+OSRdyTbl            0x2               ucos_ii.o
+OSEventFreeList     0x2               ucos_ii.o
+OSIntExitY          0x1               ucos_ii.o
+OSIntNesting        0x1               ucos_ii.o
+OSTCBCur            0x2               ucos_ii.o
+OSTaskIdleStk       0x80              ucos_ii.o
+OSEventTbl          0x30              ucos_ii.o
+OSTCBTbl            0xd8              ucos_ii.o
+Task3Stack          0x200             test.o
+OSTCBPrioTbl        0x1a              ucos_ii.o
+Task1Stack          0x200             test.o
+RndNext             0x4               test.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+LOAD test.o
+LOAD os_cpu_c.o
+LOAD ucos_ii.o
+LOAD os_cpu_a.o
+LOAD /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a
+LOAD /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a
+LOAD /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x1da0
+ *(.vectors)
+ .vectors       0x00000000       0x8c /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x0000008c                . = ALIGN (0x2)
+                0x0000008c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000008c        0x0 linker stubs
+ *(.trampolines*)
+                0x0000008c                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000008c                __ctors_start = .
+ *(.ctors)
+                0x0000008c                __ctors_end = .
+                0x0000008c                __dtors_start = .
+ *(.dtors)
+                0x0000008c                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000008c        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+                0x0000008c                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000008c        0xc /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000098       0x1a /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+                0x00000098                __do_copy_data
+ .init4         0x000000b2       0x10 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+                0x000000b2                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000c2        0x8 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+ *(.init9)
+ *(.text)
+ .text          0x000000ca        0x4 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+                0x000000ca                __vector_22
+                0x000000ca                __vector_28
+                0x000000ca                __vector_1
+                0x000000ca                __vector_32
+                0x000000ca                __vector_34
+                0x000000ca                __vector_24
+                0x000000ca                __vector_12
+                0x000000ca                __bad_interrupt
+                0x000000ca                __vector_6
+                0x000000ca                __vector_31
+                0x000000ca                __vector_3
+                0x000000ca                __vector_23
+                0x000000ca                __vector_30
+                0x000000ca                __vector_25
+                0x000000ca                __vector_11
+                0x000000ca                __vector_13
+                0x000000ca                __vector_17
+                0x000000ca                __vector_19
+                0x000000ca                __vector_7
+                0x000000ca                __vector_27
+                0x000000ca                __vector_5
+                0x000000ca                __vector_33
+                0x000000ca                __vector_4
+                0x000000ca                __vector_9
+                0x000000ca                __vector_2
+                0x000000ca                __vector_15
+                0x000000ca                __vector_29
+                0x000000ca                __vector_8
+                0x000000ca                __vector_26
+                0x000000ca                __vector_14
+                0x000000ca                __vector_10
+                0x000000ca                __vector_18
+                0x000000ca                __vector_20
+ .text          0x000000ce      0x7da test.o
+                0x00000258                random
+                0x000005ce                VT102DispStr
+                0x00000190                UART_Transmit_char
+                0x00000576                VT102DispClrScr
+                0x00000716                Task1
+                0x00000368                VT102DispChar
+                0x000007f8                main
+                0x000003fe                Task3
+                0x00000212                UART_Receive
+                0x000000ce                UART_config
+                0x000002b4                __vector_21
+                0x000001be                UART_Transmit_num
+                0x00000668                Task2
+                0x000001a0                UART_Transmit_string
+                0x00000222                VT102Attribute
+ .text          0x000008a8       0xb2 os_cpu_c.o
+                0x00000948                OSTaskCreateHook
+                0x0000094e                OSTaskStatHook
+                0x00000952                OSInitHookBegin
+                0x0000094a                OSTaskDelHook
+                0x00000950                OSTimeTickHook
+                0x00000958                OSTCBInitHook
+                0x000008a8                OSTaskStkInit
+                0x00000954                OSInitHookEnd
+                0x0000094c                OSTaskSwHook
+                0x00000956                OSTaskIdleHook
+ .text          0x0000095a      0xa7a ucos_ii.o
+                0x0000095a                OSIntEnter
+                0x00000bac                OS_TCBInit
+                0x00000ebe                OSTaskCreate
+                0x0000123a                OSIntExit
+                0x00000ca8                OS_Sched
+                0x00000fb6                OSSemPend
+                0x00001044                OSMboxPost
+                0x00000998                OS_EventTaskRdy
+                0x00000d36                OSTimeDly
+                0x00000d86                OSTimeDlyHMSM
+                0x00000f72                OSSemPost
+                0x0000112c                OSSchedUnlock
+                0x00000a50                OS_EventTaskWait
+                0x000011e0                OSStart
+                0x00001162                OSTimeTick
+                0x00000b5e                OSSemCreate
+                0x00000974                OSSchedLock
+                0x00000b10                OSMboxCreate
+                0x0000107e                OSMboxPend
+                0x000012e0                OSInit
+                0x00000ab2                OS_EventTO
+                0x00000992                OSVersion
+                0x00000b06                OS_EventWaitListInit
+                0x00000c78                OS_TaskIdle
+ .text          0x000013d4      0x262 os_cpu_a.o
+                0x000013d4                OSStartHighRdy
+                0x0000143c                OSCtxSw
+                0x00001502                OSIntCtxSw
+                0x00001570                OSTickISR
+                0x00001570                __vector_16
+ .text          0x00001636        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_mulsi3.o)
+ .text          0x00001636        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodqi4.o)
+ .text          0x00001636        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o)
+ .text          0x00001636        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodsi4.o)
+ .text          0x00001636        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+ .text          0x00001636        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+ .text          0x00001636        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodhi4.o)
+ .text          0x00001636       0x4a /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+                0x00001636                sprintf
+ .text          0x00001680      0x530 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                0x00001680                vfprintf
+ .text          0x00001bb0       0x12 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+                0x00001bb0                strlen_P
+ .text          0x00001bc2       0x16 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+                0x00001bc2                strnlen_P
+ .text          0x00001bd8       0x16 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen.o)
+                0x00001bd8                strnlen
+ .text          0x00001bee       0x5a /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(fputc.o)
+                0x00001bee                fputc
+ .text          0x00001c48        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_prologue.o)
+ .text          0x00001c48        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_epilogue.o)
+                0x00001c48                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00001c48       0x3e /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_mulsi3.o)
+                0x00001c48                __mulsi3
+ .text.libgcc   0x00001c86       0x18 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodqi4.o)
+                0x00001c86                __udivmodqi4
+ .text.libgcc   0x00001c9e       0x26 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o)
+                0x00001c9e                __divmodhi4
+                0x00001c9e                _div
+ .text.libgcc   0x00001cc4       0x44 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodsi4.o)
+                0x00001cc4                __udivmodsi4
+ .text.libgcc   0x00001d08        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+ .text.libgcc   0x00001d08        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001d08       0x28 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodhi4.o)
+                0x00001d08                __udivmodhi4
+ .text.libgcc   0x00001d30       0x38 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_prologue.o)
+                0x00001d30                __prologue_saves__
+ .text.libgcc   0x00001d68       0x36 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_epilogue.o)
+                0x00001d68                __epilogue_restores__
+                0x00001d9e                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00001d9e        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+                0x00001d9e                exit
+                0x00001d9e                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00001d9e        0x2 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+ *(.fini0)
+                0x00001da0                _etext = .
+
+.data           0x00800100      0x154 load address 0x00001da0
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+ .data          0x00800100       0x4c test.o
+ .data          0x0080014c        0x0 os_cpu_c.o
+ .data          0x0080014c      0x108 ucos_ii.o
+                0x0080014c                OSMapTbl
+                0x00800154                OSUnMapTbl
+ .data          0x00800254        0x0 os_cpu_a.o
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_mulsi3.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodqi4.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodsi4.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodhi4.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_prologue.o)
+ .data          0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_epilogue.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800254                . = ALIGN (0x2)
+                0x00800254                _edata = .
+                0x00800254                PROVIDE (__data_end, .)
+
+.bss            0x00800254      0x7d0 load address 0x00001ef4
+                0x00800254                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800254        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+ .bss           0x00800254        0x4 test.o
+                0x00800255                yt
+                0x00800254                xt
+ .bss           0x00800258        0x0 os_cpu_c.o
+ .bss           0x00800258        0x0 ucos_ii.o
+ .bss           0x00800258        0x0 os_cpu_a.o
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_mulsi3.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodqi4.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodsi4.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodhi4.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(fputc.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_prologue.o)
+ .bss           0x00800258        0x0 /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_epilogue.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800258      0x60e test.o
+                0x00800258                MsgBox_axis
+                0x0080025a                pSem
+                0x0080025c                ySem
+                0x0080025e                Task2Stack
+                0x0080045e                xSem
+                0x00800460                MsgBox_score
+                0x00800462                Task3Stack
+                0x00800662                Task1Stack
+                0x00800862                RndNext
+ COMMON         0x00800866      0x1be ucos_ii.o
+                0x00800866                OSLockNesting
+                0x00800867                OSRunning
+                0x00800868                OSIdleCtr
+                0x0080086c                OSPrioHighRdy
+                0x0080086d                OSPrioCur
+                0x0080086e                OSTCBList
+                0x00800870                OSCtxSwCtr
+                0x00800874                OSTCBFreeList
+                0x00800876                OSTaskCtr
+                0x00800877                OSTCBHighRdy
+                0x00800879                OSRdyGrp
+                0x0080087a                OSRdyTbl
+                0x0080087c                OSEventFreeList
+                0x0080087e                OSIntExitY
+                0x0080087f                OSIntNesting
+                0x00800880                OSTCBCur
+                0x00800882                OSTaskIdleStk
+                0x00800902                OSEventTbl
+                0x00800932                OSTCBTbl
+                0x00800a0a                OSTCBPrioTbl
+                0x00800a24                PROVIDE (__bss_end, .)
+                0x00001da0                __data_load_start = LOADADDR (.data)
+                0x00001ef4                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800a24        0x0
+                0x00800a24                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800a24                PROVIDE (__noinit_end, .)
+                0x00800a24                _end = .
+                0x00800a24                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000     0x16d4
+ *(.stab)
+ .stab          0x00000000      0x414 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+ .stab          0x00000414      0x384 os_cpu_a.o
+                                0x390 (size before relaxing)
+ .stab          0x00000798      0x3cc /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+                                0x3d8 (size before relaxing)
+ .stab          0x00000b64      0x7e0 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                                0x9c0 (size before relaxing)
+ .stab          0x00001344       0x84 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+                                 0x90 (size before relaxing)
+ .stab          0x000013c8       0x9c /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+                                 0xa8 (size before relaxing)
+ .stab          0x00001464       0x9c /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen.o)
+                                 0xa8 (size before relaxing)
+ .stab          0x00001500      0x1d4 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(fputc.o)
+                                0x3b4 (size before relaxing)
+
+.stabstr        0x00000000      0xcf2
+ *(.stabstr)
+ .stabstr       0x00000000      0xcf2 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(test.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+MsgBox_axis                                       test.o
+MsgBox_score                                      test.o
+OSCtxSw                                           os_cpu_a.o
+                                                  ucos_ii.o
+OSCtxSwCtr                                        ucos_ii.o
+OSEventFreeList                                   ucos_ii.o
+OSEventTbl                                        ucos_ii.o
+OSIdleCtr                                         ucos_ii.o
+OSInit                                            ucos_ii.o
+                                                  test.o
+OSInitHookBegin                                   os_cpu_c.o
+                                                  ucos_ii.o
+OSInitHookEnd                                     os_cpu_c.o
+                                                  ucos_ii.o
+OSIntCtxSw                                        os_cpu_a.o
+                                                  ucos_ii.o
+OSIntEnter                                        ucos_ii.o
+OSIntExit                                         ucos_ii.o
+                                                  os_cpu_a.o
+OSIntExitY                                        ucos_ii.o
+OSIntNesting                                      os_cpu_a.o
+                                                  ucos_ii.o
+OSLockNesting                                     ucos_ii.o
+OSMapTbl                                          ucos_ii.o
+OSMboxCreate                                      ucos_ii.o
+                                                  test.o
+OSMboxPend                                        ucos_ii.o
+                                                  test.o
+OSMboxPost                                        ucos_ii.o
+                                                  test.o
+OSPrioCur                                         os_cpu_a.o
+                                                  ucos_ii.o
+OSPrioHighRdy                                     os_cpu_a.o
+                                                  ucos_ii.o
+OSRdyGrp                                          ucos_ii.o
+OSRdyTbl                                          ucos_ii.o
+OSRunning                                         os_cpu_a.o
+                                                  ucos_ii.o
+OSSchedLock                                       ucos_ii.o
+OSSchedUnlock                                     ucos_ii.o
+OSSemCreate                                       ucos_ii.o
+                                                  test.o
+OSSemPend                                         ucos_ii.o
+                                                  test.o
+OSSemPost                                         ucos_ii.o
+                                                  test.o
+OSStart                                           ucos_ii.o
+                                                  test.o
+OSStartHighRdy                                    os_cpu_a.o
+                                                  ucos_ii.o
+OSTCBCur                                          os_cpu_a.o
+                                                  ucos_ii.o
+OSTCBFreeList                                     ucos_ii.o
+OSTCBHighRdy                                      os_cpu_a.o
+                                                  ucos_ii.o
+OSTCBInitHook                                     os_cpu_c.o
+                                                  ucos_ii.o
+OSTCBList                                         ucos_ii.o
+OSTCBPrioTbl                                      ucos_ii.o
+OSTCBTbl                                          ucos_ii.o
+OSTaskCreate                                      ucos_ii.o
+                                                  test.o
+OSTaskCreateHook                                  os_cpu_c.o
+                                                  ucos_ii.o
+OSTaskCtr                                         ucos_ii.o
+OSTaskDelHook                                     os_cpu_c.o
+OSTaskIdleHook                                    os_cpu_c.o
+                                                  ucos_ii.o
+OSTaskIdleStk                                     ucos_ii.o
+OSTaskStatHook                                    os_cpu_c.o
+OSTaskStkInit                                     os_cpu_c.o
+                                                  ucos_ii.o
+OSTaskSwHook                                      os_cpu_c.o
+                                                  os_cpu_a.o
+OSTickISR                                         os_cpu_a.o
+OSTimeDly                                         ucos_ii.o
+OSTimeDlyHMSM                                     ucos_ii.o
+                                                  test.o
+OSTimeTick                                        ucos_ii.o
+                                                  os_cpu_a.o
+OSTimeTickHook                                    os_cpu_c.o
+                                                  ucos_ii.o
+OSUnMapTbl                                        ucos_ii.o
+OSVersion                                         ucos_ii.o
+OS_EventTO                                        ucos_ii.o
+OS_EventTaskRdy                                   ucos_ii.o
+OS_EventTaskWait                                  ucos_ii.o
+OS_EventWaitListInit                              ucos_ii.o
+OS_Sched                                          ucos_ii.o
+OS_TCBInit                                        ucos_ii.o
+OS_TaskIdle                                       ucos_ii.o
+RndNext                                           test.o
+Task1                                             test.o
+Task1Stack                                        test.o
+Task2                                             test.o
+Task2Stack                                        test.o
+Task3                                             test.o
+Task3Stack                                        test.o
+UART_Receive                                      test.o
+UART_Transmit_char                                test.o
+UART_Transmit_num                                 test.o
+UART_Transmit_string                              test.o
+UART_config                                       test.o
+VT102Attribute                                    test.o
+VT102DispChar                                     test.o
+VT102DispClrScr                                   test.o
+VT102DispStr                                      test.o
+__bad_interrupt                                   /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__bss_end                                         /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+__data_end                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__data_load_start                                 /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__data_start                                      /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__divmodhi4                                       /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o)
+                                                  test.o
+__do_clear_bss                                    /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_clear_bss.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(fputc.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+                                                  ucos_ii.o
+                                                  os_cpu_c.o
+                                                  test.o
+__do_copy_data                                    /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(fputc.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+                                                  ucos_ii.o
+                                                  os_cpu_c.o
+                                                  test.o
+__epilogue_restores__                             /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_epilogue.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+__heap_end                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__init                                            /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__mulsi3                                          /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_mulsi3.o)
+                                                  ucos_ii.o
+                                                  test.o
+__prologue_saves__                                /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_prologue.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+__stack                                           /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+                                                  test.o
+__udivmodhi4                                      /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodhi4.o)
+                                                  /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o)
+__udivmodqi4                                      /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodqi4.o)
+                                                  test.o
+__udivmodsi4                                      /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_udivmodsi4.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                                                  ucos_ii.o
+__vector_1                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_10                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_11                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_12                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_13                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_14                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_15                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_16                                       os_cpu_a.o
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_17                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_18                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_19                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_2                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_20                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_21                                       test.o
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_22                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_23                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_24                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_25                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_26                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_27                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_28                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_29                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_3                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_30                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_31                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_32                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_33                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_34                                       /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_4                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_5                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_6                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_7                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_8                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_9                                        /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vector_default                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+__vectors                                         /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+_div                                              /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_divmodhi4.o)
+_exit                                             /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+exit                                              /usr/lib/gcc/avr/4.2.2/avr5/libgcc.a(_exit.o)
+                                                  test.o
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+fputc                                             /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(fputc.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+main                                              test.o
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/crtm128.o
+pSem                                              test.o
+random                                            test.o
+sprintf                                           /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+                                                  test.o
+strlen_P                                          /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strlen_P.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+strnlen                                           /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+strnlen_P                                         /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(strnlen_P.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+vfprintf                                          /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(vfprintf_std.o)
+                                                  /usr/lib/gcc/avr/4.2.2/../../../../avr/lib/avr5/libc.a(sprintf.o)
+xSem                                              test.o
+xt                                                test.o
+ySem                                              test.o
+yt                                                test.o

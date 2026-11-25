@@ -1,0 +1,240 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ARM\WORK\New folder\name enter\name_enter.uvproj
+Project File Date:  01/01/2025
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+linking...
+name_enter.axf: Warning: L6665W: Neither Lib$$Request$$armlib Lib$$Request$$cpplib defined, not searching ARM libraries.
+name_enter.axf: Error: L6411E: No compatible library exists with a definition of startup symbol __main.
+Target not created
+Build target 'Target 1'
+linking...
+name_enter.axf: Warning: L6665W: Neither Lib$$Request$$armlib Lib$$Request$$cpplib defined, not searching ARM libraries.
+name_enter.axf: Error: L6411E: No compatible library exists with a definition of startup symbol __main.
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(25): error:  #20: identifier "U0CLR" is undefined
+name_enter.c(33): error:  #20: identifier "U0SLR" is undefined
+name_enter.c(38): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(38): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1356 RO-data=16 RW-data=0 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(33): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(33): error:  #67: expected a "}"
+name_enter.c(45): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(46): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1444 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(47): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1444 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(50): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1444 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+compiling name_enter.c...
+name_enter.c(51): warning:  #1-D: last line of file ends without a newline
+name_enter.c - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: Code=1444 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(50): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1424 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(51): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1424 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(53): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1432 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(54): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1432 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(61): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1432 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(52): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1432 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(52): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1432 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(52): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1432 RO-data=32 RW-data=8 ZI-data=1256  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(50): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+name_enter.c(52): error:  #167: argument of type "char" is incompatible with parameter of type "unsigned char *"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(52): error:  #167: argument of type "char" is incompatible with parameter of type "char *"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(52): error:  #167: argument of type "char" is incompatible with parameter of type "const char *"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(5): error:  #26: too many characters in character constant
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(5): error:  #26: too many characters in character constant
+name_enter.c(32): warning:  #177-D: variable "ch" was declared but never referenced
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(5): error:  #26: too many characters in character constant
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(5): error:  #26: too many characters in character constant
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(50): error:  #167: argument of type "const char *" is incompatible with parameter of type "char *"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(50): error:  #167: argument of type "const char *" is incompatible with parameter of type "char *"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+linking...
+Program Size: Code=1548 RO-data=52 RW-data=12 ZI-data=1260  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(44): error:  #268: declaration may not appear after executable statement in block
+name_enter.c(44): error:  #67: expected a "}"
+name_enter.c(50): error:  #167: argument of type "const char *" is incompatible with parameter of type "char *"
+name_enter.c(56): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(59): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1548 RO-data=52 RW-data=12 ZI-data=1260  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(10): error:  #109: expression must have (pointer-to-) function type
+name_enter.c(22): error:  #109: expression must have (pointer-to-) function type
+name_enter.c(59): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(10): error:  #109: expression must have (pointer-to-) function type
+name_enter.c(22): error:  #109: expression must have (pointer-to-) function type
+name_enter.c(59): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(10): error:  #109: expression must have (pointer-to-) function type
+name_enter.c(22): error:  #109: expression must have (pointer-to-) function type
+name_enter.c(59): warning:  #1-D: last line of file ends without a newline
+Target not created
+compiling name_enter.c...
+name_enter.c(10): error:  #109: expression must have (pointer-to-) function type
+name_enter.c(22): error:  #109: expression must have (pointer-to-) function type
+name_enter.c(59): warning:  #1-D: last line of file ends without a newline
+name_enter.c - 2 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(59): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1548 RO-data=52 RW-data=12 ZI-data=1260  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling name_enter.c...
+name_enter.c(60): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1548 RO-data=52 RW-data=12 ZI-data=1260  
+FromELF: creating hex file...
+"name_enter.axf" - 0 Error(s), 1 Warning(s).

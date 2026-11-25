@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1723182506 source:d:\codeblock\star print\6 star me\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1723437408 source:d:\codeblock\star print\a-z words printing in perimade\main.c
+	<stdio.h>
+	<stdlib.h>
+

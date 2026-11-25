@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1729518774 source:d:\codeblock\structure\bitswise\create the node by user input\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1729519840 source:d:\codeblock\structure\linked list\create the node by user input\main.c
+	<stdio.h>
+	<stdlib.h>
+

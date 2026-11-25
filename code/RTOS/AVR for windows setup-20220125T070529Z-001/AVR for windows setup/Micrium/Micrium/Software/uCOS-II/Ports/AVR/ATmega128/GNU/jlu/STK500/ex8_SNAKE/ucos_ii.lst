@@ -1,0 +1,3195 @@
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 1
+
+
+   1               		.file	"ucos_ii.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               	.global	OSMapTbl
+  10               		.data
+  11               		.type	OSMapTbl, @object
+  12               		.size	OSMapTbl, 8
+  13               	OSMapTbl:
+  14 0000 01        		.byte	1
+  15 0001 02        		.byte	2
+  16 0002 04        		.byte	4
+  17 0003 08        		.byte	8
+  18 0004 10        		.byte	16
+  19 0005 20        		.byte	32
+  20 0006 40        		.byte	64
+  21 0007 80        		.byte	-128
+  22               	.global	OSUnMapTbl
+  23               		.type	OSUnMapTbl, @object
+  24               		.size	OSUnMapTbl, 256
+  25               	OSUnMapTbl:
+  26 0008 00        		.byte	0
+  27 0009 00        		.byte	0
+  28 000a 01        		.byte	1
+  29 000b 00        		.byte	0
+  30 000c 02        		.byte	2
+  31 000d 00        		.byte	0
+  32 000e 01        		.byte	1
+  33 000f 00        		.byte	0
+  34 0010 03        		.byte	3
+  35 0011 00        		.byte	0
+  36 0012 01        		.byte	1
+  37 0013 00        		.byte	0
+  38 0014 02        		.byte	2
+  39 0015 00        		.byte	0
+  40 0016 01        		.byte	1
+  41 0017 00        		.byte	0
+  42 0018 04        		.byte	4
+  43 0019 00        		.byte	0
+  44 001a 01        		.byte	1
+  45 001b 00        		.byte	0
+  46 001c 02        		.byte	2
+  47 001d 00        		.byte	0
+  48 001e 01        		.byte	1
+  49 001f 00        		.byte	0
+  50 0020 03        		.byte	3
+  51 0021 00        		.byte	0
+  52 0022 01        		.byte	1
+  53 0023 00        		.byte	0
+  54 0024 02        		.byte	2
+  55 0025 00        		.byte	0
+  56 0026 01        		.byte	1
+  57 0027 00        		.byte	0
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 2
+
+
+  58 0028 05        		.byte	5
+  59 0029 00        		.byte	0
+  60 002a 01        		.byte	1
+  61 002b 00        		.byte	0
+  62 002c 02        		.byte	2
+  63 002d 00        		.byte	0
+  64 002e 01        		.byte	1
+  65 002f 00        		.byte	0
+  66 0030 03        		.byte	3
+  67 0031 00        		.byte	0
+  68 0032 01        		.byte	1
+  69 0033 00        		.byte	0
+  70 0034 02        		.byte	2
+  71 0035 00        		.byte	0
+  72 0036 01        		.byte	1
+  73 0037 00        		.byte	0
+  74 0038 04        		.byte	4
+  75 0039 00        		.byte	0
+  76 003a 01        		.byte	1
+  77 003b 00        		.byte	0
+  78 003c 02        		.byte	2
+  79 003d 00        		.byte	0
+  80 003e 01        		.byte	1
+  81 003f 00        		.byte	0
+  82 0040 03        		.byte	3
+  83 0041 00        		.byte	0
+  84 0042 01        		.byte	1
+  85 0043 00        		.byte	0
+  86 0044 02        		.byte	2
+  87 0045 00        		.byte	0
+  88 0046 01        		.byte	1
+  89 0047 00        		.byte	0
+  90 0048 06        		.byte	6
+  91 0049 00        		.byte	0
+  92 004a 01        		.byte	1
+  93 004b 00        		.byte	0
+  94 004c 02        		.byte	2
+  95 004d 00        		.byte	0
+  96 004e 01        		.byte	1
+  97 004f 00        		.byte	0
+  98 0050 03        		.byte	3
+  99 0051 00        		.byte	0
+ 100 0052 01        		.byte	1
+ 101 0053 00        		.byte	0
+ 102 0054 02        		.byte	2
+ 103 0055 00        		.byte	0
+ 104 0056 01        		.byte	1
+ 105 0057 00        		.byte	0
+ 106 0058 04        		.byte	4
+ 107 0059 00        		.byte	0
+ 108 005a 01        		.byte	1
+ 109 005b 00        		.byte	0
+ 110 005c 02        		.byte	2
+ 111 005d 00        		.byte	0
+ 112 005e 01        		.byte	1
+ 113 005f 00        		.byte	0
+ 114 0060 03        		.byte	3
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 3
+
+
+ 115 0061 00        		.byte	0
+ 116 0062 01        		.byte	1
+ 117 0063 00        		.byte	0
+ 118 0064 02        		.byte	2
+ 119 0065 00        		.byte	0
+ 120 0066 01        		.byte	1
+ 121 0067 00        		.byte	0
+ 122 0068 05        		.byte	5
+ 123 0069 00        		.byte	0
+ 124 006a 01        		.byte	1
+ 125 006b 00        		.byte	0
+ 126 006c 02        		.byte	2
+ 127 006d 00        		.byte	0
+ 128 006e 01        		.byte	1
+ 129 006f 00        		.byte	0
+ 130 0070 03        		.byte	3
+ 131 0071 00        		.byte	0
+ 132 0072 01        		.byte	1
+ 133 0073 00        		.byte	0
+ 134 0074 02        		.byte	2
+ 135 0075 00        		.byte	0
+ 136 0076 01        		.byte	1
+ 137 0077 00        		.byte	0
+ 138 0078 04        		.byte	4
+ 139 0079 00        		.byte	0
+ 140 007a 01        		.byte	1
+ 141 007b 00        		.byte	0
+ 142 007c 02        		.byte	2
+ 143 007d 00        		.byte	0
+ 144 007e 01        		.byte	1
+ 145 007f 00        		.byte	0
+ 146 0080 03        		.byte	3
+ 147 0081 00        		.byte	0
+ 148 0082 01        		.byte	1
+ 149 0083 00        		.byte	0
+ 150 0084 02        		.byte	2
+ 151 0085 00        		.byte	0
+ 152 0086 01        		.byte	1
+ 153 0087 00        		.byte	0
+ 154 0088 07        		.byte	7
+ 155 0089 00        		.byte	0
+ 156 008a 01        		.byte	1
+ 157 008b 00        		.byte	0
+ 158 008c 02        		.byte	2
+ 159 008d 00        		.byte	0
+ 160 008e 01        		.byte	1
+ 161 008f 00        		.byte	0
+ 162 0090 03        		.byte	3
+ 163 0091 00        		.byte	0
+ 164 0092 01        		.byte	1
+ 165 0093 00        		.byte	0
+ 166 0094 02        		.byte	2
+ 167 0095 00        		.byte	0
+ 168 0096 01        		.byte	1
+ 169 0097 00        		.byte	0
+ 170 0098 04        		.byte	4
+ 171 0099 00        		.byte	0
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 4
+
+
+ 172 009a 01        		.byte	1
+ 173 009b 00        		.byte	0
+ 174 009c 02        		.byte	2
+ 175 009d 00        		.byte	0
+ 176 009e 01        		.byte	1
+ 177 009f 00        		.byte	0
+ 178 00a0 03        		.byte	3
+ 179 00a1 00        		.byte	0
+ 180 00a2 01        		.byte	1
+ 181 00a3 00        		.byte	0
+ 182 00a4 02        		.byte	2
+ 183 00a5 00        		.byte	0
+ 184 00a6 01        		.byte	1
+ 185 00a7 00        		.byte	0
+ 186 00a8 05        		.byte	5
+ 187 00a9 00        		.byte	0
+ 188 00aa 01        		.byte	1
+ 189 00ab 00        		.byte	0
+ 190 00ac 02        		.byte	2
+ 191 00ad 00        		.byte	0
+ 192 00ae 01        		.byte	1
+ 193 00af 00        		.byte	0
+ 194 00b0 03        		.byte	3
+ 195 00b1 00        		.byte	0
+ 196 00b2 01        		.byte	1
+ 197 00b3 00        		.byte	0
+ 198 00b4 02        		.byte	2
+ 199 00b5 00        		.byte	0
+ 200 00b6 01        		.byte	1
+ 201 00b7 00        		.byte	0
+ 202 00b8 04        		.byte	4
+ 203 00b9 00        		.byte	0
+ 204 00ba 01        		.byte	1
+ 205 00bb 00        		.byte	0
+ 206 00bc 02        		.byte	2
+ 207 00bd 00        		.byte	0
+ 208 00be 01        		.byte	1
+ 209 00bf 00        		.byte	0
+ 210 00c0 03        		.byte	3
+ 211 00c1 00        		.byte	0
+ 212 00c2 01        		.byte	1
+ 213 00c3 00        		.byte	0
+ 214 00c4 02        		.byte	2
+ 215 00c5 00        		.byte	0
+ 216 00c6 01        		.byte	1
+ 217 00c7 00        		.byte	0
+ 218 00c8 06        		.byte	6
+ 219 00c9 00        		.byte	0
+ 220 00ca 01        		.byte	1
+ 221 00cb 00        		.byte	0
+ 222 00cc 02        		.byte	2
+ 223 00cd 00        		.byte	0
+ 224 00ce 01        		.byte	1
+ 225 00cf 00        		.byte	0
+ 226 00d0 03        		.byte	3
+ 227 00d1 00        		.byte	0
+ 228 00d2 01        		.byte	1
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 5
+
+
+ 229 00d3 00        		.byte	0
+ 230 00d4 02        		.byte	2
+ 231 00d5 00        		.byte	0
+ 232 00d6 01        		.byte	1
+ 233 00d7 00        		.byte	0
+ 234 00d8 04        		.byte	4
+ 235 00d9 00        		.byte	0
+ 236 00da 01        		.byte	1
+ 237 00db 00        		.byte	0
+ 238 00dc 02        		.byte	2
+ 239 00dd 00        		.byte	0
+ 240 00de 01        		.byte	1
+ 241 00df 00        		.byte	0
+ 242 00e0 03        		.byte	3
+ 243 00e1 00        		.byte	0
+ 244 00e2 01        		.byte	1
+ 245 00e3 00        		.byte	0
+ 246 00e4 02        		.byte	2
+ 247 00e5 00        		.byte	0
+ 248 00e6 01        		.byte	1
+ 249 00e7 00        		.byte	0
+ 250 00e8 05        		.byte	5
+ 251 00e9 00        		.byte	0
+ 252 00ea 01        		.byte	1
+ 253 00eb 00        		.byte	0
+ 254 00ec 02        		.byte	2
+ 255 00ed 00        		.byte	0
+ 256 00ee 01        		.byte	1
+ 257 00ef 00        		.byte	0
+ 258 00f0 03        		.byte	3
+ 259 00f1 00        		.byte	0
+ 260 00f2 01        		.byte	1
+ 261 00f3 00        		.byte	0
+ 262 00f4 02        		.byte	2
+ 263 00f5 00        		.byte	0
+ 264 00f6 01        		.byte	1
+ 265 00f7 00        		.byte	0
+ 266 00f8 04        		.byte	4
+ 267 00f9 00        		.byte	0
+ 268 00fa 01        		.byte	1
+ 269 00fb 00        		.byte	0
+ 270 00fc 02        		.byte	2
+ 271 00fd 00        		.byte	0
+ 272 00fe 01        		.byte	1
+ 273 00ff 00        		.byte	0
+ 274 0100 03        		.byte	3
+ 275 0101 00        		.byte	0
+ 276 0102 01        		.byte	1
+ 277 0103 00        		.byte	0
+ 278 0104 02        		.byte	2
+ 279 0105 00        		.byte	0
+ 280 0106 01        		.byte	1
+ 281 0107 00        		.byte	0
+ 282               		.text
+ 283               	.global	OSInit
+ 284               		.type	OSInit, @function
+ 285               	OSInit:
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 6
+
+
+ 286               	/* prologue: frame size=0 */
+ 287 0000 CF93      		push r28
+ 288 0002 DF93      		push r29
+ 289 0004 CDB7      		in r28,__SP_L__
+ 290 0006 DEB7      		in r29,__SP_H__
+ 291               	/* prologue end (size=4) */
+ 292 0008 0E94 0000 		call OSInitHookBegin
+ 293 000c 0E94 0000 		call OS_InitMisc
+ 294 0010 0E94 0000 		call OS_InitRdyList
+ 295 0014 0E94 0000 		call OS_InitTCBList
+ 296 0018 0E94 0000 		call OS_InitEventList
+ 297 001c 0E94 0000 		call OS_InitTaskIdle
+ 298 0020 0E94 0000 		call OSInitHookEnd
+ 299               	/* epilogue: frame size=0 */
+ 300 0024 DF91      		pop r29
+ 301 0026 CF91      		pop r28
+ 302 0028 0895      		ret
+ 303               	/* epilogue end (size=3) */
+ 304               	/* function OSInit size 21 (14) */
+ 305               		.size	OSInit, .-OSInit
+ 306               	.global	OSIntEnter
+ 307               		.type	OSIntEnter, @function
+ 308               	OSIntEnter:
+ 309               	/* prologue: frame size=0 */
+ 310 002a CF93      		push r28
+ 311 002c DF93      		push r29
+ 312 002e CDB7      		in r28,__SP_L__
+ 313 0030 DEB7      		in r29,__SP_H__
+ 314               	/* prologue end (size=4) */
+ 315 0032 8091 0000 		lds r24,OSRunning
+ 316 0036 8130      		cpi r24,lo8(1)
+ 317 0038 01F4      		brne .L7
+ 318 003a 8091 0000 		lds r24,OSIntNesting
+ 319 003e 8F3F      		cpi r24,lo8(-1)
+ 320 0040 01F0      		breq .L7
+ 321 0042 8091 0000 		lds r24,OSIntNesting
+ 322 0046 8F5F      		subi r24,lo8(-(1))
+ 323 0048 8093 0000 		sts OSIntNesting,r24
+ 324               	.L7:
+ 325               	/* epilogue: frame size=0 */
+ 326 004c DF91      		pop r29
+ 327 004e CF91      		pop r28
+ 328 0050 0895      		ret
+ 329               	/* epilogue end (size=3) */
+ 330               	/* function OSIntEnter size 20 (13) */
+ 331               		.size	OSIntEnter, .-OSIntEnter
+ 332               	.global	OSIntExit
+ 333               		.type	OSIntExit, @function
+ 334               	OSIntExit:
+ 335               	/* prologue: frame size=0 */
+ 336 0052 CF93      		push r28
+ 337 0054 DF93      		push r29
+ 338 0056 CDB7      		in r28,__SP_L__
+ 339 0058 DEB7      		in r29,__SP_H__
+ 340               	/* prologue end (size=4) */
+ 341 005a 8091 0000 		lds r24,OSRunning
+ 342 005e 8130      		cpi r24,lo8(1)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 7
+
+
+ 343 0060 01F0      		breq .+2
+ 344 0062 00C0      		rjmp .L17
+ 345               	/* #APP */
+ 346 0064 F894      		cli
+ 347               	/* #NOAPP */
+ 348 0066 8091 0000 		lds r24,OSIntNesting
+ 349 006a 8823      		tst r24
+ 350 006c 01F0      		breq .L11
+ 351 006e 8091 0000 		lds r24,OSIntNesting
+ 352 0072 8150      		subi r24,lo8(-(-1))
+ 353 0074 8093 0000 		sts OSIntNesting,r24
+ 354               	.L11:
+ 355 0078 8091 0000 		lds r24,OSIntNesting
+ 356 007c 8823      		tst r24
+ 357 007e 01F0      		breq .+2
+ 358 0080 00C0      		rjmp .L13
+ 359 0082 8091 0000 		lds r24,OSLockNesting
+ 360 0086 8823      		tst r24
+ 361 0088 01F0      		breq .+2
+ 362 008a 00C0      		rjmp .L13
+ 363 008c 8091 0000 		lds r24,OSRdyGrp
+ 364 0090 882F      		mov r24,r24
+ 365 0092 90E0      		ldi r25,lo8(0)
+ 366 0094 FC01      		movw r30,r24
+ 367 0096 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 368 0098 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 369 009a 8081      		ld r24,Z
+ 370 009c 8093 0000 		sts OSIntExitY,r24
+ 371 00a0 8091 0000 		lds r24,OSIntExitY
+ 372 00a4 282F      		mov r18,r24
+ 373 00a6 220F      		lsl r18
+ 374 00a8 220F      		lsl r18
+ 375 00aa 220F      		lsl r18
+ 376 00ac 8091 0000 		lds r24,OSIntExitY
+ 377 00b0 882F      		mov r24,r24
+ 378 00b2 90E0      		ldi r25,lo8(0)
+ 379 00b4 FC01      		movw r30,r24
+ 380 00b6 E050      		subi r30,lo8(-(OSRdyTbl))
+ 381 00b8 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 382 00ba 8081      		ld r24,Z
+ 383 00bc 882F      		mov r24,r24
+ 384 00be 90E0      		ldi r25,lo8(0)
+ 385 00c0 FC01      		movw r30,r24
+ 386 00c2 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 387 00c4 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 388 00c6 8081      		ld r24,Z
+ 389 00c8 820F      		add r24,r18
+ 390 00ca 8093 0000 		sts OSPrioHighRdy,r24
+ 391 00ce 9091 0000 		lds r25,OSPrioHighRdy
+ 392 00d2 8091 0000 		lds r24,OSPrioCur
+ 393 00d6 9817      		cp r25,r24
+ 394 00d8 01F0      		breq .L13
+ 395 00da 8091 0000 		lds r24,OSPrioHighRdy
+ 396 00de 882F      		mov r24,r24
+ 397 00e0 90E0      		ldi r25,lo8(0)
+ 398 00e2 880F      		lsl r24
+ 399 00e4 991F      		rol r25
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 8
+
+
+ 400 00e6 FC01      		movw r30,r24
+ 401 00e8 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 402 00ea F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 403 00ec 8081      		ld r24,Z
+ 404 00ee 9181      		ldd r25,Z+1
+ 405 00f0 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 406 00f4 8093 0000 		sts OSTCBHighRdy,r24
+ 407 00f8 8091 0000 		lds r24,OSCtxSwCtr
+ 408 00fc 9091 0000 		lds r25,(OSCtxSwCtr)+1
+ 409 0100 A091 0000 		lds r26,(OSCtxSwCtr)+2
+ 410 0104 B091 0000 		lds r27,(OSCtxSwCtr)+3
+ 411 0108 0196      		adiw r24,1
+ 412 010a A11D      		adc r26,__zero_reg__
+ 413 010c B11D      		adc r27,__zero_reg__
+ 414 010e 8093 0000 		sts OSCtxSwCtr,r24
+ 415 0112 9093 0000 		sts (OSCtxSwCtr)+1,r25
+ 416 0116 A093 0000 		sts (OSCtxSwCtr)+2,r26
+ 417 011a B093 0000 		sts (OSCtxSwCtr)+3,r27
+ 418 011e 0E94 0000 		call OSIntCtxSw
+ 419               	.L13:
+ 420               	/* #APP */
+ 421 0122 7894      		sei
+ 422               	/* #NOAPP */
+ 423               	.L17:
+ 424               	/* epilogue: frame size=0 */
+ 425 0124 DF91      		pop r29
+ 426 0126 CF91      		pop r28
+ 427 0128 0895      		ret
+ 428               	/* epilogue end (size=3) */
+ 429               	/* function OSIntExit size 110 (103) */
+ 430               		.size	OSIntExit, .-OSIntExit
+ 431               	.global	OSSchedLock
+ 432               		.type	OSSchedLock, @function
+ 433               	OSSchedLock:
+ 434               	/* prologue: frame size=0 */
+ 435 012a CF93      		push r28
+ 436 012c DF93      		push r29
+ 437 012e CDB7      		in r28,__SP_L__
+ 438 0130 DEB7      		in r29,__SP_H__
+ 439               	/* prologue end (size=4) */
+ 440 0132 8091 0000 		lds r24,OSRunning
+ 441 0136 8130      		cpi r24,lo8(1)
+ 442 0138 01F4      		brne .L23
+ 443               	/* #APP */
+ 444 013a F894      		cli
+ 445               	/* #NOAPP */
+ 446 013c 8091 0000 		lds r24,OSLockNesting
+ 447 0140 8F3F      		cpi r24,lo8(-1)
+ 448 0142 01F0      		breq .L21
+ 449 0144 8091 0000 		lds r24,OSLockNesting
+ 450 0148 8F5F      		subi r24,lo8(-(1))
+ 451 014a 8093 0000 		sts OSLockNesting,r24
+ 452               	.L21:
+ 453               	/* #APP */
+ 454 014e 7894      		sei
+ 455               	/* #NOAPP */
+ 456               	.L23:
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 9
+
+
+ 457               	/* epilogue: frame size=0 */
+ 458 0150 DF91      		pop r29
+ 459 0152 CF91      		pop r28
+ 460 0154 0895      		ret
+ 461               	/* epilogue end (size=3) */
+ 462               	/* function OSSchedLock size 24 (17) */
+ 463               		.size	OSSchedLock, .-OSSchedLock
+ 464               	.global	OSSchedUnlock
+ 465               		.type	OSSchedUnlock, @function
+ 466               	OSSchedUnlock:
+ 467               	/* prologue: frame size=0 */
+ 468 0156 CF93      		push r28
+ 469 0158 DF93      		push r29
+ 470 015a CDB7      		in r28,__SP_L__
+ 471 015c DEB7      		in r29,__SP_H__
+ 472               	/* prologue end (size=4) */
+ 473 015e 8091 0000 		lds r24,OSRunning
+ 474 0162 8130      		cpi r24,lo8(1)
+ 475 0164 01F4      		brne .L33
+ 476               	/* #APP */
+ 477 0166 F894      		cli
+ 478               	/* #NOAPP */
+ 479 0168 8091 0000 		lds r24,OSLockNesting
+ 480 016c 8823      		tst r24
+ 481 016e 01F0      		breq .L27
+ 482 0170 8091 0000 		lds r24,OSLockNesting
+ 483 0174 8150      		subi r24,lo8(-(-1))
+ 484 0176 8093 0000 		sts OSLockNesting,r24
+ 485 017a 8091 0000 		lds r24,OSLockNesting
+ 486 017e 8823      		tst r24
+ 487 0180 01F4      		brne .L29
+ 488 0182 8091 0000 		lds r24,OSIntNesting
+ 489 0186 8823      		tst r24
+ 490 0188 01F4      		brne .L29
+ 491               	/* #APP */
+ 492 018a 7894      		sei
+ 493               	/* #NOAPP */
+ 494 018c 0E94 0000 		call OS_Sched
+ 495 0190 00C0      		rjmp .L33
+ 496               	.L29:
+ 497               	/* #APP */
+ 498 0192 7894      		sei
+ 499               	/* #NOAPP */
+ 500 0194 00C0      		rjmp .L33
+ 501               	.L27:
+ 502               	/* #APP */
+ 503 0196 7894      		sei
+ 504               	/* #NOAPP */
+ 505               	.L33:
+ 506               	/* epilogue: frame size=0 */
+ 507 0198 DF91      		pop r29
+ 508 019a CF91      		pop r28
+ 509 019c 0895      		ret
+ 510               	/* epilogue end (size=3) */
+ 511               	/* function OSSchedUnlock size 40 (33) */
+ 512               		.size	OSSchedUnlock, .-OSSchedUnlock
+ 513               	.global	OSStart
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 10
+
+
+ 514               		.type	OSStart, @function
+ 515               	OSStart:
+ 516               	/* prologue: frame size=2 */
+ 517 019e CF93      		push r28
+ 518 01a0 DF93      		push r29
+ 519 01a2 CDB7      		in r28,__SP_L__
+ 520 01a4 DEB7      		in r29,__SP_H__
+ 521 01a6 2297      		sbiw r28,2
+ 522 01a8 0FB6      		in __tmp_reg__,__SREG__
+ 523 01aa F894      		cli
+ 524 01ac DEBF      		out __SP_H__,r29
+ 525 01ae 0FBE      		out __SREG__,__tmp_reg__
+ 526 01b0 CDBF      		out __SP_L__,r28
+ 527               	/* prologue end (size=10) */
+ 528 01b2 8091 0000 		lds r24,OSRunning
+ 529 01b6 8823      		tst r24
+ 530 01b8 01F4      		brne .L37
+ 531 01ba 8091 0000 		lds r24,OSRdyGrp
+ 532 01be 882F      		mov r24,r24
+ 533 01c0 90E0      		ldi r25,lo8(0)
+ 534 01c2 FC01      		movw r30,r24
+ 535 01c4 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 536 01c6 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 537 01c8 8081      		ld r24,Z
+ 538 01ca 8A83      		std Y+2,r24
+ 539 01cc 8A81      		ldd r24,Y+2
+ 540 01ce 882F      		mov r24,r24
+ 541 01d0 90E0      		ldi r25,lo8(0)
+ 542 01d2 FC01      		movw r30,r24
+ 543 01d4 E050      		subi r30,lo8(-(OSRdyTbl))
+ 544 01d6 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 545 01d8 8081      		ld r24,Z
+ 546 01da 882F      		mov r24,r24
+ 547 01dc 90E0      		ldi r25,lo8(0)
+ 548 01de FC01      		movw r30,r24
+ 549 01e0 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 550 01e2 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 551 01e4 8081      		ld r24,Z
+ 552 01e6 8983      		std Y+1,r24
+ 553 01e8 8A81      		ldd r24,Y+2
+ 554 01ea 982F      		mov r25,r24
+ 555 01ec 990F      		lsl r25
+ 556 01ee 990F      		lsl r25
+ 557 01f0 990F      		lsl r25
+ 558 01f2 8981      		ldd r24,Y+1
+ 559 01f4 890F      		add r24,r25
+ 560 01f6 8093 0000 		sts OSPrioHighRdy,r24
+ 561 01fa 8091 0000 		lds r24,OSPrioHighRdy
+ 562 01fe 8093 0000 		sts OSPrioCur,r24
+ 563 0202 8091 0000 		lds r24,OSPrioHighRdy
+ 564 0206 882F      		mov r24,r24
+ 565 0208 90E0      		ldi r25,lo8(0)
+ 566 020a 880F      		lsl r24
+ 567 020c 991F      		rol r25
+ 568 020e FC01      		movw r30,r24
+ 569 0210 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 570 0212 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 11
+
+
+ 571 0214 8081      		ld r24,Z
+ 572 0216 9181      		ldd r25,Z+1
+ 573 0218 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 574 021c 8093 0000 		sts OSTCBHighRdy,r24
+ 575 0220 8091 0000 		lds r24,OSTCBHighRdy
+ 576 0224 9091 0000 		lds r25,(OSTCBHighRdy)+1
+ 577 0228 9093 0000 		sts (OSTCBCur)+1,r25
+ 578 022c 8093 0000 		sts OSTCBCur,r24
+ 579 0230 0E94 0000 		call OSStartHighRdy
+ 580               	.L37:
+ 581               	/* epilogue: frame size=2 */
+ 582 0234 2296      		adiw r28,2
+ 583 0236 0FB6      		in __tmp_reg__,__SREG__
+ 584 0238 F894      		cli
+ 585 023a DEBF      		out __SP_H__,r29
+ 586 023c 0FBE      		out __SREG__,__tmp_reg__
+ 587 023e CDBF      		out __SP_L__,r28
+ 588 0240 DF91      		pop r29
+ 589 0242 CF91      		pop r28
+ 590 0244 0895      		ret
+ 591               	/* epilogue end (size=9) */
+ 592               	/* function OSStart size 84 (65) */
+ 593               		.size	OSStart, .-OSStart
+ 594               	.global	OSTimeTick
+ 595               		.type	OSTimeTick, @function
+ 596               	OSTimeTick:
+ 597               	/* prologue: frame size=2 */
+ 598 0246 CF93      		push r28
+ 599 0248 DF93      		push r29
+ 600 024a CDB7      		in r28,__SP_L__
+ 601 024c DEB7      		in r29,__SP_H__
+ 602 024e 2297      		sbiw r28,2
+ 603 0250 0FB6      		in __tmp_reg__,__SREG__
+ 604 0252 F894      		cli
+ 605 0254 DEBF      		out __SP_H__,r29
+ 606 0256 0FBE      		out __SREG__,__tmp_reg__
+ 607 0258 CDBF      		out __SP_L__,r28
+ 608               	/* prologue end (size=10) */
+ 609 025a 0E94 0000 		call OSTimeTickHook
+ 610 025e 8091 0000 		lds r24,OSRunning
+ 611 0262 8130      		cpi r24,lo8(1)
+ 612 0264 01F0      		breq .+2
+ 613 0266 00C0      		rjmp .L48
+ 614 0268 8091 0000 		lds r24,OSTCBList
+ 615 026c 9091 0000 		lds r25,(OSTCBList)+1
+ 616 0270 9A83      		std Y+2,r25
+ 617 0272 8983      		std Y+1,r24
+ 618 0274 00C0      		rjmp .L41
+ 619               	.L42:
+ 620               	/* #APP */
+ 621 0276 F894      		cli
+ 622               	/* #NOAPP */
+ 623 0278 E981      		ldd r30,Y+1
+ 624 027a FA81      		ldd r31,Y+2
+ 625 027c 8285      		ldd r24,Z+10
+ 626 027e 9385      		ldd r25,Z+11
+ 627 0280 0097      		sbiw r24,0
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 12
+
+
+ 628 0282 01F0      		breq .L43
+ 629 0284 E981      		ldd r30,Y+1
+ 630 0286 FA81      		ldd r31,Y+2
+ 631 0288 8285      		ldd r24,Z+10
+ 632 028a 9385      		ldd r25,Z+11
+ 633 028c 0197      		sbiw r24,1
+ 634 028e E981      		ldd r30,Y+1
+ 635 0290 FA81      		ldd r31,Y+2
+ 636 0292 9387      		std Z+11,r25
+ 637 0294 8287      		std Z+10,r24
+ 638 0296 E981      		ldd r30,Y+1
+ 639 0298 FA81      		ldd r31,Y+2
+ 640 029a 8285      		ldd r24,Z+10
+ 641 029c 9385      		ldd r25,Z+11
+ 642 029e 0097      		sbiw r24,0
+ 643 02a0 01F4      		brne .L43
+ 644 02a2 E981      		ldd r30,Y+1
+ 645 02a4 FA81      		ldd r31,Y+2
+ 646 02a6 8485      		ldd r24,Z+12
+ 647 02a8 882F      		mov r24,r24
+ 648 02aa 90E0      		ldi r25,lo8(0)
+ 649 02ac 8870      		andi r24,lo8(8)
+ 650 02ae 9070      		andi r25,hi8(8)
+ 651 02b0 0097      		sbiw r24,0
+ 652 02b2 01F4      		brne .L46
+ 653 02b4 E981      		ldd r30,Y+1
+ 654 02b6 FA81      		ldd r31,Y+2
+ 655 02b8 9189      		ldd r25,Z+17
+ 656 02ba 8091 0000 		lds r24,OSRdyGrp
+ 657 02be 892B      		or r24,r25
+ 658 02c0 8093 0000 		sts OSRdyGrp,r24
+ 659 02c4 E981      		ldd r30,Y+1
+ 660 02c6 FA81      		ldd r31,Y+2
+ 661 02c8 8785      		ldd r24,Z+15
+ 662 02ca 282F      		mov r18,r24
+ 663 02cc 30E0      		ldi r19,lo8(0)
+ 664 02ce E981      		ldd r30,Y+1
+ 665 02d0 FA81      		ldd r31,Y+2
+ 666 02d2 8785      		ldd r24,Z+15
+ 667 02d4 882F      		mov r24,r24
+ 668 02d6 90E0      		ldi r25,lo8(0)
+ 669 02d8 FC01      		movw r30,r24
+ 670 02da E050      		subi r30,lo8(-(OSRdyTbl))
+ 671 02dc F040      		sbci r31,hi8(-(OSRdyTbl))
+ 672 02de 9081      		ld r25,Z
+ 673 02e0 E981      		ldd r30,Y+1
+ 674 02e2 FA81      		ldd r31,Y+2
+ 675 02e4 8089      		ldd r24,Z+16
+ 676 02e6 892B      		or r24,r25
+ 677 02e8 F901      		movw r30,r18
+ 678 02ea E050      		subi r30,lo8(-(OSRdyTbl))
+ 679 02ec F040      		sbci r31,hi8(-(OSRdyTbl))
+ 680 02ee 8083      		st Z,r24
+ 681 02f0 00C0      		rjmp .L43
+ 682               	.L46:
+ 683 02f2 E981      		ldd r30,Y+1
+ 684 02f4 FA81      		ldd r31,Y+2
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 13
+
+
+ 685 02f6 81E0      		ldi r24,lo8(1)
+ 686 02f8 90E0      		ldi r25,hi8(1)
+ 687 02fa 9387      		std Z+11,r25
+ 688 02fc 8287      		std Z+10,r24
+ 689               	.L43:
+ 690 02fe E981      		ldd r30,Y+1
+ 691 0300 FA81      		ldd r31,Y+2
+ 692 0302 8281      		ldd r24,Z+2
+ 693 0304 9381      		ldd r25,Z+3
+ 694 0306 9A83      		std Y+2,r25
+ 695 0308 8983      		std Y+1,r24
+ 696               	/* #APP */
+ 697 030a 7894      		sei
+ 698               	/* #NOAPP */
+ 699               	.L41:
+ 700 030c E981      		ldd r30,Y+1
+ 701 030e FA81      		ldd r31,Y+2
+ 702 0310 8585      		ldd r24,Z+13
+ 703 0312 8C30      		cpi r24,lo8(12)
+ 704 0314 01F0      		breq .+2
+ 705 0316 00C0      		rjmp .L42
+ 706               	.L48:
+ 707               	/* epilogue: frame size=2 */
+ 708 0318 2296      		adiw r28,2
+ 709 031a 0FB6      		in __tmp_reg__,__SREG__
+ 710 031c F894      		cli
+ 711 031e DEBF      		out __SP_H__,r29
+ 712 0320 0FBE      		out __SREG__,__tmp_reg__
+ 713 0322 CDBF      		out __SP_L__,r28
+ 714 0324 DF91      		pop r29
+ 715 0326 CF91      		pop r28
+ 716 0328 0895      		ret
+ 717               	/* epilogue end (size=9) */
+ 718               	/* function OSTimeTick size 117 (98) */
+ 719               		.size	OSTimeTick, .-OSTimeTick
+ 720               	.global	OSVersion
+ 721               		.type	OSVersion, @function
+ 722               	OSVersion:
+ 723               	/* prologue: frame size=0 */
+ 724 032a CF93      		push r28
+ 725 032c DF93      		push r29
+ 726 032e CDB7      		in r28,__SP_L__
+ 727 0330 DEB7      		in r29,__SP_H__
+ 728               	/* prologue end (size=4) */
+ 729 0332 8CEF      		ldi r24,lo8(252)
+ 730 0334 90E0      		ldi r25,hi8(252)
+ 731               	/* epilogue: frame size=0 */
+ 732 0336 DF91      		pop r29
+ 733 0338 CF91      		pop r28
+ 734 033a 0895      		ret
+ 735               	/* epilogue end (size=3) */
+ 736               	/* function OSVersion size 9 (2) */
+ 737               		.size	OSVersion, .-OSVersion
+ 738               	.global	OS_EventTaskRdy
+ 739               		.type	OS_EventTaskRdy, @function
+ 740               	OS_EventTaskRdy:
+ 741               	/* prologue: frame size=12 */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 14
+
+
+ 742 033c CF93      		push r28
+ 743 033e DF93      		push r29
+ 744 0340 CDB7      		in r28,__SP_L__
+ 745 0342 DEB7      		in r29,__SP_H__
+ 746 0344 2C97      		sbiw r28,12
+ 747 0346 0FB6      		in __tmp_reg__,__SREG__
+ 748 0348 F894      		cli
+ 749 034a DEBF      		out __SP_H__,r29
+ 750 034c 0FBE      		out __SREG__,__tmp_reg__
+ 751 034e CDBF      		out __SP_L__,r28
+ 752               	/* prologue end (size=10) */
+ 753 0350 9987      		std Y+9,r25
+ 754 0352 8887      		std Y+8,r24
+ 755 0354 7B87      		std Y+11,r23
+ 756 0356 6A87      		std Y+10,r22
+ 757 0358 4C87      		std Y+12,r20
+ 758 035a E885      		ldd r30,Y+8
+ 759 035c F985      		ldd r31,Y+9
+ 760 035e 8181      		ldd r24,Z+1
+ 761 0360 882F      		mov r24,r24
+ 762 0362 90E0      		ldi r25,lo8(0)
+ 763 0364 FC01      		movw r30,r24
+ 764 0366 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 765 0368 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 766 036a 8081      		ld r24,Z
+ 767 036c 8C83      		std Y+4,r24
+ 768 036e 8C81      		ldd r24,Y+4
+ 769 0370 882F      		mov r24,r24
+ 770 0372 90E0      		ldi r25,lo8(0)
+ 771 0374 FC01      		movw r30,r24
+ 772 0376 E050      		subi r30,lo8(-(OSMapTbl))
+ 773 0378 F040      		sbci r31,hi8(-(OSMapTbl))
+ 774 037a 8081      		ld r24,Z
+ 775 037c 8A83      		std Y+2,r24
+ 776 037e 8C81      		ldd r24,Y+4
+ 777 0380 282F      		mov r18,r24
+ 778 0382 30E0      		ldi r19,lo8(0)
+ 779 0384 8885      		ldd r24,Y+8
+ 780 0386 9985      		ldd r25,Y+9
+ 781 0388 820F      		add r24,r18
+ 782 038a 931F      		adc r25,r19
+ 783 038c FC01      		movw r30,r24
+ 784 038e 3696      		adiw r30,6
+ 785 0390 8081      		ld r24,Z
+ 786 0392 882F      		mov r24,r24
+ 787 0394 90E0      		ldi r25,lo8(0)
+ 788 0396 FC01      		movw r30,r24
+ 789 0398 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 790 039a F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 791 039c 8081      		ld r24,Z
+ 792 039e 8D83      		std Y+5,r24
+ 793 03a0 8D81      		ldd r24,Y+5
+ 794 03a2 882F      		mov r24,r24
+ 795 03a4 90E0      		ldi r25,lo8(0)
+ 796 03a6 FC01      		movw r30,r24
+ 797 03a8 E050      		subi r30,lo8(-(OSMapTbl))
+ 798 03aa F040      		sbci r31,hi8(-(OSMapTbl))
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 15
+
+
+ 799 03ac 8081      		ld r24,Z
+ 800 03ae 8B83      		std Y+3,r24
+ 801 03b0 8C81      		ldd r24,Y+4
+ 802 03b2 982F      		mov r25,r24
+ 803 03b4 990F      		lsl r25
+ 804 03b6 990F      		lsl r25
+ 805 03b8 990F      		lsl r25
+ 806 03ba 8D81      		ldd r24,Y+5
+ 807 03bc 890F      		add r24,r25
+ 808 03be 8983      		std Y+1,r24
+ 809 03c0 8C81      		ldd r24,Y+4
+ 810 03c2 482F      		mov r20,r24
+ 811 03c4 50E0      		ldi r21,lo8(0)
+ 812 03c6 8C81      		ldd r24,Y+4
+ 813 03c8 282F      		mov r18,r24
+ 814 03ca 30E0      		ldi r19,lo8(0)
+ 815 03cc 8885      		ldd r24,Y+8
+ 816 03ce 9985      		ldd r25,Y+9
+ 817 03d0 820F      		add r24,r18
+ 818 03d2 931F      		adc r25,r19
+ 819 03d4 FC01      		movw r30,r24
+ 820 03d6 3696      		adiw r30,6
+ 821 03d8 8081      		ld r24,Z
+ 822 03da 982F      		mov r25,r24
+ 823 03dc 8B81      		ldd r24,Y+3
+ 824 03de 8095      		com r24
+ 825 03e0 8923      		and r24,r25
+ 826 03e2 282F      		mov r18,r24
+ 827 03e4 8885      		ldd r24,Y+8
+ 828 03e6 9985      		ldd r25,Y+9
+ 829 03e8 840F      		add r24,r20
+ 830 03ea 951F      		adc r25,r21
+ 831 03ec FC01      		movw r30,r24
+ 832 03ee 3696      		adiw r30,6
+ 833 03f0 2083      		st Z,r18
+ 834 03f2 8885      		ldd r24,Y+8
+ 835 03f4 9985      		ldd r25,Y+9
+ 836 03f6 840F      		add r24,r20
+ 837 03f8 951F      		adc r25,r21
+ 838 03fa FC01      		movw r30,r24
+ 839 03fc 3696      		adiw r30,6
+ 840 03fe 8081      		ld r24,Z
+ 841 0400 8823      		tst r24
+ 842 0402 01F4      		brne .L52
+ 843 0404 E885      		ldd r30,Y+8
+ 844 0406 F985      		ldd r31,Y+9
+ 845 0408 8181      		ldd r24,Z+1
+ 846 040a 982F      		mov r25,r24
+ 847 040c 8A81      		ldd r24,Y+2
+ 848 040e 8095      		com r24
+ 849 0410 8923      		and r24,r25
+ 850 0412 E885      		ldd r30,Y+8
+ 851 0414 F985      		ldd r31,Y+9
+ 852 0416 8183      		std Z+1,r24
+ 853               	.L52:
+ 854 0418 8981      		ldd r24,Y+1
+ 855 041a 882F      		mov r24,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 16
+
+
+ 856 041c 90E0      		ldi r25,lo8(0)
+ 857 041e 880F      		lsl r24
+ 858 0420 991F      		rol r25
+ 859 0422 FC01      		movw r30,r24
+ 860 0424 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 861 0426 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 862 0428 8081      		ld r24,Z
+ 863 042a 9181      		ldd r25,Z+1
+ 864 042c 9F83      		std Y+7,r25
+ 865 042e 8E83      		std Y+6,r24
+ 866 0430 EE81      		ldd r30,Y+6
+ 867 0432 FF81      		ldd r31,Y+7
+ 868 0434 1386      		std Z+11,__zero_reg__
+ 869 0436 1286      		std Z+10,__zero_reg__
+ 870 0438 EE81      		ldd r30,Y+6
+ 871 043a FF81      		ldd r31,Y+7
+ 872 043c 1782      		std Z+7,__zero_reg__
+ 873 043e 1682      		std Z+6,__zero_reg__
+ 874 0440 EE81      		ldd r30,Y+6
+ 875 0442 FF81      		ldd r31,Y+7
+ 876 0444 8A85      		ldd r24,Y+10
+ 877 0446 9B85      		ldd r25,Y+11
+ 878 0448 9187      		std Z+9,r25
+ 879 044a 8087      		std Z+8,r24
+ 880 044c EE81      		ldd r30,Y+6
+ 881 044e FF81      		ldd r31,Y+7
+ 882 0450 8485      		ldd r24,Z+12
+ 883 0452 982F      		mov r25,r24
+ 884 0454 8C85      		ldd r24,Y+12
+ 885 0456 8095      		com r24
+ 886 0458 8923      		and r24,r25
+ 887 045a EE81      		ldd r30,Y+6
+ 888 045c FF81      		ldd r31,Y+7
+ 889 045e 8487      		std Z+12,r24
+ 890 0460 EE81      		ldd r30,Y+6
+ 891 0462 FF81      		ldd r31,Y+7
+ 892 0464 8485      		ldd r24,Z+12
+ 893 0466 8823      		tst r24
+ 894 0468 01F4      		brne .L54
+ 895 046a 9091 0000 		lds r25,OSRdyGrp
+ 896 046e 8A81      		ldd r24,Y+2
+ 897 0470 892B      		or r24,r25
+ 898 0472 8093 0000 		sts OSRdyGrp,r24
+ 899 0476 8C81      		ldd r24,Y+4
+ 900 0478 282F      		mov r18,r24
+ 901 047a 30E0      		ldi r19,lo8(0)
+ 902 047c 8C81      		ldd r24,Y+4
+ 903 047e 882F      		mov r24,r24
+ 904 0480 90E0      		ldi r25,lo8(0)
+ 905 0482 FC01      		movw r30,r24
+ 906 0484 E050      		subi r30,lo8(-(OSRdyTbl))
+ 907 0486 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 908 0488 9081      		ld r25,Z
+ 909 048a 8B81      		ldd r24,Y+3
+ 910 048c 892B      		or r24,r25
+ 911 048e F901      		movw r30,r18
+ 912 0490 E050      		subi r30,lo8(-(OSRdyTbl))
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 17
+
+
+ 913 0492 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 914 0494 8083      		st Z,r24
+ 915               	.L54:
+ 916 0496 8981      		ldd r24,Y+1
+ 917 0498 882F      		mov r24,r24
+ 918 049a 90E0      		ldi r25,lo8(0)
+ 919               	/* epilogue: frame size=12 */
+ 920 049c 2C96      		adiw r28,12
+ 921 049e 0FB6      		in __tmp_reg__,__SREG__
+ 922 04a0 F894      		cli
+ 923 04a2 DEBF      		out __SP_H__,r29
+ 924 04a4 0FBE      		out __SREG__,__tmp_reg__
+ 925 04a6 CDBF      		out __SP_L__,r28
+ 926 04a8 DF91      		pop r29
+ 927 04aa CF91      		pop r28
+ 928 04ac 0895      		ret
+ 929               	/* epilogue end (size=9) */
+ 930               	/* function OS_EventTaskRdy size 185 (166) */
+ 931               		.size	OS_EventTaskRdy, .-OS_EventTaskRdy
+ 932               	.global	OS_EventTaskWait
+ 933               		.type	OS_EventTaskWait, @function
+ 934               	OS_EventTaskWait:
+ 935               	/* prologue: frame size=2 */
+ 936 04ae CF93      		push r28
+ 937 04b0 DF93      		push r29
+ 938 04b2 CDB7      		in r28,__SP_L__
+ 939 04b4 DEB7      		in r29,__SP_H__
+ 940 04b6 2297      		sbiw r28,2
+ 941 04b8 0FB6      		in __tmp_reg__,__SREG__
+ 942 04ba F894      		cli
+ 943 04bc DEBF      		out __SP_H__,r29
+ 944 04be 0FBE      		out __SREG__,__tmp_reg__
+ 945 04c0 CDBF      		out __SP_L__,r28
+ 946               	/* prologue end (size=10) */
+ 947 04c2 9A83      		std Y+2,r25
+ 948 04c4 8983      		std Y+1,r24
+ 949 04c6 E091 0000 		lds r30,OSTCBCur
+ 950 04ca F091 0000 		lds r31,(OSTCBCur)+1
+ 951 04ce 8981      		ldd r24,Y+1
+ 952 04d0 9A81      		ldd r25,Y+2
+ 953 04d2 9783      		std Z+7,r25
+ 954 04d4 8683      		std Z+6,r24
+ 955 04d6 E091 0000 		lds r30,OSTCBCur
+ 956 04da F091 0000 		lds r31,(OSTCBCur)+1
+ 957 04de 8785      		ldd r24,Z+15
+ 958 04e0 282F      		mov r18,r24
+ 959 04e2 30E0      		ldi r19,lo8(0)
+ 960 04e4 E091 0000 		lds r30,OSTCBCur
+ 961 04e8 F091 0000 		lds r31,(OSTCBCur)+1
+ 962 04ec 8785      		ldd r24,Z+15
+ 963 04ee 882F      		mov r24,r24
+ 964 04f0 90E0      		ldi r25,lo8(0)
+ 965 04f2 FC01      		movw r30,r24
+ 966 04f4 E050      		subi r30,lo8(-(OSRdyTbl))
+ 967 04f6 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 968 04f8 8081      		ld r24,Z
+ 969 04fa 982F      		mov r25,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 18
+
+
+ 970 04fc E091 0000 		lds r30,OSTCBCur
+ 971 0500 F091 0000 		lds r31,(OSTCBCur)+1
+ 972 0504 8089      		ldd r24,Z+16
+ 973 0506 8095      		com r24
+ 974 0508 8923      		and r24,r25
+ 975 050a F901      		movw r30,r18
+ 976 050c E050      		subi r30,lo8(-(OSRdyTbl))
+ 977 050e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 978 0510 8083      		st Z,r24
+ 979 0512 F901      		movw r30,r18
+ 980 0514 E050      		subi r30,lo8(-(OSRdyTbl))
+ 981 0516 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 982 0518 8081      		ld r24,Z
+ 983 051a 8823      		tst r24
+ 984 051c 01F4      		brne .L58
+ 985 051e E091 0000 		lds r30,OSTCBCur
+ 986 0522 F091 0000 		lds r31,(OSTCBCur)+1
+ 987 0526 8189      		ldd r24,Z+17
+ 988 0528 982F      		mov r25,r24
+ 989 052a 9095      		com r25
+ 990 052c 8091 0000 		lds r24,OSRdyGrp
+ 991 0530 8923      		and r24,r25
+ 992 0532 8093 0000 		sts OSRdyGrp,r24
+ 993               	.L58:
+ 994 0536 E091 0000 		lds r30,OSTCBCur
+ 995 053a F091 0000 		lds r31,(OSTCBCur)+1
+ 996 053e 8785      		ldd r24,Z+15
+ 997 0540 482F      		mov r20,r24
+ 998 0542 50E0      		ldi r21,lo8(0)
+ 999 0544 E091 0000 		lds r30,OSTCBCur
+ 1000 0548 F091 0000 		lds r31,(OSTCBCur)+1
+ 1001 054c 8785      		ldd r24,Z+15
+ 1002 054e 282F      		mov r18,r24
+ 1003 0550 30E0      		ldi r19,lo8(0)
+ 1004 0552 8981      		ldd r24,Y+1
+ 1005 0554 9A81      		ldd r25,Y+2
+ 1006 0556 820F      		add r24,r18
+ 1007 0558 931F      		adc r25,r19
+ 1008 055a FC01      		movw r30,r24
+ 1009 055c 3696      		adiw r30,6
+ 1010 055e 9081      		ld r25,Z
+ 1011 0560 E091 0000 		lds r30,OSTCBCur
+ 1012 0564 F091 0000 		lds r31,(OSTCBCur)+1
+ 1013 0568 8089      		ldd r24,Z+16
+ 1014 056a 292F      		mov r18,r25
+ 1015 056c 282B      		or r18,r24
+ 1016 056e 8981      		ldd r24,Y+1
+ 1017 0570 9A81      		ldd r25,Y+2
+ 1018 0572 840F      		add r24,r20
+ 1019 0574 951F      		adc r25,r21
+ 1020 0576 FC01      		movw r30,r24
+ 1021 0578 3696      		adiw r30,6
+ 1022 057a 2083      		st Z,r18
+ 1023 057c E981      		ldd r30,Y+1
+ 1024 057e FA81      		ldd r31,Y+2
+ 1025 0580 9181      		ldd r25,Z+1
+ 1026 0582 E091 0000 		lds r30,OSTCBCur
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 19
+
+
+ 1027 0586 F091 0000 		lds r31,(OSTCBCur)+1
+ 1028 058a 8189      		ldd r24,Z+17
+ 1029 058c 892B      		or r24,r25
+ 1030 058e E981      		ldd r30,Y+1
+ 1031 0590 FA81      		ldd r31,Y+2
+ 1032 0592 8183      		std Z+1,r24
+ 1033               	/* epilogue: frame size=2 */
+ 1034 0594 2296      		adiw r28,2
+ 1035 0596 0FB6      		in __tmp_reg__,__SREG__
+ 1036 0598 F894      		cli
+ 1037 059a DEBF      		out __SP_H__,r29
+ 1038 059c 0FBE      		out __SREG__,__tmp_reg__
+ 1039 059e CDBF      		out __SP_L__,r28
+ 1040 05a0 DF91      		pop r29
+ 1041 05a2 CF91      		pop r28
+ 1042 05a4 0895      		ret
+ 1043               	/* epilogue end (size=9) */
+ 1044               	/* function OS_EventTaskWait size 124 (105) */
+ 1045               		.size	OS_EventTaskWait, .-OS_EventTaskWait
+ 1046               	.global	OS_EventTO
+ 1047               		.type	OS_EventTO, @function
+ 1048               	OS_EventTO:
+ 1049               	/* prologue: frame size=2 */
+ 1050 05a6 CF93      		push r28
+ 1051 05a8 DF93      		push r29
+ 1052 05aa CDB7      		in r28,__SP_L__
+ 1053 05ac DEB7      		in r29,__SP_H__
+ 1054 05ae 2297      		sbiw r28,2
+ 1055 05b0 0FB6      		in __tmp_reg__,__SREG__
+ 1056 05b2 F894      		cli
+ 1057 05b4 DEBF      		out __SP_H__,r29
+ 1058 05b6 0FBE      		out __SREG__,__tmp_reg__
+ 1059 05b8 CDBF      		out __SP_L__,r28
+ 1060               	/* prologue end (size=10) */
+ 1061 05ba 9A83      		std Y+2,r25
+ 1062 05bc 8983      		std Y+1,r24
+ 1063 05be E091 0000 		lds r30,OSTCBCur
+ 1064 05c2 F091 0000 		lds r31,(OSTCBCur)+1
+ 1065 05c6 8785      		ldd r24,Z+15
+ 1066 05c8 482F      		mov r20,r24
+ 1067 05ca 50E0      		ldi r21,lo8(0)
+ 1068 05cc E091 0000 		lds r30,OSTCBCur
+ 1069 05d0 F091 0000 		lds r31,(OSTCBCur)+1
+ 1070 05d4 8785      		ldd r24,Z+15
+ 1071 05d6 282F      		mov r18,r24
+ 1072 05d8 30E0      		ldi r19,lo8(0)
+ 1073 05da 8981      		ldd r24,Y+1
+ 1074 05dc 9A81      		ldd r25,Y+2
+ 1075 05de 820F      		add r24,r18
+ 1076 05e0 931F      		adc r25,r19
+ 1077 05e2 FC01      		movw r30,r24
+ 1078 05e4 3696      		adiw r30,6
+ 1079 05e6 8081      		ld r24,Z
+ 1080 05e8 982F      		mov r25,r24
+ 1081 05ea E091 0000 		lds r30,OSTCBCur
+ 1082 05ee F091 0000 		lds r31,(OSTCBCur)+1
+ 1083 05f2 8089      		ldd r24,Z+16
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 20
+
+
+ 1084 05f4 8095      		com r24
+ 1085 05f6 8923      		and r24,r25
+ 1086 05f8 282F      		mov r18,r24
+ 1087 05fa 8981      		ldd r24,Y+1
+ 1088 05fc 9A81      		ldd r25,Y+2
+ 1089 05fe 840F      		add r24,r20
+ 1090 0600 951F      		adc r25,r21
+ 1091 0602 FC01      		movw r30,r24
+ 1092 0604 3696      		adiw r30,6
+ 1093 0606 2083      		st Z,r18
+ 1094 0608 8981      		ldd r24,Y+1
+ 1095 060a 9A81      		ldd r25,Y+2
+ 1096 060c 840F      		add r24,r20
+ 1097 060e 951F      		adc r25,r21
+ 1098 0610 FC01      		movw r30,r24
+ 1099 0612 3696      		adiw r30,6
+ 1100 0614 8081      		ld r24,Z
+ 1101 0616 8823      		tst r24
+ 1102 0618 01F4      		brne .L62
+ 1103 061a E981      		ldd r30,Y+1
+ 1104 061c FA81      		ldd r31,Y+2
+ 1105 061e 8181      		ldd r24,Z+1
+ 1106 0620 982F      		mov r25,r24
+ 1107 0622 E091 0000 		lds r30,OSTCBCur
+ 1108 0626 F091 0000 		lds r31,(OSTCBCur)+1
+ 1109 062a 8189      		ldd r24,Z+17
+ 1110 062c 8095      		com r24
+ 1111 062e 8923      		and r24,r25
+ 1112 0630 E981      		ldd r30,Y+1
+ 1113 0632 FA81      		ldd r31,Y+2
+ 1114 0634 8183      		std Z+1,r24
+ 1115               	.L62:
+ 1116 0636 E091 0000 		lds r30,OSTCBCur
+ 1117 063a F091 0000 		lds r31,(OSTCBCur)+1
+ 1118 063e 1486      		std Z+12,__zero_reg__
+ 1119 0640 E091 0000 		lds r30,OSTCBCur
+ 1120 0644 F091 0000 		lds r31,(OSTCBCur)+1
+ 1121 0648 1782      		std Z+7,__zero_reg__
+ 1122 064a 1682      		std Z+6,__zero_reg__
+ 1123               	/* epilogue: frame size=2 */
+ 1124 064c 2296      		adiw r28,2
+ 1125 064e 0FB6      		in __tmp_reg__,__SREG__
+ 1126 0650 F894      		cli
+ 1127 0652 DEBF      		out __SP_H__,r29
+ 1128 0654 0FBE      		out __SREG__,__tmp_reg__
+ 1129 0656 CDBF      		out __SP_L__,r28
+ 1130 0658 DF91      		pop r29
+ 1131 065a CF91      		pop r28
+ 1132 065c 0895      		ret
+ 1133               	/* epilogue end (size=9) */
+ 1134               	/* function OS_EventTO size 92 (73) */
+ 1135               		.size	OS_EventTO, .-OS_EventTO
+ 1136               	.global	OS_EventWaitListInit
+ 1137               		.type	OS_EventWaitListInit, @function
+ 1138               	OS_EventWaitListInit:
+ 1139               	/* prologue: frame size=4 */
+ 1140 065e CF93      		push r28
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 21
+
+
+ 1141 0660 DF93      		push r29
+ 1142 0662 CDB7      		in r28,__SP_L__
+ 1143 0664 DEB7      		in r29,__SP_H__
+ 1144 0666 2497      		sbiw r28,4
+ 1145 0668 0FB6      		in __tmp_reg__,__SREG__
+ 1146 066a F894      		cli
+ 1147 066c DEBF      		out __SP_H__,r29
+ 1148 066e 0FBE      		out __SREG__,__tmp_reg__
+ 1149 0670 CDBF      		out __SP_L__,r28
+ 1150               	/* prologue end (size=10) */
+ 1151 0672 9C83      		std Y+4,r25
+ 1152 0674 8B83      		std Y+3,r24
+ 1153 0676 EB81      		ldd r30,Y+3
+ 1154 0678 FC81      		ldd r31,Y+4
+ 1155 067a 1182      		std Z+1,__zero_reg__
+ 1156 067c 8B81      		ldd r24,Y+3
+ 1157 067e 9C81      		ldd r25,Y+4
+ 1158 0680 0696      		adiw r24,6
+ 1159 0682 9A83      		std Y+2,r25
+ 1160 0684 8983      		std Y+1,r24
+ 1161 0686 E981      		ldd r30,Y+1
+ 1162 0688 FA81      		ldd r31,Y+2
+ 1163 068a 1082      		st Z,__zero_reg__
+ 1164 068c 8981      		ldd r24,Y+1
+ 1165 068e 9A81      		ldd r25,Y+2
+ 1166 0690 0196      		adiw r24,1
+ 1167 0692 9A83      		std Y+2,r25
+ 1168 0694 8983      		std Y+1,r24
+ 1169 0696 E981      		ldd r30,Y+1
+ 1170 0698 FA81      		ldd r31,Y+2
+ 1171 069a 1082      		st Z,__zero_reg__
+ 1172 069c 8981      		ldd r24,Y+1
+ 1173 069e 9A81      		ldd r25,Y+2
+ 1174 06a0 0196      		adiw r24,1
+ 1175 06a2 9A83      		std Y+2,r25
+ 1176 06a4 8983      		std Y+1,r24
+ 1177               	/* epilogue: frame size=4 */
+ 1178 06a6 2496      		adiw r28,4
+ 1179 06a8 0FB6      		in __tmp_reg__,__SREG__
+ 1180 06aa F894      		cli
+ 1181 06ac DEBF      		out __SP_H__,r29
+ 1182 06ae 0FBE      		out __SREG__,__tmp_reg__
+ 1183 06b0 CDBF      		out __SP_L__,r28
+ 1184 06b2 DF91      		pop r29
+ 1185 06b4 CF91      		pop r28
+ 1186 06b6 0895      		ret
+ 1187               	/* epilogue end (size=9) */
+ 1188               	/* function OS_EventWaitListInit size 45 (26) */
+ 1189               		.size	OS_EventWaitListInit, .-OS_EventWaitListInit
+ 1190               		.type	OS_InitEventList, @function
+ 1191               	OS_InitEventList:
+ 1192               	/* prologue: frame size=6 */
+ 1193 06b8 CF93      		push r28
+ 1194 06ba DF93      		push r29
+ 1195 06bc CDB7      		in r28,__SP_L__
+ 1196 06be DEB7      		in r29,__SP_H__
+ 1197 06c0 2697      		sbiw r28,6
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 22
+
+
+ 1198 06c2 0FB6      		in __tmp_reg__,__SREG__
+ 1199 06c4 F894      		cli
+ 1200 06c6 DEBF      		out __SP_H__,r29
+ 1201 06c8 0FBE      		out __SREG__,__tmp_reg__
+ 1202 06ca CDBF      		out __SP_L__,r28
+ 1203               	/* prologue end (size=10) */
+ 1204 06cc 80E0      		ldi r24,lo8(OSEventTbl)
+ 1205 06ce 90E0      		ldi r25,hi8(OSEventTbl)
+ 1206 06d0 9C83      		std Y+4,r25
+ 1207 06d2 8B83      		std Y+3,r24
+ 1208 06d4 80E0      		ldi r24,lo8(OSEventTbl+8)
+ 1209 06d6 90E0      		ldi r25,hi8(OSEventTbl+8)
+ 1210 06d8 9A83      		std Y+2,r25
+ 1211 06da 8983      		std Y+1,r24
+ 1212 06dc 1E82      		std Y+6,__zero_reg__
+ 1213 06de 1D82      		std Y+5,__zero_reg__
+ 1214 06e0 00C0      		rjmp .L68
+ 1215               	.L69:
+ 1216 06e2 EB81      		ldd r30,Y+3
+ 1217 06e4 FC81      		ldd r31,Y+4
+ 1218 06e6 1082      		st Z,__zero_reg__
+ 1219 06e8 EB81      		ldd r30,Y+3
+ 1220 06ea FC81      		ldd r31,Y+4
+ 1221 06ec 8981      		ldd r24,Y+1
+ 1222 06ee 9A81      		ldd r25,Y+2
+ 1223 06f0 9583      		std Z+5,r25
+ 1224 06f2 8483      		std Z+4,r24
+ 1225 06f4 8B81      		ldd r24,Y+3
+ 1226 06f6 9C81      		ldd r25,Y+4
+ 1227 06f8 0896      		adiw r24,8
+ 1228 06fa 9C83      		std Y+4,r25
+ 1229 06fc 8B83      		std Y+3,r24
+ 1230 06fe 8981      		ldd r24,Y+1
+ 1231 0700 9A81      		ldd r25,Y+2
+ 1232 0702 0896      		adiw r24,8
+ 1233 0704 9A83      		std Y+2,r25
+ 1234 0706 8983      		std Y+1,r24
+ 1235 0708 8D81      		ldd r24,Y+5
+ 1236 070a 9E81      		ldd r25,Y+6
+ 1237 070c 0196      		adiw r24,1
+ 1238 070e 9E83      		std Y+6,r25
+ 1239 0710 8D83      		std Y+5,r24
+ 1240               	.L68:
+ 1241 0712 8D81      		ldd r24,Y+5
+ 1242 0714 9E81      		ldd r25,Y+6
+ 1243 0716 8630      		cpi r24,6
+ 1244 0718 9105      		cpc r25,__zero_reg__
+ 1245 071a 00F0      		brlo .L69
+ 1246 071c EB81      		ldd r30,Y+3
+ 1247 071e FC81      		ldd r31,Y+4
+ 1248 0720 1082      		st Z,__zero_reg__
+ 1249 0722 EB81      		ldd r30,Y+3
+ 1250 0724 FC81      		ldd r31,Y+4
+ 1251 0726 1582      		std Z+5,__zero_reg__
+ 1252 0728 1482      		std Z+4,__zero_reg__
+ 1253 072a 80E0      		ldi r24,lo8(OSEventTbl)
+ 1254 072c 90E0      		ldi r25,hi8(OSEventTbl)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 23
+
+
+ 1255 072e 9093 0000 		sts (OSEventFreeList)+1,r25
+ 1256 0732 8093 0000 		sts OSEventFreeList,r24
+ 1257               	/* epilogue: frame size=6 */
+ 1258 0736 2696      		adiw r28,6
+ 1259 0738 0FB6      		in __tmp_reg__,__SREG__
+ 1260 073a F894      		cli
+ 1261 073c DEBF      		out __SP_H__,r29
+ 1262 073e 0FBE      		out __SREG__,__tmp_reg__
+ 1263 0740 CDBF      		out __SP_L__,r28
+ 1264 0742 DF91      		pop r29
+ 1265 0744 CF91      		pop r28
+ 1266 0746 0895      		ret
+ 1267               	/* epilogue end (size=9) */
+ 1268               	/* function OS_InitEventList size 72 (53) */
+ 1269               		.size	OS_InitEventList, .-OS_InitEventList
+ 1270               		.type	OS_InitMisc, @function
+ 1271               	OS_InitMisc:
+ 1272               	/* prologue: frame size=0 */
+ 1273 0748 CF93      		push r28
+ 1274 074a DF93      		push r29
+ 1275 074c CDB7      		in r28,__SP_L__
+ 1276 074e DEB7      		in r29,__SP_H__
+ 1277               	/* prologue end (size=4) */
+ 1278 0750 1092 0000 		sts OSIntNesting,__zero_reg__
+ 1279 0754 1092 0000 		sts OSLockNesting,__zero_reg__
+ 1280 0758 1092 0000 		sts OSTaskCtr,__zero_reg__
+ 1281 075c 1092 0000 		sts OSRunning,__zero_reg__
+ 1282 0760 1092 0000 		sts OSCtxSwCtr,__zero_reg__
+ 1283 0764 1092 0000 		sts (OSCtxSwCtr)+1,__zero_reg__
+ 1284 0768 1092 0000 		sts (OSCtxSwCtr)+2,__zero_reg__
+ 1285 076c 1092 0000 		sts (OSCtxSwCtr)+3,__zero_reg__
+ 1286 0770 1092 0000 		sts OSIdleCtr,__zero_reg__
+ 1287 0774 1092 0000 		sts (OSIdleCtr)+1,__zero_reg__
+ 1288 0778 1092 0000 		sts (OSIdleCtr)+2,__zero_reg__
+ 1289 077c 1092 0000 		sts (OSIdleCtr)+3,__zero_reg__
+ 1290               	/* epilogue: frame size=0 */
+ 1291 0780 DF91      		pop r29
+ 1292 0782 CF91      		pop r28
+ 1293 0784 0895      		ret
+ 1294               	/* epilogue end (size=3) */
+ 1295               	/* function OS_InitMisc size 31 (24) */
+ 1296               		.size	OS_InitMisc, .-OS_InitMisc
+ 1297               		.type	OS_InitRdyList, @function
+ 1298               	OS_InitRdyList:
+ 1299               	/* prologue: frame size=4 */
+ 1300 0786 CF93      		push r28
+ 1301 0788 DF93      		push r29
+ 1302 078a CDB7      		in r28,__SP_L__
+ 1303 078c DEB7      		in r29,__SP_H__
+ 1304 078e 2497      		sbiw r28,4
+ 1305 0790 0FB6      		in __tmp_reg__,__SREG__
+ 1306 0792 F894      		cli
+ 1307 0794 DEBF      		out __SP_H__,r29
+ 1308 0796 0FBE      		out __SREG__,__tmp_reg__
+ 1309 0798 CDBF      		out __SP_L__,r28
+ 1310               	/* prologue end (size=10) */
+ 1311 079a 1092 0000 		sts OSRdyGrp,__zero_reg__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 24
+
+
+ 1312 079e 80E0      		ldi r24,lo8(OSRdyTbl)
+ 1313 07a0 90E0      		ldi r25,hi8(OSRdyTbl)
+ 1314 07a2 9A83      		std Y+2,r25
+ 1315 07a4 8983      		std Y+1,r24
+ 1316 07a6 1C82      		std Y+4,__zero_reg__
+ 1317 07a8 1B82      		std Y+3,__zero_reg__
+ 1318 07aa 00C0      		rjmp .L75
+ 1319               	.L76:
+ 1320 07ac E981      		ldd r30,Y+1
+ 1321 07ae FA81      		ldd r31,Y+2
+ 1322 07b0 1082      		st Z,__zero_reg__
+ 1323 07b2 8981      		ldd r24,Y+1
+ 1324 07b4 9A81      		ldd r25,Y+2
+ 1325 07b6 0196      		adiw r24,1
+ 1326 07b8 9A83      		std Y+2,r25
+ 1327 07ba 8983      		std Y+1,r24
+ 1328 07bc 8B81      		ldd r24,Y+3
+ 1329 07be 9C81      		ldd r25,Y+4
+ 1330 07c0 0196      		adiw r24,1
+ 1331 07c2 9C83      		std Y+4,r25
+ 1332 07c4 8B83      		std Y+3,r24
+ 1333               	.L75:
+ 1334 07c6 8B81      		ldd r24,Y+3
+ 1335 07c8 9C81      		ldd r25,Y+4
+ 1336 07ca 8230      		cpi r24,2
+ 1337 07cc 9105      		cpc r25,__zero_reg__
+ 1338 07ce 00F0      		brlo .L76
+ 1339 07d0 1092 0000 		sts OSPrioCur,__zero_reg__
+ 1340 07d4 1092 0000 		sts OSPrioHighRdy,__zero_reg__
+ 1341 07d8 1092 0000 		sts (OSTCBHighRdy)+1,__zero_reg__
+ 1342 07dc 1092 0000 		sts OSTCBHighRdy,__zero_reg__
+ 1343 07e0 1092 0000 		sts (OSTCBCur)+1,__zero_reg__
+ 1344 07e4 1092 0000 		sts OSTCBCur,__zero_reg__
+ 1345               	/* epilogue: frame size=4 */
+ 1346 07e8 2496      		adiw r28,4
+ 1347 07ea 0FB6      		in __tmp_reg__,__SREG__
+ 1348 07ec F894      		cli
+ 1349 07ee DEBF      		out __SP_H__,r29
+ 1350 07f0 0FBE      		out __SREG__,__tmp_reg__
+ 1351 07f2 CDBF      		out __SP_L__,r28
+ 1352 07f4 DF91      		pop r29
+ 1353 07f6 CF91      		pop r28
+ 1354 07f8 0895      		ret
+ 1355               	/* epilogue end (size=9) */
+ 1356               	/* function OS_InitRdyList size 58 (39) */
+ 1357               		.size	OS_InitRdyList, .-OS_InitRdyList
+ 1358               		.type	OS_InitTaskIdle, @function
+ 1359               	OS_InitTaskIdle:
+ 1360               	/* prologue: frame size=0 */
+ 1361 07fa CF93      		push r28
+ 1362 07fc DF93      		push r29
+ 1363 07fe CDB7      		in r28,__SP_L__
+ 1364 0800 DEB7      		in r29,__SP_H__
+ 1365               	/* prologue end (size=4) */
+ 1366 0802 80E0      		ldi r24,lo8(OSTaskIdleStk+127)
+ 1367 0804 90E0      		ldi r25,hi8(OSTaskIdleStk+127)
+ 1368 0806 E0E0      		ldi r30,lo8(gs(OS_TaskIdle))
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 25
+
+
+ 1369 0808 F0E0      		ldi r31,hi8(gs(OS_TaskIdle))
+ 1370 080a 2CE0      		ldi r18,lo8(12)
+ 1371 080c AC01      		movw r20,r24
+ 1372 080e 60E0      		ldi r22,lo8(0)
+ 1373 0810 70E0      		ldi r23,hi8(0)
+ 1374 0812 CF01      		movw r24,r30
+ 1375 0814 0E94 0000 		call OSTaskCreate
+ 1376               	/* epilogue: frame size=0 */
+ 1377 0818 DF91      		pop r29
+ 1378 081a CF91      		pop r28
+ 1379 081c 0895      		ret
+ 1380               	/* epilogue end (size=3) */
+ 1381               	/* function OS_InitTaskIdle size 18 (11) */
+ 1382               		.size	OS_InitTaskIdle, .-OS_InitTaskIdle
+ 1383               		.type	OS_InitTCBList, @function
+ 1384               	OS_InitTCBList:
+ 1385               	/* prologue: frame size=5 */
+ 1386 081e CF93      		push r28
+ 1387 0820 DF93      		push r29
+ 1388 0822 CDB7      		in r28,__SP_L__
+ 1389 0824 DEB7      		in r29,__SP_H__
+ 1390 0826 2597      		sbiw r28,5
+ 1391 0828 0FB6      		in __tmp_reg__,__SREG__
+ 1392 082a F894      		cli
+ 1393 082c DEBF      		out __SP_H__,r29
+ 1394 082e 0FBE      		out __SREG__,__tmp_reg__
+ 1395 0830 CDBF      		out __SP_L__,r28
+ 1396               	/* prologue end (size=10) */
+ 1397 0832 1092 0000 		sts (OSTCBList)+1,__zero_reg__
+ 1398 0836 1092 0000 		sts OSTCBList,__zero_reg__
+ 1399 083a 1D82      		std Y+5,__zero_reg__
+ 1400 083c 00C0      		rjmp .L82
+ 1401               	.L83:
+ 1402 083e 8D81      		ldd r24,Y+5
+ 1403 0840 882F      		mov r24,r24
+ 1404 0842 90E0      		ldi r25,lo8(0)
+ 1405 0844 880F      		lsl r24
+ 1406 0846 991F      		rol r25
+ 1407 0848 FC01      		movw r30,r24
+ 1408 084a E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 1409 084c F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 1410 084e 1182      		std Z+1,__zero_reg__
+ 1411 0850 1082      		st Z,__zero_reg__
+ 1412 0852 8D81      		ldd r24,Y+5
+ 1413 0854 8F5F      		subi r24,lo8(-(1))
+ 1414 0856 8D83      		std Y+5,r24
+ 1415               	.L82:
+ 1416 0858 8D81      		ldd r24,Y+5
+ 1417 085a 8D30      		cpi r24,lo8(13)
+ 1418 085c 00F0      		brlo .L83
+ 1419 085e 80E0      		ldi r24,lo8(OSTCBTbl)
+ 1420 0860 90E0      		ldi r25,hi8(OSTCBTbl)
+ 1421 0862 9C83      		std Y+4,r25
+ 1422 0864 8B83      		std Y+3,r24
+ 1423 0866 80E0      		ldi r24,lo8(OSTCBTbl+18)
+ 1424 0868 90E0      		ldi r25,hi8(OSTCBTbl+18)
+ 1425 086a 9A83      		std Y+2,r25
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 26
+
+
+ 1426 086c 8983      		std Y+1,r24
+ 1427 086e 1D82      		std Y+5,__zero_reg__
+ 1428 0870 00C0      		rjmp .L85
+ 1429               	.L86:
+ 1430 0872 EB81      		ldd r30,Y+3
+ 1431 0874 FC81      		ldd r31,Y+4
+ 1432 0876 8981      		ldd r24,Y+1
+ 1433 0878 9A81      		ldd r25,Y+2
+ 1434 087a 9383      		std Z+3,r25
+ 1435 087c 8283      		std Z+2,r24
+ 1436 087e 8B81      		ldd r24,Y+3
+ 1437 0880 9C81      		ldd r25,Y+4
+ 1438 0882 4296      		adiw r24,18
+ 1439 0884 9C83      		std Y+4,r25
+ 1440 0886 8B83      		std Y+3,r24
+ 1441 0888 8981      		ldd r24,Y+1
+ 1442 088a 9A81      		ldd r25,Y+2
+ 1443 088c 4296      		adiw r24,18
+ 1444 088e 9A83      		std Y+2,r25
+ 1445 0890 8983      		std Y+1,r24
+ 1446 0892 8D81      		ldd r24,Y+5
+ 1447 0894 8F5F      		subi r24,lo8(-(1))
+ 1448 0896 8D83      		std Y+5,r24
+ 1449               	.L85:
+ 1450 0898 8D81      		ldd r24,Y+5
+ 1451 089a 8B30      		cpi r24,lo8(11)
+ 1452 089c 00F0      		brlo .L86
+ 1453 089e EB81      		ldd r30,Y+3
+ 1454 08a0 FC81      		ldd r31,Y+4
+ 1455 08a2 1382      		std Z+3,__zero_reg__
+ 1456 08a4 1282      		std Z+2,__zero_reg__
+ 1457 08a6 80E0      		ldi r24,lo8(OSTCBTbl)
+ 1458 08a8 90E0      		ldi r25,hi8(OSTCBTbl)
+ 1459 08aa 9093 0000 		sts (OSTCBFreeList)+1,r25
+ 1460 08ae 8093 0000 		sts OSTCBFreeList,r24
+ 1461               	/* epilogue: frame size=5 */
+ 1462 08b2 2596      		adiw r28,5
+ 1463 08b4 0FB6      		in __tmp_reg__,__SREG__
+ 1464 08b6 F894      		cli
+ 1465 08b8 DEBF      		out __SP_H__,r29
+ 1466 08ba 0FBE      		out __SREG__,__tmp_reg__
+ 1467 08bc CDBF      		out __SP_L__,r28
+ 1468 08be DF91      		pop r29
+ 1469 08c0 CF91      		pop r28
+ 1470 08c2 0895      		ret
+ 1471               	/* epilogue end (size=9) */
+ 1472               	/* function OS_InitTCBList size 83 (64) */
+ 1473               		.size	OS_InitTCBList, .-OS_InitTCBList
+ 1474               	.global	OS_Sched
+ 1475               		.type	OS_Sched, @function
+ 1476               	OS_Sched:
+ 1477               	/* prologue: frame size=1 */
+ 1478 08c4 CF93      		push r28
+ 1479 08c6 DF93      		push r29
+ 1480 08c8 CDB7      		in r28,__SP_L__
+ 1481 08ca DEB7      		in r29,__SP_H__
+ 1482 08cc 2197      		sbiw r28,1
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 27
+
+
+ 1483 08ce 0FB6      		in __tmp_reg__,__SREG__
+ 1484 08d0 F894      		cli
+ 1485 08d2 DEBF      		out __SP_H__,r29
+ 1486 08d4 0FBE      		out __SREG__,__tmp_reg__
+ 1487 08d6 CDBF      		out __SP_L__,r28
+ 1488               	/* prologue end (size=10) */
+ 1489               	/* #APP */
+ 1490 08d8 F894      		cli
+ 1491               	/* #NOAPP */
+ 1492 08da 8091 0000 		lds r24,OSIntNesting
+ 1493 08de 8823      		tst r24
+ 1494 08e0 01F0      		breq .+2
+ 1495 08e2 00C0      		rjmp .L90
+ 1496 08e4 8091 0000 		lds r24,OSLockNesting
+ 1497 08e8 8823      		tst r24
+ 1498 08ea 01F0      		breq .+2
+ 1499 08ec 00C0      		rjmp .L90
+ 1500 08ee 8091 0000 		lds r24,OSRdyGrp
+ 1501 08f2 882F      		mov r24,r24
+ 1502 08f4 90E0      		ldi r25,lo8(0)
+ 1503 08f6 FC01      		movw r30,r24
+ 1504 08f8 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 1505 08fa F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 1506 08fc 8081      		ld r24,Z
+ 1507 08fe 8983      		std Y+1,r24
+ 1508 0900 8981      		ldd r24,Y+1
+ 1509 0902 282F      		mov r18,r24
+ 1510 0904 220F      		lsl r18
+ 1511 0906 220F      		lsl r18
+ 1512 0908 220F      		lsl r18
+ 1513 090a 8981      		ldd r24,Y+1
+ 1514 090c 882F      		mov r24,r24
+ 1515 090e 90E0      		ldi r25,lo8(0)
+ 1516 0910 FC01      		movw r30,r24
+ 1517 0912 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1518 0914 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1519 0916 8081      		ld r24,Z
+ 1520 0918 882F      		mov r24,r24
+ 1521 091a 90E0      		ldi r25,lo8(0)
+ 1522 091c FC01      		movw r30,r24
+ 1523 091e E050      		subi r30,lo8(-(OSUnMapTbl))
+ 1524 0920 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 1525 0922 8081      		ld r24,Z
+ 1526 0924 820F      		add r24,r18
+ 1527 0926 8093 0000 		sts OSPrioHighRdy,r24
+ 1528 092a 9091 0000 		lds r25,OSPrioHighRdy
+ 1529 092e 8091 0000 		lds r24,OSPrioCur
+ 1530 0932 9817      		cp r25,r24
+ 1531 0934 01F0      		breq .L90
+ 1532 0936 8091 0000 		lds r24,OSPrioHighRdy
+ 1533 093a 882F      		mov r24,r24
+ 1534 093c 90E0      		ldi r25,lo8(0)
+ 1535 093e 880F      		lsl r24
+ 1536 0940 991F      		rol r25
+ 1537 0942 FC01      		movw r30,r24
+ 1538 0944 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 1539 0946 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 28
+
+
+ 1540 0948 8081      		ld r24,Z
+ 1541 094a 9181      		ldd r25,Z+1
+ 1542 094c 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 1543 0950 8093 0000 		sts OSTCBHighRdy,r24
+ 1544 0954 8091 0000 		lds r24,OSCtxSwCtr
+ 1545 0958 9091 0000 		lds r25,(OSCtxSwCtr)+1
+ 1546 095c A091 0000 		lds r26,(OSCtxSwCtr)+2
+ 1547 0960 B091 0000 		lds r27,(OSCtxSwCtr)+3
+ 1548 0964 0196      		adiw r24,1
+ 1549 0966 A11D      		adc r26,__zero_reg__
+ 1550 0968 B11D      		adc r27,__zero_reg__
+ 1551 096a 8093 0000 		sts OSCtxSwCtr,r24
+ 1552 096e 9093 0000 		sts (OSCtxSwCtr)+1,r25
+ 1553 0972 A093 0000 		sts (OSCtxSwCtr)+2,r26
+ 1554 0976 B093 0000 		sts (OSCtxSwCtr)+3,r27
+ 1555 097a 0E94 0000 		call OSCtxSw
+ 1556               	.L90:
+ 1557               	/* #APP */
+ 1558 097e 7894      		sei
+ 1559               	/* #NOAPP */
+ 1560               	/* epilogue: frame size=1 */
+ 1561 0980 2196      		adiw r28,1
+ 1562 0982 0FB6      		in __tmp_reg__,__SREG__
+ 1563 0984 F894      		cli
+ 1564 0986 DEBF      		out __SP_H__,r29
+ 1565 0988 0FBE      		out __SREG__,__tmp_reg__
+ 1566 098a CDBF      		out __SP_L__,r28
+ 1567 098c DF91      		pop r29
+ 1568 098e CF91      		pop r28
+ 1569 0990 0895      		ret
+ 1570               	/* epilogue end (size=9) */
+ 1571               	/* function OS_Sched size 105 (86) */
+ 1572               		.size	OS_Sched, .-OS_Sched
+ 1573               	.global	OS_TaskIdle
+ 1574               		.type	OS_TaskIdle, @function
+ 1575               	OS_TaskIdle:
+ 1576               	/* prologue: frame size=2 */
+ 1577 0992 CF93      		push r28
+ 1578 0994 DF93      		push r29
+ 1579 0996 CDB7      		in r28,__SP_L__
+ 1580 0998 DEB7      		in r29,__SP_H__
+ 1581 099a 2297      		sbiw r28,2
+ 1582 099c 0FB6      		in __tmp_reg__,__SREG__
+ 1583 099e F894      		cli
+ 1584 09a0 DEBF      		out __SP_H__,r29
+ 1585 09a2 0FBE      		out __SREG__,__tmp_reg__
+ 1586 09a4 CDBF      		out __SP_L__,r28
+ 1587               	/* prologue end (size=10) */
+ 1588 09a6 9A83      		std Y+2,r25
+ 1589 09a8 8983      		std Y+1,r24
+ 1590               	.L96:
+ 1591               	/* #APP */
+ 1592 09aa F894      		cli
+ 1593               	/* #NOAPP */
+ 1594 09ac 8091 0000 		lds r24,OSIdleCtr
+ 1595 09b0 9091 0000 		lds r25,(OSIdleCtr)+1
+ 1596 09b4 A091 0000 		lds r26,(OSIdleCtr)+2
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 29
+
+
+ 1597 09b8 B091 0000 		lds r27,(OSIdleCtr)+3
+ 1598 09bc 0196      		adiw r24,1
+ 1599 09be A11D      		adc r26,__zero_reg__
+ 1600 09c0 B11D      		adc r27,__zero_reg__
+ 1601 09c2 8093 0000 		sts OSIdleCtr,r24
+ 1602 09c6 9093 0000 		sts (OSIdleCtr)+1,r25
+ 1603 09ca A093 0000 		sts (OSIdleCtr)+2,r26
+ 1604 09ce B093 0000 		sts (OSIdleCtr)+3,r27
+ 1605               	/* #APP */
+ 1606 09d2 7894      		sei
+ 1607               	/* #NOAPP */
+ 1608 09d4 0E94 0000 		call OSTaskIdleHook
+ 1609 09d8 00C0      		rjmp .L96
+ 1610               	/* epilogue: frame size=2 */
+ 1611               	/* epilogue: noreturn */
+ 1612               	/* epilogue end (size=0) */
+ 1613               	/* function OS_TaskIdle size 38 (28) */
+ 1614               		.size	OS_TaskIdle, .-OS_TaskIdle
+ 1615               	.global	OS_TCBInit
+ 1616               		.type	OS_TCBInit, @function
+ 1617               	OS_TCBInit:
+ 1618               	/* prologue: frame size=19 */
+ 1619 09da AF92      		push r10
+ 1620 09dc BF92      		push r11
+ 1621 09de CF92      		push r12
+ 1622 09e0 DF92      		push r13
+ 1623 09e2 EF92      		push r14
+ 1624 09e4 FF92      		push r15
+ 1625 09e6 0F93      		push r16
+ 1626 09e8 1F93      		push r17
+ 1627 09ea CF93      		push r28
+ 1628 09ec DF93      		push r29
+ 1629 09ee CDB7      		in r28,__SP_L__
+ 1630 09f0 DEB7      		in r29,__SP_H__
+ 1631 09f2 6397      		sbiw r28,19
+ 1632 09f4 0FB6      		in __tmp_reg__,__SREG__
+ 1633 09f6 F894      		cli
+ 1634 09f8 DEBF      		out __SP_H__,r29
+ 1635 09fa 0FBE      		out __SREG__,__tmp_reg__
+ 1636 09fc CDBF      		out __SP_L__,r28
+ 1637               	/* prologue end (size=18) */
+ 1638 09fe 8B83      		std Y+3,r24
+ 1639 0a00 7D83      		std Y+5,r23
+ 1640 0a02 6C83      		std Y+4,r22
+ 1641 0a04 5F83      		std Y+7,r21
+ 1642 0a06 4E83      		std Y+6,r20
+ 1643 0a08 3987      		std Y+9,r19
+ 1644 0a0a 2887      		std Y+8,r18
+ 1645 0a0c EA86      		std Y+10,r14
+ 1646 0a0e FB86      		std Y+11,r15
+ 1647 0a10 0C87      		std Y+12,r16
+ 1648 0a12 1D87      		std Y+13,r17
+ 1649 0a14 DF86      		std Y+15,r13
+ 1650 0a16 CE86      		std Y+14,r12
+ 1651 0a18 B98A      		std Y+17,r11
+ 1652 0a1a A88A      		std Y+16,r10
+ 1653               	/* #APP */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 30
+
+
+ 1654 0a1c F894      		cli
+ 1655               	/* #NOAPP */
+ 1656 0a1e 8091 0000 		lds r24,OSTCBFreeList
+ 1657 0a22 9091 0000 		lds r25,(OSTCBFreeList)+1
+ 1658 0a26 9A83      		std Y+2,r25
+ 1659 0a28 8983      		std Y+1,r24
+ 1660 0a2a 8981      		ldd r24,Y+1
+ 1661 0a2c 9A81      		ldd r25,Y+2
+ 1662 0a2e 0097      		sbiw r24,0
+ 1663 0a30 01F4      		brne .+2
+ 1664 0a32 00C0      		rjmp .L99
+ 1665 0a34 E981      		ldd r30,Y+1
+ 1666 0a36 FA81      		ldd r31,Y+2
+ 1667 0a38 8281      		ldd r24,Z+2
+ 1668 0a3a 9381      		ldd r25,Z+3
+ 1669 0a3c 9093 0000 		sts (OSTCBFreeList)+1,r25
+ 1670 0a40 8093 0000 		sts OSTCBFreeList,r24
+ 1671               	/* #APP */
+ 1672 0a44 7894      		sei
+ 1673               	/* #NOAPP */
+ 1674 0a46 E981      		ldd r30,Y+1
+ 1675 0a48 FA81      		ldd r31,Y+2
+ 1676 0a4a 8C81      		ldd r24,Y+4
+ 1677 0a4c 9D81      		ldd r25,Y+5
+ 1678 0a4e 9183      		std Z+1,r25
+ 1679 0a50 8083      		st Z,r24
+ 1680 0a52 E981      		ldd r30,Y+1
+ 1681 0a54 FA81      		ldd r31,Y+2
+ 1682 0a56 8B81      		ldd r24,Y+3
+ 1683 0a58 8587      		std Z+13,r24
+ 1684 0a5a E981      		ldd r30,Y+1
+ 1685 0a5c FA81      		ldd r31,Y+2
+ 1686 0a5e 1486      		std Z+12,__zero_reg__
+ 1687 0a60 E981      		ldd r30,Y+1
+ 1688 0a62 FA81      		ldd r31,Y+2
+ 1689 0a64 1386      		std Z+11,__zero_reg__
+ 1690 0a66 1286      		std Z+10,__zero_reg__
+ 1691 0a68 8B81      		ldd r24,Y+3
+ 1692 0a6a 8695      		lsr r24
+ 1693 0a6c 8695      		lsr r24
+ 1694 0a6e 8695      		lsr r24
+ 1695 0a70 E981      		ldd r30,Y+1
+ 1696 0a72 FA81      		ldd r31,Y+2
+ 1697 0a74 8787      		std Z+15,r24
+ 1698 0a76 E981      		ldd r30,Y+1
+ 1699 0a78 FA81      		ldd r31,Y+2
+ 1700 0a7a 8785      		ldd r24,Z+15
+ 1701 0a7c 882F      		mov r24,r24
+ 1702 0a7e 90E0      		ldi r25,lo8(0)
+ 1703 0a80 FC01      		movw r30,r24
+ 1704 0a82 E050      		subi r30,lo8(-(OSMapTbl))
+ 1705 0a84 F040      		sbci r31,hi8(-(OSMapTbl))
+ 1706 0a86 8081      		ld r24,Z
+ 1707 0a88 E981      		ldd r30,Y+1
+ 1708 0a8a FA81      		ldd r31,Y+2
+ 1709 0a8c 818B      		std Z+17,r24
+ 1710 0a8e 8B81      		ldd r24,Y+3
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 31
+
+
+ 1711 0a90 8770      		andi r24,lo8(7)
+ 1712 0a92 E981      		ldd r30,Y+1
+ 1713 0a94 FA81      		ldd r31,Y+2
+ 1714 0a96 8687      		std Z+14,r24
+ 1715 0a98 E981      		ldd r30,Y+1
+ 1716 0a9a FA81      		ldd r31,Y+2
+ 1717 0a9c 8685      		ldd r24,Z+14
+ 1718 0a9e 882F      		mov r24,r24
+ 1719 0aa0 90E0      		ldi r25,lo8(0)
+ 1720 0aa2 FC01      		movw r30,r24
+ 1721 0aa4 E050      		subi r30,lo8(-(OSMapTbl))
+ 1722 0aa6 F040      		sbci r31,hi8(-(OSMapTbl))
+ 1723 0aa8 8081      		ld r24,Z
+ 1724 0aaa E981      		ldd r30,Y+1
+ 1725 0aac FA81      		ldd r31,Y+2
+ 1726 0aae 808B      		std Z+16,r24
+ 1727 0ab0 E981      		ldd r30,Y+1
+ 1728 0ab2 FA81      		ldd r31,Y+2
+ 1729 0ab4 1782      		std Z+7,__zero_reg__
+ 1730 0ab6 1682      		std Z+6,__zero_reg__
+ 1731 0ab8 E981      		ldd r30,Y+1
+ 1732 0aba FA81      		ldd r31,Y+2
+ 1733 0abc 1186      		std Z+9,__zero_reg__
+ 1734 0abe 1086      		std Z+8,__zero_reg__
+ 1735 0ac0 8981      		ldd r24,Y+1
+ 1736 0ac2 9A81      		ldd r25,Y+2
+ 1737 0ac4 0E94 0000 		call OSTCBInitHook
+ 1738 0ac8 8981      		ldd r24,Y+1
+ 1739 0aca 9A81      		ldd r25,Y+2
+ 1740 0acc 0E94 0000 		call OSTaskCreateHook
+ 1741               	/* #APP */
+ 1742 0ad0 F894      		cli
+ 1743               	/* #NOAPP */
+ 1744 0ad2 8B81      		ldd r24,Y+3
+ 1745 0ad4 882F      		mov r24,r24
+ 1746 0ad6 90E0      		ldi r25,lo8(0)
+ 1747 0ad8 880F      		lsl r24
+ 1748 0ada 991F      		rol r25
+ 1749 0adc FC01      		movw r30,r24
+ 1750 0ade E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 1751 0ae0 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 1752 0ae2 8981      		ldd r24,Y+1
+ 1753 0ae4 9A81      		ldd r25,Y+2
+ 1754 0ae6 9183      		std Z+1,r25
+ 1755 0ae8 8083      		st Z,r24
+ 1756 0aea 8091 0000 		lds r24,OSTCBList
+ 1757 0aee 9091 0000 		lds r25,(OSTCBList)+1
+ 1758 0af2 E981      		ldd r30,Y+1
+ 1759 0af4 FA81      		ldd r31,Y+2
+ 1760 0af6 9383      		std Z+3,r25
+ 1761 0af8 8283      		std Z+2,r24
+ 1762 0afa E981      		ldd r30,Y+1
+ 1763 0afc FA81      		ldd r31,Y+2
+ 1764 0afe 1582      		std Z+5,__zero_reg__
+ 1765 0b00 1482      		std Z+4,__zero_reg__
+ 1766 0b02 8091 0000 		lds r24,OSTCBList
+ 1767 0b06 9091 0000 		lds r25,(OSTCBList)+1
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 32
+
+
+ 1768 0b0a 0097      		sbiw r24,0
+ 1769 0b0c 01F0      		breq .L101
+ 1770 0b0e E091 0000 		lds r30,OSTCBList
+ 1771 0b12 F091 0000 		lds r31,(OSTCBList)+1
+ 1772 0b16 8981      		ldd r24,Y+1
+ 1773 0b18 9A81      		ldd r25,Y+2
+ 1774 0b1a 9583      		std Z+5,r25
+ 1775 0b1c 8483      		std Z+4,r24
+ 1776               	.L101:
+ 1777 0b1e 8981      		ldd r24,Y+1
+ 1778 0b20 9A81      		ldd r25,Y+2
+ 1779 0b22 9093 0000 		sts (OSTCBList)+1,r25
+ 1780 0b26 8093 0000 		sts OSTCBList,r24
+ 1781 0b2a E981      		ldd r30,Y+1
+ 1782 0b2c FA81      		ldd r31,Y+2
+ 1783 0b2e 9189      		ldd r25,Z+17
+ 1784 0b30 8091 0000 		lds r24,OSRdyGrp
+ 1785 0b34 892B      		or r24,r25
+ 1786 0b36 8093 0000 		sts OSRdyGrp,r24
+ 1787 0b3a E981      		ldd r30,Y+1
+ 1788 0b3c FA81      		ldd r31,Y+2
+ 1789 0b3e 8785      		ldd r24,Z+15
+ 1790 0b40 282F      		mov r18,r24
+ 1791 0b42 30E0      		ldi r19,lo8(0)
+ 1792 0b44 E981      		ldd r30,Y+1
+ 1793 0b46 FA81      		ldd r31,Y+2
+ 1794 0b48 8785      		ldd r24,Z+15
+ 1795 0b4a 882F      		mov r24,r24
+ 1796 0b4c 90E0      		ldi r25,lo8(0)
+ 1797 0b4e FC01      		movw r30,r24
+ 1798 0b50 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1799 0b52 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1800 0b54 9081      		ld r25,Z
+ 1801 0b56 E981      		ldd r30,Y+1
+ 1802 0b58 FA81      		ldd r31,Y+2
+ 1803 0b5a 8089      		ldd r24,Z+16
+ 1804 0b5c 892B      		or r24,r25
+ 1805 0b5e F901      		movw r30,r18
+ 1806 0b60 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1807 0b62 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1808 0b64 8083      		st Z,r24
+ 1809               	/* #APP */
+ 1810 0b66 7894      		sei
+ 1811               	/* #NOAPP */
+ 1812 0b68 1B8A      		std Y+19,__zero_reg__
+ 1813 0b6a 1A8A      		std Y+18,__zero_reg__
+ 1814 0b6c 00C0      		rjmp .L103
+ 1815               	.L99:
+ 1816               	/* #APP */
+ 1817 0b6e 7894      		sei
+ 1818               	/* #NOAPP */
+ 1819 0b70 86E4      		ldi r24,lo8(70)
+ 1820 0b72 90E0      		ldi r25,hi8(70)
+ 1821 0b74 9B8B      		std Y+19,r25
+ 1822 0b76 8A8B      		std Y+18,r24
+ 1823               	.L103:
+ 1824 0b78 8A89      		ldd r24,Y+18
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 33
+
+
+ 1825 0b7a 9B89      		ldd r25,Y+19
+ 1826               	/* epilogue: frame size=19 */
+ 1827 0b7c 6396      		adiw r28,19
+ 1828 0b7e 0FB6      		in __tmp_reg__,__SREG__
+ 1829 0b80 F894      		cli
+ 1830 0b82 DEBF      		out __SP_H__,r29
+ 1831 0b84 0FBE      		out __SREG__,__tmp_reg__
+ 1832 0b86 CDBF      		out __SP_L__,r28
+ 1833 0b88 DF91      		pop r29
+ 1834 0b8a CF91      		pop r28
+ 1835 0b8c 1F91      		pop r17
+ 1836 0b8e 0F91      		pop r16
+ 1837 0b90 FF90      		pop r15
+ 1838 0b92 EF90      		pop r14
+ 1839 0b94 DF90      		pop r13
+ 1840 0b96 CF90      		pop r12
+ 1841 0b98 BF90      		pop r11
+ 1842 0b9a AF90      		pop r10
+ 1843 0b9c 0895      		ret
+ 1844               	/* epilogue end (size=17) */
+ 1845               	/* function OS_TCBInit size 231 (196) */
+ 1846               		.size	OS_TCBInit, .-OS_TCBInit
+ 1847               	.global	OSMboxCreate
+ 1848               		.type	OSMboxCreate, @function
+ 1849               	OSMboxCreate:
+ 1850               	/* prologue: frame size=6 */
+ 1851 0b9e CF93      		push r28
+ 1852 0ba0 DF93      		push r29
+ 1853 0ba2 CDB7      		in r28,__SP_L__
+ 1854 0ba4 DEB7      		in r29,__SP_H__
+ 1855 0ba6 2697      		sbiw r28,6
+ 1856 0ba8 0FB6      		in __tmp_reg__,__SREG__
+ 1857 0baa F894      		cli
+ 1858 0bac DEBF      		out __SP_H__,r29
+ 1859 0bae 0FBE      		out __SREG__,__tmp_reg__
+ 1860 0bb0 CDBF      		out __SP_L__,r28
+ 1861               	/* prologue end (size=10) */
+ 1862 0bb2 9C83      		std Y+4,r25
+ 1863 0bb4 8B83      		std Y+3,r24
+ 1864 0bb6 8091 0000 		lds r24,OSIntNesting
+ 1865 0bba 8823      		tst r24
+ 1866 0bbc 01F0      		breq .L106
+ 1867 0bbe 1E82      		std Y+6,__zero_reg__
+ 1868 0bc0 1D82      		std Y+5,__zero_reg__
+ 1869 0bc2 00C0      		rjmp .L108
+ 1870               	.L106:
+ 1871               	/* #APP */
+ 1872 0bc4 F894      		cli
+ 1873               	/* #NOAPP */
+ 1874 0bc6 8091 0000 		lds r24,OSEventFreeList
+ 1875 0bca 9091 0000 		lds r25,(OSEventFreeList)+1
+ 1876 0bce 9A83      		std Y+2,r25
+ 1877 0bd0 8983      		std Y+1,r24
+ 1878 0bd2 8091 0000 		lds r24,OSEventFreeList
+ 1879 0bd6 9091 0000 		lds r25,(OSEventFreeList)+1
+ 1880 0bda 0097      		sbiw r24,0
+ 1881 0bdc 01F0      		breq .L109
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 34
+
+
+ 1882 0bde E091 0000 		lds r30,OSEventFreeList
+ 1883 0be2 F091 0000 		lds r31,(OSEventFreeList)+1
+ 1884 0be6 8481      		ldd r24,Z+4
+ 1885 0be8 9581      		ldd r25,Z+5
+ 1886 0bea 9093 0000 		sts (OSEventFreeList)+1,r25
+ 1887 0bee 8093 0000 		sts OSEventFreeList,r24
+ 1888               	.L109:
+ 1889               	/* #APP */
+ 1890 0bf2 7894      		sei
+ 1891               	/* #NOAPP */
+ 1892 0bf4 8981      		ldd r24,Y+1
+ 1893 0bf6 9A81      		ldd r25,Y+2
+ 1894 0bf8 0097      		sbiw r24,0
+ 1895 0bfa 01F0      		breq .L111
+ 1896 0bfc E981      		ldd r30,Y+1
+ 1897 0bfe FA81      		ldd r31,Y+2
+ 1898 0c00 81E0      		ldi r24,lo8(1)
+ 1899 0c02 8083      		st Z,r24
+ 1900 0c04 E981      		ldd r30,Y+1
+ 1901 0c06 FA81      		ldd r31,Y+2
+ 1902 0c08 1382      		std Z+3,__zero_reg__
+ 1903 0c0a 1282      		std Z+2,__zero_reg__
+ 1904 0c0c E981      		ldd r30,Y+1
+ 1905 0c0e FA81      		ldd r31,Y+2
+ 1906 0c10 8B81      		ldd r24,Y+3
+ 1907 0c12 9C81      		ldd r25,Y+4
+ 1908 0c14 9583      		std Z+5,r25
+ 1909 0c16 8483      		std Z+4,r24
+ 1910 0c18 8981      		ldd r24,Y+1
+ 1911 0c1a 9A81      		ldd r25,Y+2
+ 1912 0c1c 0E94 0000 		call OS_EventWaitListInit
+ 1913               	.L111:
+ 1914 0c20 8981      		ldd r24,Y+1
+ 1915 0c22 9A81      		ldd r25,Y+2
+ 1916 0c24 9E83      		std Y+6,r25
+ 1917 0c26 8D83      		std Y+5,r24
+ 1918               	.L108:
+ 1919 0c28 8D81      		ldd r24,Y+5
+ 1920 0c2a 9E81      		ldd r25,Y+6
+ 1921               	/* epilogue: frame size=6 */
+ 1922 0c2c 2696      		adiw r28,6
+ 1923 0c2e 0FB6      		in __tmp_reg__,__SREG__
+ 1924 0c30 F894      		cli
+ 1925 0c32 DEBF      		out __SP_H__,r29
+ 1926 0c34 0FBE      		out __SREG__,__tmp_reg__
+ 1927 0c36 CDBF      		out __SP_L__,r28
+ 1928 0c38 DF91      		pop r29
+ 1929 0c3a CF91      		pop r28
+ 1930 0c3c 0895      		ret
+ 1931               	/* epilogue end (size=9) */
+ 1932               	/* function OSMboxCreate size 82 (63) */
+ 1933               		.size	OSMboxCreate, .-OSMboxCreate
+ 1934               	.global	OSMboxPend
+ 1935               		.type	OSMboxPend, @function
+ 1936               	OSMboxPend:
+ 1937               	/* prologue: frame size=10 */
+ 1938 0c3e CF93      		push r28
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 35
+
+
+ 1939 0c40 DF93      		push r29
+ 1940 0c42 CDB7      		in r28,__SP_L__
+ 1941 0c44 DEB7      		in r29,__SP_H__
+ 1942 0c46 2A97      		sbiw r28,10
+ 1943 0c48 0FB6      		in __tmp_reg__,__SREG__
+ 1944 0c4a F894      		cli
+ 1945 0c4c DEBF      		out __SP_H__,r29
+ 1946 0c4e 0FBE      		out __SREG__,__tmp_reg__
+ 1947 0c50 CDBF      		out __SP_L__,r28
+ 1948               	/* prologue end (size=10) */
+ 1949 0c52 9C83      		std Y+4,r25
+ 1950 0c54 8B83      		std Y+3,r24
+ 1951 0c56 7E83      		std Y+6,r23
+ 1952 0c58 6D83      		std Y+5,r22
+ 1953 0c5a 5887      		std Y+8,r21
+ 1954 0c5c 4F83      		std Y+7,r20
+ 1955 0c5e 8091 0000 		lds r24,OSIntNesting
+ 1956 0c62 8823      		tst r24
+ 1957 0c64 01F0      		breq .L115
+ 1958 0c66 EF81      		ldd r30,Y+7
+ 1959 0c68 F885      		ldd r31,Y+8
+ 1960 0c6a 82E0      		ldi r24,lo8(2)
+ 1961 0c6c 8083      		st Z,r24
+ 1962 0c6e 1A86      		std Y+10,__zero_reg__
+ 1963 0c70 1986      		std Y+9,__zero_reg__
+ 1964 0c72 00C0      		rjmp .L117
+ 1965               	.L115:
+ 1966               	/* #APP */
+ 1967 0c74 F894      		cli
+ 1968               	/* #NOAPP */
+ 1969 0c76 EB81      		ldd r30,Y+3
+ 1970 0c78 FC81      		ldd r31,Y+4
+ 1971 0c7a 8481      		ldd r24,Z+4
+ 1972 0c7c 9581      		ldd r25,Z+5
+ 1973 0c7e 9A83      		std Y+2,r25
+ 1974 0c80 8983      		std Y+1,r24
+ 1975 0c82 8981      		ldd r24,Y+1
+ 1976 0c84 9A81      		ldd r25,Y+2
+ 1977 0c86 0097      		sbiw r24,0
+ 1978 0c88 01F0      		breq .L118
+ 1979 0c8a EB81      		ldd r30,Y+3
+ 1980 0c8c FC81      		ldd r31,Y+4
+ 1981 0c8e 1582      		std Z+5,__zero_reg__
+ 1982 0c90 1482      		std Z+4,__zero_reg__
+ 1983               	/* #APP */
+ 1984 0c92 7894      		sei
+ 1985               	/* #NOAPP */
+ 1986 0c94 EF81      		ldd r30,Y+7
+ 1987 0c96 F885      		ldd r31,Y+8
+ 1988 0c98 1082      		st Z,__zero_reg__
+ 1989 0c9a 8981      		ldd r24,Y+1
+ 1990 0c9c 9A81      		ldd r25,Y+2
+ 1991 0c9e 9A87      		std Y+10,r25
+ 1992 0ca0 8987      		std Y+9,r24
+ 1993 0ca2 00C0      		rjmp .L117
+ 1994               	.L118:
+ 1995 0ca4 A091 0000 		lds r26,OSTCBCur
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 36
+
+
+ 1996 0ca8 B091 0000 		lds r27,(OSTCBCur)+1
+ 1997 0cac E091 0000 		lds r30,OSTCBCur
+ 1998 0cb0 F091 0000 		lds r31,(OSTCBCur)+1
+ 1999 0cb4 8485      		ldd r24,Z+12
+ 2000 0cb6 8260      		ori r24,lo8(2)
+ 2001 0cb8 FD01      		movw r30,r26
+ 2002 0cba 8487      		std Z+12,r24
+ 2003 0cbc E091 0000 		lds r30,OSTCBCur
+ 2004 0cc0 F091 0000 		lds r31,(OSTCBCur)+1
+ 2005 0cc4 8D81      		ldd r24,Y+5
+ 2006 0cc6 9E81      		ldd r25,Y+6
+ 2007 0cc8 9387      		std Z+11,r25
+ 2008 0cca 8287      		std Z+10,r24
+ 2009 0ccc 8B81      		ldd r24,Y+3
+ 2010 0cce 9C81      		ldd r25,Y+4
+ 2011 0cd0 0E94 0000 		call OS_EventTaskWait
+ 2012               	/* #APP */
+ 2013 0cd4 7894      		sei
+ 2014               	/* #NOAPP */
+ 2015 0cd6 0E94 0000 		call OS_Sched
+ 2016               	/* #APP */
+ 2017 0cda F894      		cli
+ 2018               	/* #NOAPP */
+ 2019 0cdc E091 0000 		lds r30,OSTCBCur
+ 2020 0ce0 F091 0000 		lds r31,(OSTCBCur)+1
+ 2021 0ce4 8085      		ldd r24,Z+8
+ 2022 0ce6 9185      		ldd r25,Z+9
+ 2023 0ce8 9A83      		std Y+2,r25
+ 2024 0cea 8983      		std Y+1,r24
+ 2025 0cec 8981      		ldd r24,Y+1
+ 2026 0cee 9A81      		ldd r25,Y+2
+ 2027 0cf0 0097      		sbiw r24,0
+ 2028 0cf2 01F0      		breq .L120
+ 2029 0cf4 E091 0000 		lds r30,OSTCBCur
+ 2030 0cf8 F091 0000 		lds r31,(OSTCBCur)+1
+ 2031 0cfc 1186      		std Z+9,__zero_reg__
+ 2032 0cfe 1086      		std Z+8,__zero_reg__
+ 2033 0d00 E091 0000 		lds r30,OSTCBCur
+ 2034 0d04 F091 0000 		lds r31,(OSTCBCur)+1
+ 2035 0d08 1486      		std Z+12,__zero_reg__
+ 2036 0d0a E091 0000 		lds r30,OSTCBCur
+ 2037 0d0e F091 0000 		lds r31,(OSTCBCur)+1
+ 2038 0d12 1782      		std Z+7,__zero_reg__
+ 2039 0d14 1682      		std Z+6,__zero_reg__
+ 2040               	/* #APP */
+ 2041 0d16 7894      		sei
+ 2042               	/* #NOAPP */
+ 2043 0d18 EF81      		ldd r30,Y+7
+ 2044 0d1a F885      		ldd r31,Y+8
+ 2045 0d1c 1082      		st Z,__zero_reg__
+ 2046 0d1e 8981      		ldd r24,Y+1
+ 2047 0d20 9A81      		ldd r25,Y+2
+ 2048 0d22 9A87      		std Y+10,r25
+ 2049 0d24 8987      		std Y+9,r24
+ 2050 0d26 00C0      		rjmp .L117
+ 2051               	.L120:
+ 2052 0d28 8B81      		ldd r24,Y+3
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 37
+
+
+ 2053 0d2a 9C81      		ldd r25,Y+4
+ 2054 0d2c 0E94 0000 		call OS_EventTO
+ 2055               	/* #APP */
+ 2056 0d30 7894      		sei
+ 2057               	/* #NOAPP */
+ 2058 0d32 EF81      		ldd r30,Y+7
+ 2059 0d34 F885      		ldd r31,Y+8
+ 2060 0d36 8AE0      		ldi r24,lo8(10)
+ 2061 0d38 8083      		st Z,r24
+ 2062 0d3a 1A86      		std Y+10,__zero_reg__
+ 2063 0d3c 1986      		std Y+9,__zero_reg__
+ 2064               	.L117:
+ 2065 0d3e 8985      		ldd r24,Y+9
+ 2066 0d40 9A85      		ldd r25,Y+10
+ 2067               	/* epilogue: frame size=10 */
+ 2068 0d42 2A96      		adiw r28,10
+ 2069 0d44 0FB6      		in __tmp_reg__,__SREG__
+ 2070 0d46 F894      		cli
+ 2071 0d48 DEBF      		out __SP_H__,r29
+ 2072 0d4a 0FBE      		out __SREG__,__tmp_reg__
+ 2073 0d4c CDBF      		out __SP_L__,r28
+ 2074 0d4e DF91      		pop r29
+ 2075 0d50 CF91      		pop r28
+ 2076 0d52 0895      		ret
+ 2077               	/* epilogue end (size=9) */
+ 2078               	/* function OSMboxPend size 145 (126) */
+ 2079               		.size	OSMboxPend, .-OSMboxPend
+ 2080               	.global	OSMboxPost
+ 2081               		.type	OSMboxPost, @function
+ 2082               	OSMboxPost:
+ 2083               	/* prologue: frame size=6 */
+ 2084 0d54 CF93      		push r28
+ 2085 0d56 DF93      		push r29
+ 2086 0d58 CDB7      		in r28,__SP_L__
+ 2087 0d5a DEB7      		in r29,__SP_H__
+ 2088 0d5c 2697      		sbiw r28,6
+ 2089 0d5e 0FB6      		in __tmp_reg__,__SREG__
+ 2090 0d60 F894      		cli
+ 2091 0d62 DEBF      		out __SP_H__,r29
+ 2092 0d64 0FBE      		out __SREG__,__tmp_reg__
+ 2093 0d66 CDBF      		out __SP_L__,r28
+ 2094               	/* prologue end (size=10) */
+ 2095 0d68 9A83      		std Y+2,r25
+ 2096 0d6a 8983      		std Y+1,r24
+ 2097 0d6c 7C83      		std Y+4,r23
+ 2098 0d6e 6B83      		std Y+3,r22
+ 2099               	/* #APP */
+ 2100 0d70 F894      		cli
+ 2101               	/* #NOAPP */
+ 2102 0d72 E981      		ldd r30,Y+1
+ 2103 0d74 FA81      		ldd r31,Y+2
+ 2104 0d76 8181      		ldd r24,Z+1
+ 2105 0d78 8823      		tst r24
+ 2106 0d7a 01F0      		breq .L124
+ 2107 0d7c 8B81      		ldd r24,Y+3
+ 2108 0d7e 9C81      		ldd r25,Y+4
+ 2109 0d80 2981      		ldd r18,Y+1
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 38
+
+
+ 2110 0d82 3A81      		ldd r19,Y+2
+ 2111 0d84 42E0      		ldi r20,lo8(2)
+ 2112 0d86 BC01      		movw r22,r24
+ 2113 0d88 C901      		movw r24,r18
+ 2114 0d8a 0E94 0000 		call OS_EventTaskRdy
+ 2115               	/* #APP */
+ 2116 0d8e 7894      		sei
+ 2117               	/* #NOAPP */
+ 2118 0d90 0E94 0000 		call OS_Sched
+ 2119 0d94 1E82      		std Y+6,__zero_reg__
+ 2120 0d96 1D82      		std Y+5,__zero_reg__
+ 2121 0d98 00C0      		rjmp .L126
+ 2122               	.L124:
+ 2123 0d9a E981      		ldd r30,Y+1
+ 2124 0d9c FA81      		ldd r31,Y+2
+ 2125 0d9e 8481      		ldd r24,Z+4
+ 2126 0da0 9581      		ldd r25,Z+5
+ 2127 0da2 0097      		sbiw r24,0
+ 2128 0da4 01F0      		breq .L127
+ 2129               	/* #APP */
+ 2130 0da6 7894      		sei
+ 2131               	/* #NOAPP */
+ 2132 0da8 84E1      		ldi r24,lo8(20)
+ 2133 0daa 90E0      		ldi r25,hi8(20)
+ 2134 0dac 9E83      		std Y+6,r25
+ 2135 0dae 8D83      		std Y+5,r24
+ 2136 0db0 00C0      		rjmp .L126
+ 2137               	.L127:
+ 2138 0db2 E981      		ldd r30,Y+1
+ 2139 0db4 FA81      		ldd r31,Y+2
+ 2140 0db6 8B81      		ldd r24,Y+3
+ 2141 0db8 9C81      		ldd r25,Y+4
+ 2142 0dba 9583      		std Z+5,r25
+ 2143 0dbc 8483      		std Z+4,r24
+ 2144               	/* #APP */
+ 2145 0dbe 7894      		sei
+ 2146               	/* #NOAPP */
+ 2147 0dc0 1E82      		std Y+6,__zero_reg__
+ 2148 0dc2 1D82      		std Y+5,__zero_reg__
+ 2149               	.L126:
+ 2150 0dc4 8D81      		ldd r24,Y+5
+ 2151 0dc6 9E81      		ldd r25,Y+6
+ 2152               	/* epilogue: frame size=6 */
+ 2153 0dc8 2696      		adiw r28,6
+ 2154 0dca 0FB6      		in __tmp_reg__,__SREG__
+ 2155 0dcc F894      		cli
+ 2156 0dce DEBF      		out __SP_H__,r29
+ 2157 0dd0 0FBE      		out __SREG__,__tmp_reg__
+ 2158 0dd2 CDBF      		out __SP_L__,r28
+ 2159 0dd4 DF91      		pop r29
+ 2160 0dd6 CF91      		pop r28
+ 2161 0dd8 0895      		ret
+ 2162               	/* epilogue end (size=9) */
+ 2163               	/* function OSMboxPost size 71 (52) */
+ 2164               		.size	OSMboxPost, .-OSMboxPost
+ 2165               	.global	OSSemCreate
+ 2166               		.type	OSSemCreate, @function
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 39
+
+
+ 2167               	OSSemCreate:
+ 2168               	/* prologue: frame size=6 */
+ 2169 0dda CF93      		push r28
+ 2170 0ddc DF93      		push r29
+ 2171 0dde CDB7      		in r28,__SP_L__
+ 2172 0de0 DEB7      		in r29,__SP_H__
+ 2173 0de2 2697      		sbiw r28,6
+ 2174 0de4 0FB6      		in __tmp_reg__,__SREG__
+ 2175 0de6 F894      		cli
+ 2176 0de8 DEBF      		out __SP_H__,r29
+ 2177 0dea 0FBE      		out __SREG__,__tmp_reg__
+ 2178 0dec CDBF      		out __SP_L__,r28
+ 2179               	/* prologue end (size=10) */
+ 2180 0dee 9C83      		std Y+4,r25
+ 2181 0df0 8B83      		std Y+3,r24
+ 2182 0df2 8091 0000 		lds r24,OSIntNesting
+ 2183 0df6 8823      		tst r24
+ 2184 0df8 01F0      		breq .L131
+ 2185 0dfa 1E82      		std Y+6,__zero_reg__
+ 2186 0dfc 1D82      		std Y+5,__zero_reg__
+ 2187 0dfe 00C0      		rjmp .L133
+ 2188               	.L131:
+ 2189               	/* #APP */
+ 2190 0e00 F894      		cli
+ 2191               	/* #NOAPP */
+ 2192 0e02 8091 0000 		lds r24,OSEventFreeList
+ 2193 0e06 9091 0000 		lds r25,(OSEventFreeList)+1
+ 2194 0e0a 9A83      		std Y+2,r25
+ 2195 0e0c 8983      		std Y+1,r24
+ 2196 0e0e 8091 0000 		lds r24,OSEventFreeList
+ 2197 0e12 9091 0000 		lds r25,(OSEventFreeList)+1
+ 2198 0e16 0097      		sbiw r24,0
+ 2199 0e18 01F0      		breq .L134
+ 2200 0e1a E091 0000 		lds r30,OSEventFreeList
+ 2201 0e1e F091 0000 		lds r31,(OSEventFreeList)+1
+ 2202 0e22 8481      		ldd r24,Z+4
+ 2203 0e24 9581      		ldd r25,Z+5
+ 2204 0e26 9093 0000 		sts (OSEventFreeList)+1,r25
+ 2205 0e2a 8093 0000 		sts OSEventFreeList,r24
+ 2206               	.L134:
+ 2207               	/* #APP */
+ 2208 0e2e 7894      		sei
+ 2209               	/* #NOAPP */
+ 2210 0e30 8981      		ldd r24,Y+1
+ 2211 0e32 9A81      		ldd r25,Y+2
+ 2212 0e34 0097      		sbiw r24,0
+ 2213 0e36 01F0      		breq .L136
+ 2214 0e38 E981      		ldd r30,Y+1
+ 2215 0e3a FA81      		ldd r31,Y+2
+ 2216 0e3c 83E0      		ldi r24,lo8(3)
+ 2217 0e3e 8083      		st Z,r24
+ 2218 0e40 E981      		ldd r30,Y+1
+ 2219 0e42 FA81      		ldd r31,Y+2
+ 2220 0e44 8B81      		ldd r24,Y+3
+ 2221 0e46 9C81      		ldd r25,Y+4
+ 2222 0e48 9383      		std Z+3,r25
+ 2223 0e4a 8283      		std Z+2,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 40
+
+
+ 2224 0e4c E981      		ldd r30,Y+1
+ 2225 0e4e FA81      		ldd r31,Y+2
+ 2226 0e50 1582      		std Z+5,__zero_reg__
+ 2227 0e52 1482      		std Z+4,__zero_reg__
+ 2228 0e54 8981      		ldd r24,Y+1
+ 2229 0e56 9A81      		ldd r25,Y+2
+ 2230 0e58 0E94 0000 		call OS_EventWaitListInit
+ 2231               	.L136:
+ 2232 0e5c 8981      		ldd r24,Y+1
+ 2233 0e5e 9A81      		ldd r25,Y+2
+ 2234 0e60 9E83      		std Y+6,r25
+ 2235 0e62 8D83      		std Y+5,r24
+ 2236               	.L133:
+ 2237 0e64 8D81      		ldd r24,Y+5
+ 2238 0e66 9E81      		ldd r25,Y+6
+ 2239               	/* epilogue: frame size=6 */
+ 2240 0e68 2696      		adiw r28,6
+ 2241 0e6a 0FB6      		in __tmp_reg__,__SREG__
+ 2242 0e6c F894      		cli
+ 2243 0e6e DEBF      		out __SP_H__,r29
+ 2244 0e70 0FBE      		out __SREG__,__tmp_reg__
+ 2245 0e72 CDBF      		out __SP_L__,r28
+ 2246 0e74 DF91      		pop r29
+ 2247 0e76 CF91      		pop r28
+ 2248 0e78 0895      		ret
+ 2249               	/* epilogue end (size=9) */
+ 2250               	/* function OSSemCreate size 82 (63) */
+ 2251               		.size	OSSemCreate, .-OSSemCreate
+ 2252               	.global	OSSemPend
+ 2253               		.type	OSSemPend, @function
+ 2254               	OSSemPend:
+ 2255               	/* prologue: frame size=6 */
+ 2256 0e7a CF93      		push r28
+ 2257 0e7c DF93      		push r29
+ 2258 0e7e CDB7      		in r28,__SP_L__
+ 2259 0e80 DEB7      		in r29,__SP_H__
+ 2260 0e82 2697      		sbiw r28,6
+ 2261 0e84 0FB6      		in __tmp_reg__,__SREG__
+ 2262 0e86 F894      		cli
+ 2263 0e88 DEBF      		out __SP_H__,r29
+ 2264 0e8a 0FBE      		out __SREG__,__tmp_reg__
+ 2265 0e8c CDBF      		out __SP_L__,r28
+ 2266               	/* prologue end (size=10) */
+ 2267 0e8e 9A83      		std Y+2,r25
+ 2268 0e90 8983      		std Y+1,r24
+ 2269 0e92 7C83      		std Y+4,r23
+ 2270 0e94 6B83      		std Y+3,r22
+ 2271 0e96 5E83      		std Y+6,r21
+ 2272 0e98 4D83      		std Y+5,r20
+ 2273 0e9a 8091 0000 		lds r24,OSIntNesting
+ 2274 0e9e 8823      		tst r24
+ 2275 0ea0 01F0      		breq .L140
+ 2276 0ea2 ED81      		ldd r30,Y+5
+ 2277 0ea4 FE81      		ldd r31,Y+6
+ 2278 0ea6 82E0      		ldi r24,lo8(2)
+ 2279 0ea8 8083      		st Z,r24
+ 2280 0eaa 00C0      		rjmp .L147
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 41
+
+
+ 2281               	.L140:
+ 2282               	/* #APP */
+ 2283 0eac F894      		cli
+ 2284               	/* #NOAPP */
+ 2285 0eae E981      		ldd r30,Y+1
+ 2286 0eb0 FA81      		ldd r31,Y+2
+ 2287 0eb2 8281      		ldd r24,Z+2
+ 2288 0eb4 9381      		ldd r25,Z+3
+ 2289 0eb6 0097      		sbiw r24,0
+ 2290 0eb8 01F0      		breq .L143
+ 2291 0eba E981      		ldd r30,Y+1
+ 2292 0ebc FA81      		ldd r31,Y+2
+ 2293 0ebe 8281      		ldd r24,Z+2
+ 2294 0ec0 9381      		ldd r25,Z+3
+ 2295 0ec2 0197      		sbiw r24,1
+ 2296 0ec4 E981      		ldd r30,Y+1
+ 2297 0ec6 FA81      		ldd r31,Y+2
+ 2298 0ec8 9383      		std Z+3,r25
+ 2299 0eca 8283      		std Z+2,r24
+ 2300               	/* #APP */
+ 2301 0ecc 7894      		sei
+ 2302               	/* #NOAPP */
+ 2303 0ece ED81      		ldd r30,Y+5
+ 2304 0ed0 FE81      		ldd r31,Y+6
+ 2305 0ed2 1082      		st Z,__zero_reg__
+ 2306 0ed4 00C0      		rjmp .L147
+ 2307               	.L143:
+ 2308 0ed6 A091 0000 		lds r26,OSTCBCur
+ 2309 0eda B091 0000 		lds r27,(OSTCBCur)+1
+ 2310 0ede E091 0000 		lds r30,OSTCBCur
+ 2311 0ee2 F091 0000 		lds r31,(OSTCBCur)+1
+ 2312 0ee6 8485      		ldd r24,Z+12
+ 2313 0ee8 8160      		ori r24,lo8(1)
+ 2314 0eea FD01      		movw r30,r26
+ 2315 0eec 8487      		std Z+12,r24
+ 2316 0eee E091 0000 		lds r30,OSTCBCur
+ 2317 0ef2 F091 0000 		lds r31,(OSTCBCur)+1
+ 2318 0ef6 8B81      		ldd r24,Y+3
+ 2319 0ef8 9C81      		ldd r25,Y+4
+ 2320 0efa 9387      		std Z+11,r25
+ 2321 0efc 8287      		std Z+10,r24
+ 2322 0efe 8981      		ldd r24,Y+1
+ 2323 0f00 9A81      		ldd r25,Y+2
+ 2324 0f02 0E94 0000 		call OS_EventTaskWait
+ 2325               	/* #APP */
+ 2326 0f06 7894      		sei
+ 2327               	/* #NOAPP */
+ 2328 0f08 0E94 0000 		call OS_Sched
+ 2329               	/* #APP */
+ 2330 0f0c F894      		cli
+ 2331               	/* #NOAPP */
+ 2332 0f0e E091 0000 		lds r30,OSTCBCur
+ 2333 0f12 F091 0000 		lds r31,(OSTCBCur)+1
+ 2334 0f16 8485      		ldd r24,Z+12
+ 2335 0f18 882F      		mov r24,r24
+ 2336 0f1a 90E0      		ldi r25,lo8(0)
+ 2337 0f1c 8170      		andi r24,lo8(1)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 42
+
+
+ 2338 0f1e 9070      		andi r25,hi8(1)
+ 2339 0f20 8823      		tst r24
+ 2340 0f22 01F0      		breq .L145
+ 2341 0f24 8981      		ldd r24,Y+1
+ 2342 0f26 9A81      		ldd r25,Y+2
+ 2343 0f28 0E94 0000 		call OS_EventTO
+ 2344               	/* #APP */
+ 2345 0f2c 7894      		sei
+ 2346               	/* #NOAPP */
+ 2347 0f2e ED81      		ldd r30,Y+5
+ 2348 0f30 FE81      		ldd r31,Y+6
+ 2349 0f32 8AE0      		ldi r24,lo8(10)
+ 2350 0f34 8083      		st Z,r24
+ 2351 0f36 00C0      		rjmp .L147
+ 2352               	.L145:
+ 2353 0f38 E091 0000 		lds r30,OSTCBCur
+ 2354 0f3c F091 0000 		lds r31,(OSTCBCur)+1
+ 2355 0f40 1782      		std Z+7,__zero_reg__
+ 2356 0f42 1682      		std Z+6,__zero_reg__
+ 2357               	/* #APP */
+ 2358 0f44 7894      		sei
+ 2359               	/* #NOAPP */
+ 2360 0f46 ED81      		ldd r30,Y+5
+ 2361 0f48 FE81      		ldd r31,Y+6
+ 2362 0f4a 1082      		st Z,__zero_reg__
+ 2363               	.L147:
+ 2364               	/* epilogue: frame size=6 */
+ 2365 0f4c 2696      		adiw r28,6
+ 2366 0f4e 0FB6      		in __tmp_reg__,__SREG__
+ 2367 0f50 F894      		cli
+ 2368 0f52 DEBF      		out __SP_H__,r29
+ 2369 0f54 0FBE      		out __SREG__,__tmp_reg__
+ 2370 0f56 CDBF      		out __SP_L__,r28
+ 2371 0f58 DF91      		pop r29
+ 2372 0f5a CF91      		pop r28
+ 2373 0f5c 0895      		ret
+ 2374               	/* epilogue end (size=9) */
+ 2375               	/* function OSSemPend size 120 (101) */
+ 2376               		.size	OSSemPend, .-OSSemPend
+ 2377               	.global	OSSemPost
+ 2378               		.type	OSSemPost, @function
+ 2379               	OSSemPost:
+ 2380               	/* prologue: frame size=4 */
+ 2381 0f5e CF93      		push r28
+ 2382 0f60 DF93      		push r29
+ 2383 0f62 CDB7      		in r28,__SP_L__
+ 2384 0f64 DEB7      		in r29,__SP_H__
+ 2385 0f66 2497      		sbiw r28,4
+ 2386 0f68 0FB6      		in __tmp_reg__,__SREG__
+ 2387 0f6a F894      		cli
+ 2388 0f6c DEBF      		out __SP_H__,r29
+ 2389 0f6e 0FBE      		out __SREG__,__tmp_reg__
+ 2390 0f70 CDBF      		out __SP_L__,r28
+ 2391               	/* prologue end (size=10) */
+ 2392 0f72 9A83      		std Y+2,r25
+ 2393 0f74 8983      		std Y+1,r24
+ 2394               	/* #APP */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 43
+
+
+ 2395 0f76 F894      		cli
+ 2396               	/* #NOAPP */
+ 2397 0f78 E981      		ldd r30,Y+1
+ 2398 0f7a FA81      		ldd r31,Y+2
+ 2399 0f7c 8181      		ldd r24,Z+1
+ 2400 0f7e 8823      		tst r24
+ 2401 0f80 01F0      		breq .L149
+ 2402 0f82 8981      		ldd r24,Y+1
+ 2403 0f84 9A81      		ldd r25,Y+2
+ 2404 0f86 41E0      		ldi r20,lo8(1)
+ 2405 0f88 60E0      		ldi r22,lo8(0)
+ 2406 0f8a 70E0      		ldi r23,hi8(0)
+ 2407 0f8c 0E94 0000 		call OS_EventTaskRdy
+ 2408               	/* #APP */
+ 2409 0f90 7894      		sei
+ 2410               	/* #NOAPP */
+ 2411 0f92 0E94 0000 		call OS_Sched
+ 2412 0f96 1C82      		std Y+4,__zero_reg__
+ 2413 0f98 1B82      		std Y+3,__zero_reg__
+ 2414 0f9a 00C0      		rjmp .L151
+ 2415               	.L149:
+ 2416 0f9c E981      		ldd r30,Y+1
+ 2417 0f9e FA81      		ldd r31,Y+2
+ 2418 0fa0 8281      		ldd r24,Z+2
+ 2419 0fa2 9381      		ldd r25,Z+3
+ 2420 0fa4 2FEF      		ldi r18,hi8(-1)
+ 2421 0fa6 8F3F      		cpi r24,lo8(-1)
+ 2422 0fa8 9207      		cpc r25,r18
+ 2423 0faa 01F0      		breq .L152
+ 2424 0fac E981      		ldd r30,Y+1
+ 2425 0fae FA81      		ldd r31,Y+2
+ 2426 0fb0 8281      		ldd r24,Z+2
+ 2427 0fb2 9381      		ldd r25,Z+3
+ 2428 0fb4 0196      		adiw r24,1
+ 2429 0fb6 E981      		ldd r30,Y+1
+ 2430 0fb8 FA81      		ldd r31,Y+2
+ 2431 0fba 9383      		std Z+3,r25
+ 2432 0fbc 8283      		std Z+2,r24
+ 2433               	/* #APP */
+ 2434 0fbe 7894      		sei
+ 2435               	/* #NOAPP */
+ 2436 0fc0 1C82      		std Y+4,__zero_reg__
+ 2437 0fc2 1B82      		std Y+3,__zero_reg__
+ 2438 0fc4 00C0      		rjmp .L151
+ 2439               	.L152:
+ 2440               	/* #APP */
+ 2441 0fc6 7894      		sei
+ 2442               	/* #NOAPP */
+ 2443 0fc8 82E3      		ldi r24,lo8(50)
+ 2444 0fca 90E0      		ldi r25,hi8(50)
+ 2445 0fcc 9C83      		std Y+4,r25
+ 2446 0fce 8B83      		std Y+3,r24
+ 2447               	.L151:
+ 2448 0fd0 8B81      		ldd r24,Y+3
+ 2449 0fd2 9C81      		ldd r25,Y+4
+ 2450               	/* epilogue: frame size=4 */
+ 2451 0fd4 2496      		adiw r28,4
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 44
+
+
+ 2452 0fd6 0FB6      		in __tmp_reg__,__SREG__
+ 2453 0fd8 F894      		cli
+ 2454 0fda DEBF      		out __SP_H__,r29
+ 2455 0fdc 0FBE      		out __SREG__,__tmp_reg__
+ 2456 0fde CDBF      		out __SP_L__,r28
+ 2457 0fe0 DF91      		pop r29
+ 2458 0fe2 CF91      		pop r28
+ 2459 0fe4 0895      		ret
+ 2460               	/* epilogue end (size=9) */
+ 2461               	/* function OSSemPost size 72 (53) */
+ 2462               		.size	OSSemPost, .-OSSemPost
+ 2463               	.global	OSTaskCreate
+ 2464               		.type	OSTaskCreate, @function
+ 2465               	OSTaskCreate:
+ 2466               	/* prologue: frame size=12 */
+ 2467 0fe6 AF92      		push r10
+ 2468 0fe8 BF92      		push r11
+ 2469 0fea CF92      		push r12
+ 2470 0fec DF92      		push r13
+ 2471 0fee EF92      		push r14
+ 2472 0ff0 FF92      		push r15
+ 2473 0ff2 0F93      		push r16
+ 2474 0ff4 1F93      		push r17
+ 2475 0ff6 CF93      		push r28
+ 2476 0ff8 DF93      		push r29
+ 2477 0ffa CDB7      		in r28,__SP_L__
+ 2478 0ffc DEB7      		in r29,__SP_H__
+ 2479 0ffe 2C97      		sbiw r28,12
+ 2480 1000 0FB6      		in __tmp_reg__,__SREG__
+ 2481 1002 F894      		cli
+ 2482 1004 DEBF      		out __SP_H__,r29
+ 2483 1006 0FBE      		out __SREG__,__tmp_reg__
+ 2484 1008 CDBF      		out __SP_L__,r28
+ 2485               	/* prologue end (size=18) */
+ 2486 100a 9D83      		std Y+5,r25
+ 2487 100c 8C83      		std Y+4,r24
+ 2488 100e 7F83      		std Y+7,r23
+ 2489 1010 6E83      		std Y+6,r22
+ 2490 1012 5987      		std Y+9,r21
+ 2491 1014 4887      		std Y+8,r20
+ 2492 1016 2A87      		std Y+10,r18
+ 2493               	/* #APP */
+ 2494 1018 F894      		cli
+ 2495               	/* #NOAPP */
+ 2496 101a 8A85      		ldd r24,Y+10
+ 2497 101c 882F      		mov r24,r24
+ 2498 101e 90E0      		ldi r25,lo8(0)
+ 2499 1020 880F      		lsl r24
+ 2500 1022 991F      		rol r25
+ 2501 1024 FC01      		movw r30,r24
+ 2502 1026 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 2503 1028 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 2504 102a 8081      		ld r24,Z
+ 2505 102c 9181      		ldd r25,Z+1
+ 2506 102e 0097      		sbiw r24,0
+ 2507 1030 01F0      		breq .+2
+ 2508 1032 00C0      		rjmp .L156
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 45
+
+
+ 2509 1034 8A85      		ldd r24,Y+10
+ 2510 1036 882F      		mov r24,r24
+ 2511 1038 90E0      		ldi r25,lo8(0)
+ 2512 103a 880F      		lsl r24
+ 2513 103c 991F      		rol r25
+ 2514 103e FC01      		movw r30,r24
+ 2515 1040 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 2516 1042 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 2517 1044 81E0      		ldi r24,lo8(1)
+ 2518 1046 90E0      		ldi r25,hi8(1)
+ 2519 1048 9183      		std Z+1,r25
+ 2520 104a 8083      		st Z,r24
+ 2521               	/* #APP */
+ 2522 104c 7894      		sei
+ 2523               	/* #NOAPP */
+ 2524 104e 8885      		ldd r24,Y+8
+ 2525 1050 9985      		ldd r25,Y+9
+ 2526 1052 6E81      		ldd r22,Y+6
+ 2527 1054 7F81      		ldd r23,Y+7
+ 2528 1056 EC81      		ldd r30,Y+4
+ 2529 1058 FD81      		ldd r31,Y+5
+ 2530 105a 20E0      		ldi r18,lo8(0)
+ 2531 105c 30E0      		ldi r19,hi8(0)
+ 2532 105e AC01      		movw r20,r24
+ 2533 1060 CF01      		movw r24,r30
+ 2534 1062 0E94 0000 		call OSTaskStkInit
+ 2535 1066 9B83      		std Y+3,r25
+ 2536 1068 8A83      		std Y+2,r24
+ 2537 106a 8A81      		ldd r24,Y+2
+ 2538 106c 9B81      		ldd r25,Y+3
+ 2539 106e AA24      		clr r10
+ 2540 1070 BB24      		clr r11
+ 2541 1072 CC24      		clr r12
+ 2542 1074 DD24      		clr r13
+ 2543 1076 EE24      		clr r14
+ 2544 1078 FF24      		clr r15
+ 2545 107a 8701      		movw r16,r14
+ 2546 107c 20E0      		ldi r18,lo8(0)
+ 2547 107e 30E0      		ldi r19,hi8(0)
+ 2548 1080 40E0      		ldi r20,lo8(0)
+ 2549 1082 50E0      		ldi r21,hi8(0)
+ 2550 1084 BC01      		movw r22,r24
+ 2551 1086 8A85      		ldd r24,Y+10
+ 2552 1088 0E94 0000 		call OS_TCBInit
+ 2553 108c 8983      		std Y+1,r24
+ 2554 108e 8981      		ldd r24,Y+1
+ 2555 1090 8823      		tst r24
+ 2556 1092 01F4      		brne .L158
+ 2557               	/* #APP */
+ 2558 1094 F894      		cli
+ 2559               	/* #NOAPP */
+ 2560 1096 8091 0000 		lds r24,OSTaskCtr
+ 2561 109a 8F5F      		subi r24,lo8(-(1))
+ 2562 109c 8093 0000 		sts OSTaskCtr,r24
+ 2563               	/* #APP */
+ 2564 10a0 7894      		sei
+ 2565               	/* #NOAPP */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 46
+
+
+ 2566 10a2 8091 0000 		lds r24,OSRunning
+ 2567 10a6 8130      		cpi r24,lo8(1)
+ 2568 10a8 01F4      		brne .L162
+ 2569 10aa 0E94 0000 		call OS_Sched
+ 2570 10ae 00C0      		rjmp .L162
+ 2571               	.L158:
+ 2572               	/* #APP */
+ 2573 10b0 F894      		cli
+ 2574               	/* #NOAPP */
+ 2575 10b2 8A85      		ldd r24,Y+10
+ 2576 10b4 882F      		mov r24,r24
+ 2577 10b6 90E0      		ldi r25,lo8(0)
+ 2578 10b8 880F      		lsl r24
+ 2579 10ba 991F      		rol r25
+ 2580 10bc FC01      		movw r30,r24
+ 2581 10be E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 2582 10c0 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 2583 10c2 1182      		std Z+1,__zero_reg__
+ 2584 10c4 1082      		st Z,__zero_reg__
+ 2585               	/* #APP */
+ 2586 10c6 7894      		sei
+ 2587               	/* #NOAPP */
+ 2588               	.L162:
+ 2589 10c8 8981      		ldd r24,Y+1
+ 2590 10ca 282F      		mov r18,r24
+ 2591 10cc 30E0      		ldi r19,lo8(0)
+ 2592 10ce 3C87      		std Y+12,r19
+ 2593 10d0 2B87      		std Y+11,r18
+ 2594 10d2 00C0      		rjmp .L163
+ 2595               	.L156:
+ 2596               	/* #APP */
+ 2597 10d4 7894      		sei
+ 2598               	/* #NOAPP */
+ 2599 10d6 88E2      		ldi r24,lo8(40)
+ 2600 10d8 90E0      		ldi r25,hi8(40)
+ 2601 10da 9C87      		std Y+12,r25
+ 2602 10dc 8B87      		std Y+11,r24
+ 2603               	.L163:
+ 2604 10de 8B85      		ldd r24,Y+11
+ 2605 10e0 9C85      		ldd r25,Y+12
+ 2606               	/* epilogue: frame size=12 */
+ 2607 10e2 2C96      		adiw r28,12
+ 2608 10e4 0FB6      		in __tmp_reg__,__SREG__
+ 2609 10e6 F894      		cli
+ 2610 10e8 DEBF      		out __SP_H__,r29
+ 2611 10ea 0FBE      		out __SREG__,__tmp_reg__
+ 2612 10ec CDBF      		out __SP_L__,r28
+ 2613 10ee DF91      		pop r29
+ 2614 10f0 CF91      		pop r28
+ 2615 10f2 1F91      		pop r17
+ 2616 10f4 0F91      		pop r16
+ 2617 10f6 FF90      		pop r15
+ 2618 10f8 EF90      		pop r14
+ 2619 10fa DF90      		pop r13
+ 2620 10fc CF90      		pop r12
+ 2621 10fe BF90      		pop r11
+ 2622 1100 AF90      		pop r10
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 47
+
+
+ 2623 1102 0895      		ret
+ 2624               	/* epilogue end (size=17) */
+ 2625               	/* function OSTaskCreate size 150 (115) */
+ 2626               		.size	OSTaskCreate, .-OSTaskCreate
+ 2627               	.global	OSTimeDly
+ 2628               		.type	OSTimeDly, @function
+ 2629               	OSTimeDly:
+ 2630               	/* prologue: frame size=2 */
+ 2631 1104 CF93      		push r28
+ 2632 1106 DF93      		push r29
+ 2633 1108 CDB7      		in r28,__SP_L__
+ 2634 110a DEB7      		in r29,__SP_H__
+ 2635 110c 2297      		sbiw r28,2
+ 2636 110e 0FB6      		in __tmp_reg__,__SREG__
+ 2637 1110 F894      		cli
+ 2638 1112 DEBF      		out __SP_H__,r29
+ 2639 1114 0FBE      		out __SREG__,__tmp_reg__
+ 2640 1116 CDBF      		out __SP_L__,r28
+ 2641               	/* prologue end (size=10) */
+ 2642 1118 9A83      		std Y+2,r25
+ 2643 111a 8983      		std Y+1,r24
+ 2644 111c 8981      		ldd r24,Y+1
+ 2645 111e 9A81      		ldd r25,Y+2
+ 2646 1120 0097      		sbiw r24,0
+ 2647 1122 01F4      		brne .+2
+ 2648 1124 00C0      		rjmp .L170
+ 2649               	/* #APP */
+ 2650 1126 F894      		cli
+ 2651               	/* #NOAPP */
+ 2652 1128 E091 0000 		lds r30,OSTCBCur
+ 2653 112c F091 0000 		lds r31,(OSTCBCur)+1
+ 2654 1130 8785      		ldd r24,Z+15
+ 2655 1132 282F      		mov r18,r24
+ 2656 1134 30E0      		ldi r19,lo8(0)
+ 2657 1136 E091 0000 		lds r30,OSTCBCur
+ 2658 113a F091 0000 		lds r31,(OSTCBCur)+1
+ 2659 113e 8785      		ldd r24,Z+15
+ 2660 1140 882F      		mov r24,r24
+ 2661 1142 90E0      		ldi r25,lo8(0)
+ 2662 1144 FC01      		movw r30,r24
+ 2663 1146 E050      		subi r30,lo8(-(OSRdyTbl))
+ 2664 1148 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2665 114a 8081      		ld r24,Z
+ 2666 114c 982F      		mov r25,r24
+ 2667 114e E091 0000 		lds r30,OSTCBCur
+ 2668 1152 F091 0000 		lds r31,(OSTCBCur)+1
+ 2669 1156 8089      		ldd r24,Z+16
+ 2670 1158 8095      		com r24
+ 2671 115a 8923      		and r24,r25
+ 2672 115c F901      		movw r30,r18
+ 2673 115e E050      		subi r30,lo8(-(OSRdyTbl))
+ 2674 1160 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2675 1162 8083      		st Z,r24
+ 2676 1164 F901      		movw r30,r18
+ 2677 1166 E050      		subi r30,lo8(-(OSRdyTbl))
+ 2678 1168 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2679 116a 8081      		ld r24,Z
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 48
+
+
+ 2680 116c 8823      		tst r24
+ 2681 116e 01F4      		brne .L168
+ 2682 1170 E091 0000 		lds r30,OSTCBCur
+ 2683 1174 F091 0000 		lds r31,(OSTCBCur)+1
+ 2684 1178 8189      		ldd r24,Z+17
+ 2685 117a 982F      		mov r25,r24
+ 2686 117c 9095      		com r25
+ 2687 117e 8091 0000 		lds r24,OSRdyGrp
+ 2688 1182 8923      		and r24,r25
+ 2689 1184 8093 0000 		sts OSRdyGrp,r24
+ 2690               	.L168:
+ 2691 1188 E091 0000 		lds r30,OSTCBCur
+ 2692 118c F091 0000 		lds r31,(OSTCBCur)+1
+ 2693 1190 8981      		ldd r24,Y+1
+ 2694 1192 9A81      		ldd r25,Y+2
+ 2695 1194 9387      		std Z+11,r25
+ 2696 1196 8287      		std Z+10,r24
+ 2697               	/* #APP */
+ 2698 1198 7894      		sei
+ 2699               	/* #NOAPP */
+ 2700 119a 0E94 0000 		call OS_Sched
+ 2701               	.L170:
+ 2702               	/* epilogue: frame size=2 */
+ 2703 119e 2296      		adiw r28,2
+ 2704 11a0 0FB6      		in __tmp_reg__,__SREG__
+ 2705 11a2 F894      		cli
+ 2706 11a4 DEBF      		out __SP_H__,r29
+ 2707 11a6 0FBE      		out __SREG__,__tmp_reg__
+ 2708 11a8 CDBF      		out __SP_L__,r28
+ 2709 11aa DF91      		pop r29
+ 2710 11ac CF91      		pop r28
+ 2711 11ae 0895      		ret
+ 2712               	/* epilogue end (size=9) */
+ 2713               	/* function OSTimeDly size 88 (69) */
+ 2714               		.size	OSTimeDly, .-OSTimeDly
+ 2715               	.global	OSTimeDlyHMSM
+ 2716               		.type	OSTimeDlyHMSM, @function
+ 2717               	OSTimeDlyHMSM:
+ 2718               	/* prologue: frame size=13 */
+ 2719 11b0 EF92      		push r14
+ 2720 11b2 FF92      		push r15
+ 2721 11b4 0F93      		push r16
+ 2722 11b6 1F93      		push r17
+ 2723 11b8 CF93      		push r28
+ 2724 11ba DF93      		push r29
+ 2725 11bc CDB7      		in r28,__SP_L__
+ 2726 11be DEB7      		in r29,__SP_H__
+ 2727 11c0 2D97      		sbiw r28,13
+ 2728 11c2 0FB6      		in __tmp_reg__,__SREG__
+ 2729 11c4 F894      		cli
+ 2730 11c6 DEBF      		out __SP_H__,r29
+ 2731 11c8 0FBE      		out __SREG__,__tmp_reg__
+ 2732 11ca CDBF      		out __SP_L__,r28
+ 2733               	/* prologue end (size=14) */
+ 2734 11cc 8F83      		std Y+7,r24
+ 2735 11ce 6887      		std Y+8,r22
+ 2736 11d0 4987      		std Y+9,r20
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 49
+
+
+ 2737 11d2 3B87      		std Y+11,r19
+ 2738 11d4 2A87      		std Y+10,r18
+ 2739 11d6 8F81      		ldd r24,Y+7
+ 2740 11d8 8823      		tst r24
+ 2741 11da 01F4      		brne .L172
+ 2742 11dc 8885      		ldd r24,Y+8
+ 2743 11de 8823      		tst r24
+ 2744 11e0 01F4      		brne .L172
+ 2745 11e2 8985      		ldd r24,Y+9
+ 2746 11e4 8823      		tst r24
+ 2747 11e6 01F4      		brne .L172
+ 2748 11e8 8A85      		ldd r24,Y+10
+ 2749 11ea 9B85      		ldd r25,Y+11
+ 2750 11ec 0097      		sbiw r24,0
+ 2751 11ee 01F4      		brne .+2
+ 2752 11f0 00C0      		rjmp .L176
+ 2753               	.L172:
+ 2754 11f2 8885      		ldd r24,Y+8
+ 2755 11f4 8C33      		cpi r24,lo8(60)
+ 2756 11f6 00F0      		brlo .L177
+ 2757 11f8 81E5      		ldi r24,lo8(81)
+ 2758 11fa 90E0      		ldi r25,hi8(81)
+ 2759 11fc 9D87      		std Y+13,r25
+ 2760 11fe 8C87      		std Y+12,r24
+ 2761 1200 00C0      		rjmp .L179
+ 2762               	.L177:
+ 2763 1202 8985      		ldd r24,Y+9
+ 2764 1204 8C33      		cpi r24,lo8(60)
+ 2765 1206 00F0      		brlo .L180
+ 2766 1208 82E5      		ldi r24,lo8(82)
+ 2767 120a 90E0      		ldi r25,hi8(82)
+ 2768 120c 9D87      		std Y+13,r25
+ 2769 120e 8C87      		std Y+12,r24
+ 2770 1210 00C0      		rjmp .L179
+ 2771               	.L180:
+ 2772 1212 8A85      		ldd r24,Y+10
+ 2773 1214 9B85      		ldd r25,Y+11
+ 2774 1216 23E0      		ldi r18,hi8(1000)
+ 2775 1218 883E      		cpi r24,lo8(1000)
+ 2776 121a 9207      		cpc r25,r18
+ 2777 121c 00F0      		brlo .L182
+ 2778 121e 83E5      		ldi r24,lo8(83)
+ 2779 1220 90E0      		ldi r25,hi8(83)
+ 2780 1222 9D87      		std Y+13,r25
+ 2781 1224 8C87      		std Y+12,r24
+ 2782 1226 00C0      		rjmp .L179
+ 2783               	.L182:
+ 2784 1228 8F81      		ldd r24,Y+7
+ 2785 122a 882F      		mov r24,r24
+ 2786 122c 90E0      		ldi r25,lo8(0)
+ 2787 122e A0E0      		ldi r26,lo8(0)
+ 2788 1230 B0E0      		ldi r27,hi8(0)
+ 2789 1232 20E1      		ldi r18,lo8(3600)
+ 2790 1234 3EE0      		ldi r19,hi8(3600)
+ 2791 1236 40E0      		ldi r20,hlo8(3600)
+ 2792 1238 50E0      		ldi r21,hhi8(3600)
+ 2793 123a BC01      		movw r22,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 50
+
+
+ 2794 123c CD01      		movw r24,r26
+ 2795 123e 0E94 0000 		call __mulsi3
+ 2796 1242 7B01      		movw r14,r22
+ 2797 1244 8C01      		movw r16,r24
+ 2798 1246 8885      		ldd r24,Y+8
+ 2799 1248 882F      		mov r24,r24
+ 2800 124a 90E0      		ldi r25,lo8(0)
+ 2801 124c A0E0      		ldi r26,lo8(0)
+ 2802 124e B0E0      		ldi r27,hi8(0)
+ 2803 1250 2CE3      		ldi r18,lo8(60)
+ 2804 1252 30E0      		ldi r19,hi8(60)
+ 2805 1254 40E0      		ldi r20,hlo8(60)
+ 2806 1256 50E0      		ldi r21,hhi8(60)
+ 2807 1258 BC01      		movw r22,r24
+ 2808 125a CD01      		movw r24,r26
+ 2809 125c 0E94 0000 		call __mulsi3
+ 2810 1260 DC01      		movw r26,r24
+ 2811 1262 CB01      		movw r24,r22
+ 2812 1264 A801      		movw r20,r16
+ 2813 1266 9701      		movw r18,r14
+ 2814 1268 280F      		add r18,r24
+ 2815 126a 391F      		adc r19,r25
+ 2816 126c 4A1F      		adc r20,r26
+ 2817 126e 5B1F      		adc r21,r27
+ 2818 1270 8985      		ldd r24,Y+9
+ 2819 1272 882F      		mov r24,r24
+ 2820 1274 90E0      		ldi r25,lo8(0)
+ 2821 1276 A0E0      		ldi r26,lo8(0)
+ 2822 1278 B0E0      		ldi r27,hi8(0)
+ 2823 127a 820F      		add r24,r18
+ 2824 127c 931F      		adc r25,r19
+ 2825 127e A41F      		adc r26,r20
+ 2826 1280 B51F      		adc r27,r21
+ 2827 1282 22E3      		ldi r18,lo8(50)
+ 2828 1284 30E0      		ldi r19,hi8(50)
+ 2829 1286 40E0      		ldi r20,hlo8(50)
+ 2830 1288 50E0      		ldi r21,hhi8(50)
+ 2831 128a BC01      		movw r22,r24
+ 2832 128c CD01      		movw r24,r26
+ 2833 128e 0E94 0000 		call __mulsi3
+ 2834 1292 7B01      		movw r14,r22
+ 2835 1294 8C01      		movw r16,r24
+ 2836 1296 8A85      		ldd r24,Y+10
+ 2837 1298 9B85      		ldd r25,Y+11
+ 2838 129a CC01      		movw r24,r24
+ 2839 129c A0E0      		ldi r26,lo8(0)
+ 2840 129e B0E0      		ldi r27,hi8(0)
+ 2841 12a0 22E3      		ldi r18,lo8(50)
+ 2842 12a2 30E0      		ldi r19,hi8(50)
+ 2843 12a4 40E0      		ldi r20,hlo8(50)
+ 2844 12a6 50E0      		ldi r21,hhi8(50)
+ 2845 12a8 BC01      		movw r22,r24
+ 2846 12aa CD01      		movw r24,r26
+ 2847 12ac 0E94 0000 		call __mulsi3
+ 2848 12b0 DC01      		movw r26,r24
+ 2849 12b2 CB01      		movw r24,r22
+ 2850 12b4 8C50      		subi r24,lo8(-(500))
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 51
+
+
+ 2851 12b6 9E4F      		sbci r25,hi8(-(500))
+ 2852 12b8 AF4F      		sbci r26,hlo8(-(500))
+ 2853 12ba BF4F      		sbci r27,hhi8(-(500))
+ 2854 12bc 28EE      		ldi r18,lo8(1000)
+ 2855 12be 33E0      		ldi r19,hi8(1000)
+ 2856 12c0 40E0      		ldi r20,hlo8(1000)
+ 2857 12c2 50E0      		ldi r21,hhi8(1000)
+ 2858 12c4 BC01      		movw r22,r24
+ 2859 12c6 CD01      		movw r24,r26
+ 2860 12c8 0E94 0000 		call __udivmodsi4
+ 2861 12cc DA01      		movw r26,r20
+ 2862 12ce C901      		movw r24,r18
+ 2863 12d0 8E0D      		add r24,r14
+ 2864 12d2 9F1D      		adc r25,r15
+ 2865 12d4 A01F      		adc r26,r16
+ 2866 12d6 B11F      		adc r27,r17
+ 2867 12d8 8B83      		std Y+3,r24
+ 2868 12da 9C83      		std Y+4,r25
+ 2869 12dc AD83      		std Y+5,r26
+ 2870 12de BE83      		std Y+6,r27
+ 2871 12e0 8B81      		ldd r24,Y+3
+ 2872 12e2 9C81      		ldd r25,Y+4
+ 2873 12e4 AD81      		ldd r26,Y+5
+ 2874 12e6 BE81      		ldd r27,Y+6
+ 2875 12e8 CD01      		movw r24,r26
+ 2876 12ea AA27      		clr r26
+ 2877 12ec BB27      		clr r27
+ 2878 12ee 9A83      		std Y+2,r25
+ 2879 12f0 8983      		std Y+1,r24
+ 2880 12f2 8B81      		ldd r24,Y+3
+ 2881 12f4 9C81      		ldd r25,Y+4
+ 2882 12f6 AD81      		ldd r26,Y+5
+ 2883 12f8 BE81      		ldd r27,Y+6
+ 2884 12fa A070      		andi r26,hlo8(65535)
+ 2885 12fc B070      		andi r27,hhi8(65535)
+ 2886 12fe 8B83      		std Y+3,r24
+ 2887 1300 9C83      		std Y+4,r25
+ 2888 1302 AD83      		std Y+5,r26
+ 2889 1304 BE83      		std Y+6,r27
+ 2890 1306 8B81      		ldd r24,Y+3
+ 2891 1308 9C81      		ldd r25,Y+4
+ 2892 130a 0E94 0000 		call OSTimeDly
+ 2893 130e 00C0      		rjmp .L184
+ 2894               	.L185:
+ 2895 1310 80E0      		ldi r24,lo8(-32768)
+ 2896 1312 90E8      		ldi r25,hi8(-32768)
+ 2897 1314 0E94 0000 		call OSTimeDly
+ 2898 1318 80E0      		ldi r24,lo8(-32768)
+ 2899 131a 90E8      		ldi r25,hi8(-32768)
+ 2900 131c 0E94 0000 		call OSTimeDly
+ 2901 1320 8981      		ldd r24,Y+1
+ 2902 1322 9A81      		ldd r25,Y+2
+ 2903 1324 0197      		sbiw r24,1
+ 2904 1326 9A83      		std Y+2,r25
+ 2905 1328 8983      		std Y+1,r24
+ 2906               	.L184:
+ 2907 132a 8981      		ldd r24,Y+1
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 52
+
+
+ 2908 132c 9A81      		ldd r25,Y+2
+ 2909 132e 0097      		sbiw r24,0
+ 2910 1330 01F4      		brne .L185
+ 2911 1332 1D86      		std Y+13,__zero_reg__
+ 2912 1334 1C86      		std Y+12,__zero_reg__
+ 2913 1336 00C0      		rjmp .L179
+ 2914               	.L176:
+ 2915 1338 84E5      		ldi r24,lo8(84)
+ 2916 133a 90E0      		ldi r25,hi8(84)
+ 2917 133c 9D87      		std Y+13,r25
+ 2918 133e 8C87      		std Y+12,r24
+ 2919               	.L179:
+ 2920 1340 8C85      		ldd r24,Y+12
+ 2921 1342 9D85      		ldd r25,Y+13
+ 2922               	/* epilogue: frame size=13 */
+ 2923 1344 2D96      		adiw r28,13
+ 2924 1346 0FB6      		in __tmp_reg__,__SREG__
+ 2925 1348 F894      		cli
+ 2926 134a DEBF      		out __SP_H__,r29
+ 2927 134c 0FBE      		out __SREG__,__tmp_reg__
+ 2928 134e CDBF      		out __SP_L__,r28
+ 2929 1350 DF91      		pop r29
+ 2930 1352 CF91      		pop r28
+ 2931 1354 1F91      		pop r17
+ 2932 1356 0F91      		pop r16
+ 2933 1358 FF90      		pop r15
+ 2934 135a EF90      		pop r14
+ 2935 135c 0895      		ret
+ 2936               	/* epilogue end (size=13) */
+ 2937               	/* function OSTimeDlyHMSM size 215 (188) */
+ 2938               		.size	OSTimeDlyHMSM, .-OSTimeDlyHMSM
+ 2939               		.comm OSCtxSwCtr,4,1
+ 2940               		.comm OSEventFreeList,2,1
+ 2941               		.comm OSEventTbl,56,1
+ 2942               		.comm OSIntNesting,1,1
+ 2943               		.comm OSIntExitY,1,1
+ 2944               		.comm OSLockNesting,1,1
+ 2945               		.comm OSPrioCur,1,1
+ 2946               		.comm OSPrioHighRdy,1,1
+ 2947               		.comm OSRdyGrp,1,1
+ 2948               		.comm OSRdyTbl,2,1
+ 2949               		.comm OSRunning,1,1
+ 2950               		.comm OSTaskCtr,1,1
+ 2951               		.comm OSIdleCtr,4,1
+ 2952               		.comm OSTaskIdleStk,128,1
+ 2953               		.comm OSTCBCur,2,1
+ 2954               		.comm OSTCBFreeList,2,1
+ 2955               		.comm OSTCBHighRdy,2,1
+ 2956               		.comm OSTCBList,2,1
+ 2957               		.comm OSTCBPrioTbl,26,1
+ 2958               		.comm OSTCBTbl,216,1
+ 2959               	/* File "c:/Micrium/Micrium/SOFTWARE/uCOS-II/Source/ucos_ii.c": code 2532 = 0x09e4 (2046), prologue
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 53
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ucos_ii.c
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:5      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:6      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:13     .data:00000000 OSMapTbl
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:25     .data:00000008 OSUnMapTbl
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:285    .text:00000000 OSInit
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1271   .text:00000748 OS_InitMisc
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1298   .text:00000786 OS_InitRdyList
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1384   .text:0000081e OS_InitTCBList
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1191   .text:000006b8 OS_InitEventList
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1359   .text:000007fa OS_InitTaskIdle
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:308    .text:0000002a OSIntEnter
+                            *COM*:00000001 OSRunning
+                            *COM*:00000001 OSIntNesting
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:334    .text:00000052 OSIntExit
+                            *COM*:00000001 OSLockNesting
+                            *COM*:00000001 OSRdyGrp
+                            *COM*:00000001 OSIntExitY
+                            *COM*:00000002 OSRdyTbl
+                            *COM*:00000001 OSPrioHighRdy
+                            *COM*:00000001 OSPrioCur
+                            *COM*:0000001a OSTCBPrioTbl
+                            *COM*:00000002 OSTCBHighRdy
+                            *COM*:00000004 OSCtxSwCtr
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:433    .text:0000012a OSSchedLock
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:466    .text:00000156 OSSchedUnlock
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1476   .text:000008c4 OS_Sched
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:515    .text:0000019e OSStart
+                            *COM*:00000002 OSTCBCur
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:596    .text:00000246 OSTimeTick
+                            *COM*:00000002 OSTCBList
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:722    .text:0000032a OSVersion
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:740    .text:0000033c OS_EventTaskRdy
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:934    .text:000004ae OS_EventTaskWait
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1048   .text:000005a6 OS_EventTO
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1138   .text:0000065e OS_EventWaitListInit
+                            *COM*:00000038 OSEventTbl
+                            *COM*:00000002 OSEventFreeList
+                            *COM*:00000001 OSTaskCtr
+                            *COM*:00000004 OSIdleCtr
+                            *COM*:00000080 OSTaskIdleStk
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1575   .text:00000992 OS_TaskIdle
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:2465   .text:00000fe6 OSTaskCreate
+                            *COM*:000000d8 OSTCBTbl
+                            *COM*:00000002 OSTCBFreeList
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1617   .text:000009da OS_TCBInit
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1849   .text:00000b9e OSMboxCreate
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:1936   .text:00000c3e OSMboxPend
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:2082   .text:00000d54 OSMboxPost
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:2167   .text:00000dda OSSemCreate
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:2254   .text:00000e7a OSSemPend
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:2379   .text:00000f5e OSSemPost
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:2629   .text:00001104 OSTimeDly
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s 			page 54
+
+
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJX5GsG.s:2717   .text:000011b0 OSTimeDlyHMSM
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+OSInitHookBegin
+OSInitHookEnd
+OSIntCtxSw
+OSStartHighRdy
+OSTimeTickHook
+OSCtxSw
+OSTaskIdleHook
+OSTCBInitHook
+OSTaskCreateHook
+OSTaskStkInit
+__mulsi3
+__udivmodsi4

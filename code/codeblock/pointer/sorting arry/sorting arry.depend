@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1732168870 source:d:\codeblock\pointer\sorting arry\main.c
+	<stdio.h>
+	<stdlib.h>
+

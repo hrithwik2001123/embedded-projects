@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1727415002 source:d:\codeblock\class storage\extern exm\sub1.c
+
+1727415030 source:d:\codeblock\class storage\extern exm\main.c
+	<stdio.h>
+	<stdlib.h>
+

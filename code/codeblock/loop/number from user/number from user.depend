@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1722445754 source:d:\codeblock\loop\number from user\main.c
+	<stdio.h>
+	<stdlib.h>
+

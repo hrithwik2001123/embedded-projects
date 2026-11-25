@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1722402160 source:d:\codeblock\loop\revse\main.c
+	<stdio.h>
+	<stdlib.h>
+

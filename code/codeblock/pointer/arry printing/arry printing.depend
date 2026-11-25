@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1726893258 source:d:\codeblock\pointer\arry printing\main.c
+	<stdio.h>
+	<stdlib.h>
+

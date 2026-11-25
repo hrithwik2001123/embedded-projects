@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>2806402241</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\os_mbox.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\app.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\app.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\app_vect.r90</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$PROJ_DIR$\Debug\List\os_sem.lst</file>
+      <file>$PROJ_DIR$\Debug\List\os_mem.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\app_isr.r90</file>
+      <file>$PROJ_DIR$\Debug\List\bsp.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_cpu_a.r90</file>
+      <file>$PROJ_DIR$\Debug\List\os_task.lst</file>
+      <file>$PROJ_DIR$\Debug\List\os_flag.lst</file>
+      <file>$TOOLKIT_DIR$\inc\iom128.h</file>
+      <file>$PROJ_DIR$\Debug\List\os_mutex.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_mutex.r90</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_cfg_r.h</file>
+      <file>$PROJ_DIR$\..\BSP\bsp.h</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_dbg_r.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_tmr.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_time.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_task.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_sem.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_q.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_mutex.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_mem.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_mbox.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_flag.c</file>
+      <file>$PROJ_DIR$\..\BSP\bsp.c</file>
+      <file>$PROJ_DIR$\os_cfg.h</file>
+      <file>$PROJ_DIR$\Debug\List\os_mbox.s90</file>
+      <file>$PROJ_DIR$\Debug\Exe\Ex1-OS.d90</file>
+      <file>$PROJ_DIR$\Debug\List\os_tmr.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_time.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_tmr.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\os_time.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_dbg.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\os_q.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_mem.r90</file>
+      <file>$PROJ_DIR$\Debug\List\os_dbg_r.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_cpu_c.r90</file>
+      <file>$PROJ_DIR$\Debug\List\os_dbg_r.s90</file>
+      <file>$PROJ_DIR$\app_cfg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_q.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_mutex.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\os_sem.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_dbg.r90</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_task.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_mbox.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\Ex1-OS.dbg</file>
+      <file>$PROJ_DIR$\Debug\Obj\bsp.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_sem.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\os_core.lst</file>
+      <file>$PROJ_DIR$\Debug\List\os_dbg.lst</file>
+      <file>$PROJ_DIR$\Debug\List\os_mbox.lst</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Ports\AVR\Atmega128\IAR\os_dbg.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Ports\AVR\Atmega128\IAR\os_cpu_c.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_task.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Ports\AVR\Atmega128\IAR\os_cpu_a.s90</file>
+      <file>$PROJ_DIR$\Debug\List\os_cpu_c.s90</file>
+      <file>$PROJ_DIR$\Debug\List\os_mutex.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_tmr.r90</file>
+      <file>$PROJ_DIR$\Debug\List\Ex1-OS.map</file>
+      <file>$TOOLKIT_DIR$\inc\ina90.h</file>
+      <file>$PROJ_DIR$\Debug\List\os_dbg.s90</file>
+      <file>$PROJ_DIR$\includes.h</file>
+      <file>$PROJ_DIR$\app_vect.s90</file>
+      <file>$PROJ_DIR$\app_isr.s90</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_core.c</file>
+      <file>$PROJ_DIR$\app.c</file>
+      <file>$TOOLKIT_DIR$\inc\comp_a90.h</file>
+      <file>$PROJ_DIR$\Debug\List\bsp.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_sem.r90</file>
+      <file>$TOOLKIT_DIR$\inc\inavr.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_core.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_cpu_c.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\os_mem.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_flag.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\os_core.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_mem.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Ports\AVR\atmega128\IAR\os_cpu_i.s90</file>
+      <file>$PROJ_DIR$\Debug\List\os_q.lst</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\ucos_ii.h</file>
+      <file>$PROJ_DIR$\Debug\List\os_cpu_c.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\app.r90</file>
+      <file>$PROJ_DIR$\Debug\List\os_task.s90</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl3s-ec_mul.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_time.r90</file>
+      <file>$PROJ_DIR$\Debug\List\app.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_dbg_r.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_core.r90</file>
+      <file>$TOOLKIT_DIR$\config\lnkm128s.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\bsp.pbi</file>
+      <file>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Ports\AVR\atmega128\IAR\os_cpu.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_flag.r90</file>
+      <file>$PROJ_DIR$\Debug\List\os_time.lst</file>
+      <file>$PROJ_DIR$\Debug\List\os_tmr.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_q.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\Ex1-OS.pbd</file>
+      <file>$PROJ_DIR$\Debug\List\os_flag.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\os_dbg_r.pbi</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_dbg_r.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 89 40 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 100</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 30 62</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_tmr.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 61 96 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_time.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 87 34 95</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_task.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 47 85 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 57</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_sem.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 72 44 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_q.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 97 36 81</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 42</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_mutex.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 14 60 13</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_mem.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 37 6 76</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_mbox.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 0 29 54</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_flag.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 94 99 11</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 77</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\BSP\bsp.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 50 8 71</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 92</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 65 12 4 63 73 46 70 41 82 28 93 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65 12 4 63 73 46 70 41 82 28 93 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\Ex1-OS.d90</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 62</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 91 84 7 3 50 90 9 39 45 94 0 37 14 97 72 47 87 61 86</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\Ex1-OS.dbg</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 91 84 7 3 50 90 9 39 45 94 0 37 14 97 72 47 87 61 86</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Ports\AVR\Atmega128\IAR\os_dbg.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 45 64 53</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 65 12 4 63 73 46 70 41 82 28 93 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65 12 4 63 73 46 70 41 82 28 93 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Ports\AVR\Atmega128\IAR\os_cpu_c.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 39 59 83</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Ports\AVR\Atmega128\IAR\os_cpu_a.s90</name>
+      <outputs>
+        <tool>
+          <name>AAVR</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>AAVR</name>
+          <file> 80</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app_vect.s90</name>
+      <outputs>
+        <tool>
+          <name>AAVR</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app_isr.s90</name>
+      <outputs>
+        <tool>
+          <name>AAVR</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>AAVR</name>
+          <file> 80</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\..\uCOS-II\Source\os_core.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 90 78 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 82 41 28 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 41 28 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 84 88 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 65 12 4 63 73 46 70 41 82 28 93 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65 12 4 63 73 46 70 41 82 28 93 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\Ex1-OS.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 1 92 74 75 35 77 48 79 43 42 51 57 32 33</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

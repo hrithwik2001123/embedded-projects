@@ -1,0 +1,2132 @@
+GAS LISTING /tmp/ccxHRPbR.s 			page 1
+
+
+   1               		.file	"ucos_ii.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	OSIntEnter
+  12               		.type	OSIntEnter, @function
+  13               	OSIntEnter:
+  14               	/* prologue: function */
+  15               	/* frame size = 0 */
+  16 0000 8091 0000 		lds r24,OSRunning
+  17 0004 8130      		cpi r24,lo8(1)
+  18 0006 01F4      		brne .L3
+  19 0008 8091 0000 		lds r24,OSIntNesting
+  20 000c 8F3F      		cpi r24,lo8(-1)
+  21 000e 01F0      		breq .L3
+  22 0010 8F5F      		subi r24,lo8(-(1))
+  23 0012 8093 0000 		sts OSIntNesting,r24
+  24               	.L3:
+  25 0016 0895      		ret
+  26               		.size	OSIntEnter, .-OSIntEnter
+  27               	.global	OSSchedLock
+  28               		.type	OSSchedLock, @function
+  29               	OSSchedLock:
+  30               	/* prologue: function */
+  31               	/* frame size = 0 */
+  32 0018 8091 0000 		lds r24,OSRunning
+  33 001c 8130      		cpi r24,lo8(1)
+  34 001e 01F4      		brne .L7
+  35               	/* #APP */
+  36               	 ;  222 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+  37 0020 F894      		cli
+  38               	 ;  0 "" 2
+  39               	/* #NOAPP */
+  40 0022 8091 0000 		lds r24,OSLockNesting
+  41 0026 8F3F      		cpi r24,lo8(-1)
+  42 0028 01F0      		breq .L6
+  43 002a 8F5F      		subi r24,lo8(-(1))
+  44 002c 8093 0000 		sts OSLockNesting,r24
+  45               	.L6:
+  46               	/* #APP */
+  47               	 ;  226 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+  48 0030 7894      		sei
+  49               	 ;  0 "" 2
+  50               	/* #NOAPP */
+  51               	.L7:
+  52 0032 0895      		ret
+  53               		.size	OSSchedLock, .-OSSchedLock
+  54               	.global	OSVersion
+  55               		.type	OSVersion, @function
+  56               	OSVersion:
+  57               	/* prologue: function */
+GAS LISTING /tmp/ccxHRPbR.s 			page 2
+
+
+  58               	/* frame size = 0 */
+  59 0034 8CEF      		ldi r24,lo8(252)
+  60 0036 90E0      		ldi r25,hi8(252)
+  61               	/* epilogue start */
+  62 0038 0895      		ret
+  63               		.size	OSVersion, .-OSVersion
+  64               	.global	OS_Dummy
+  65               		.type	OS_Dummy, @function
+  66               	OS_Dummy:
+  67               	/* prologue: function */
+  68               	/* frame size = 0 */
+  69               	/* epilogue start */
+  70 003a 0895      		ret
+  71               		.size	OS_Dummy, .-OS_Dummy
+  72               	.global	OS_EventTaskRdy
+  73               		.type	OS_EventTaskRdy, @function
+  74               	OS_EventTaskRdy:
+  75 003c 1F93      		push r17
+  76 003e CF93      		push r28
+  77 0040 DF93      		push r29
+  78               	/* prologue: function */
+  79               	/* frame size = 0 */
+  80 0042 EC01      		movw r28,r24
+  81 0044 142F      		mov r17,r20
+  82 0046 3981      		ldd r19,Y+1
+  83 0048 E32F      		mov r30,r19
+  84 004a F0E0      		ldi r31,lo8(0)
+  85 004c E050      		subi r30,lo8(-(OSUnMapTbl))
+  86 004e F040      		sbci r31,hi8(-(OSUnMapTbl))
+  87 0050 2081      		ld r18,Z
+  88 0052 622F      		mov r22,r18
+  89 0054 70E0      		ldi r23,lo8(0)
+  90 0056 FB01      		movw r30,r22
+  91 0058 E050      		subi r30,lo8(-(OSMapTbl))
+  92 005a F040      		sbci r31,hi8(-(OSMapTbl))
+  93 005c 4081      		ld r20,Z
+  94 005e DC01      		movw r26,r24
+  95 0060 A60F      		add r26,r22
+  96 0062 B71F      		adc r27,r23
+  97 0064 1696      		adiw r26,6
+  98 0066 9C91      		ld r25,X
+  99 0068 1697      		sbiw r26,6
+ 100 006a E92F      		mov r30,r25
+ 101 006c F0E0      		ldi r31,lo8(0)
+ 102 006e E050      		subi r30,lo8(-(OSUnMapTbl))
+ 103 0070 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 104 0072 8081      		ld r24,Z
+ 105 0074 E82F      		mov r30,r24
+ 106 0076 F0E0      		ldi r31,lo8(0)
+ 107 0078 E050      		subi r30,lo8(-(OSMapTbl))
+ 108 007a F040      		sbci r31,hi8(-(OSMapTbl))
+ 109 007c 5081      		ld r21,Z
+ 110 007e 220F      		lsl r18
+ 111 0080 220F      		lsl r18
+ 112 0082 220F      		lsl r18
+ 113 0084 280F      		add r18,r24
+ 114 0086 852F      		mov r24,r21
+GAS LISTING /tmp/ccxHRPbR.s 			page 3
+
+
+ 115 0088 8095      		com r24
+ 116 008a 8923      		and r24,r25
+ 117 008c 1696      		adiw r26,6
+ 118 008e 8C93      		st X,r24
+ 119 0090 8823      		tst r24
+ 120 0092 01F4      		brne .L13
+ 121 0094 842F      		mov r24,r20
+ 122 0096 8095      		com r24
+ 123 0098 3823      		and r19,r24
+ 124 009a 3983      		std Y+1,r19
+ 125               	.L13:
+ 126 009c E22F      		mov r30,r18
+ 127 009e F0E0      		ldi r31,lo8(0)
+ 128 00a0 EE0F      		lsl r30
+ 129 00a2 FF1F      		rol r31
+ 130 00a4 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 131 00a6 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 132 00a8 0190      		ld __tmp_reg__,Z+
+ 133 00aa F081      		ld r31,Z
+ 134 00ac E02D      		mov r30,__tmp_reg__
+ 135 00ae 1186      		std Z+9,__zero_reg__
+ 136 00b0 1086      		std Z+8,__zero_reg__
+ 137 00b2 1782      		std Z+7,__zero_reg__
+ 138 00b4 1682      		std Z+6,__zero_reg__
+ 139 00b6 812F      		mov r24,r17
+ 140 00b8 8095      		com r24
+ 141 00ba 9285      		ldd r25,Z+10
+ 142 00bc 8923      		and r24,r25
+ 143 00be 8287      		std Z+10,r24
+ 144 00c0 8823      		tst r24
+ 145 00c2 01F4      		brne .L14
+ 146 00c4 8091 0000 		lds r24,OSRdyGrp
+ 147 00c8 842B      		or r24,r20
+ 148 00ca 8093 0000 		sts OSRdyGrp,r24
+ 149 00ce FB01      		movw r30,r22
+ 150 00d0 E050      		subi r30,lo8(-(OSRdyTbl))
+ 151 00d2 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 152 00d4 8081      		ld r24,Z
+ 153 00d6 582B      		or r21,r24
+ 154 00d8 5083      		st Z,r21
+ 155               	.L14:
+ 156 00da 822F      		mov r24,r18
+ 157               	/* epilogue start */
+ 158 00dc DF91      		pop r29
+ 159 00de CF91      		pop r28
+ 160 00e0 1F91      		pop r17
+ 161 00e2 0895      		ret
+ 162               		.size	OS_EventTaskRdy, .-OS_EventTaskRdy
+ 163               	.global	OS_EventTaskWait
+ 164               		.type	OS_EventTaskWait, @function
+ 165               	OS_EventTaskWait:
+ 166 00e4 CF93      		push r28
+ 167 00e6 DF93      		push r29
+ 168               	/* prologue: function */
+ 169               	/* frame size = 0 */
+ 170 00e8 EC01      		movw r28,r24
+ 171 00ea A091 0000 		lds r26,OSTCBCur
+GAS LISTING /tmp/ccxHRPbR.s 			page 4
+
+
+ 172 00ee B091 0000 		lds r27,(OSTCBCur)+1
+ 173 00f2 1796      		adiw r26,6+1
+ 174 00f4 9C93      		st X,r25
+ 175 00f6 8E93      		st -X,r24
+ 176 00f8 1697      		sbiw r26,6
+ 177 00fa 1D96      		adiw r26,13
+ 178 00fc 8C91      		ld r24,X
+ 179 00fe 1D97      		sbiw r26,13
+ 180 0100 282F      		mov r18,r24
+ 181 0102 30E0      		ldi r19,lo8(0)
+ 182 0104 1E96      		adiw r26,14
+ 183 0106 4C91      		ld r20,X
+ 184 0108 1E97      		sbiw r26,14
+ 185 010a F901      		movw r30,r18
+ 186 010c E050      		subi r30,lo8(-(OSRdyTbl))
+ 187 010e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 188 0110 842F      		mov r24,r20
+ 189 0112 8095      		com r24
+ 190 0114 9081      		ld r25,Z
+ 191 0116 8923      		and r24,r25
+ 192 0118 8083      		st Z,r24
+ 193 011a 8823      		tst r24
+ 194 011c 01F4      		brne .L17
+ 195 011e 1F96      		adiw r26,15
+ 196 0120 9C91      		ld r25,X
+ 197 0122 1F97      		sbiw r26,15
+ 198 0124 9095      		com r25
+ 199 0126 8091 0000 		lds r24,OSRdyGrp
+ 200 012a 8923      		and r24,r25
+ 201 012c 8093 0000 		sts OSRdyGrp,r24
+ 202               	.L17:
+ 203 0130 FE01      		movw r30,r28
+ 204 0132 E20F      		add r30,r18
+ 205 0134 F31F      		adc r31,r19
+ 206 0136 8681      		ldd r24,Z+6
+ 207 0138 842B      		or r24,r20
+ 208 013a 8683      		std Z+6,r24
+ 209 013c 8981      		ldd r24,Y+1
+ 210 013e 1F96      		adiw r26,15
+ 211 0140 9C91      		ld r25,X
+ 212 0142 892B      		or r24,r25
+ 213 0144 8983      		std Y+1,r24
+ 214               	/* epilogue start */
+ 215 0146 DF91      		pop r29
+ 216 0148 CF91      		pop r28
+ 217 014a 0895      		ret
+ 218               		.size	OS_EventTaskWait, .-OS_EventTaskWait
+ 219               	.global	OS_EventTO
+ 220               		.type	OS_EventTO, @function
+ 221               	OS_EventTO:
+ 222 014c CF93      		push r28
+ 223 014e DF93      		push r29
+ 224               	/* prologue: function */
+ 225               	/* frame size = 0 */
+ 226 0150 EC01      		movw r28,r24
+ 227 0152 A091 0000 		lds r26,OSTCBCur
+ 228 0156 B091 0000 		lds r27,(OSTCBCur)+1
+GAS LISTING /tmp/ccxHRPbR.s 			page 5
+
+
+ 229 015a 1D96      		adiw r26,13
+ 230 015c 8C91      		ld r24,X
+ 231 015e 1D97      		sbiw r26,13
+ 232 0160 FE01      		movw r30,r28
+ 233 0162 E80F      		add r30,r24
+ 234 0164 F11D      		adc r31,__zero_reg__
+ 235 0166 1E96      		adiw r26,14
+ 236 0168 8C91      		ld r24,X
+ 237 016a 1E97      		sbiw r26,14
+ 238 016c 8095      		com r24
+ 239 016e 9681      		ldd r25,Z+6
+ 240 0170 8923      		and r24,r25
+ 241 0172 8683      		std Z+6,r24
+ 242 0174 8823      		tst r24
+ 243 0176 01F4      		brne .L20
+ 244 0178 1F96      		adiw r26,15
+ 245 017a 9C91      		ld r25,X
+ 246 017c 1F97      		sbiw r26,15
+ 247 017e 9095      		com r25
+ 248 0180 8981      		ldd r24,Y+1
+ 249 0182 8923      		and r24,r25
+ 250 0184 8983      		std Y+1,r24
+ 251               	.L20:
+ 252 0186 1A96      		adiw r26,10
+ 253 0188 1C92      		st X,__zero_reg__
+ 254 018a 1A97      		sbiw r26,10
+ 255 018c 1796      		adiw r26,6+1
+ 256 018e 1C92      		st X,__zero_reg__
+ 257 0190 1E92      		st -X,__zero_reg__
+ 258 0192 1697      		sbiw r26,6
+ 259               	/* epilogue start */
+ 260 0194 DF91      		pop r29
+ 261 0196 CF91      		pop r28
+ 262 0198 0895      		ret
+ 263               		.size	OS_EventTO, .-OS_EventTO
+ 264               	.global	OS_EventWaitListInit
+ 265               		.type	OS_EventWaitListInit, @function
+ 266               	OS_EventWaitListInit:
+ 267               	/* prologue: function */
+ 268               	/* frame size = 0 */
+ 269 019a FC01      		movw r30,r24
+ 270 019c 1182      		std Z+1,__zero_reg__
+ 271 019e 1682      		std Z+6,__zero_reg__
+ 272 01a0 1782      		std Z+7,__zero_reg__
+ 273               	/* epilogue start */
+ 274 01a2 0895      		ret
+ 275               		.size	OS_EventWaitListInit, .-OS_EventWaitListInit
+ 276               	.global	OSSemCreate
+ 277               		.type	OSSemCreate, @function
+ 278               	OSSemCreate:
+ 279               	/* prologue: function */
+ 280               	/* frame size = 0 */
+ 281 01a4 9C01      		movw r18,r24
+ 282 01a6 8091 0000 		lds r24,OSIntNesting
+ 283 01aa 8823      		tst r24
+ 284 01ac 01F0      		breq .L25
+ 285 01ae E0E0      		ldi r30,lo8(0)
+GAS LISTING /tmp/ccxHRPbR.s 			page 6
+
+
+ 286 01b0 F0E0      		ldi r31,hi8(0)
+ 287 01b2 00C0      		rjmp .L26
+ 288               	.L25:
+ 289               	/* #APP */
+ 290               	 ;  94 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 291 01b4 F894      		cli
+ 292               	 ;  0 "" 2
+ 293               	/* #NOAPP */
+ 294 01b6 E091 0000 		lds r30,OSEventFreeList
+ 295 01ba F091 0000 		lds r31,(OSEventFreeList)+1
+ 296 01be 3097      		sbiw r30,0
+ 297 01c0 01F0      		breq .L27
+ 298 01c2 8481      		ldd r24,Z+4
+ 299 01c4 9581      		ldd r25,Z+5
+ 300 01c6 9093 0000 		sts (OSEventFreeList)+1,r25
+ 301 01ca 8093 0000 		sts OSEventFreeList,r24
+ 302               	.L27:
+ 303               	/* #APP */
+ 304               	 ;  99 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 305 01ce 7894      		sei
+ 306               	 ;  0 "" 2
+ 307               	/* #NOAPP */
+ 308 01d0 3097      		sbiw r30,0
+ 309 01d2 01F0      		breq .L26
+ 310 01d4 83E0      		ldi r24,lo8(3)
+ 311 01d6 8083      		st Z,r24
+ 312 01d8 3383      		std Z+3,r19
+ 313 01da 2283      		std Z+2,r18
+ 314 01dc 1582      		std Z+5,__zero_reg__
+ 315 01de 1482      		std Z+4,__zero_reg__
+ 316 01e0 1182      		std Z+1,__zero_reg__
+ 317 01e2 1682      		std Z+6,__zero_reg__
+ 318 01e4 1782      		std Z+7,__zero_reg__
+ 319               	.L26:
+ 320 01e6 CF01      		movw r24,r30
+ 321               	/* epilogue start */
+ 322 01e8 0895      		ret
+ 323               		.size	OSSemCreate, .-OSSemCreate
+ 324               	.global	OSTaskDelReq
+ 325               		.type	OSTaskDelReq, @function
+ 326               	OSTaskDelReq:
+ 327               	/* prologue: function */
+ 328               	/* frame size = 0 */
+ 329 01ea 8F3F      		cpi r24,lo8(-1)
+ 330 01ec 01F4      		brne .L30
+ 331               	/* #APP */
+ 332               	 ;  505 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 333 01ee F894      		cli
+ 334               	 ;  0 "" 2
+ 335               	/* #NOAPP */
+ 336 01f0 E091 0000 		lds r30,OSTCBCur
+ 337 01f4 F091 0000 		lds r31,(OSTCBCur)+1
+ 338 01f8 8089      		ldd r24,Z+16
+ 339               	/* #APP */
+ 340               	 ;  507 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 341 01fa 7894      		sei
+ 342               	 ;  0 "" 2
+GAS LISTING /tmp/ccxHRPbR.s 			page 7
+
+
+ 343               	/* #NOAPP */
+ 344 01fc 0895      		ret
+ 345               	.L30:
+ 346               	/* #APP */
+ 347               	 ;  510 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 348 01fe F894      		cli
+ 349               	 ;  0 "" 2
+ 350               	/* #NOAPP */
+ 351 0200 E82F      		mov r30,r24
+ 352 0202 F0E0      		ldi r31,lo8(0)
+ 353 0204 EE0F      		lsl r30
+ 354 0206 FF1F      		rol r31
+ 355 0208 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 356 020a F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 357 020c 0190      		ld __tmp_reg__,Z+
+ 358 020e F081      		ld r31,Z
+ 359 0210 E02D      		mov r30,__tmp_reg__
+ 360 0212 3097      		sbiw r30,0
+ 361 0214 01F4      		brne .L32
+ 362 0216 8BE0      		ldi r24,lo8(11)
+ 363 0218 00C0      		rjmp .L33
+ 364               	.L32:
+ 365 021a 8EE3      		ldi r24,lo8(62)
+ 366 021c 808B      		std Z+16,r24
+ 367 021e 80E0      		ldi r24,lo8(0)
+ 368               	.L33:
+ 369               	/* #APP */
+ 370               	 ;  518 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 371 0220 7894      		sei
+ 372               	 ;  0 "" 2
+ 373               	/* #NOAPP */
+ 374 0222 0895      		ret
+ 375               		.size	OSTaskDelReq, .-OSTaskDelReq
+ 376               	.global	OS_TCBInit
+ 377               		.type	OS_TCBInit, @function
+ 378               	OS_TCBInit:
+ 379 0224 1F93      		push r17
+ 380 0226 CF93      		push r28
+ 381 0228 DF93      		push r29
+ 382               	/* prologue: function */
+ 383               	/* frame size = 0 */
+ 384 022a 182F      		mov r17,r24
+ 385               	/* #APP */
+ 386               	 ;  1043 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 387 022c F894      		cli
+ 388               	 ;  0 "" 2
+ 389               	/* #NOAPP */
+ 390 022e C091 0000 		lds r28,OSTCBFreeList
+ 391 0232 D091 0000 		lds r29,(OSTCBFreeList)+1
+ 392 0236 2097      		sbiw r28,0
+ 393 0238 01F4      		brne .+2
+ 394 023a 00C0      		rjmp .L36
+ 395 023c 8A81      		ldd r24,Y+2
+ 396 023e 9B81      		ldd r25,Y+3
+ 397 0240 9093 0000 		sts (OSTCBFreeList)+1,r25
+ 398 0244 8093 0000 		sts OSTCBFreeList,r24
+ 399               	/* #APP */
+GAS LISTING /tmp/ccxHRPbR.s 			page 8
+
+
+ 400               	 ;  1047 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 401 0248 7894      		sei
+ 402               	 ;  0 "" 2
+ 403               	/* #NOAPP */
+ 404 024a 7983      		std Y+1,r23
+ 405 024c 6883      		st Y,r22
+ 406 024e 1B87      		std Y+11,r17
+ 407 0250 1A86      		std Y+10,__zero_reg__
+ 408 0252 1986      		std Y+9,__zero_reg__
+ 409 0254 1886      		std Y+8,__zero_reg__
+ 410 0256 188A      		std Y+16,__zero_reg__
+ 411 0258 E12F      		mov r30,r17
+ 412 025a E695      		lsr r30
+ 413 025c E695      		lsr r30
+ 414 025e E695      		lsr r30
+ 415 0260 ED87      		std Y+13,r30
+ 416 0262 F0E0      		ldi r31,lo8(0)
+ 417 0264 E050      		subi r30,lo8(-(OSMapTbl))
+ 418 0266 F040      		sbci r31,hi8(-(OSMapTbl))
+ 419 0268 8081      		ld r24,Z
+ 420 026a 8F87      		std Y+15,r24
+ 421 026c E12F      		mov r30,r17
+ 422 026e E770      		andi r30,lo8(7)
+ 423 0270 EC87      		std Y+12,r30
+ 424 0272 F0E0      		ldi r31,lo8(0)
+ 425 0274 E050      		subi r30,lo8(-(OSMapTbl))
+ 426 0276 F040      		sbci r31,hi8(-(OSMapTbl))
+ 427 0278 8081      		ld r24,Z
+ 428 027a 8E87      		std Y+14,r24
+ 429 027c 1F82      		std Y+7,__zero_reg__
+ 430 027e 1E82      		std Y+6,__zero_reg__
+ 431 0280 CE01      		movw r24,r28
+ 432 0282 0E94 0000 		call OSTCBInitHook
+ 433 0286 CE01      		movw r24,r28
+ 434 0288 0E94 0000 		call OSTaskCreateHook
+ 435               	/* #APP */
+ 436               	 ;  1094 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 437 028c F894      		cli
+ 438               	 ;  0 "" 2
+ 439               	/* #NOAPP */
+ 440 028e E12F      		mov r30,r17
+ 441 0290 F0E0      		ldi r31,lo8(0)
+ 442 0292 EE0F      		lsl r30
+ 443 0294 FF1F      		rol r31
+ 444 0296 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 445 0298 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 446 029a D183      		std Z+1,r29
+ 447 029c C083      		st Z,r28
+ 448 029e E091 0000 		lds r30,OSTCBList
+ 449 02a2 F091 0000 		lds r31,(OSTCBList)+1
+ 450 02a6 FB83      		std Y+3,r31
+ 451 02a8 EA83      		std Y+2,r30
+ 452 02aa 1D82      		std Y+5,__zero_reg__
+ 453 02ac 1C82      		std Y+4,__zero_reg__
+ 454 02ae 3097      		sbiw r30,0
+ 455 02b0 01F0      		breq .L37
+ 456 02b2 D583      		std Z+5,r29
+GAS LISTING /tmp/ccxHRPbR.s 			page 9
+
+
+ 457 02b4 C483      		std Z+4,r28
+ 458               	.L37:
+ 459 02b6 D093 0000 		sts (OSTCBList)+1,r29
+ 460 02ba C093 0000 		sts OSTCBList,r28
+ 461 02be 8091 0000 		lds r24,OSRdyGrp
+ 462 02c2 9F85      		ldd r25,Y+15
+ 463 02c4 892B      		or r24,r25
+ 464 02c6 8093 0000 		sts OSRdyGrp,r24
+ 465 02ca ED85      		ldd r30,Y+13
+ 466 02cc F0E0      		ldi r31,lo8(0)
+ 467 02ce E050      		subi r30,lo8(-(OSRdyTbl))
+ 468 02d0 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 469 02d2 8081      		ld r24,Z
+ 470 02d4 9E85      		ldd r25,Y+14
+ 471 02d6 892B      		or r24,r25
+ 472 02d8 8083      		st Z,r24
+ 473               	/* #APP */
+ 474               	 ;  1104 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 475 02da 7894      		sei
+ 476               	 ;  0 "" 2
+ 477               	/* #NOAPP */
+ 478 02dc 80E0      		ldi r24,lo8(0)
+ 479 02de 00C0      		rjmp .L38
+ 480               	.L36:
+ 481               	/* #APP */
+ 482               	 ;  1107 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 483 02e0 7894      		sei
+ 484               	 ;  0 "" 2
+ 485               	/* #NOAPP */
+ 486 02e2 86E4      		ldi r24,lo8(70)
+ 487               	.L38:
+ 488               	/* epilogue start */
+ 489 02e4 DF91      		pop r29
+ 490 02e6 CF91      		pop r28
+ 491 02e8 1F91      		pop r17
+ 492 02ea 0895      		ret
+ 493               		.size	OS_TCBInit, .-OS_TCBInit
+ 494               	.global	OS_TaskIdle
+ 495               		.type	OS_TaskIdle, @function
+ 496               	OS_TaskIdle:
+ 497               	/* prologue: function */
+ 498               	/* frame size = 0 */
+ 499               	.L41:
+ 500               	/* #APP */
+ 501               	 ;  920 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 502 02ec F894      		cli
+ 503               	 ;  0 "" 2
+ 504               	/* #NOAPP */
+ 505 02ee 8091 0000 		lds r24,OSIdleCtr
+ 506 02f2 9091 0000 		lds r25,(OSIdleCtr)+1
+ 507 02f6 A091 0000 		lds r26,(OSIdleCtr)+2
+ 508 02fa B091 0000 		lds r27,(OSIdleCtr)+3
+ 509 02fe 0196      		adiw r24,1
+ 510 0300 A11D      		adc r26,__zero_reg__
+ 511 0302 B11D      		adc r27,__zero_reg__
+ 512 0304 8093 0000 		sts OSIdleCtr,r24
+ 513 0308 9093 0000 		sts (OSIdleCtr)+1,r25
+GAS LISTING /tmp/ccxHRPbR.s 			page 10
+
+
+ 514 030c A093 0000 		sts (OSIdleCtr)+2,r26
+ 515 0310 B093 0000 		sts (OSIdleCtr)+3,r27
+ 516               	/* #APP */
+ 517               	 ;  922 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 518 0314 7894      		sei
+ 519               	 ;  0 "" 2
+ 520               	/* #NOAPP */
+ 521 0316 0E94 0000 		call OSTaskIdleHook
+ 522 031a 00C0      		rjmp .L41
+ 523               		.size	OS_TaskIdle, .-OS_TaskIdle
+ 524               	.global	OS_Sched
+ 525               		.type	OS_Sched, @function
+ 526               	OS_Sched:
+ 527               	/* prologue: function */
+ 528               	/* frame size = 0 */
+ 529               	/* #APP */
+ 530               	 ;  877 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 531 031c F894      		cli
+ 532               	 ;  0 "" 2
+ 533               	/* #NOAPP */
+ 534 031e 8091 0000 		lds r24,OSIntNesting
+ 535 0322 8823      		tst r24
+ 536 0324 01F0      		breq .+2
+ 537 0326 00C0      		rjmp .L44
+ 538 0328 8091 0000 		lds r24,OSLockNesting
+ 539 032c 8823      		tst r24
+ 540 032e 01F4      		brne .L44
+ 541 0330 E091 0000 		lds r30,OSRdyGrp
+ 542 0334 F0E0      		ldi r31,lo8(0)
+ 543 0336 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 544 0338 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 545 033a 8081      		ld r24,Z
+ 546 033c E82F      		mov r30,r24
+ 547 033e F0E0      		ldi r31,lo8(0)
+ 548 0340 E050      		subi r30,lo8(-(OSRdyTbl))
+ 549 0342 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 550 0344 E081      		ld r30,Z
+ 551 0346 F0E0      		ldi r31,lo8(0)
+ 552 0348 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 553 034a F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 554 034c 982F      		mov r25,r24
+ 555 034e 990F      		lsl r25
+ 556 0350 990F      		lsl r25
+ 557 0352 990F      		lsl r25
+ 558 0354 8081      		ld r24,Z
+ 559 0356 980F      		add r25,r24
+ 560 0358 9093 0000 		sts OSPrioHighRdy,r25
+ 561 035c 8091 0000 		lds r24,OSPrioCur
+ 562 0360 9817      		cp r25,r24
+ 563 0362 01F0      		breq .L44
+ 564 0364 E92F      		mov r30,r25
+ 565 0366 F0E0      		ldi r31,lo8(0)
+ 566 0368 EE0F      		lsl r30
+ 567 036a FF1F      		rol r31
+ 568 036c E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 569 036e F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 570 0370 8081      		ld r24,Z
+GAS LISTING /tmp/ccxHRPbR.s 			page 11
+
+
+ 571 0372 9181      		ldd r25,Z+1
+ 572 0374 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 573 0378 8093 0000 		sts OSTCBHighRdy,r24
+ 574 037c 8091 0000 		lds r24,OSCtxSwCtr
+ 575 0380 9091 0000 		lds r25,(OSCtxSwCtr)+1
+ 576 0384 A091 0000 		lds r26,(OSCtxSwCtr)+2
+ 577 0388 B091 0000 		lds r27,(OSCtxSwCtr)+3
+ 578 038c 0196      		adiw r24,1
+ 579 038e A11D      		adc r26,__zero_reg__
+ 580 0390 B11D      		adc r27,__zero_reg__
+ 581 0392 8093 0000 		sts OSCtxSwCtr,r24
+ 582 0396 9093 0000 		sts (OSCtxSwCtr)+1,r25
+ 583 039a A093 0000 		sts (OSCtxSwCtr)+2,r26
+ 584 039e B093 0000 		sts (OSCtxSwCtr)+3,r27
+ 585 03a2 0E94 0000 		call OSCtxSw
+ 586               	.L44:
+ 587               	/* #APP */
+ 588               	 ;  887 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 589 03a6 7894      		sei
+ 590               	 ;  0 "" 2
+ 591               	/* epilogue start */
+ 592               	/* #NOAPP */
+ 593 03a8 0895      		ret
+ 594               		.size	OS_Sched, .-OS_Sched
+ 595               	.global	OSTimeDly
+ 596               		.type	OSTimeDly, @function
+ 597               	OSTimeDly:
+ 598               	/* prologue: function */
+ 599               	/* frame size = 0 */
+ 600 03aa 9C01      		movw r18,r24
+ 601 03ac 0097      		sbiw r24,0
+ 602 03ae 01F0      		breq .L49
+ 603               	/* #APP */
+ 604               	 ;  43 "/home/tri/Micrium/Software/uCOS-II/Source/os_time.c" 1
+ 605 03b0 F894      		cli
+ 606               	 ;  0 "" 2
+ 607               	/* #NOAPP */
+ 608 03b2 A091 0000 		lds r26,OSTCBCur
+ 609 03b6 B091 0000 		lds r27,(OSTCBCur)+1
+ 610 03ba 1D96      		adiw r26,13
+ 611 03bc EC91      		ld r30,X
+ 612 03be 1D97      		sbiw r26,13
+ 613 03c0 F0E0      		ldi r31,lo8(0)
+ 614 03c2 E050      		subi r30,lo8(-(OSRdyTbl))
+ 615 03c4 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 616 03c6 1E96      		adiw r26,14
+ 617 03c8 8C91      		ld r24,X
+ 618 03ca 1E97      		sbiw r26,14
+ 619 03cc 8095      		com r24
+ 620 03ce 9081      		ld r25,Z
+ 621 03d0 8923      		and r24,r25
+ 622 03d2 8083      		st Z,r24
+ 623 03d4 8823      		tst r24
+ 624 03d6 01F4      		brne .L48
+ 625 03d8 1F96      		adiw r26,15
+ 626 03da 9C91      		ld r25,X
+ 627 03dc 1F97      		sbiw r26,15
+GAS LISTING /tmp/ccxHRPbR.s 			page 12
+
+
+ 628 03de 9095      		com r25
+ 629 03e0 8091 0000 		lds r24,OSRdyGrp
+ 630 03e4 8923      		and r24,r25
+ 631 03e6 8093 0000 		sts OSRdyGrp,r24
+ 632               	.L48:
+ 633 03ea 1996      		adiw r26,8+1
+ 634 03ec 3C93      		st X,r19
+ 635 03ee 2E93      		st -X,r18
+ 636 03f0 1897      		sbiw r26,8
+ 637               	/* #APP */
+ 638               	 ;  48 "/home/tri/Micrium/Software/uCOS-II/Source/os_time.c" 1
+ 639 03f2 7894      		sei
+ 640               	 ;  0 "" 2
+ 641               	/* #NOAPP */
+ 642 03f4 0E94 0000 		call OS_Sched
+ 643               	.L49:
+ 644 03f8 0895      		ret
+ 645               		.size	OSTimeDly, .-OSTimeDly
+ 646               	.global	OSTaskSuspend
+ 647               		.type	OSTaskSuspend, @function
+ 648               	OSTaskSuspend:
+ 649               	/* prologue: function */
+ 650               	/* frame size = 0 */
+ 651 03fa E82F      		mov r30,r24
+ 652               	/* #APP */
+ 653               	 ;  686 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 654 03fc F894      		cli
+ 655               	 ;  0 "" 2
+ 656               	/* #NOAPP */
+ 657 03fe A091 0000 		lds r26,OSTCBCur
+ 658 0402 B091 0000 		lds r27,(OSTCBCur)+1
+ 659 0406 8F3F      		cpi r24,lo8(-1)
+ 660 0408 01F4      		brne .L51
+ 661 040a 1B96      		adiw r26,11
+ 662 040c EC91      		ld r30,X
+ 663 040e 00C0      		rjmp .L53
+ 664               	.L51:
+ 665 0410 1B96      		adiw r26,11
+ 666 0412 8C91      		ld r24,X
+ 667 0414 E817      		cp r30,r24
+ 668 0416 01F0      		breq .L53
+ 669 0418 20E0      		ldi r18,lo8(0)
+ 670 041a 00C0      		rjmp .L52
+ 671               	.L53:
+ 672 041c 21E0      		ldi r18,lo8(1)
+ 673               	.L52:
+ 674 041e F0E0      		ldi r31,lo8(0)
+ 675 0420 EE0F      		lsl r30
+ 676 0422 FF1F      		rol r31
+ 677 0424 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 678 0426 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 679 0428 A081      		ld r26,Z
+ 680 042a B181      		ldd r27,Z+1
+ 681 042c 1097      		sbiw r26,0
+ 682 042e 01F4      		brne .L54
+ 683               	/* #APP */
+ 684               	 ;  697 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+GAS LISTING /tmp/ccxHRPbR.s 			page 13
+
+
+ 685 0430 7894      		sei
+ 686               	 ;  0 "" 2
+ 687               	/* #NOAPP */
+ 688 0432 8AE5      		ldi r24,lo8(90)
+ 689 0434 0895      		ret
+ 690               	.L54:
+ 691 0436 1D96      		adiw r26,13
+ 692 0438 EC91      		ld r30,X
+ 693 043a 1D97      		sbiw r26,13
+ 694 043c F0E0      		ldi r31,lo8(0)
+ 695 043e E050      		subi r30,lo8(-(OSRdyTbl))
+ 696 0440 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 697 0442 1E96      		adiw r26,14
+ 698 0444 8C91      		ld r24,X
+ 699 0446 1E97      		sbiw r26,14
+ 700 0448 8095      		com r24
+ 701 044a 9081      		ld r25,Z
+ 702 044c 8923      		and r24,r25
+ 703 044e 8083      		st Z,r24
+ 704 0450 8823      		tst r24
+ 705 0452 01F4      		brne .L56
+ 706 0454 1F96      		adiw r26,15
+ 707 0456 9C91      		ld r25,X
+ 708 0458 1F97      		sbiw r26,15
+ 709 045a 9095      		com r25
+ 710 045c 8091 0000 		lds r24,OSRdyGrp
+ 711 0460 8923      		and r24,r25
+ 712 0462 8093 0000 		sts OSRdyGrp,r24
+ 713               	.L56:
+ 714 0466 1A96      		adiw r26,10
+ 715 0468 8C91      		ld r24,X
+ 716 046a 1A97      		sbiw r26,10
+ 717 046c 8860      		ori r24,lo8(8)
+ 718 046e 1A96      		adiw r26,10
+ 719 0470 8C93      		st X,r24
+ 720               	/* #APP */
+ 721               	 ;  704 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 722 0472 7894      		sei
+ 723               	 ;  0 "" 2
+ 724               	/* #NOAPP */
+ 725 0474 2130      		cpi r18,lo8(1)
+ 726 0476 01F0      		breq .L57
+ 727 0478 80E0      		ldi r24,lo8(0)
+ 728 047a 0895      		ret
+ 729               	.L57:
+ 730 047c 0E94 0000 		call OS_Sched
+ 731 0480 80E0      		ldi r24,lo8(0)
+ 732 0482 0895      		ret
+ 733               		.size	OSTaskSuspend, .-OSTaskSuspend
+ 734               	.global	OSTaskResume
+ 735               		.type	OSTaskResume, @function
+ 736               	OSTaskResume:
+ 737               	/* prologue: function */
+ 738               	/* frame size = 0 */
+ 739 0484 E82F      		mov r30,r24
+ 740               	/* #APP */
+ 741               	 ;  554 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+GAS LISTING /tmp/ccxHRPbR.s 			page 14
+
+
+ 742 0486 F894      		cli
+ 743               	 ;  0 "" 2
+ 744               	/* #NOAPP */
+ 745 0488 F0E0      		ldi r31,lo8(0)
+ 746 048a EE0F      		lsl r30
+ 747 048c FF1F      		rol r31
+ 748 048e E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 749 0490 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 750 0492 A081      		ld r26,Z
+ 751 0494 B181      		ldd r27,Z+1
+ 752 0496 1097      		sbiw r26,0
+ 753 0498 01F4      		brne .L60
+ 754               	/* #APP */
+ 755               	 ;  557 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 756 049a 7894      		sei
+ 757               	 ;  0 "" 2
+ 758               	/* #NOAPP */
+ 759 049c 84E6      		ldi r24,lo8(100)
+ 760 049e 0895      		ret
+ 761               	.L60:
+ 762 04a0 1A96      		adiw r26,10
+ 763 04a2 8C91      		ld r24,X
+ 764 04a4 1A97      		sbiw r26,10
+ 765 04a6 83FF      		sbrs r24,3
+ 766 04a8 00C0      		rjmp .L62
+ 767 04aa 877F      		andi r24,lo8(-9)
+ 768 04ac 1A96      		adiw r26,10
+ 769 04ae 8C93      		st X,r24
+ 770 04b0 1A97      		sbiw r26,10
+ 771 04b2 8823      		tst r24
+ 772 04b4 01F4      		brne .L63
+ 773 04b6 1896      		adiw r26,8
+ 774 04b8 8D91      		ld r24,X+
+ 775 04ba 9C91      		ld r25,X
+ 776 04bc 1997      		sbiw r26,8+1
+ 777 04be 892B      		or r24,r25
+ 778 04c0 01F4      		brne .L63
+ 779 04c2 8091 0000 		lds r24,OSRdyGrp
+ 780 04c6 1F96      		adiw r26,15
+ 781 04c8 9C91      		ld r25,X
+ 782 04ca 1F97      		sbiw r26,15
+ 783 04cc 892B      		or r24,r25
+ 784 04ce 8093 0000 		sts OSRdyGrp,r24
+ 785 04d2 1D96      		adiw r26,13
+ 786 04d4 EC91      		ld r30,X
+ 787 04d6 1D97      		sbiw r26,13
+ 788 04d8 F0E0      		ldi r31,lo8(0)
+ 789 04da E050      		subi r30,lo8(-(OSRdyTbl))
+ 790 04dc F040      		sbci r31,hi8(-(OSRdyTbl))
+ 791 04de 8081      		ld r24,Z
+ 792 04e0 1E96      		adiw r26,14
+ 793 04e2 9C91      		ld r25,X
+ 794 04e4 892B      		or r24,r25
+ 795 04e6 8083      		st Z,r24
+ 796               	/* #APP */
+ 797               	 ;  565 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 798 04e8 7894      		sei
+GAS LISTING /tmp/ccxHRPbR.s 			page 15
+
+
+ 799               	 ;  0 "" 2
+ 800               	/* #NOAPP */
+ 801 04ea 0E94 0000 		call OS_Sched
+ 802 04ee 00C0      		rjmp .L65
+ 803               	.L63:
+ 804               	/* #APP */
+ 805               	 ;  568 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 806 04f0 7894      		sei
+ 807               	 ;  0 "" 2
+ 808               	/* #NOAPP */
+ 809               	.L65:
+ 810 04f2 80E0      		ldi r24,lo8(0)
+ 811 04f4 0895      		ret
+ 812               	.L62:
+ 813               	/* #APP */
+ 814               	 ;  572 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 815 04f6 7894      		sei
+ 816               	 ;  0 "" 2
+ 817               	/* #NOAPP */
+ 818 04f8 85E6      		ldi r24,lo8(101)
+ 819 04fa 0895      		ret
+ 820               		.size	OSTaskResume, .-OSTaskResume
+ 821               	.global	OSTaskDel
+ 822               		.type	OSTaskDel, @function
+ 823               	OSTaskDel:
+ 824 04fc 0F93      		push r16
+ 825 04fe 1F93      		push r17
+ 826 0500 CF93      		push r28
+ 827 0502 DF93      		push r29
+ 828               	/* prologue: function */
+ 829               	/* frame size = 0 */
+ 830 0504 E82F      		mov r30,r24
+ 831 0506 8091 0000 		lds r24,OSIntNesting
+ 832 050a 8823      		tst r24
+ 833 050c 01F0      		breq .L67
+ 834 050e 8FE3      		ldi r24,lo8(63)
+ 835 0510 00C0      		rjmp .L68
+ 836               	.L67:
+ 837               	/* #APP */
+ 838               	 ;  385 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 839 0512 F894      		cli
+ 840               	 ;  0 "" 2
+ 841               	/* #NOAPP */
+ 842 0514 EF3F      		cpi r30,lo8(-1)
+ 843 0516 01F4      		brne .L69
+ 844 0518 E091 0000 		lds r30,OSTCBCur
+ 845 051c F091 0000 		lds r31,(OSTCBCur)+1
+ 846 0520 E385      		ldd r30,Z+11
+ 847               	.L69:
+ 848 0522 0E2F      		mov r16,r30
+ 849 0524 10E0      		ldi r17,lo8(0)
+ 850 0526 F801      		movw r30,r16
+ 851 0528 EE0F      		lsl r30
+ 852 052a FF1F      		rol r31
+ 853 052c E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 854 052e F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 855 0530 C081      		ld r28,Z
+GAS LISTING /tmp/ccxHRPbR.s 			page 16
+
+
+ 856 0532 D181      		ldd r29,Z+1
+ 857 0534 2097      		sbiw r28,0
+ 858 0536 01F4      		brne .+2
+ 859 0538 00C0      		rjmp .L70
+ 860 053a 8D85      		ldd r24,Y+13
+ 861 053c 482F      		mov r20,r24
+ 862 053e 50E0      		ldi r21,lo8(0)
+ 863 0540 2E85      		ldd r18,Y+14
+ 864 0542 2095      		com r18
+ 865 0544 FA01      		movw r30,r20
+ 866 0546 E050      		subi r30,lo8(-(OSRdyTbl))
+ 867 0548 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 868 054a 8081      		ld r24,Z
+ 869 054c 8223      		and r24,r18
+ 870 054e 8083      		st Z,r24
+ 871 0550 8823      		tst r24
+ 872 0552 01F4      		brne .L71
+ 873 0554 9F85      		ldd r25,Y+15
+ 874 0556 9095      		com r25
+ 875 0558 8091 0000 		lds r24,OSRdyGrp
+ 876 055c 8923      		and r24,r25
+ 877 055e 8093 0000 		sts OSRdyGrp,r24
+ 878               	.L71:
+ 879 0562 AE81      		ldd r26,Y+6
+ 880 0564 BF81      		ldd r27,Y+7
+ 881 0566 1097      		sbiw r26,0
+ 882 0568 01F0      		breq .L72
+ 883 056a FD01      		movw r30,r26
+ 884 056c E40F      		add r30,r20
+ 885 056e F51F      		adc r31,r21
+ 886 0570 8681      		ldd r24,Z+6
+ 887 0572 8223      		and r24,r18
+ 888 0574 8683      		std Z+6,r24
+ 889 0576 8823      		tst r24
+ 890 0578 01F4      		brne .L72
+ 891 057a 9F85      		ldd r25,Y+15
+ 892 057c 9095      		com r25
+ 893 057e 1196      		adiw r26,1
+ 894 0580 8C91      		ld r24,X
+ 895 0582 1197      		sbiw r26,1
+ 896 0584 8923      		and r24,r25
+ 897 0586 1196      		adiw r26,1
+ 898 0588 8C93      		st X,r24
+ 899               	.L72:
+ 900 058a 1986      		std Y+9,__zero_reg__
+ 901 058c 1886      		std Y+8,__zero_reg__
+ 902 058e 1A86      		std Y+10,__zero_reg__
+ 903 0590 8091 0000 		lds r24,OSLockNesting
+ 904 0594 8F3F      		cpi r24,lo8(-1)
+ 905 0596 01F0      		breq .L73
+ 906 0598 8F5F      		subi r24,lo8(-(1))
+ 907 059a 8093 0000 		sts OSLockNesting,r24
+ 908               	.L73:
+ 909               	/* #APP */
+ 910               	 ;  413 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 911 059e 7894      		sei
+ 912               	 ;  0 "" 2
+GAS LISTING /tmp/ccxHRPbR.s 			page 17
+
+
+ 913               	 ;  415 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 914 05a0 F894      		cli
+ 915               	 ;  0 "" 2
+ 916               	/* #NOAPP */
+ 917 05a2 8091 0000 		lds r24,OSLockNesting
+ 918 05a6 8823      		tst r24
+ 919 05a8 01F0      		breq .L74
+ 920 05aa 8150      		subi r24,lo8(-(-1))
+ 921 05ac 8093 0000 		sts OSLockNesting,r24
+ 922               	.L74:
+ 923 05b0 CE01      		movw r24,r28
+ 924 05b2 0E94 0000 		call OSTaskDelHook
+ 925 05b6 8091 0000 		lds r24,OSTaskCtr
+ 926 05ba 8150      		subi r24,lo8(-(-1))
+ 927 05bc 8093 0000 		sts OSTaskCtr,r24
+ 928 05c0 000F      		lsl r16
+ 929 05c2 111F      		rol r17
+ 930 05c4 0050      		subi r16,lo8(-(OSTCBPrioTbl))
+ 931 05c6 1040      		sbci r17,hi8(-(OSTCBPrioTbl))
+ 932 05c8 F801      		movw r30,r16
+ 933 05ca 1182      		std Z+1,__zero_reg__
+ 934 05cc 1082      		st Z,__zero_reg__
+ 935 05ce AC81      		ldd r26,Y+4
+ 936 05d0 BD81      		ldd r27,Y+5
+ 937 05d2 EA81      		ldd r30,Y+2
+ 938 05d4 FB81      		ldd r31,Y+3
+ 939 05d6 1097      		sbiw r26,0
+ 940 05d8 01F4      		brne .L75
+ 941 05da 1582      		std Z+5,__zero_reg__
+ 942 05dc 1482      		std Z+4,__zero_reg__
+ 943 05de F093 0000 		sts (OSTCBList)+1,r31
+ 944 05e2 E093 0000 		sts OSTCBList,r30
+ 945 05e6 00C0      		rjmp .L76
+ 946               	.L75:
+ 947 05e8 1396      		adiw r26,2+1
+ 948 05ea FC93      		st X,r31
+ 949 05ec EE93      		st -X,r30
+ 950 05ee 1297      		sbiw r26,2
+ 951 05f0 EA81      		ldd r30,Y+2
+ 952 05f2 FB81      		ldd r31,Y+3
+ 953 05f4 B583      		std Z+5,r27
+ 954 05f6 A483      		std Z+4,r26
+ 955               	.L76:
+ 956 05f8 8091 0000 		lds r24,OSTCBFreeList
+ 957 05fc 9091 0000 		lds r25,(OSTCBFreeList)+1
+ 958 0600 9B83      		std Y+3,r25
+ 959 0602 8A83      		std Y+2,r24
+ 960 0604 D093 0000 		sts (OSTCBFreeList)+1,r29
+ 961 0608 C093 0000 		sts OSTCBFreeList,r28
+ 962               	/* #APP */
+ 963               	 ;  431 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 964 060c 7894      		sei
+ 965               	 ;  0 "" 2
+ 966               	/* #NOAPP */
+ 967 060e 0E94 0000 		call OS_Sched
+ 968 0612 80E0      		ldi r24,lo8(0)
+ 969 0614 00C0      		rjmp .L68
+GAS LISTING /tmp/ccxHRPbR.s 			page 18
+
+
+ 970               	.L70:
+ 971               	/* #APP */
+ 972               	 ;  435 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 973 0616 7894      		sei
+ 974               	 ;  0 "" 2
+ 975               	/* #NOAPP */
+ 976 0618 8CE3      		ldi r24,lo8(60)
+ 977               	.L68:
+ 978               	/* epilogue start */
+ 979 061a DF91      		pop r29
+ 980 061c CF91      		pop r28
+ 981 061e 1F91      		pop r17
+ 982 0620 0F91      		pop r16
+ 983 0622 0895      		ret
+ 984               		.size	OSTaskDel, .-OSTaskDel
+ 985               	.global	OSTaskCreate
+ 986               		.type	OSTaskCreate, @function
+ 987               	OSTaskCreate:
+ 988 0624 AF92      		push r10
+ 989 0626 BF92      		push r11
+ 990 0628 CF92      		push r12
+ 991 062a DF92      		push r13
+ 992 062c EF92      		push r14
+ 993 062e FF92      		push r15
+ 994 0630 0F93      		push r16
+ 995 0632 1F93      		push r17
+ 996 0634 CF93      		push r28
+ 997 0636 DF93      		push r29
+ 998               	/* prologue: function */
+ 999               	/* frame size = 0 */
+ 1000 0638 FC01      		movw r30,r24
+ 1001 063a 122F      		mov r17,r18
+ 1002               	/* #APP */
+ 1003               	 ;  172 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 1004 063c F894      		cli
+ 1005               	 ;  0 "" 2
+ 1006               	/* #NOAPP */
+ 1007 063e C22F      		mov r28,r18
+ 1008 0640 D0E0      		ldi r29,lo8(0)
+ 1009 0642 CC0F      		lsl r28
+ 1010 0644 DD1F      		rol r29
+ 1011 0646 C050      		subi r28,lo8(-(OSTCBPrioTbl))
+ 1012 0648 D040      		sbci r29,hi8(-(OSTCBPrioTbl))
+ 1013 064a 8881      		ld r24,Y
+ 1014 064c 9981      		ldd r25,Y+1
+ 1015 064e 892B      		or r24,r25
+ 1016 0650 01F4      		brne .L79
+ 1017 0652 81E0      		ldi r24,lo8(1)
+ 1018 0654 90E0      		ldi r25,hi8(1)
+ 1019 0656 9983      		std Y+1,r25
+ 1020 0658 8883      		st Y,r24
+ 1021               	/* #APP */
+ 1022               	 ;  176 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 1023 065a 7894      		sei
+ 1024               	 ;  0 "" 2
+ 1025               	/* #NOAPP */
+ 1026 065c CF01      		movw r24,r30
+GAS LISTING /tmp/ccxHRPbR.s 			page 19
+
+
+ 1027 065e 20E0      		ldi r18,lo8(0)
+ 1028 0660 30E0      		ldi r19,hi8(0)
+ 1029 0662 0E94 0000 		call OSTaskStkInit
+ 1030 0666 BC01      		movw r22,r24
+ 1031 0668 812F      		mov r24,r17
+ 1032 066a 40E0      		ldi r20,lo8(0)
+ 1033 066c 50E0      		ldi r21,hi8(0)
+ 1034 066e 20E0      		ldi r18,lo8(0)
+ 1035 0670 30E0      		ldi r19,hi8(0)
+ 1036 0672 EE24      		clr r14
+ 1037 0674 FF24      		clr r15
+ 1038 0676 8701      		movw r16,r14
+ 1039 0678 CC24      		clr r12
+ 1040 067a DD24      		clr r13
+ 1041 067c AA24      		clr r10
+ 1042 067e BB24      		clr r11
+ 1043 0680 0E94 0000 		call OS_TCBInit
+ 1044 0684 182F      		mov r17,r24
+ 1045 0686 8823      		tst r24
+ 1046 0688 01F4      		brne .L80
+ 1047               	/* #APP */
+ 1048               	 ;  180 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 1049 068a F894      		cli
+ 1050               	 ;  0 "" 2
+ 1051               	/* #NOAPP */
+ 1052 068c 8091 0000 		lds r24,OSTaskCtr
+ 1053 0690 8F5F      		subi r24,lo8(-(1))
+ 1054 0692 8093 0000 		sts OSTaskCtr,r24
+ 1055               	/* #APP */
+ 1056               	 ;  182 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 1057 0696 7894      		sei
+ 1058               	 ;  0 "" 2
+ 1059               	/* #NOAPP */
+ 1060 0698 8091 0000 		lds r24,OSRunning
+ 1061 069c 8130      		cpi r24,lo8(1)
+ 1062 069e 01F4      		brne .L81
+ 1063 06a0 0E94 0000 		call OS_Sched
+ 1064 06a4 00C0      		rjmp .L81
+ 1065               	.L80:
+ 1066               	/* #APP */
+ 1067               	 ;  187 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 1068 06a6 F894      		cli
+ 1069               	 ;  0 "" 2
+ 1070               	/* #NOAPP */
+ 1071 06a8 1982      		std Y+1,__zero_reg__
+ 1072 06aa 1882      		st Y,__zero_reg__
+ 1073               	/* #APP */
+ 1074               	 ;  189 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 1075 06ac 7894      		sei
+ 1076               	 ;  0 "" 2
+ 1077               	/* #NOAPP */
+ 1078 06ae 00C0      		rjmp .L81
+ 1079               	.L79:
+ 1080               	/* #APP */
+ 1081               	 ;  193 "/home/tri/Micrium/Software/uCOS-II/Source/os_task.c" 1
+ 1082 06b0 7894      		sei
+ 1083               	 ;  0 "" 2
+GAS LISTING /tmp/ccxHRPbR.s 			page 20
+
+
+ 1084               	/* #NOAPP */
+ 1085 06b2 18E2      		ldi r17,lo8(40)
+ 1086               	.L81:
+ 1087 06b4 812F      		mov r24,r17
+ 1088               	/* epilogue start */
+ 1089 06b6 DF91      		pop r29
+ 1090 06b8 CF91      		pop r28
+ 1091 06ba 1F91      		pop r17
+ 1092 06bc 0F91      		pop r16
+ 1093 06be FF90      		pop r15
+ 1094 06c0 EF90      		pop r14
+ 1095 06c2 DF90      		pop r13
+ 1096 06c4 CF90      		pop r12
+ 1097 06c6 BF90      		pop r11
+ 1098 06c8 AF90      		pop r10
+ 1099 06ca 0895      		ret
+ 1100               		.size	OSTaskCreate, .-OSTaskCreate
+ 1101               	.global	OSSemPost
+ 1102               		.type	OSSemPost, @function
+ 1103               	OSSemPost:
+ 1104               	/* prologue: function */
+ 1105               	/* frame size = 0 */
+ 1106 06cc FC01      		movw r30,r24
+ 1107               	/* #APP */
+ 1108               	 ;  323 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1109 06ce F894      		cli
+ 1110               	 ;  0 "" 2
+ 1111               	/* #NOAPP */
+ 1112 06d0 8181      		ldd r24,Z+1
+ 1113 06d2 8823      		tst r24
+ 1114 06d4 01F0      		breq .L84
+ 1115 06d6 CF01      		movw r24,r30
+ 1116 06d8 60E0      		ldi r22,lo8(0)
+ 1117 06da 70E0      		ldi r23,hi8(0)
+ 1118 06dc 41E0      		ldi r20,lo8(1)
+ 1119 06de 0E94 0000 		call OS_EventTaskRdy
+ 1120               	/* #APP */
+ 1121               	 ;  326 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1122 06e2 7894      		sei
+ 1123               	 ;  0 "" 2
+ 1124               	/* #NOAPP */
+ 1125 06e4 0E94 0000 		call OS_Sched
+ 1126 06e8 00C0      		rjmp .L88
+ 1127               	.L84:
+ 1128 06ea 8281      		ldd r24,Z+2
+ 1129 06ec 9381      		ldd r25,Z+3
+ 1130 06ee 2FEF      		ldi r18,hi8(-1)
+ 1131 06f0 8F3F      		cpi r24,lo8(-1)
+ 1132 06f2 9207      		cpc r25,r18
+ 1133 06f4 01F0      		breq .L86
+ 1134 06f6 0196      		adiw r24,1
+ 1135 06f8 9383      		std Z+3,r25
+ 1136 06fa 8283      		std Z+2,r24
+ 1137               	/* #APP */
+ 1138               	 ;  332 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1139 06fc 7894      		sei
+ 1140               	 ;  0 "" 2
+GAS LISTING /tmp/ccxHRPbR.s 			page 21
+
+
+ 1141               	/* #NOAPP */
+ 1142               	.L88:
+ 1143 06fe 80E0      		ldi r24,lo8(0)
+ 1144 0700 0895      		ret
+ 1145               	.L86:
+ 1146               	/* #APP */
+ 1147               	 ;  335 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1148 0702 7894      		sei
+ 1149               	 ;  0 "" 2
+ 1150               	/* #NOAPP */
+ 1151 0704 82E3      		ldi r24,lo8(50)
+ 1152 0706 0895      		ret
+ 1153               		.size	OSSemPost, .-OSSemPost
+ 1154               	.global	OSSemPend
+ 1155               		.type	OSSemPend, @function
+ 1156               	OSSemPend:
+ 1157 0708 0F93      		push r16
+ 1158 070a 1F93      		push r17
+ 1159 070c CF93      		push r28
+ 1160 070e DF93      		push r29
+ 1161               	/* prologue: function */
+ 1162               	/* frame size = 0 */
+ 1163 0710 EC01      		movw r28,r24
+ 1164 0712 8A01      		movw r16,r20
+ 1165 0714 8091 0000 		lds r24,OSIntNesting
+ 1166 0718 8823      		tst r24
+ 1167 071a 01F0      		breq .L90
+ 1168 071c 82E0      		ldi r24,lo8(2)
+ 1169 071e 00C0      		rjmp .L98
+ 1170               	.L90:
+ 1171               	/* #APP */
+ 1172               	 ;  265 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1173 0720 F894      		cli
+ 1174               	 ;  0 "" 2
+ 1175               	/* #NOAPP */
+ 1176 0722 8A81      		ldd r24,Y+2
+ 1177 0724 9B81      		ldd r25,Y+3
+ 1178 0726 0097      		sbiw r24,0
+ 1179 0728 01F0      		breq .L92
+ 1180 072a 0197      		sbiw r24,1
+ 1181 072c 9B83      		std Y+3,r25
+ 1182 072e 8A83      		std Y+2,r24
+ 1183               	/* #APP */
+ 1184               	 ;  268 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1185 0730 7894      		sei
+ 1186               	 ;  0 "" 2
+ 1187               	/* #NOAPP */
+ 1188 0732 00C0      		rjmp .L97
+ 1189               	.L92:
+ 1190 0734 A091 0000 		lds r26,OSTCBCur
+ 1191 0738 B091 0000 		lds r27,(OSTCBCur)+1
+ 1192 073c 1A96      		adiw r26,10
+ 1193 073e 8C91      		ld r24,X
+ 1194 0740 1A97      		sbiw r26,10
+ 1195 0742 8160      		ori r24,lo8(1)
+ 1196 0744 1A96      		adiw r26,10
+ 1197 0746 8C93      		st X,r24
+GAS LISTING /tmp/ccxHRPbR.s 			page 22
+
+
+ 1198 0748 1A97      		sbiw r26,10
+ 1199 074a 1996      		adiw r26,8+1
+ 1200 074c 7C93      		st X,r23
+ 1201 074e 6E93      		st -X,r22
+ 1202 0750 1897      		sbiw r26,8
+ 1203 0752 1796      		adiw r26,6+1
+ 1204 0754 DC93      		st X,r29
+ 1205 0756 CE93      		st -X,r28
+ 1206 0758 1697      		sbiw r26,6
+ 1207 075a 1D96      		adiw r26,13
+ 1208 075c 8C91      		ld r24,X
+ 1209 075e 1D97      		sbiw r26,13
+ 1210 0760 282F      		mov r18,r24
+ 1211 0762 30E0      		ldi r19,lo8(0)
+ 1212 0764 1E96      		adiw r26,14
+ 1213 0766 4C91      		ld r20,X
+ 1214 0768 1E97      		sbiw r26,14
+ 1215 076a F901      		movw r30,r18
+ 1216 076c E050      		subi r30,lo8(-(OSRdyTbl))
+ 1217 076e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1218 0770 842F      		mov r24,r20
+ 1219 0772 8095      		com r24
+ 1220 0774 9081      		ld r25,Z
+ 1221 0776 8923      		and r24,r25
+ 1222 0778 8083      		st Z,r24
+ 1223 077a 8823      		tst r24
+ 1224 077c 01F4      		brne .L93
+ 1225 077e 1F96      		adiw r26,15
+ 1226 0780 9C91      		ld r25,X
+ 1227 0782 1F97      		sbiw r26,15
+ 1228 0784 9095      		com r25
+ 1229 0786 8091 0000 		lds r24,OSRdyGrp
+ 1230 078a 8923      		and r24,r25
+ 1231 078c 8093 0000 		sts OSRdyGrp,r24
+ 1232               	.L93:
+ 1233 0790 FE01      		movw r30,r28
+ 1234 0792 E20F      		add r30,r18
+ 1235 0794 F31F      		adc r31,r19
+ 1236 0796 8681      		ldd r24,Z+6
+ 1237 0798 842B      		or r24,r20
+ 1238 079a 8683      		std Z+6,r24
+ 1239 079c 8981      		ldd r24,Y+1
+ 1240 079e 1F96      		adiw r26,15
+ 1241 07a0 9C91      		ld r25,X
+ 1242 07a2 892B      		or r24,r25
+ 1243 07a4 8983      		std Y+1,r24
+ 1244               	/* #APP */
+ 1245               	 ;  276 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1246 07a6 7894      		sei
+ 1247               	 ;  0 "" 2
+ 1248               	/* #NOAPP */
+ 1249 07a8 0E94 0000 		call OS_Sched
+ 1250               	/* #APP */
+ 1251               	 ;  278 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1252 07ac F894      		cli
+ 1253               	 ;  0 "" 2
+ 1254               	/* #NOAPP */
+GAS LISTING /tmp/ccxHRPbR.s 			page 23
+
+
+ 1255 07ae A091 0000 		lds r26,OSTCBCur
+ 1256 07b2 B091 0000 		lds r27,(OSTCBCur)+1
+ 1257 07b6 1A96      		adiw r26,10
+ 1258 07b8 8C91      		ld r24,X
+ 1259 07ba 1A97      		sbiw r26,10
+ 1260 07bc 80FF      		sbrs r24,0
+ 1261 07be 00C0      		rjmp .L94
+ 1262 07c0 1D96      		adiw r26,13
+ 1263 07c2 8C91      		ld r24,X
+ 1264 07c4 1D97      		sbiw r26,13
+ 1265 07c6 FE01      		movw r30,r28
+ 1266 07c8 E80F      		add r30,r24
+ 1267 07ca F11D      		adc r31,__zero_reg__
+ 1268 07cc 1E96      		adiw r26,14
+ 1269 07ce 8C91      		ld r24,X
+ 1270 07d0 1E97      		sbiw r26,14
+ 1271 07d2 8095      		com r24
+ 1272 07d4 9681      		ldd r25,Z+6
+ 1273 07d6 8923      		and r24,r25
+ 1274 07d8 8683      		std Z+6,r24
+ 1275 07da 8823      		tst r24
+ 1276 07dc 01F4      		brne .L95
+ 1277 07de 1F96      		adiw r26,15
+ 1278 07e0 9C91      		ld r25,X
+ 1279 07e2 1F97      		sbiw r26,15
+ 1280 07e4 9095      		com r25
+ 1281 07e6 8981      		ldd r24,Y+1
+ 1282 07e8 8923      		and r24,r25
+ 1283 07ea 8983      		std Y+1,r24
+ 1284               	.L95:
+ 1285 07ec 1A96      		adiw r26,10
+ 1286 07ee 1C92      		st X,__zero_reg__
+ 1287 07f0 1A97      		sbiw r26,10
+ 1288 07f2 1796      		adiw r26,6+1
+ 1289 07f4 1C92      		st X,__zero_reg__
+ 1290 07f6 1E92      		st -X,__zero_reg__
+ 1291 07f8 1697      		sbiw r26,6
+ 1292               	/* #APP */
+ 1293               	 ;  281 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1294 07fa 7894      		sei
+ 1295               	 ;  0 "" 2
+ 1296               	/* #NOAPP */
+ 1297 07fc 8AE0      		ldi r24,lo8(10)
+ 1298               	.L98:
+ 1299 07fe F801      		movw r30,r16
+ 1300 0800 8083      		st Z,r24
+ 1301 0802 00C0      		rjmp .L96
+ 1302               	.L94:
+ 1303 0804 1796      		adiw r26,6+1
+ 1304 0806 1C92      		st X,__zero_reg__
+ 1305 0808 1E92      		st -X,__zero_reg__
+ 1306 080a 1697      		sbiw r26,6
+ 1307               	/* #APP */
+ 1308               	 ;  286 "/home/tri/Micrium/Software/uCOS-II/Source/os_sem.c" 1
+ 1309 080c 7894      		sei
+ 1310               	 ;  0 "" 2
+ 1311               	/* #NOAPP */
+GAS LISTING /tmp/ccxHRPbR.s 			page 24
+
+
+ 1312               	.L97:
+ 1313 080e F801      		movw r30,r16
+ 1314 0810 1082      		st Z,__zero_reg__
+ 1315               	.L96:
+ 1316               	/* epilogue start */
+ 1317 0812 DF91      		pop r29
+ 1318 0814 CF91      		pop r28
+ 1319 0816 1F91      		pop r17
+ 1320 0818 0F91      		pop r16
+ 1321 081a 0895      		ret
+ 1322               		.size	OSSemPend, .-OSSemPend
+ 1323               	.global	OSSchedUnlock
+ 1324               		.type	OSSchedUnlock, @function
+ 1325               	OSSchedUnlock:
+ 1326               	/* prologue: function */
+ 1327               	/* frame size = 0 */
+ 1328 081c 8091 0000 		lds r24,OSRunning
+ 1329 0820 8130      		cpi r24,lo8(1)
+ 1330 0822 01F4      		brne .L103
+ 1331               	/* #APP */
+ 1332               	 ;  256 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 1333 0824 F894      		cli
+ 1334               	 ;  0 "" 2
+ 1335               	/* #NOAPP */
+ 1336 0826 8091 0000 		lds r24,OSLockNesting
+ 1337 082a 8823      		tst r24
+ 1338 082c 01F0      		breq .L101
+ 1339 082e 8150      		subi r24,lo8(-(-1))
+ 1340 0830 8093 0000 		sts OSLockNesting,r24
+ 1341 0834 8823      		tst r24
+ 1342 0836 01F4      		brne .L102
+ 1343 0838 8091 0000 		lds r24,OSIntNesting
+ 1344 083c 8823      		tst r24
+ 1345 083e 01F4      		brne .L102
+ 1346               	/* #APP */
+ 1347               	 ;  260 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 1348 0840 7894      		sei
+ 1349               	 ;  0 "" 2
+ 1350               	/* #NOAPP */
+ 1351 0842 0E94 0000 		call OS_Sched
+ 1352 0846 0895      		ret
+ 1353               	.L102:
+ 1354               	/* #APP */
+ 1355               	 ;  263 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 1356 0848 7894      		sei
+ 1357               	 ;  0 "" 2
+ 1358               	/* #NOAPP */
+ 1359 084a 0895      		ret
+ 1360               	.L101:
+ 1361               	/* #APP */
+ 1362               	 ;  266 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 1363 084c 7894      		sei
+ 1364               	 ;  0 "" 2
+ 1365               	/* #NOAPP */
+ 1366               	.L103:
+ 1367 084e 0895      		ret
+ 1368               		.size	OSSchedUnlock, .-OSSchedUnlock
+GAS LISTING /tmp/ccxHRPbR.s 			page 25
+
+
+ 1369               	.global	OSTimeTick
+ 1370               		.type	OSTimeTick, @function
+ 1371               	OSTimeTick:
+ 1372               	/* prologue: function */
+ 1373               	/* frame size = 0 */
+ 1374 0850 0E94 0000 		call OSTimeTickHook
+ 1375 0854 8091 0000 		lds r24,OSRunning
+ 1376 0858 8130      		cpi r24,lo8(1)
+ 1377 085a 01F0      		breq .+2
+ 1378 085c 00C0      		rjmp .L110
+ 1379 085e A091 0000 		lds r26,OSTCBList
+ 1380 0862 B091 0000 		lds r27,(OSTCBList)+1
+ 1381 0866 2091 0000 		lds r18,OSRdyGrp
+ 1382 086a 41E0      		ldi r20,lo8(1)
+ 1383 086c 50E0      		ldi r21,hi8(1)
+ 1384 086e 00C0      		rjmp .L106
+ 1385               	.L109:
+ 1386               	/* #APP */
+ 1387               	 ;  381 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 1388 0870 F894      		cli
+ 1389               	 ;  0 "" 2
+ 1390               	/* #NOAPP */
+ 1391 0872 1896      		adiw r26,8
+ 1392 0874 8D91      		ld r24,X+
+ 1393 0876 9C91      		ld r25,X
+ 1394 0878 1997      		sbiw r26,8+1
+ 1395 087a 0097      		sbiw r24,0
+ 1396 087c 01F0      		breq .L107
+ 1397 087e 0197      		sbiw r24,1
+ 1398 0880 1996      		adiw r26,8+1
+ 1399 0882 9C93      		st X,r25
+ 1400 0884 8E93      		st -X,r24
+ 1401 0886 1897      		sbiw r26,8
+ 1402 0888 892B      		or r24,r25
+ 1403 088a 01F4      		brne .L107
+ 1404 088c 1A96      		adiw r26,10
+ 1405 088e 8C91      		ld r24,X
+ 1406 0890 1A97      		sbiw r26,10
+ 1407 0892 83FD      		sbrc r24,3
+ 1408 0894 00C0      		rjmp .L108
+ 1409 0896 1F96      		adiw r26,15
+ 1410 0898 8C91      		ld r24,X
+ 1411 089a 1F97      		sbiw r26,15
+ 1412 089c 282B      		or r18,r24
+ 1413 089e 1D96      		adiw r26,13
+ 1414 08a0 EC91      		ld r30,X
+ 1415 08a2 1D97      		sbiw r26,13
+ 1416 08a4 F0E0      		ldi r31,lo8(0)
+ 1417 08a6 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1418 08a8 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1419 08aa 8081      		ld r24,Z
+ 1420 08ac 1E96      		adiw r26,14
+ 1421 08ae 9C91      		ld r25,X
+ 1422 08b0 1E97      		sbiw r26,14
+ 1423 08b2 892B      		or r24,r25
+ 1424 08b4 8083      		st Z,r24
+ 1425 08b6 00C0      		rjmp .L107
+GAS LISTING /tmp/ccxHRPbR.s 			page 26
+
+
+ 1426               	.L108:
+ 1427 08b8 1996      		adiw r26,8+1
+ 1428 08ba 5C93      		st X,r21
+ 1429 08bc 4E93      		st -X,r20
+ 1430 08be 1897      		sbiw r26,8
+ 1431               	.L107:
+ 1432 08c0 1296      		adiw r26,2
+ 1433 08c2 0D90      		ld __tmp_reg__,X+
+ 1434 08c4 BC91      		ld r27,X
+ 1435 08c6 A02D      		mov r26,__tmp_reg__
+ 1436               	/* #APP */
+ 1437               	 ;  393 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 1438 08c8 7894      		sei
+ 1439               	 ;  0 "" 2
+ 1440               	/* #NOAPP */
+ 1441               	.L106:
+ 1442 08ca 1B96      		adiw r26,11
+ 1443 08cc 8C91      		ld r24,X
+ 1444 08ce 1B97      		sbiw r26,11
+ 1445 08d0 8A30      		cpi r24,lo8(10)
+ 1446 08d2 01F4      		brne .L109
+ 1447 08d4 2093 0000 		sts OSRdyGrp,r18
+ 1448               	.L110:
+ 1449 08d8 0895      		ret
+ 1450               		.size	OSTimeTick, .-OSTimeTick
+ 1451               	.global	OSStart
+ 1452               		.type	OSStart, @function
+ 1453               	OSStart:
+ 1454               	/* prologue: function */
+ 1455               	/* frame size = 0 */
+ 1456 08da 8091 0000 		lds r24,OSRunning
+ 1457 08de 8823      		tst r24
+ 1458 08e0 01F4      		brne .L113
+ 1459 08e2 E091 0000 		lds r30,OSRdyGrp
+ 1460 08e6 F0E0      		ldi r31,lo8(0)
+ 1461 08e8 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 1462 08ea F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 1463 08ec A081      		ld r26,Z
+ 1464 08ee EA2F      		mov r30,r26
+ 1465 08f0 F0E0      		ldi r31,lo8(0)
+ 1466 08f2 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1467 08f4 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1468 08f6 E081      		ld r30,Z
+ 1469 08f8 F0E0      		ldi r31,lo8(0)
+ 1470 08fa E050      		subi r30,lo8(-(OSUnMapTbl))
+ 1471 08fc F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 1472 08fe AA0F      		lsl r26
+ 1473 0900 AA0F      		lsl r26
+ 1474 0902 AA0F      		lsl r26
+ 1475 0904 8081      		ld r24,Z
+ 1476 0906 A80F      		add r26,r24
+ 1477 0908 A093 0000 		sts OSPrioHighRdy,r26
+ 1478 090c A093 0000 		sts OSPrioCur,r26
+ 1479 0910 B0E0      		ldi r27,lo8(0)
+ 1480 0912 AA0F      		lsl r26
+ 1481 0914 BB1F      		rol r27
+ 1482 0916 A050      		subi r26,lo8(-(OSTCBPrioTbl))
+GAS LISTING /tmp/ccxHRPbR.s 			page 27
+
+
+ 1483 0918 B040      		sbci r27,hi8(-(OSTCBPrioTbl))
+ 1484 091a 8D91      		ld r24,X+
+ 1485 091c 9C91      		ld r25,X
+ 1486 091e 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 1487 0922 8093 0000 		sts OSTCBHighRdy,r24
+ 1488 0926 9093 0000 		sts (OSTCBCur)+1,r25
+ 1489 092a 8093 0000 		sts OSTCBCur,r24
+ 1490 092e 0E94 0000 		call OSStartHighRdy
+ 1491               	.L113:
+ 1492 0932 0895      		ret
+ 1493               		.size	OSStart, .-OSStart
+ 1494               	.global	OSIntExit
+ 1495               		.type	OSIntExit, @function
+ 1496               	OSIntExit:
+ 1497               	/* prologue: function */
+ 1498               	/* frame size = 0 */
+ 1499 0934 8091 0000 		lds r24,OSRunning
+ 1500 0938 8130      		cpi r24,lo8(1)
+ 1501 093a 01F0      		breq .+2
+ 1502 093c 00C0      		rjmp .L118
+ 1503               	/* #APP */
+ 1504               	 ;  180 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 1505 093e F894      		cli
+ 1506               	 ;  0 "" 2
+ 1507               	/* #NOAPP */
+ 1508 0940 8091 0000 		lds r24,OSIntNesting
+ 1509 0944 8823      		tst r24
+ 1510 0946 01F0      		breq .L116
+ 1511 0948 8150      		subi r24,lo8(-(-1))
+ 1512 094a 8093 0000 		sts OSIntNesting,r24
+ 1513               	.L116:
+ 1514 094e 8091 0000 		lds r24,OSIntNesting
+ 1515 0952 8823      		tst r24
+ 1516 0954 01F0      		breq .+2
+ 1517 0956 00C0      		rjmp .L117
+ 1518 0958 8091 0000 		lds r24,OSLockNesting
+ 1519 095c 8823      		tst r24
+ 1520 095e 01F4      		brne .L117
+ 1521 0960 E091 0000 		lds r30,OSRdyGrp
+ 1522 0964 F0E0      		ldi r31,lo8(0)
+ 1523 0966 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 1524 0968 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 1525 096a 8081      		ld r24,Z
+ 1526 096c 8093 0000 		sts OSIntExitY,r24
+ 1527 0970 E82F      		mov r30,r24
+ 1528 0972 F0E0      		ldi r31,lo8(0)
+ 1529 0974 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1530 0976 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1531 0978 E081      		ld r30,Z
+ 1532 097a F0E0      		ldi r31,lo8(0)
+ 1533 097c E050      		subi r30,lo8(-(OSUnMapTbl))
+ 1534 097e F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 1535 0980 982F      		mov r25,r24
+ 1536 0982 990F      		lsl r25
+ 1537 0984 990F      		lsl r25
+ 1538 0986 990F      		lsl r25
+ 1539 0988 8081      		ld r24,Z
+GAS LISTING /tmp/ccxHRPbR.s 			page 28
+
+
+ 1540 098a 980F      		add r25,r24
+ 1541 098c 9093 0000 		sts OSPrioHighRdy,r25
+ 1542 0990 8091 0000 		lds r24,OSPrioCur
+ 1543 0994 9817      		cp r25,r24
+ 1544 0996 01F0      		breq .L117
+ 1545 0998 E92F      		mov r30,r25
+ 1546 099a F0E0      		ldi r31,lo8(0)
+ 1547 099c EE0F      		lsl r30
+ 1548 099e FF1F      		rol r31
+ 1549 09a0 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 1550 09a2 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 1551 09a4 8081      		ld r24,Z
+ 1552 09a6 9181      		ldd r25,Z+1
+ 1553 09a8 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 1554 09ac 8093 0000 		sts OSTCBHighRdy,r24
+ 1555 09b0 8091 0000 		lds r24,OSCtxSwCtr
+ 1556 09b4 9091 0000 		lds r25,(OSCtxSwCtr)+1
+ 1557 09b8 A091 0000 		lds r26,(OSCtxSwCtr)+2
+ 1558 09bc B091 0000 		lds r27,(OSCtxSwCtr)+3
+ 1559 09c0 0196      		adiw r24,1
+ 1560 09c2 A11D      		adc r26,__zero_reg__
+ 1561 09c4 B11D      		adc r27,__zero_reg__
+ 1562 09c6 8093 0000 		sts OSCtxSwCtr,r24
+ 1563 09ca 9093 0000 		sts (OSCtxSwCtr)+1,r25
+ 1564 09ce A093 0000 		sts (OSCtxSwCtr)+2,r26
+ 1565 09d2 B093 0000 		sts (OSCtxSwCtr)+3,r27
+ 1566 09d6 0E94 0000 		call OSIntCtxSw
+ 1567               	.L117:
+ 1568               	/* #APP */
+ 1569               	 ;  193 "/home/tri/Micrium/Software/uCOS-II/Source/os_core.c" 1
+ 1570 09da 7894      		sei
+ 1571               	 ;  0 "" 2
+ 1572               	/* #NOAPP */
+ 1573               	.L118:
+ 1574 09dc 0895      		ret
+ 1575               		.size	OSIntExit, .-OSIntExit
+ 1576               	.global	OSInit
+ 1577               		.type	OSInit, @function
+ 1578               	OSInit:
+ 1579               	/* prologue: function */
+ 1580               	/* frame size = 0 */
+ 1581 09de 0E94 0000 		call OSInitHookBegin
+ 1582 09e2 1092 0000 		sts OSIntNesting,__zero_reg__
+ 1583 09e6 1092 0000 		sts OSLockNesting,__zero_reg__
+ 1584 09ea 1092 0000 		sts OSTaskCtr,__zero_reg__
+ 1585 09ee 1092 0000 		sts OSRunning,__zero_reg__
+ 1586 09f2 1092 0000 		sts OSCtxSwCtr,__zero_reg__
+ 1587 09f6 1092 0000 		sts (OSCtxSwCtr)+1,__zero_reg__
+ 1588 09fa 1092 0000 		sts (OSCtxSwCtr)+2,__zero_reg__
+ 1589 09fe 1092 0000 		sts (OSCtxSwCtr)+3,__zero_reg__
+ 1590 0a02 1092 0000 		sts OSIdleCtr,__zero_reg__
+ 1591 0a06 1092 0000 		sts (OSIdleCtr)+1,__zero_reg__
+ 1592 0a0a 1092 0000 		sts (OSIdleCtr)+2,__zero_reg__
+ 1593 0a0e 1092 0000 		sts (OSIdleCtr)+3,__zero_reg__
+ 1594 0a12 1092 0000 		sts OSRdyGrp,__zero_reg__
+ 1595 0a16 1092 0000 		sts OSRdyTbl,__zero_reg__
+ 1596 0a1a 1092 0000 		sts OSRdyTbl+1,__zero_reg__
+GAS LISTING /tmp/ccxHRPbR.s 			page 29
+
+
+ 1597 0a1e 1092 0000 		sts OSPrioCur,__zero_reg__
+ 1598 0a22 1092 0000 		sts OSPrioHighRdy,__zero_reg__
+ 1599 0a26 1092 0000 		sts (OSTCBHighRdy)+1,__zero_reg__
+ 1600 0a2a 1092 0000 		sts OSTCBHighRdy,__zero_reg__
+ 1601 0a2e 1092 0000 		sts (OSTCBCur)+1,__zero_reg__
+ 1602 0a32 1092 0000 		sts OSTCBCur,__zero_reg__
+ 1603 0a36 1092 0000 		sts (OSTCBList)+1,__zero_reg__
+ 1604 0a3a 1092 0000 		sts OSTCBList,__zero_reg__
+ 1605 0a3e E0E0      		ldi r30,lo8(OSTCBPrioTbl)
+ 1606 0a40 F0E0      		ldi r31,hi8(OSTCBPrioTbl)
+ 1607               	.L120:
+ 1608 0a42 1192      		st Z+,__zero_reg__
+ 1609 0a44 1192      		st Z+,__zero_reg__
+ 1610 0a46 20E0      		ldi r18,hi8(OSTCBPrioTbl+22)
+ 1611 0a48 E030      		cpi r30,lo8(OSTCBPrioTbl+22)
+ 1612 0a4a F207      		cpc r31,r18
+ 1613 0a4c 01F4      		brne .L120
+ 1614 0a4e 80E0      		ldi r24,lo8(OSTCBTbl+17)
+ 1615 0a50 90E0      		ldi r25,hi8(OSTCBTbl+17)
+ 1616               	.L121:
+ 1617 0a52 FC01      		movw r30,r24
+ 1618 0a54 3F97      		sbiw r30,15
+ 1619 0a56 9183      		std Z+1,r25
+ 1620 0a58 8083      		st Z,r24
+ 1621 0a5a 4196      		adiw r24,17
+ 1622 0a5c 20E0      		ldi r18,hi8(OSTCBTbl+204)
+ 1623 0a5e 8030      		cpi r24,lo8(OSTCBTbl+204)
+ 1624 0a60 9207      		cpc r25,r18
+ 1625 0a62 01F4      		brne .L121
+ 1626 0a64 1092 0000 		sts (OSTCBTbl+189)+1,__zero_reg__
+ 1627 0a68 1092 0000 		sts OSTCBTbl+189,__zero_reg__
+ 1628 0a6c 80E0      		ldi r24,lo8(OSTCBTbl)
+ 1629 0a6e 90E0      		ldi r25,hi8(OSTCBTbl)
+ 1630 0a70 9093 0000 		sts (OSTCBFreeList)+1,r25
+ 1631 0a74 8093 0000 		sts OSTCBFreeList,r24
+ 1632 0a78 1092 0000 		sts OSEventTbl,__zero_reg__
+ 1633 0a7c 80E0      		ldi r24,lo8(OSEventTbl+8)
+ 1634 0a7e 90E0      		ldi r25,hi8(OSEventTbl+8)
+ 1635 0a80 9093 0000 		sts (OSEventTbl+4)+1,r25
+ 1636 0a84 8093 0000 		sts OSEventTbl+4,r24
+ 1637 0a88 1092 0000 		sts OSEventTbl+8,__zero_reg__
+ 1638 0a8c 0896      		adiw r24,8
+ 1639 0a8e 9093 0000 		sts (OSEventTbl+12)+1,r25
+ 1640 0a92 8093 0000 		sts OSEventTbl+12,r24
+ 1641 0a96 4097      		sbiw r24,16
+ 1642 0a98 1092 0000 		sts OSEventTbl+16,__zero_reg__
+ 1643 0a9c 1092 0000 		sts (OSEventTbl+20)+1,__zero_reg__
+ 1644 0aa0 1092 0000 		sts OSEventTbl+20,__zero_reg__
+ 1645 0aa4 9093 0000 		sts (OSEventFreeList)+1,r25
+ 1646 0aa8 8093 0000 		sts OSEventFreeList,r24
+ 1647 0aac 80E0      		ldi r24,lo8(gs(OS_TaskIdle))
+ 1648 0aae 90E0      		ldi r25,hi8(gs(OS_TaskIdle))
+ 1649 0ab0 60E0      		ldi r22,lo8(0)
+ 1650 0ab2 70E0      		ldi r23,hi8(0)
+ 1651 0ab4 40E0      		ldi r20,lo8(OSTaskIdleStk+127)
+ 1652 0ab6 50E0      		ldi r21,hi8(OSTaskIdleStk+127)
+ 1653 0ab8 2AE0      		ldi r18,lo8(10)
+GAS LISTING /tmp/ccxHRPbR.s 			page 30
+
+
+ 1654 0aba 0E94 0000 		call OSTaskCreate
+ 1655 0abe 0E94 0000 		call OSInitHookEnd
+ 1656               	/* epilogue start */
+ 1657 0ac2 0895      		ret
+ 1658               		.size	OSInit, .-OSInit
+ 1659               	.global	OSMapTbl
+ 1660               		.data
+ 1661               		.type	OSMapTbl, @object
+ 1662               		.size	OSMapTbl, 8
+ 1663               	OSMapTbl:
+ 1664 0000 01        		.byte	1
+ 1665 0001 02        		.byte	2
+ 1666 0002 04        		.byte	4
+ 1667 0003 08        		.byte	8
+ 1668 0004 10        		.byte	16
+ 1669 0005 20        		.byte	32
+ 1670 0006 40        		.byte	64
+ 1671 0007 80        		.byte	-128
+ 1672               	.global	OSUnMapTbl
+ 1673               		.type	OSUnMapTbl, @object
+ 1674               		.size	OSUnMapTbl, 256
+ 1675               	OSUnMapTbl:
+ 1676 0008 00        		.byte	0
+ 1677 0009 00        		.byte	0
+ 1678 000a 01        		.byte	1
+ 1679 000b 00        		.byte	0
+ 1680 000c 02        		.byte	2
+ 1681 000d 00        		.byte	0
+ 1682 000e 01        		.byte	1
+ 1683 000f 00        		.byte	0
+ 1684 0010 03        		.byte	3
+ 1685 0011 00        		.byte	0
+ 1686 0012 01        		.byte	1
+ 1687 0013 00        		.byte	0
+ 1688 0014 02        		.byte	2
+ 1689 0015 00        		.byte	0
+ 1690 0016 01        		.byte	1
+ 1691 0017 00        		.byte	0
+ 1692 0018 04        		.byte	4
+ 1693 0019 00        		.byte	0
+ 1694 001a 01        		.byte	1
+ 1695 001b 00        		.byte	0
+ 1696 001c 02        		.byte	2
+ 1697 001d 00        		.byte	0
+ 1698 001e 01        		.byte	1
+ 1699 001f 00        		.byte	0
+ 1700 0020 03        		.byte	3
+ 1701 0021 00        		.byte	0
+ 1702 0022 01        		.byte	1
+ 1703 0023 00        		.byte	0
+ 1704 0024 02        		.byte	2
+ 1705 0025 00        		.byte	0
+ 1706 0026 01        		.byte	1
+ 1707 0027 00        		.byte	0
+ 1708 0028 05        		.byte	5
+ 1709 0029 00        		.byte	0
+ 1710 002a 01        		.byte	1
+GAS LISTING /tmp/ccxHRPbR.s 			page 31
+
+
+ 1711 002b 00        		.byte	0
+ 1712 002c 02        		.byte	2
+ 1713 002d 00        		.byte	0
+ 1714 002e 01        		.byte	1
+ 1715 002f 00        		.byte	0
+ 1716 0030 03        		.byte	3
+ 1717 0031 00        		.byte	0
+ 1718 0032 01        		.byte	1
+ 1719 0033 00        		.byte	0
+ 1720 0034 02        		.byte	2
+ 1721 0035 00        		.byte	0
+ 1722 0036 01        		.byte	1
+ 1723 0037 00        		.byte	0
+ 1724 0038 04        		.byte	4
+ 1725 0039 00        		.byte	0
+ 1726 003a 01        		.byte	1
+ 1727 003b 00        		.byte	0
+ 1728 003c 02        		.byte	2
+ 1729 003d 00        		.byte	0
+ 1730 003e 01        		.byte	1
+ 1731 003f 00        		.byte	0
+ 1732 0040 03        		.byte	3
+ 1733 0041 00        		.byte	0
+ 1734 0042 01        		.byte	1
+ 1735 0043 00        		.byte	0
+ 1736 0044 02        		.byte	2
+ 1737 0045 00        		.byte	0
+ 1738 0046 01        		.byte	1
+ 1739 0047 00        		.byte	0
+ 1740 0048 06        		.byte	6
+ 1741 0049 00        		.byte	0
+ 1742 004a 01        		.byte	1
+ 1743 004b 00        		.byte	0
+ 1744 004c 02        		.byte	2
+ 1745 004d 00        		.byte	0
+ 1746 004e 01        		.byte	1
+ 1747 004f 00        		.byte	0
+ 1748 0050 03        		.byte	3
+ 1749 0051 00        		.byte	0
+ 1750 0052 01        		.byte	1
+ 1751 0053 00        		.byte	0
+ 1752 0054 02        		.byte	2
+ 1753 0055 00        		.byte	0
+ 1754 0056 01        		.byte	1
+ 1755 0057 00        		.byte	0
+ 1756 0058 04        		.byte	4
+ 1757 0059 00        		.byte	0
+ 1758 005a 01        		.byte	1
+ 1759 005b 00        		.byte	0
+ 1760 005c 02        		.byte	2
+ 1761 005d 00        		.byte	0
+ 1762 005e 01        		.byte	1
+ 1763 005f 00        		.byte	0
+ 1764 0060 03        		.byte	3
+ 1765 0061 00        		.byte	0
+ 1766 0062 01        		.byte	1
+ 1767 0063 00        		.byte	0
+GAS LISTING /tmp/ccxHRPbR.s 			page 32
+
+
+ 1768 0064 02        		.byte	2
+ 1769 0065 00        		.byte	0
+ 1770 0066 01        		.byte	1
+ 1771 0067 00        		.byte	0
+ 1772 0068 05        		.byte	5
+ 1773 0069 00        		.byte	0
+ 1774 006a 01        		.byte	1
+ 1775 006b 00        		.byte	0
+ 1776 006c 02        		.byte	2
+ 1777 006d 00        		.byte	0
+ 1778 006e 01        		.byte	1
+ 1779 006f 00        		.byte	0
+ 1780 0070 03        		.byte	3
+ 1781 0071 00        		.byte	0
+ 1782 0072 01        		.byte	1
+ 1783 0073 00        		.byte	0
+ 1784 0074 02        		.byte	2
+ 1785 0075 00        		.byte	0
+ 1786 0076 01        		.byte	1
+ 1787 0077 00        		.byte	0
+ 1788 0078 04        		.byte	4
+ 1789 0079 00        		.byte	0
+ 1790 007a 01        		.byte	1
+ 1791 007b 00        		.byte	0
+ 1792 007c 02        		.byte	2
+ 1793 007d 00        		.byte	0
+ 1794 007e 01        		.byte	1
+ 1795 007f 00        		.byte	0
+ 1796 0080 03        		.byte	3
+ 1797 0081 00        		.byte	0
+ 1798 0082 01        		.byte	1
+ 1799 0083 00        		.byte	0
+ 1800 0084 02        		.byte	2
+ 1801 0085 00        		.byte	0
+ 1802 0086 01        		.byte	1
+ 1803 0087 00        		.byte	0
+ 1804 0088 07        		.byte	7
+ 1805 0089 00        		.byte	0
+ 1806 008a 01        		.byte	1
+ 1807 008b 00        		.byte	0
+ 1808 008c 02        		.byte	2
+ 1809 008d 00        		.byte	0
+ 1810 008e 01        		.byte	1
+ 1811 008f 00        		.byte	0
+ 1812 0090 03        		.byte	3
+ 1813 0091 00        		.byte	0
+ 1814 0092 01        		.byte	1
+ 1815 0093 00        		.byte	0
+ 1816 0094 02        		.byte	2
+ 1817 0095 00        		.byte	0
+ 1818 0096 01        		.byte	1
+ 1819 0097 00        		.byte	0
+ 1820 0098 04        		.byte	4
+ 1821 0099 00        		.byte	0
+ 1822 009a 01        		.byte	1
+ 1823 009b 00        		.byte	0
+ 1824 009c 02        		.byte	2
+GAS LISTING /tmp/ccxHRPbR.s 			page 33
+
+
+ 1825 009d 00        		.byte	0
+ 1826 009e 01        		.byte	1
+ 1827 009f 00        		.byte	0
+ 1828 00a0 03        		.byte	3
+ 1829 00a1 00        		.byte	0
+ 1830 00a2 01        		.byte	1
+ 1831 00a3 00        		.byte	0
+ 1832 00a4 02        		.byte	2
+ 1833 00a5 00        		.byte	0
+ 1834 00a6 01        		.byte	1
+ 1835 00a7 00        		.byte	0
+ 1836 00a8 05        		.byte	5
+ 1837 00a9 00        		.byte	0
+ 1838 00aa 01        		.byte	1
+ 1839 00ab 00        		.byte	0
+ 1840 00ac 02        		.byte	2
+ 1841 00ad 00        		.byte	0
+ 1842 00ae 01        		.byte	1
+ 1843 00af 00        		.byte	0
+ 1844 00b0 03        		.byte	3
+ 1845 00b1 00        		.byte	0
+ 1846 00b2 01        		.byte	1
+ 1847 00b3 00        		.byte	0
+ 1848 00b4 02        		.byte	2
+ 1849 00b5 00        		.byte	0
+ 1850 00b6 01        		.byte	1
+ 1851 00b7 00        		.byte	0
+ 1852 00b8 04        		.byte	4
+ 1853 00b9 00        		.byte	0
+ 1854 00ba 01        		.byte	1
+ 1855 00bb 00        		.byte	0
+ 1856 00bc 02        		.byte	2
+ 1857 00bd 00        		.byte	0
+ 1858 00be 01        		.byte	1
+ 1859 00bf 00        		.byte	0
+ 1860 00c0 03        		.byte	3
+ 1861 00c1 00        		.byte	0
+ 1862 00c2 01        		.byte	1
+ 1863 00c3 00        		.byte	0
+ 1864 00c4 02        		.byte	2
+ 1865 00c5 00        		.byte	0
+ 1866 00c6 01        		.byte	1
+ 1867 00c7 00        		.byte	0
+ 1868 00c8 06        		.byte	6
+ 1869 00c9 00        		.byte	0
+ 1870 00ca 01        		.byte	1
+ 1871 00cb 00        		.byte	0
+ 1872 00cc 02        		.byte	2
+ 1873 00cd 00        		.byte	0
+ 1874 00ce 01        		.byte	1
+ 1875 00cf 00        		.byte	0
+ 1876 00d0 03        		.byte	3
+ 1877 00d1 00        		.byte	0
+ 1878 00d2 01        		.byte	1
+ 1879 00d3 00        		.byte	0
+ 1880 00d4 02        		.byte	2
+ 1881 00d5 00        		.byte	0
+GAS LISTING /tmp/ccxHRPbR.s 			page 34
+
+
+ 1882 00d6 01        		.byte	1
+ 1883 00d7 00        		.byte	0
+ 1884 00d8 04        		.byte	4
+ 1885 00d9 00        		.byte	0
+ 1886 00da 01        		.byte	1
+ 1887 00db 00        		.byte	0
+ 1888 00dc 02        		.byte	2
+ 1889 00dd 00        		.byte	0
+ 1890 00de 01        		.byte	1
+ 1891 00df 00        		.byte	0
+ 1892 00e0 03        		.byte	3
+ 1893 00e1 00        		.byte	0
+ 1894 00e2 01        		.byte	1
+ 1895 00e3 00        		.byte	0
+ 1896 00e4 02        		.byte	2
+ 1897 00e5 00        		.byte	0
+ 1898 00e6 01        		.byte	1
+ 1899 00e7 00        		.byte	0
+ 1900 00e8 05        		.byte	5
+ 1901 00e9 00        		.byte	0
+ 1902 00ea 01        		.byte	1
+ 1903 00eb 00        		.byte	0
+ 1904 00ec 02        		.byte	2
+ 1905 00ed 00        		.byte	0
+ 1906 00ee 01        		.byte	1
+ 1907 00ef 00        		.byte	0
+ 1908 00f0 03        		.byte	3
+ 1909 00f1 00        		.byte	0
+ 1910 00f2 01        		.byte	1
+ 1911 00f3 00        		.byte	0
+ 1912 00f4 02        		.byte	2
+ 1913 00f5 00        		.byte	0
+ 1914 00f6 01        		.byte	1
+ 1915 00f7 00        		.byte	0
+ 1916 00f8 04        		.byte	4
+ 1917 00f9 00        		.byte	0
+ 1918 00fa 01        		.byte	1
+ 1919 00fb 00        		.byte	0
+ 1920 00fc 02        		.byte	2
+ 1921 00fd 00        		.byte	0
+ 1922 00fe 01        		.byte	1
+ 1923 00ff 00        		.byte	0
+ 1924 0100 03        		.byte	3
+ 1925 0101 00        		.byte	0
+ 1926 0102 01        		.byte	1
+ 1927 0103 00        		.byte	0
+ 1928 0104 02        		.byte	2
+ 1929 0105 00        		.byte	0
+ 1930 0106 01        		.byte	1
+ 1931 0107 00        		.byte	0
+ 1932               		.comm OSCtxSwCtr,4,1
+ 1933               		.comm OSEventFreeList,2,1
+ 1934               		.comm OSEventTbl,24,1
+ 1935               		.comm OSIntNesting,1,1
+ 1936               		.comm OSIntExitY,1,1
+ 1937               		.comm OSLockNesting,1,1
+ 1938               		.comm OSPrioCur,1,1
+GAS LISTING /tmp/ccxHRPbR.s 			page 35
+
+
+ 1939               		.comm OSPrioHighRdy,1,1
+ 1940               		.comm OSRdyGrp,1,1
+ 1941               		.comm OSRdyTbl,2,1
+ 1942               		.comm OSRunning,1,1
+ 1943               		.comm OSTaskCtr,1,1
+ 1944               		.comm OSIdleCtr,4,1
+ 1945               		.comm OSTaskIdleStk,128,1
+ 1946               		.comm OSTCBCur,2,1
+ 1947               		.comm OSTCBFreeList,2,1
+ 1948               		.comm OSTCBHighRdy,2,1
+ 1949               		.comm OSTCBList,2,1
+ 1950               		.comm OSTCBPrioTbl,22,1
+ 1951               		.comm OSTCBTbl,204,1
+GAS LISTING /tmp/ccxHRPbR.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 ucos_ii.c
+     /tmp/ccxHRPbR.s:2      *ABS*:000000000000003f __SREG__
+     /tmp/ccxHRPbR.s:3      *ABS*:000000000000003e __SP_H__
+     /tmp/ccxHRPbR.s:4      *ABS*:000000000000003d __SP_L__
+     /tmp/ccxHRPbR.s:5      *ABS*:0000000000000034 __CCP__
+     /tmp/ccxHRPbR.s:6      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccxHRPbR.s:7      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccxHRPbR.s:13     .text:0000000000000000 OSIntEnter
+                            *COM*:0000000000000001 OSRunning
+                            *COM*:0000000000000001 OSIntNesting
+     /tmp/ccxHRPbR.s:29     .text:0000000000000018 OSSchedLock
+                            *COM*:0000000000000001 OSLockNesting
+     /tmp/ccxHRPbR.s:56     .text:0000000000000034 OSVersion
+     /tmp/ccxHRPbR.s:66     .text:000000000000003a OS_Dummy
+     /tmp/ccxHRPbR.s:74     .text:000000000000003c OS_EventTaskRdy
+     /tmp/ccxHRPbR.s:1675   .data:0000000000000008 OSUnMapTbl
+     /tmp/ccxHRPbR.s:1663   .data:0000000000000000 OSMapTbl
+                            *COM*:0000000000000016 OSTCBPrioTbl
+                            *COM*:0000000000000001 OSRdyGrp
+                            *COM*:0000000000000002 OSRdyTbl
+     /tmp/ccxHRPbR.s:165    .text:00000000000000e4 OS_EventTaskWait
+                            *COM*:0000000000000002 OSTCBCur
+     /tmp/ccxHRPbR.s:221    .text:000000000000014c OS_EventTO
+     /tmp/ccxHRPbR.s:266    .text:000000000000019a OS_EventWaitListInit
+     /tmp/ccxHRPbR.s:278    .text:00000000000001a4 OSSemCreate
+                            *COM*:0000000000000002 OSEventFreeList
+     /tmp/ccxHRPbR.s:326    .text:00000000000001ea OSTaskDelReq
+     /tmp/ccxHRPbR.s:378    .text:0000000000000224 OS_TCBInit
+                            *COM*:0000000000000002 OSTCBFreeList
+                            *COM*:0000000000000002 OSTCBList
+     /tmp/ccxHRPbR.s:496    .text:00000000000002ec OS_TaskIdle
+                            *COM*:0000000000000004 OSIdleCtr
+     /tmp/ccxHRPbR.s:526    .text:000000000000031c OS_Sched
+                            *COM*:0000000000000001 OSPrioHighRdy
+                            *COM*:0000000000000001 OSPrioCur
+                            *COM*:0000000000000002 OSTCBHighRdy
+                            *COM*:0000000000000004 OSCtxSwCtr
+     /tmp/ccxHRPbR.s:597    .text:00000000000003aa OSTimeDly
+     /tmp/ccxHRPbR.s:648    .text:00000000000003fa OSTaskSuspend
+     /tmp/ccxHRPbR.s:736    .text:0000000000000484 OSTaskResume
+     /tmp/ccxHRPbR.s:823    .text:00000000000004fc OSTaskDel
+                            *COM*:0000000000000001 OSTaskCtr
+     /tmp/ccxHRPbR.s:987    .text:0000000000000624 OSTaskCreate
+     /tmp/ccxHRPbR.s:1103   .text:00000000000006cc OSSemPost
+     /tmp/ccxHRPbR.s:1156   .text:0000000000000708 OSSemPend
+     /tmp/ccxHRPbR.s:1325   .text:000000000000081c OSSchedUnlock
+     /tmp/ccxHRPbR.s:1371   .text:0000000000000850 OSTimeTick
+     /tmp/ccxHRPbR.s:1453   .text:00000000000008da OSStart
+     /tmp/ccxHRPbR.s:1496   .text:0000000000000934 OSIntExit
+                            *COM*:0000000000000001 OSIntExitY
+     /tmp/ccxHRPbR.s:1578   .text:00000000000009de OSInit
+                            *COM*:00000000000000cc OSTCBTbl
+                            *COM*:0000000000000018 OSEventTbl
+                            *COM*:0000000000000080 OSTaskIdleStk
+
+UNDEFINED SYMBOLS
+GAS LISTING /tmp/ccxHRPbR.s 			page 37
+
+
+__do_copy_data
+__do_clear_bss
+OSTCBInitHook
+OSTaskCreateHook
+OSTaskIdleHook
+OSCtxSw
+OSTaskDelHook
+OSTaskStkInit
+OSTimeTickHook
+OSStartHighRdy
+OSIntCtxSw
+OSInitHookBegin
+OSInitHookEnd

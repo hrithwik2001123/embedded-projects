@@ -1,0 +1,2047 @@
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 1
+
+
+   1               		.file	"iam.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               	.global	k
+  10               	.global	k
+  11               		.section .bss
+  12               		.type	k, @object
+  13               		.size	k, 1
+  14               	k:
+  15 0000 00        		.skip 1,0
+  16               	.global	j
+  17               	.global	j
+  18               		.type	j, @object
+  19               		.size	j, 1
+  20               	j:
+  21 0001 00        		.skip 1,0
+  22               	.global	save
+  23               	.global	save
+  24               		.type	save, @object
+  25               		.size	save, 1
+  26               	save:
+  27 0002 00        		.skip 1,0
+  28               		.text
+  29               	.global	lcd_init
+  30               		.type	lcd_init, @function
+  31               	lcd_init:
+  32               	/* prologue: frame size=0 */
+  33 0000 CF93      		push r28
+  34 0002 DF93      		push r29
+  35 0004 CDB7      		in r28,__SP_L__
+  36 0006 DEB7      		in r29,__SP_H__
+  37               	/* prologue end (size=4) */
+  38 0008 EBE3      		ldi r30,lo8(59)
+  39 000a F0E0      		ldi r31,hi8(59)
+  40 000c 8081      		ld r24,Z
+  41 000e 8093 0000 		sts save,r24
+  42 0012 EAE3      		ldi r30,lo8(58)
+  43 0014 F0E0      		ldi r31,hi8(58)
+  44 0016 8FEF      		ldi r24,lo8(-1)
+  45 0018 8083      		st Z,r24
+  46 001a 8FE0      		ldi r24,lo8(15)
+  47 001c 90E0      		ldi r25,hi8(15)
+  48 001e 0E94 0000 		call WaitMs
+  49 0022 ABE3      		ldi r26,lo8(59)
+  50 0024 B0E0      		ldi r27,hi8(59)
+  51 0026 EBE3      		ldi r30,lo8(59)
+  52 0028 F0E0      		ldi r31,hi8(59)
+  53 002a 8081      		ld r24,Z
+  54 002c 8470      		andi r24,lo8(4)
+  55 002e 8C93      		st X,r24
+  56 0030 EBE3      		ldi r30,lo8(59)
+  57 0032 F0E0      		ldi r31,hi8(59)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 2
+
+
+  58 0034 80E2      		ldi r24,lo8(32)
+  59 0036 8083      		st Z,r24
+  60 0038 81E0      		ldi r24,lo8(1)
+  61 003a 0E94 0000 		call lcd_cmd
+  62 003e 8FE0      		ldi r24,lo8(15)
+  63 0040 0E94 0000 		call lcd_cmd
+  64 0044 82E0      		ldi r24,lo8(2)
+  65 0046 0E94 0000 		call lcd_cmd
+  66 004a 80E8      		ldi r24,lo8(-128)
+  67 004c 0E94 0000 		call lcd_cmd
+  68               	/* epilogue: frame size=0 */
+  69 0050 DF91      		pop r29
+  70 0052 CF91      		pop r28
+  71 0054 0895      		ret
+  72               	/* epilogue end (size=3) */
+  73               	/* function lcd_init size 43 (36) */
+  74               		.size	lcd_init, .-lcd_init
+  75               	.global	toggleE
+  76               		.type	toggleE, @function
+  77               	toggleE:
+  78               	/* prologue: frame size=0 */
+  79 0056 CF93      		push r28
+  80 0058 DF93      		push r29
+  81 005a CDB7      		in r28,__SP_L__
+  82 005c DEB7      		in r29,__SP_H__
+  83               	/* prologue end (size=4) */
+  84 005e ABE3      		ldi r26,lo8(59)
+  85 0060 B0E0      		ldi r27,hi8(59)
+  86 0062 EBE3      		ldi r30,lo8(59)
+  87 0064 F0E0      		ldi r31,hi8(59)
+  88 0066 8081      		ld r24,Z
+  89 0068 8460      		ori r24,lo8(4)
+  90 006a 8C93      		st X,r24
+  91 006c 8AEF      		ldi r24,lo8(-6)
+  92 006e 0E94 0000 		call dely_ns
+  93 0072 ABE3      		ldi r26,lo8(59)
+  94 0074 B0E0      		ldi r27,hi8(59)
+  95 0076 EBE3      		ldi r30,lo8(59)
+  96 0078 F0E0      		ldi r31,hi8(59)
+  97 007a 8081      		ld r24,Z
+  98 007c 8B7F      		andi r24,lo8(-5)
+  99 007e 8C93      		st X,r24
+ 100               	/* epilogue: frame size=0 */
+ 101 0080 DF91      		pop r29
+ 102 0082 CF91      		pop r28
+ 103 0084 0895      		ret
+ 104               	/* epilogue end (size=3) */
+ 105               	/* function toggleE size 24 (17) */
+ 106               		.size	toggleE, .-toggleE
+ 107               	.global	dely_ns
+ 108               		.type	dely_ns, @function
+ 109               	dely_ns:
+ 110               	/* prologue: frame size=1 */
+ 111 0086 CF93      		push r28
+ 112 0088 DF93      		push r29
+ 113 008a CDB7      		in r28,__SP_L__
+ 114 008c DEB7      		in r29,__SP_H__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 3
+
+
+ 115 008e 2197      		sbiw r28,1
+ 116 0090 0FB6      		in __tmp_reg__,__SREG__
+ 117 0092 F894      		cli
+ 118 0094 DEBF      		out __SP_H__,r29
+ 119 0096 0FBE      		out __SREG__,__tmp_reg__
+ 120 0098 CDBF      		out __SP_L__,r28
+ 121               	/* prologue end (size=10) */
+ 122 009a 8983      		std Y+1,r24
+ 123 009c 1092 0000 		sts j,__zero_reg__
+ 124 00a0 00C0      		rjmp .L6
+ 125               	.L7:
+ 126 00a2 1092 0000 		sts k,__zero_reg__
+ 127 00a6 00C0      		rjmp .L8
+ 128               	.L9:
+ 129 00a8 8091 0000 		lds r24,k
+ 130 00ac 8F5F      		subi r24,lo8(-(1))
+ 131 00ae 8093 0000 		sts k,r24
+ 132               	.L8:
+ 133 00b2 8091 0000 		lds r24,k
+ 134 00b6 8A30      		cpi r24,lo8(10)
+ 135 00b8 00F0      		brlo .L9
+ 136 00ba 8091 0000 		lds r24,j
+ 137 00be 8F5F      		subi r24,lo8(-(1))
+ 138 00c0 8093 0000 		sts j,r24
+ 139               	.L6:
+ 140 00c4 9091 0000 		lds r25,j
+ 141 00c8 8981      		ldd r24,Y+1
+ 142 00ca 9817      		cp r25,r24
+ 143 00cc 00F0      		brlo .L7
+ 144               	/* epilogue: frame size=1 */
+ 145 00ce 2196      		adiw r28,1
+ 146 00d0 0FB6      		in __tmp_reg__,__SREG__
+ 147 00d2 F894      		cli
+ 148 00d4 DEBF      		out __SP_H__,r29
+ 149 00d6 0FBE      		out __SREG__,__tmp_reg__
+ 150 00d8 CDBF      		out __SP_L__,r28
+ 151 00da DF91      		pop r29
+ 152 00dc CF91      		pop r28
+ 153 00de 0895      		ret
+ 154               	/* epilogue end (size=9) */
+ 155               	/* function dely_ns size 45 (26) */
+ 156               		.size	dely_ns, .-dely_ns
+ 157               	.global	lcd_cmd
+ 158               		.type	lcd_cmd, @function
+ 159               	lcd_cmd:
+ 160               	/* prologue: frame size=1 */
+ 161 00e0 CF93      		push r28
+ 162 00e2 DF93      		push r29
+ 163 00e4 CDB7      		in r28,__SP_L__
+ 164 00e6 DEB7      		in r29,__SP_H__
+ 165 00e8 2197      		sbiw r28,1
+ 166 00ea 0FB6      		in __tmp_reg__,__SREG__
+ 167 00ec F894      		cli
+ 168 00ee DEBF      		out __SP_H__,r29
+ 169 00f0 0FBE      		out __SREG__,__tmp_reg__
+ 170 00f2 CDBF      		out __SP_L__,r28
+ 171               	/* prologue end (size=10) */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 4
+
+
+ 172 00f4 8983      		std Y+1,r24
+ 173 00f6 ABE3      		ldi r26,lo8(59)
+ 174 00f8 B0E0      		ldi r27,hi8(59)
+ 175 00fa EBE3      		ldi r30,lo8(59)
+ 176 00fc F0E0      		ldi r31,hi8(59)
+ 177 00fe 8081      		ld r24,Z
+ 178 0100 8470      		andi r24,lo8(4)
+ 179 0102 8C93      		st X,r24
+ 180 0104 EBE3      		ldi r30,lo8(59)
+ 181 0106 F0E0      		ldi r31,hi8(59)
+ 182 0108 90EF      		ldi r25,lo8(-16)
+ 183 010a 8981      		ldd r24,Y+1
+ 184 010c 8923      		and r24,r25
+ 185 010e 8083      		st Z,r24
+ 186 0110 0E94 0000 		call toggleE
+ 187 0114 EBE3      		ldi r30,lo8(59)
+ 188 0116 F0E0      		ldi r31,hi8(59)
+ 189 0118 8981      		ldd r24,Y+1
+ 190 011a 882F      		mov r24,r24
+ 191 011c 90E0      		ldi r25,lo8(0)
+ 192 011e 8F70      		andi r24,lo8(15)
+ 193 0120 9070      		andi r25,hi8(15)
+ 194 0122 8295      		swap r24
+ 195 0124 9295      		swap r25
+ 196 0126 907F      		andi r25,0xf0
+ 197 0128 9827      		eor r25,r24
+ 198 012a 807F      		andi r24,0xf0
+ 199 012c 9827      		eor r25,r24
+ 200 012e 8083      		st Z,r24
+ 201 0130 0E94 0000 		call toggleE
+ 202               	/* epilogue: frame size=1 */
+ 203 0134 2196      		adiw r28,1
+ 204 0136 0FB6      		in __tmp_reg__,__SREG__
+ 205 0138 F894      		cli
+ 206 013a DEBF      		out __SP_H__,r29
+ 207 013c 0FBE      		out __SREG__,__tmp_reg__
+ 208 013e CDBF      		out __SP_L__,r28
+ 209 0140 DF91      		pop r29
+ 210 0142 CF91      		pop r28
+ 211 0144 0895      		ret
+ 212               	/* epilogue end (size=9) */
+ 213               	/* function lcd_cmd size 51 (32) */
+ 214               		.size	lcd_cmd, .-lcd_cmd
+ 215               	.global	lcd_putchar
+ 216               		.type	lcd_putchar, @function
+ 217               	lcd_putchar:
+ 218               	/* prologue: frame size=1 */
+ 219 0146 CF93      		push r28
+ 220 0148 DF93      		push r29
+ 221 014a CDB7      		in r28,__SP_L__
+ 222 014c DEB7      		in r29,__SP_H__
+ 223 014e 2197      		sbiw r28,1
+ 224 0150 0FB6      		in __tmp_reg__,__SREG__
+ 225 0152 F894      		cli
+ 226 0154 DEBF      		out __SP_H__,r29
+ 227 0156 0FBE      		out __SREG__,__tmp_reg__
+ 228 0158 CDBF      		out __SP_L__,r28
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 5
+
+
+ 229               	/* prologue end (size=10) */
+ 230 015a 8983      		std Y+1,r24
+ 231 015c EBE3      		ldi r30,lo8(59)
+ 232 015e F0E0      		ldi r31,hi8(59)
+ 233 0160 81E0      		ldi r24,lo8(1)
+ 234 0162 8083      		st Z,r24
+ 235 0164 ABE3      		ldi r26,lo8(59)
+ 236 0166 B0E0      		ldi r27,hi8(59)
+ 237 0168 EBE3      		ldi r30,lo8(59)
+ 238 016a F0E0      		ldi r31,hi8(59)
+ 239 016c 8081      		ld r24,Z
+ 240 016e 8270      		andi r24,lo8(2)
+ 241 0170 8C93      		st X,r24
+ 242 0172 EBE3      		ldi r30,lo8(59)
+ 243 0174 F0E0      		ldi r31,hi8(59)
+ 244 0176 9981      		ldd r25,Y+1
+ 245 0178 80EF      		ldi r24,lo8(-16)
+ 246 017a 8923      		and r24,r25
+ 247 017c 8160      		ori r24,lo8(1)
+ 248 017e 8083      		st Z,r24
+ 249 0180 0E94 0000 		call toggleE
+ 250 0184 EBE3      		ldi r30,lo8(59)
+ 251 0186 F0E0      		ldi r31,hi8(59)
+ 252 0188 8981      		ldd r24,Y+1
+ 253 018a 882F      		mov r24,r24
+ 254 018c 90E0      		ldi r25,lo8(0)
+ 255 018e 8F70      		andi r24,lo8(15)
+ 256 0190 9070      		andi r25,hi8(15)
+ 257 0192 8295      		swap r24
+ 258 0194 9295      		swap r25
+ 259 0196 907F      		andi r25,0xf0
+ 260 0198 9827      		eor r25,r24
+ 261 019a 807F      		andi r24,0xf0
+ 262 019c 9827      		eor r25,r24
+ 263 019e 8160      		ori r24,lo8(1)
+ 264 01a0 8083      		st Z,r24
+ 265 01a2 0E94 0000 		call toggleE
+ 266               	/* epilogue: frame size=1 */
+ 267 01a6 2196      		adiw r28,1
+ 268 01a8 0FB6      		in __tmp_reg__,__SREG__
+ 269 01aa F894      		cli
+ 270 01ac DEBF      		out __SP_H__,r29
+ 271 01ae 0FBE      		out __SREG__,__tmp_reg__
+ 272 01b0 CDBF      		out __SP_L__,r28
+ 273 01b2 DF91      		pop r29
+ 274 01b4 CF91      		pop r28
+ 275 01b6 0895      		ret
+ 276               	/* epilogue end (size=9) */
+ 277               	/* function lcd_putchar size 57 (38) */
+ 278               		.size	lcd_putchar, .-lcd_putchar
+ 279               	.global	lcd_char
+ 280               		.type	lcd_char, @function
+ 281               	lcd_char:
+ 282               	/* prologue: frame size=3 */
+ 283 01b8 CF93      		push r28
+ 284 01ba DF93      		push r29
+ 285 01bc CDB7      		in r28,__SP_L__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 6
+
+
+ 286 01be DEB7      		in r29,__SP_H__
+ 287 01c0 2397      		sbiw r28,3
+ 288 01c2 0FB6      		in __tmp_reg__,__SREG__
+ 289 01c4 F894      		cli
+ 290 01c6 DEBF      		out __SP_H__,r29
+ 291 01c8 0FBE      		out __SREG__,__tmp_reg__
+ 292 01ca CDBF      		out __SP_L__,r28
+ 293               	/* prologue end (size=10) */
+ 294 01cc 8B83      		std Y+3,r24
+ 295 01ce 8B81      		ldd r24,Y+3
+ 296 01d0 8930      		cpi r24,lo8(9)
+ 297 01d2 01F4      		brne .L18
+ 298 01d4 1A82      		std Y+2,__zero_reg__
+ 299 01d6 1982      		std Y+1,__zero_reg__
+ 300 01d8 00C0      		rjmp .L20
+ 301               	.L21:
+ 302 01da 8B81      		ldd r24,Y+3
+ 303 01dc 0E94 0000 		call lcd_putchar
+ 304 01e0 8981      		ldd r24,Y+1
+ 305 01e2 9A81      		ldd r25,Y+2
+ 306 01e4 0196      		adiw r24,1
+ 307 01e6 9A83      		std Y+2,r25
+ 308 01e8 8983      		std Y+1,r24
+ 309               	.L20:
+ 310 01ea 8981      		ldd r24,Y+1
+ 311 01ec 9A81      		ldd r25,Y+2
+ 312 01ee 8230      		cpi r24,2
+ 313 01f0 9105      		cpc r25,__zero_reg__
+ 314 01f2 04F0      		brlt .L21
+ 315 01f4 00C0      		rjmp .L26
+ 316               	.L18:
+ 317 01f6 8B81      		ldd r24,Y+3
+ 318 01f8 8A30      		cpi r24,lo8(10)
+ 319 01fa 01F4      		brne .L24
+ 320 01fc 80E0      		ldi r24,lo8(0)
+ 321 01fe 0E94 0000 		call lcd_gotoxy2
+ 322 0202 00C0      		rjmp .L26
+ 323               	.L24:
+ 324 0204 8B81      		ldd r24,Y+3
+ 325 0206 0E94 0000 		call lcd_putchar
+ 326               	.L26:
+ 327               	/* epilogue: frame size=3 */
+ 328 020a 2396      		adiw r28,3
+ 329 020c 0FB6      		in __tmp_reg__,__SREG__
+ 330 020e F894      		cli
+ 331 0210 DEBF      		out __SP_H__,r29
+ 332 0212 0FBE      		out __SREG__,__tmp_reg__
+ 333 0214 CDBF      		out __SP_L__,r28
+ 334 0216 DF91      		pop r29
+ 335 0218 CF91      		pop r28
+ 336 021a 0895      		ret
+ 337               	/* epilogue end (size=9) */
+ 338               	/* function lcd_char size 50 (31) */
+ 339               		.size	lcd_char, .-lcd_char
+ 340               	.global	lcd_string
+ 341               		.type	lcd_string, @function
+ 342               	lcd_string:
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 7
+
+
+ 343               	/* prologue: frame size=3 */
+ 344 021c CF93      		push r28
+ 345 021e DF93      		push r29
+ 346 0220 CDB7      		in r28,__SP_L__
+ 347 0222 DEB7      		in r29,__SP_H__
+ 348 0224 2397      		sbiw r28,3
+ 349 0226 0FB6      		in __tmp_reg__,__SREG__
+ 350 0228 F894      		cli
+ 351 022a DEBF      		out __SP_H__,r29
+ 352 022c 0FBE      		out __SREG__,__tmp_reg__
+ 353 022e CDBF      		out __SP_L__,r28
+ 354               	/* prologue end (size=10) */
+ 355 0230 9B83      		std Y+3,r25
+ 356 0232 8A83      		std Y+2,r24
+ 357 0234 1982      		std Y+1,__zero_reg__
+ 358 0236 EBE3      		ldi r30,lo8(59)
+ 359 0238 F0E0      		ldi r31,hi8(59)
+ 360 023a 81E0      		ldi r24,lo8(1)
+ 361 023c 8083      		st Z,r24
+ 362 023e ABE3      		ldi r26,lo8(59)
+ 363 0240 B0E0      		ldi r27,hi8(59)
+ 364 0242 EBE3      		ldi r30,lo8(59)
+ 365 0244 F0E0      		ldi r31,hi8(59)
+ 366 0246 8081      		ld r24,Z
+ 367 0248 8270      		andi r24,lo8(2)
+ 368 024a 8C93      		st X,r24
+ 369 024c 00C0      		rjmp .L28
+ 370               	.L29:
+ 371 024e 8981      		ldd r24,Y+1
+ 372 0250 8031      		cpi r24,lo8(16)
+ 373 0252 01F4      		brne .L30
+ 374 0254 80EC      		ldi r24,lo8(-64)
+ 375 0256 0E94 0000 		call lcd_cmd
+ 376               	.L30:
+ 377 025a ABE3      		ldi r26,lo8(59)
+ 378 025c B0E0      		ldi r27,hi8(59)
+ 379 025e 8981      		ldd r24,Y+1
+ 380 0260 882F      		mov r24,r24
+ 381 0262 90E0      		ldi r25,lo8(0)
+ 382 0264 9C01      		movw r18,r24
+ 383 0266 8A81      		ldd r24,Y+2
+ 384 0268 9B81      		ldd r25,Y+3
+ 385 026a F901      		movw r30,r18
+ 386 026c E80F      		add r30,r24
+ 387 026e F91F      		adc r31,r25
+ 388 0270 8081      		ld r24,Z
+ 389 0272 982F      		mov r25,r24
+ 390 0274 80EF      		ldi r24,lo8(-16)
+ 391 0276 8923      		and r24,r25
+ 392 0278 8160      		ori r24,lo8(1)
+ 393 027a 8C93      		st X,r24
+ 394 027c 0E94 0000 		call toggleE
+ 395 0280 ABE3      		ldi r26,lo8(59)
+ 396 0282 B0E0      		ldi r27,hi8(59)
+ 397 0284 8981      		ldd r24,Y+1
+ 398 0286 882F      		mov r24,r24
+ 399 0288 90E0      		ldi r25,lo8(0)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 8
+
+
+ 400 028a 9C01      		movw r18,r24
+ 401 028c 8A81      		ldd r24,Y+2
+ 402 028e 9B81      		ldd r25,Y+3
+ 403 0290 F901      		movw r30,r18
+ 404 0292 E80F      		add r30,r24
+ 405 0294 F91F      		adc r31,r25
+ 406 0296 8081      		ld r24,Z
+ 407 0298 882F      		mov r24,r24
+ 408 029a 90E0      		ldi r25,lo8(0)
+ 409 029c 8F70      		andi r24,lo8(15)
+ 410 029e 9070      		andi r25,hi8(15)
+ 411 02a0 8295      		swap r24
+ 412 02a2 9295      		swap r25
+ 413 02a4 907F      		andi r25,0xf0
+ 414 02a6 9827      		eor r25,r24
+ 415 02a8 807F      		andi r24,0xf0
+ 416 02aa 9827      		eor r25,r24
+ 417 02ac 8160      		ori r24,lo8(1)
+ 418 02ae 8C93      		st X,r24
+ 419 02b0 0E94 0000 		call toggleE
+ 420 02b4 8981      		ldd r24,Y+1
+ 421 02b6 8F5F      		subi r24,lo8(-(1))
+ 422 02b8 8983      		std Y+1,r24
+ 423               	.L28:
+ 424 02ba 8981      		ldd r24,Y+1
+ 425 02bc 882F      		mov r24,r24
+ 426 02be 90E0      		ldi r25,lo8(0)
+ 427 02c0 9C01      		movw r18,r24
+ 428 02c2 8A81      		ldd r24,Y+2
+ 429 02c4 9B81      		ldd r25,Y+3
+ 430 02c6 F901      		movw r30,r18
+ 431 02c8 E80F      		add r30,r24
+ 432 02ca F91F      		adc r31,r25
+ 433 02cc 8081      		ld r24,Z
+ 434 02ce 8823      		tst r24
+ 435 02d0 01F0      		breq .+2
+ 436 02d2 00C0      		rjmp .L29
+ 437               	/* epilogue: frame size=3 */
+ 438 02d4 2396      		adiw r28,3
+ 439 02d6 0FB6      		in __tmp_reg__,__SREG__
+ 440 02d8 F894      		cli
+ 441 02da DEBF      		out __SP_H__,r29
+ 442 02dc 0FBE      		out __SREG__,__tmp_reg__
+ 443 02de CDBF      		out __SP_L__,r28
+ 444 02e0 DF91      		pop r29
+ 445 02e2 CF91      		pop r28
+ 446 02e4 0895      		ret
+ 447               	/* epilogue end (size=9) */
+ 448               	/* function lcd_string size 101 (82) */
+ 449               		.size	lcd_string, .-lcd_string
+ 450               	.global	lcd_showvalue
+ 451               		.type	lcd_showvalue, @function
+ 452               	lcd_showvalue:
+ 453               	/* prologue: frame size=4 */
+ 454 02e6 CF93      		push r28
+ 455 02e8 DF93      		push r29
+ 456 02ea CDB7      		in r28,__SP_L__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 9
+
+
+ 457 02ec DEB7      		in r29,__SP_H__
+ 458 02ee 2497      		sbiw r28,4
+ 459 02f0 0FB6      		in __tmp_reg__,__SREG__
+ 460 02f2 F894      		cli
+ 461 02f4 DEBF      		out __SP_H__,r29
+ 462 02f6 0FBE      		out __SREG__,__tmp_reg__
+ 463 02f8 CDBF      		out __SP_L__,r28
+ 464               	/* prologue end (size=10) */
+ 465 02fa 8C83      		std Y+4,r24
+ 466 02fc 1B82      		std Y+3,__zero_reg__
+ 467 02fe 1A82      		std Y+2,__zero_reg__
+ 468 0300 1982      		std Y+1,__zero_reg__
+ 469 0302 8C81      		ldd r24,Y+4
+ 470 0304 94E6      		ldi r25,lo8(100)
+ 471 0306 692F      		mov r22,r25
+ 472 0308 0E94 0000 		call __udivmodqi4
+ 473 030c 8B83      		std Y+3,r24
+ 474 030e 8C81      		ldd r24,Y+4
+ 475 0310 482F      		mov r20,r24
+ 476 0312 50E0      		ldi r21,lo8(0)
+ 477 0314 8B81      		ldd r24,Y+3
+ 478 0316 282F      		mov r18,r24
+ 479 0318 30E0      		ldi r19,lo8(0)
+ 480 031a 84E6      		ldi r24,lo8(100)
+ 481 031c 90E0      		ldi r25,hi8(100)
+ 482 031e BC01      		movw r22,r24
+ 483 0320 269F      		mul r18,r22
+ 484 0322 C001      		movw r24,r0
+ 485 0324 279F      		mul r18,r23
+ 486 0326 900D      		add r25,r0
+ 487 0328 369F      		mul r19,r22
+ 488 032a 900D      		add r25,r0
+ 489 032c 1124      		clr r1
+ 490 032e 9A01      		movw r18,r20
+ 491 0330 281B      		sub r18,r24
+ 492 0332 390B      		sbc r19,r25
+ 493 0334 C901      		movw r24,r18
+ 494 0336 2AE0      		ldi r18,lo8(10)
+ 495 0338 30E0      		ldi r19,hi8(10)
+ 496 033a B901      		movw r22,r18
+ 497 033c 0E94 0000 		call __divmodhi4
+ 498 0340 CB01      		movw r24,r22
+ 499 0342 8A83      		std Y+2,r24
+ 500 0344 8B81      		ldd r24,Y+3
+ 501 0346 282F      		mov r18,r24
+ 502 0348 30E0      		ldi r19,lo8(0)
+ 503 034a 84E6      		ldi r24,lo8(100)
+ 504 034c 90E0      		ldi r25,hi8(100)
+ 505 034e AC01      		movw r20,r24
+ 506 0350 249F      		mul r18,r20
+ 507 0352 C001      		movw r24,r0
+ 508 0354 259F      		mul r18,r21
+ 509 0356 900D      		add r25,r0
+ 510 0358 349F      		mul r19,r20
+ 511 035a 900D      		add r25,r0
+ 512 035c 1124      		clr r1
+ 513 035e 982F      		mov r25,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 10
+
+
+ 514 0360 8C81      		ldd r24,Y+4
+ 515 0362 482F      		mov r20,r24
+ 516 0364 491B      		sub r20,r25
+ 517 0366 8A81      		ldd r24,Y+2
+ 518 0368 882F      		mov r24,r24
+ 519 036a 90E0      		ldi r25,lo8(0)
+ 520 036c 9C01      		movw r18,r24
+ 521 036e 220F      		lsl r18
+ 522 0370 331F      		rol r19
+ 523 0372 C901      		movw r24,r18
+ 524 0374 880F      		lsl r24
+ 525 0376 991F      		rol r25
+ 526 0378 880F      		lsl r24
+ 527 037a 991F      		rol r25
+ 528 037c 820F      		add r24,r18
+ 529 037e 931F      		adc r25,r19
+ 530 0380 542F      		mov r21,r20
+ 531 0382 581B      		sub r21,r24
+ 532 0384 852F      		mov r24,r21
+ 533 0386 8983      		std Y+1,r24
+ 534 0388 8B81      		ldd r24,Y+3
+ 535 038a 805D      		subi r24,lo8(-(48))
+ 536 038c 0E94 0000 		call lcd_char
+ 537 0390 8A81      		ldd r24,Y+2
+ 538 0392 805D      		subi r24,lo8(-(48))
+ 539 0394 0E94 0000 		call lcd_char
+ 540 0398 8981      		ldd r24,Y+1
+ 541 039a 805D      		subi r24,lo8(-(48))
+ 542 039c 0E94 0000 		call lcd_char
+ 543               	/* epilogue: frame size=4 */
+ 544 03a0 2496      		adiw r28,4
+ 545 03a2 0FB6      		in __tmp_reg__,__SREG__
+ 546 03a4 F894      		cli
+ 547 03a6 DEBF      		out __SP_H__,r29
+ 548 03a8 0FBE      		out __SREG__,__tmp_reg__
+ 549 03aa CDBF      		out __SP_L__,r28
+ 550 03ac DF91      		pop r29
+ 551 03ae CF91      		pop r28
+ 552 03b0 0895      		ret
+ 553               	/* epilogue end (size=9) */
+ 554               	/* function lcd_showvalue size 102 (83) */
+ 555               		.size	lcd_showvalue, .-lcd_showvalue
+ 556               	.global	lcd_gotoxy1
+ 557               		.type	lcd_gotoxy1, @function
+ 558               	lcd_gotoxy1:
+ 559               	/* prologue: frame size=1 */
+ 560 03b2 CF93      		push r28
+ 561 03b4 DF93      		push r29
+ 562 03b6 CDB7      		in r28,__SP_L__
+ 563 03b8 DEB7      		in r29,__SP_H__
+ 564 03ba 2197      		sbiw r28,1
+ 565 03bc 0FB6      		in __tmp_reg__,__SREG__
+ 566 03be F894      		cli
+ 567 03c0 DEBF      		out __SP_H__,r29
+ 568 03c2 0FBE      		out __SREG__,__tmp_reg__
+ 569 03c4 CDBF      		out __SP_L__,r28
+ 570               	/* prologue end (size=10) */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 11
+
+
+ 571 03c6 8983      		std Y+1,r24
+ 572 03c8 8981      		ldd r24,Y+1
+ 573 03ca 8058      		subi r24,lo8(-(-128))
+ 574 03cc 0E94 0000 		call lcd_cmd
+ 575               	/* epilogue: frame size=1 */
+ 576 03d0 2196      		adiw r28,1
+ 577 03d2 0FB6      		in __tmp_reg__,__SREG__
+ 578 03d4 F894      		cli
+ 579 03d6 DEBF      		out __SP_H__,r29
+ 580 03d8 0FBE      		out __SREG__,__tmp_reg__
+ 581 03da CDBF      		out __SP_L__,r28
+ 582 03dc DF91      		pop r29
+ 583 03de CF91      		pop r28
+ 584 03e0 0895      		ret
+ 585               	/* epilogue end (size=9) */
+ 586               	/* function lcd_gotoxy1 size 24 (5) */
+ 587               		.size	lcd_gotoxy1, .-lcd_gotoxy1
+ 588               	.global	lcd_gotoxy2
+ 589               		.type	lcd_gotoxy2, @function
+ 590               	lcd_gotoxy2:
+ 591               	/* prologue: frame size=1 */
+ 592 03e2 CF93      		push r28
+ 593 03e4 DF93      		push r29
+ 594 03e6 CDB7      		in r28,__SP_L__
+ 595 03e8 DEB7      		in r29,__SP_H__
+ 596 03ea 2197      		sbiw r28,1
+ 597 03ec 0FB6      		in __tmp_reg__,__SREG__
+ 598 03ee F894      		cli
+ 599 03f0 DEBF      		out __SP_H__,r29
+ 600 03f2 0FBE      		out __SREG__,__tmp_reg__
+ 601 03f4 CDBF      		out __SP_L__,r28
+ 602               	/* prologue end (size=10) */
+ 603 03f6 8983      		std Y+1,r24
+ 604 03f8 8981      		ldd r24,Y+1
+ 605 03fa 8054      		subi r24,lo8(-(-64))
+ 606 03fc 0E94 0000 		call lcd_cmd
+ 607               	/* epilogue: frame size=1 */
+ 608 0400 2196      		adiw r28,1
+ 609 0402 0FB6      		in __tmp_reg__,__SREG__
+ 610 0404 F894      		cli
+ 611 0406 DEBF      		out __SP_H__,r29
+ 612 0408 0FBE      		out __SREG__,__tmp_reg__
+ 613 040a CDBF      		out __SP_L__,r28
+ 614 040c DF91      		pop r29
+ 615 040e CF91      		pop r28
+ 616 0410 0895      		ret
+ 617               	/* epilogue end (size=9) */
+ 618               	/* function lcd_gotoxy2 size 24 (5) */
+ 619               		.size	lcd_gotoxy2, .-lcd_gotoxy2
+ 620               	.global	lcd_exit
+ 621               		.type	lcd_exit, @function
+ 622               	lcd_exit:
+ 623               	/* prologue: frame size=0 */
+ 624 0412 CF93      		push r28
+ 625 0414 DF93      		push r29
+ 626 0416 CDB7      		in r28,__SP_L__
+ 627 0418 DEB7      		in r29,__SP_H__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 12
+
+
+ 628               	/* prologue end (size=4) */
+ 629 041a EBE3      		ldi r30,lo8(59)
+ 630 041c F0E0      		ldi r31,hi8(59)
+ 631 041e 8091 0000 		lds r24,save
+ 632 0422 8083      		st Z,r24
+ 633               	/* epilogue: frame size=0 */
+ 634 0424 DF91      		pop r29
+ 635 0426 CF91      		pop r28
+ 636 0428 0895      		ret
+ 637               	/* epilogue end (size=3) */
+ 638               	/* function lcd_exit size 12 (5) */
+ 639               		.size	lcd_exit, .-lcd_exit
+ 640               	.global	WaitMs
+ 641               		.type	WaitMs, @function
+ 642               	WaitMs:
+ 643               	/* prologue: frame size=4 */
+ 644 042a CF93      		push r28
+ 645 042c DF93      		push r29
+ 646 042e CDB7      		in r28,__SP_L__
+ 647 0430 DEB7      		in r29,__SP_H__
+ 648 0432 2497      		sbiw r28,4
+ 649 0434 0FB6      		in __tmp_reg__,__SREG__
+ 650 0436 F894      		cli
+ 651 0438 DEBF      		out __SP_H__,r29
+ 652 043a 0FBE      		out __SREG__,__tmp_reg__
+ 653 043c CDBF      		out __SP_L__,r28
+ 654               	/* prologue end (size=10) */
+ 655 043e 9C83      		std Y+4,r25
+ 656 0440 8B83      		std Y+3,r24
+ 657 0442 00C0      		rjmp .L43
+ 658               	.L44:
+ 659 0444 1A82      		std Y+2,__zero_reg__
+ 660 0446 1982      		std Y+1,__zero_reg__
+ 661 0448 00C0      		rjmp .L45
+ 662               	.L46:
+ 663               	/* #APP */
+ 664 044a 0000      		nop
+ 665               	/* #NOAPP */
+ 666 044c 8981      		ldd r24,Y+1
+ 667 044e 9A81      		ldd r25,Y+2
+ 668 0450 0196      		adiw r24,1
+ 669 0452 9A83      		std Y+2,r25
+ 670 0454 8983      		std Y+1,r24
+ 671               	.L45:
+ 672 0456 8981      		ldd r24,Y+1
+ 673 0458 9A81      		ldd r25,Y+2
+ 674 045a 2CE0      		ldi r18,hi8(3276)
+ 675 045c 8C3C      		cpi r24,lo8(3276)
+ 676 045e 9207      		cpc r25,r18
+ 677 0460 04F0      		brlt .L46
+ 678               	.L43:
+ 679 0462 8B81      		ldd r24,Y+3
+ 680 0464 9C81      		ldd r25,Y+4
+ 681 0466 0197      		sbiw r24,1
+ 682 0468 9C83      		std Y+4,r25
+ 683 046a 8B83      		std Y+3,r24
+ 684 046c 8B81      		ldd r24,Y+3
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 13
+
+
+ 685 046e 9C81      		ldd r25,Y+4
+ 686 0470 2FEF      		ldi r18,hi8(-1)
+ 687 0472 8F3F      		cpi r24,lo8(-1)
+ 688 0474 9207      		cpc r25,r18
+ 689 0476 01F4      		brne .L44
+ 690               	/* epilogue: frame size=4 */
+ 691 0478 2496      		adiw r28,4
+ 692 047a 0FB6      		in __tmp_reg__,__SREG__
+ 693 047c F894      		cli
+ 694 047e DEBF      		out __SP_H__,r29
+ 695 0480 0FBE      		out __SREG__,__tmp_reg__
+ 696 0482 CDBF      		out __SP_L__,r28
+ 697 0484 DF91      		pop r29
+ 698 0486 CF91      		pop r28
+ 699 0488 0895      		ret
+ 700               	/* epilogue end (size=9) */
+ 701               	/* function WaitMs size 49 (30) */
+ 702               		.size	WaitMs, .-WaitMs
+ 703               	.global	i
+ 704               	.global	i
+ 705               		.section .bss
+ 706               		.type	i, @object
+ 707               		.size	i, 2
+ 708               	i:
+ 709 0003 0000      		.skip 2,0
+ 710               	.global	RFID
+ 711               	.global	RFID
+ 712               		.type	RFID, @object
+ 713               		.size	RFID, 1
+ 714               	RFID:
+ 715 0005 00        		.skip 1,0
+ 716               	.global	buffer_count
+ 717               	.global	buffer_count
+ 718               		.type	buffer_count, @object
+ 719               		.size	buffer_count, 2
+ 720               	buffer_count:
+ 721 0006 0000      		.skip 2,0
+ 722               		.text
+ 723               	.global	__vector_14
+ 724               		.type	__vector_14, @function
+ 725               	__vector_14:
+ 726               	/* prologue: frame size=0 */
+ 727 048a 1F92      		push __zero_reg__
+ 728 048c 0F92      		push __tmp_reg__
+ 729 048e 0FB6      		in __tmp_reg__,__SREG__
+ 730 0490 0F92      		push __tmp_reg__
+ 731 0492 1124      		clr __zero_reg__
+ 732 0494 EF93      		push r30
+ 733 0496 FF93      		push r31
+ 734 0498 CF93      		push r28
+ 735 049a DF93      		push r29
+ 736 049c CDB7      		in r28,__SP_L__
+ 737 049e DEB7      		in r29,__SP_H__
+ 738               	/* prologue end (size=11) */
+ 739 04a0 1092 0000 		sts (buffer_count)+1,__zero_reg__
+ 740 04a4 1092 0000 		sts buffer_count,__zero_reg__
+ 741 04a8 EEE4      		ldi r30,lo8(78)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 14
+
+
+ 742 04aa F0E0      		ldi r31,hi8(78)
+ 743 04ac 1082      		st Z,__zero_reg__
+ 744 04ae 1092 0000 		sts RFID,__zero_reg__
+ 745               	/* epilogue: frame size=0 */
+ 746 04b2 DF91      		pop r29
+ 747 04b4 CF91      		pop r28
+ 748 04b6 FF91      		pop r31
+ 749 04b8 EF91      		pop r30
+ 750 04ba 0F90      		pop __tmp_reg__
+ 751 04bc 0FBE      		out __SREG__,__tmp_reg__
+ 752 04be 0F90      		pop __tmp_reg__
+ 753 04c0 1F90      		pop __zero_reg__
+ 754 04c2 1895      		reti
+ 755               	/* epilogue end (size=9) */
+ 756               	/* function __vector_14 size 29 (9) */
+ 757               		.size	__vector_14, .-__vector_14
+ 758               	.global	main
+ 759               		.type	main, @function
+ 760               	main:
+ 761               	/* prologue: frame size=0 */
+ 762 04c4 CF93      		push r28
+ 763 04c6 DF93      		push r29
+ 764 04c8 CDB7      		in r28,__SP_L__
+ 765 04ca DEB7      		in r29,__SP_H__
+ 766               	/* prologue end (size=4) */
+ 767 04cc 0E94 0000 		call OSInit
+ 768               	/* #APP */
+ 769 04d0 F894      		cli
+ 770               	/* #NOAPP */
+ 771 04d2 E3E5      		ldi r30,lo8(83)
+ 772 04d4 F0E0      		ldi r31,hi8(83)
+ 773 04d6 87E0      		ldi r24,lo8(7)
+ 774 04d8 8083      		st Z,r24
+ 775 04da E7E5      		ldi r30,lo8(87)
+ 776 04dc F0E0      		ldi r31,hi8(87)
+ 777 04de 81E0      		ldi r24,lo8(1)
+ 778 04e0 8083      		st Z,r24
+ 779 04e2 E2E5      		ldi r30,lo8(82)
+ 780 04e4 F0E0      		ldi r31,hi8(82)
+ 781 04e6 1082      		st Z,__zero_reg__
+ 782               	/* #APP */
+ 783 04e8 7894      		sei
+ 784               	/* #NOAPP */
+ 785 04ea E9E9      		ldi r30,lo8(153)
+ 786 04ec F0E0      		ldi r31,hi8(153)
+ 787 04ee 87E6      		ldi r24,lo8(103)
+ 788 04f0 8083      		st Z,r24
+ 789 04f2 E8E9      		ldi r30,lo8(152)
+ 790 04f4 F0E0      		ldi r31,hi8(152)
+ 791 04f6 1082      		st Z,__zero_reg__
+ 792 04f8 EAE9      		ldi r30,lo8(154)
+ 793 04fa F0E0      		ldi r31,hi8(154)
+ 794 04fc 88E1      		ldi r24,lo8(24)
+ 795 04fe 8083      		st Z,r24
+ 796 0500 E9E2      		ldi r30,lo8(41)
+ 797 0502 F0E0      		ldi r31,hi8(41)
+ 798 0504 87E6      		ldi r24,lo8(103)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 15
+
+
+ 799 0506 8083      		st Z,r24
+ 800 0508 E0E9      		ldi r30,lo8(144)
+ 801 050a F0E0      		ldi r31,hi8(144)
+ 802 050c 1082      		st Z,__zero_reg__
+ 803 050e EAE2      		ldi r30,lo8(42)
+ 804 0510 F0E0      		ldi r31,hi8(42)
+ 805 0512 88E1      		ldi r24,lo8(24)
+ 806 0514 8083      		st Z,r24
+ 807 0516 E4E3      		ldi r30,lo8(52)
+ 808 0518 F0E0      		ldi r31,hi8(52)
+ 809 051a 8FEF      		ldi r24,lo8(-1)
+ 810 051c 8083      		st Z,r24
+ 811               	/* #APP */
+ 812 051e 7894      		sei
+ 813               	/* #NOAPP */
+ 814 0520 0E94 0000 		call lcd_init
+ 815 0524 80E0      		ldi r24,lo8(MyTaskStack2+511)
+ 816 0526 90E0      		ldi r25,hi8(MyTaskStack2+511)
+ 817 0528 E0E0      		ldi r30,lo8(gs(task2))
+ 818 052a F0E0      		ldi r31,hi8(gs(task2))
+ 819 052c 22E0      		ldi r18,lo8(2)
+ 820 052e AC01      		movw r20,r24
+ 821 0530 60E0      		ldi r22,lo8(0)
+ 822 0532 70E0      		ldi r23,hi8(0)
+ 823 0534 CF01      		movw r24,r30
+ 824 0536 0E94 0000 		call OSTaskCreate
+ 825 053a 0E94 0000 		call OSStart
+ 826 053e 80E0      		ldi r24,lo8(0)
+ 827 0540 90E0      		ldi r25,hi8(0)
+ 828               	/* epilogue: frame size=0 */
+ 829 0542 DF91      		pop r29
+ 830 0544 CF91      		pop r28
+ 831 0546 0895      		ret
+ 832               	/* epilogue end (size=3) */
+ 833               	/* function main size 69 (62) */
+ 834               		.size	main, .-main
+ 835               	.global	task1
+ 836               		.type	task1, @function
+ 837               	task1:
+ 838               	/* prologue: frame size=0 */
+ 839 0548 CF93      		push r28
+ 840 054a DF93      		push r29
+ 841 054c CDB7      		in r28,__SP_L__
+ 842 054e DEB7      		in r29,__SP_H__
+ 843               	/* prologue end (size=4) */
+ 844               	.L54:
+ 845 0550 81E0      		ldi r24,lo8(1)
+ 846 0552 0E94 0000 		call lcd_cmd
+ 847 0556 20E0      		ldi r18,lo8(0)
+ 848 0558 30E0      		ldi r19,hi8(0)
+ 849 055a 40E0      		ldi r20,lo8(0)
+ 850 055c 61E0      		ldi r22,lo8(1)
+ 851 055e 80E0      		ldi r24,lo8(0)
+ 852 0560 0E94 0000 		call OSTimeDlyHMSM
+ 853 0564 00C0      		rjmp .L54
+ 854               	/* epilogue: frame size=0 */
+ 855               	/* epilogue: noreturn */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 16
+
+
+ 856               	/* epilogue end (size=0) */
+ 857               	/* function task1 size 15 (11) */
+ 858               		.size	task1, .-task1
+ 859               		.data
+ 860               	.LC0:
+ 861 0000 5445 4D50 		.string	"TEMPERATURE:"
+ 861      4552 4154 
+ 861      5552 453A 
+ 861      00
+ 862               	.LC1:
+ 863 000d 5052 4553 		.string	"PRESSURE:"
+ 863      5355 5245 
+ 863      3A00 
+ 864               		.text
+ 865               	.global	task2
+ 866               		.type	task2, @function
+ 867               	task2:
+ 868               	/* prologue: frame size=60 */
+ 869 0566 CF93      		push r28
+ 870 0568 DF93      		push r29
+ 871 056a CDB7      		in r28,__SP_L__
+ 872 056c DEB7      		in r29,__SP_H__
+ 873 056e EC97      		sbiw r28,60
+ 874 0570 0FB6      		in __tmp_reg__,__SREG__
+ 875 0572 F894      		cli
+ 876 0574 DEBF      		out __SP_H__,r29
+ 877 0576 0FBE      		out __SREG__,__tmp_reg__
+ 878 0578 CDBF      		out __SP_L__,r28
+ 879               	/* prologue end (size=10) */
+ 880 057a 83E0      		ldi r24,lo8(3)
+ 881 057c 8AAF      		std Y+58,r24
+ 882 057e AAE3      		ldi r26,lo8(58)
+ 883 0580 B0E0      		ldi r27,hi8(58)
+ 884 0582 EAE3      		ldi r30,lo8(58)
+ 885 0584 F0E0      		ldi r31,hi8(58)
+ 886 0586 8081      		ld r24,Z
+ 887 0588 8860      		ori r24,lo8(8)
+ 888 058a 8C93      		st X,r24
+ 889               	.L57:
+ 890 058c E7E2      		ldi r30,lo8(39)
+ 891 058e F0E0      		ldi r31,hi8(39)
+ 892 0590 87EC      		ldi r24,lo8(-57)
+ 893 0592 8083      		st Z,r24
+ 894 0594 E6E2      		ldi r30,lo8(38)
+ 895 0596 F0E0      		ldi r31,hi8(38)
+ 896 0598 87EE      		ldi r24,lo8(-25)
+ 897 059a 8083      		st Z,r24
+ 898               	.L58:
+ 899 059c E6E2      		ldi r30,lo8(38)
+ 900 059e F0E0      		ldi r31,hi8(38)
+ 901 05a0 8081      		ld r24,Z
+ 902 05a2 882F      		mov r24,r24
+ 903 05a4 90E0      		ldi r25,lo8(0)
+ 904 05a6 8071      		andi r24,lo8(16)
+ 905 05a8 9070      		andi r25,hi8(16)
+ 906 05aa 0097      		sbiw r24,0
+ 907 05ac 01F0      		breq .L58
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 17
+
+
+ 908 05ae E4E2      		ldi r30,lo8(36)
+ 909 05b0 F0E0      		ldi r31,hi8(36)
+ 910 05b2 8081      		ld r24,Z
+ 911 05b4 8CAF      		std Y+60,r24
+ 912 05b6 E5E2      		ldi r30,lo8(37)
+ 913 05b8 F0E0      		ldi r31,hi8(37)
+ 914 05ba 8081      		ld r24,Z
+ 915 05bc 8BAF      		std Y+59,r24
+ 916 05be 80E0      		ldi r24,lo8(.LC0)
+ 917 05c0 90E0      		ldi r25,hi8(.LC0)
+ 918 05c2 0E94 0000 		call lcd_string
+ 919 05c6 8CAD      		ldd r24,Y+60
+ 920 05c8 8695      		lsr r24
+ 921 05ca 8CAF      		std Y+60,r24
+ 922 05cc 8CAD      		ldd r24,Y+60
+ 923 05ce 0E94 0000 		call lcd_showvalue
+ 924 05d2 8CAD      		ldd r24,Y+60
+ 925 05d4 8932      		cpi r24,lo8(41)
+ 926 05d6 00F4      		brsh .+2
+ 927 05d8 00C0      		rjmp .L60
+ 928 05da ABE3      		ldi r26,lo8(59)
+ 929 05dc B0E0      		ldi r27,hi8(59)
+ 930 05de EBE3      		ldi r30,lo8(59)
+ 931 05e0 F0E0      		ldi r31,hi8(59)
+ 932 05e2 8081      		ld r24,Z
+ 933 05e4 8860      		ori r24,lo8(8)
+ 934 05e6 8C93      		st X,r24
+ 935 05e8 80E0      		ldi r24,lo8(0x447a0000)
+ 936 05ea 90E0      		ldi r25,hi8(0x447a0000)
+ 937 05ec AAE7      		ldi r26,hlo8(0x447a0000)
+ 938 05ee B4E4      		ldi r27,hhi8(0x447a0000)
+ 939 05f0 8DAB      		std Y+53,r24
+ 940 05f2 9EAB      		std Y+54,r25
+ 941 05f4 AFAB      		std Y+55,r26
+ 942 05f6 B8AF      		std Y+56,r27
+ 943 05f8 20E0      		ldi r18,lo8(0x437a0000)
+ 944 05fa 30E0      		ldi r19,hi8(0x437a0000)
+ 945 05fc 4AE7      		ldi r20,hlo8(0x437a0000)
+ 946 05fe 53E4      		ldi r21,hhi8(0x437a0000)
+ 947 0600 6DA9      		ldd r22,Y+53
+ 948 0602 7EA9      		ldd r23,Y+54
+ 949 0604 8FA9      		ldd r24,Y+55
+ 950 0606 98AD      		ldd r25,Y+56
+ 951 0608 0E94 0000 		call __mulsf3
+ 952 060c DC01      		movw r26,r24
+ 953 060e CB01      		movw r24,r22
+ 954 0610 89AB      		std Y+49,r24
+ 955 0612 9AAB      		std Y+50,r25
+ 956 0614 ABAB      		std Y+51,r26
+ 957 0616 BCAB      		std Y+52,r27
+ 958 0618 20E0      		ldi r18,lo8(0x3f800000)
+ 959 061a 30E0      		ldi r19,hi8(0x3f800000)
+ 960 061c 40E8      		ldi r20,hlo8(0x3f800000)
+ 961 061e 5FE3      		ldi r21,hhi8(0x3f800000)
+ 962 0620 69A9      		ldd r22,Y+49
+ 963 0622 7AA9      		ldd r23,Y+50
+ 964 0624 8BA9      		ldd r24,Y+51
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 18
+
+
+ 965 0626 9CA9      		ldd r25,Y+52
+ 966 0628 0E94 0000 		call __ltsf2
+ 967 062c 8823      		tst r24
+ 968 062e 04F0      		brlt .L64
+ 969 0630 00C0      		rjmp .L62
+ 970               	.L64:
+ 971 0632 81E0      		ldi r24,lo8(1)
+ 972 0634 90E0      		ldi r25,hi8(1)
+ 973 0636 98AB      		std Y+48,r25
+ 974 0638 8FA7      		std Y+47,r24
+ 975 063a 00C0      		rjmp .L65
+ 976               	.L62:
+ 977 063c 20E0      		ldi r18,lo8(0x477fff00)
+ 978 063e 3FEF      		ldi r19,hi8(0x477fff00)
+ 979 0640 4FE7      		ldi r20,hlo8(0x477fff00)
+ 980 0642 57E4      		ldi r21,hhi8(0x477fff00)
+ 981 0644 69A9      		ldd r22,Y+49
+ 982 0646 7AA9      		ldd r23,Y+50
+ 983 0648 8BA9      		ldd r24,Y+51
+ 984 064a 9CA9      		ldd r25,Y+52
+ 985 064c 0E94 0000 		call __gtsf2
+ 986 0650 1816      		cp __zero_reg__,r24
+ 987 0652 04F0      		brlt .L68
+ 988 0654 00C0      		rjmp .L66
+ 989               	.L68:
+ 990 0656 20E0      		ldi r18,lo8(0x41200000)
+ 991 0658 30E0      		ldi r19,hi8(0x41200000)
+ 992 065a 40E2      		ldi r20,hlo8(0x41200000)
+ 993 065c 51E4      		ldi r21,hhi8(0x41200000)
+ 994 065e 6DA9      		ldd r22,Y+53
+ 995 0660 7EA9      		ldd r23,Y+54
+ 996 0662 8FA9      		ldd r24,Y+55
+ 997 0664 98AD      		ldd r25,Y+56
+ 998 0666 0E94 0000 		call __mulsf3
+ 999 066a DC01      		movw r26,r24
+ 1000 066c CB01      		movw r24,r22
+ 1001 066e BC01      		movw r22,r24
+ 1002 0670 CD01      		movw r24,r26
+ 1003 0672 0E94 0000 		call __fixunssfsi
+ 1004 0676 DC01      		movw r26,r24
+ 1005 0678 CB01      		movw r24,r22
+ 1006 067a 98AB      		std Y+48,r25
+ 1007 067c 8FA7      		std Y+47,r24
+ 1008 067e 00C0      		rjmp .L69
+ 1009               	.L70:
+ 1010 0680 89E1      		ldi r24,lo8(25)
+ 1011 0682 90E0      		ldi r25,hi8(25)
+ 1012 0684 9EA7      		std Y+46,r25
+ 1013 0686 8DA7      		std Y+45,r24
+ 1014 0688 8DA5      		ldd r24,Y+45
+ 1015 068a 9EA5      		ldd r25,Y+46
+ 1016               	/* #APP */
+ 1017 068c 0197      		1: sbiw r24,1
+ 1018 068e 01F4      		brne 1b
+ 1019               	/* #NOAPP */
+ 1020 0690 9EA7      		std Y+46,r25
+ 1021 0692 8DA7      		std Y+45,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 19
+
+
+ 1022 0694 8FA5      		ldd r24,Y+47
+ 1023 0696 98A9      		ldd r25,Y+48
+ 1024 0698 0197      		sbiw r24,1
+ 1025 069a 98AB      		std Y+48,r25
+ 1026 069c 8FA7      		std Y+47,r24
+ 1027               	.L69:
+ 1028 069e 8FA5      		ldd r24,Y+47
+ 1029 06a0 98A9      		ldd r25,Y+48
+ 1030 06a2 0097      		sbiw r24,0
+ 1031 06a4 01F4      		brne .L70
+ 1032 06a6 00C0      		rjmp .L72
+ 1033               	.L66:
+ 1034 06a8 69A9      		ldd r22,Y+49
+ 1035 06aa 7AA9      		ldd r23,Y+50
+ 1036 06ac 8BA9      		ldd r24,Y+51
+ 1037 06ae 9CA9      		ldd r25,Y+52
+ 1038 06b0 0E94 0000 		call __fixunssfsi
+ 1039 06b4 DC01      		movw r26,r24
+ 1040 06b6 CB01      		movw r24,r22
+ 1041 06b8 98AB      		std Y+48,r25
+ 1042 06ba 8FA7      		std Y+47,r24
+ 1043               	.L65:
+ 1044 06bc 8FA5      		ldd r24,Y+47
+ 1045 06be 98A9      		ldd r25,Y+48
+ 1046 06c0 9CA7      		std Y+44,r25
+ 1047 06c2 8BA7      		std Y+43,r24
+ 1048 06c4 8BA5      		ldd r24,Y+43
+ 1049 06c6 9CA5      		ldd r25,Y+44
+ 1050               	/* #APP */
+ 1051 06c8 0197      		1: sbiw r24,1
+ 1052 06ca 01F4      		brne 1b
+ 1053               	/* #NOAPP */
+ 1054 06cc 9CA7      		std Y+44,r25
+ 1055 06ce 8BA7      		std Y+43,r24
+ 1056               	.L72:
+ 1057 06d0 EBE3      		ldi r30,lo8(59)
+ 1058 06d2 F0E0      		ldi r31,hi8(59)
+ 1059 06d4 1082      		st Z,__zero_reg__
+ 1060 06d6 80E0      		ldi r24,lo8(0x447a0000)
+ 1061 06d8 90E0      		ldi r25,hi8(0x447a0000)
+ 1062 06da AAE7      		ldi r26,hlo8(0x447a0000)
+ 1063 06dc B4E4      		ldi r27,hhi8(0x447a0000)
+ 1064 06de 8FA3      		std Y+39,r24
+ 1065 06e0 98A7      		std Y+40,r25
+ 1066 06e2 A9A7      		std Y+41,r26
+ 1067 06e4 BAA7      		std Y+42,r27
+ 1068 06e6 20E0      		ldi r18,lo8(0x437a0000)
+ 1069 06e8 30E0      		ldi r19,hi8(0x437a0000)
+ 1070 06ea 4AE7      		ldi r20,hlo8(0x437a0000)
+ 1071 06ec 53E4      		ldi r21,hhi8(0x437a0000)
+ 1072 06ee 6FA1      		ldd r22,Y+39
+ 1073 06f0 78A5      		ldd r23,Y+40
+ 1074 06f2 89A5      		ldd r24,Y+41
+ 1075 06f4 9AA5      		ldd r25,Y+42
+ 1076 06f6 0E94 0000 		call __mulsf3
+ 1077 06fa DC01      		movw r26,r24
+ 1078 06fc CB01      		movw r24,r22
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 20
+
+
+ 1079 06fe 8BA3      		std Y+35,r24
+ 1080 0700 9CA3      		std Y+36,r25
+ 1081 0702 ADA3      		std Y+37,r26
+ 1082 0704 BEA3      		std Y+38,r27
+ 1083 0706 20E0      		ldi r18,lo8(0x3f800000)
+ 1084 0708 30E0      		ldi r19,hi8(0x3f800000)
+ 1085 070a 40E8      		ldi r20,hlo8(0x3f800000)
+ 1086 070c 5FE3      		ldi r21,hhi8(0x3f800000)
+ 1087 070e 6BA1      		ldd r22,Y+35
+ 1088 0710 7CA1      		ldd r23,Y+36
+ 1089 0712 8DA1      		ldd r24,Y+37
+ 1090 0714 9EA1      		ldd r25,Y+38
+ 1091 0716 0E94 0000 		call __ltsf2
+ 1092 071a 8823      		tst r24
+ 1093 071c 04F0      		brlt .L75
+ 1094 071e 00C0      		rjmp .L73
+ 1095               	.L75:
+ 1096 0720 81E0      		ldi r24,lo8(1)
+ 1097 0722 90E0      		ldi r25,hi8(1)
+ 1098 0724 9AA3      		std Y+34,r25
+ 1099 0726 89A3      		std Y+33,r24
+ 1100 0728 00C0      		rjmp .L76
+ 1101               	.L73:
+ 1102 072a 20E0      		ldi r18,lo8(0x477fff00)
+ 1103 072c 3FEF      		ldi r19,hi8(0x477fff00)
+ 1104 072e 4FE7      		ldi r20,hlo8(0x477fff00)
+ 1105 0730 57E4      		ldi r21,hhi8(0x477fff00)
+ 1106 0732 6BA1      		ldd r22,Y+35
+ 1107 0734 7CA1      		ldd r23,Y+36
+ 1108 0736 8DA1      		ldd r24,Y+37
+ 1109 0738 9EA1      		ldd r25,Y+38
+ 1110 073a 0E94 0000 		call __gtsf2
+ 1111 073e 1816      		cp __zero_reg__,r24
+ 1112 0740 04F0      		brlt .L79
+ 1113 0742 00C0      		rjmp .L77
+ 1114               	.L79:
+ 1115 0744 20E0      		ldi r18,lo8(0x41200000)
+ 1116 0746 30E0      		ldi r19,hi8(0x41200000)
+ 1117 0748 40E2      		ldi r20,hlo8(0x41200000)
+ 1118 074a 51E4      		ldi r21,hhi8(0x41200000)
+ 1119 074c 6FA1      		ldd r22,Y+39
+ 1120 074e 78A5      		ldd r23,Y+40
+ 1121 0750 89A5      		ldd r24,Y+41
+ 1122 0752 9AA5      		ldd r25,Y+42
+ 1123 0754 0E94 0000 		call __mulsf3
+ 1124 0758 DC01      		movw r26,r24
+ 1125 075a CB01      		movw r24,r22
+ 1126 075c BC01      		movw r22,r24
+ 1127 075e CD01      		movw r24,r26
+ 1128 0760 0E94 0000 		call __fixunssfsi
+ 1129 0764 DC01      		movw r26,r24
+ 1130 0766 CB01      		movw r24,r22
+ 1131 0768 9AA3      		std Y+34,r25
+ 1132 076a 89A3      		std Y+33,r24
+ 1133 076c 00C0      		rjmp .L80
+ 1134               	.L81:
+ 1135 076e 89E1      		ldi r24,lo8(25)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 21
+
+
+ 1136 0770 90E0      		ldi r25,hi8(25)
+ 1137 0772 98A3      		std Y+32,r25
+ 1138 0774 8F8F      		std Y+31,r24
+ 1139 0776 8F8D      		ldd r24,Y+31
+ 1140 0778 98A1      		ldd r25,Y+32
+ 1141               	/* #APP */
+ 1142 077a 0197      		1: sbiw r24,1
+ 1143 077c 01F4      		brne 1b
+ 1144               	/* #NOAPP */
+ 1145 077e 98A3      		std Y+32,r25
+ 1146 0780 8F8F      		std Y+31,r24
+ 1147 0782 89A1      		ldd r24,Y+33
+ 1148 0784 9AA1      		ldd r25,Y+34
+ 1149 0786 0197      		sbiw r24,1
+ 1150 0788 9AA3      		std Y+34,r25
+ 1151 078a 89A3      		std Y+33,r24
+ 1152               	.L80:
+ 1153 078c 89A1      		ldd r24,Y+33
+ 1154 078e 9AA1      		ldd r25,Y+34
+ 1155 0790 0097      		sbiw r24,0
+ 1156 0792 01F4      		brne .L81
+ 1157 0794 00C0      		rjmp .L83
+ 1158               	.L77:
+ 1159 0796 6BA1      		ldd r22,Y+35
+ 1160 0798 7CA1      		ldd r23,Y+36
+ 1161 079a 8DA1      		ldd r24,Y+37
+ 1162 079c 9EA1      		ldd r25,Y+38
+ 1163 079e 0E94 0000 		call __fixunssfsi
+ 1164 07a2 DC01      		movw r26,r24
+ 1165 07a4 CB01      		movw r24,r22
+ 1166 07a6 9AA3      		std Y+34,r25
+ 1167 07a8 89A3      		std Y+33,r24
+ 1168               	.L76:
+ 1169 07aa 89A1      		ldd r24,Y+33
+ 1170 07ac 9AA1      		ldd r25,Y+34
+ 1171 07ae 9E8F      		std Y+30,r25
+ 1172 07b0 8D8F      		std Y+29,r24
+ 1173 07b2 8D8D      		ldd r24,Y+29
+ 1174 07b4 9E8D      		ldd r25,Y+30
+ 1175               	/* #APP */
+ 1176 07b6 0197      		1: sbiw r24,1
+ 1177 07b8 01F4      		brne 1b
+ 1178               	/* #NOAPP */
+ 1179 07ba 9E8F      		std Y+30,r25
+ 1180 07bc 8D8F      		std Y+29,r24
+ 1181               	.L83:
+ 1182 07be E8E3      		ldi r30,lo8(56)
+ 1183 07c0 F0E0      		ldi r31,hi8(56)
+ 1184 07c2 80E5      		ldi r24,lo8(80)
+ 1185 07c4 8083      		st Z,r24
+ 1186 07c6 00C0      		rjmp .L84
+ 1187               	.L60:
+ 1188 07c8 8CAD      		ldd r24,Y+60
+ 1189 07ca 8832      		cpi r24,lo8(40)
+ 1190 07cc 00F4      		brsh .L84
+ 1191 07ce EBE3      		ldi r30,lo8(59)
+ 1192 07d0 F0E0      		ldi r31,hi8(59)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 22
+
+
+ 1193 07d2 1082      		st Z,__zero_reg__
+ 1194 07d4 E8E3      		ldi r30,lo8(56)
+ 1195 07d6 F0E0      		ldi r31,hi8(56)
+ 1196 07d8 1082      		st Z,__zero_reg__
+ 1197               	.L84:
+ 1198 07da 80EC      		ldi r24,lo8(-64)
+ 1199 07dc 0E94 0000 		call lcd_cmd
+ 1200 07e0 80E0      		ldi r24,lo8(.LC1)
+ 1201 07e2 90E0      		ldi r25,hi8(.LC1)
+ 1202 07e4 0E94 0000 		call lcd_string
+ 1203 07e8 9AAD      		ldd r25,Y+58
+ 1204 07ea 8AAD      		ldd r24,Y+58
+ 1205 07ec 8F5F      		subi r24,lo8(-(1))
+ 1206 07ee 8AAF      		std Y+58,r24
+ 1207 07f0 892F      		mov r24,r25
+ 1208 07f2 0E94 0000 		call lcd_showvalue
+ 1209 07f6 80E0      		ldi r24,lo8(0x447a0000)
+ 1210 07f8 90E0      		ldi r25,hi8(0x447a0000)
+ 1211 07fa AAE7      		ldi r26,hlo8(0x447a0000)
+ 1212 07fc B4E4      		ldi r27,hhi8(0x447a0000)
+ 1213 07fe 898F      		std Y+25,r24
+ 1214 0800 9A8F      		std Y+26,r25
+ 1215 0802 AB8F      		std Y+27,r26
+ 1216 0804 BC8F      		std Y+28,r27
+ 1217 0806 20E0      		ldi r18,lo8(0x437a0000)
+ 1218 0808 30E0      		ldi r19,hi8(0x437a0000)
+ 1219 080a 4AE7      		ldi r20,hlo8(0x437a0000)
+ 1220 080c 53E4      		ldi r21,hhi8(0x437a0000)
+ 1221 080e 698D      		ldd r22,Y+25
+ 1222 0810 7A8D      		ldd r23,Y+26
+ 1223 0812 8B8D      		ldd r24,Y+27
+ 1224 0814 9C8D      		ldd r25,Y+28
+ 1225 0816 0E94 0000 		call __mulsf3
+ 1226 081a DC01      		movw r26,r24
+ 1227 081c CB01      		movw r24,r22
+ 1228 081e 8D8B      		std Y+21,r24
+ 1229 0820 9E8B      		std Y+22,r25
+ 1230 0822 AF8B      		std Y+23,r26
+ 1231 0824 B88F      		std Y+24,r27
+ 1232 0826 20E0      		ldi r18,lo8(0x3f800000)
+ 1233 0828 30E0      		ldi r19,hi8(0x3f800000)
+ 1234 082a 40E8      		ldi r20,hlo8(0x3f800000)
+ 1235 082c 5FE3      		ldi r21,hhi8(0x3f800000)
+ 1236 082e 6D89      		ldd r22,Y+21
+ 1237 0830 7E89      		ldd r23,Y+22
+ 1238 0832 8F89      		ldd r24,Y+23
+ 1239 0834 988D      		ldd r25,Y+24
+ 1240 0836 0E94 0000 		call __ltsf2
+ 1241 083a 8823      		tst r24
+ 1242 083c 04F0      		brlt .L88
+ 1243 083e 00C0      		rjmp .L86
+ 1244               	.L88:
+ 1245 0840 81E0      		ldi r24,lo8(1)
+ 1246 0842 90E0      		ldi r25,hi8(1)
+ 1247 0844 9C8B      		std Y+20,r25
+ 1248 0846 8B8B      		std Y+19,r24
+ 1249 0848 00C0      		rjmp .L89
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 23
+
+
+ 1250               	.L86:
+ 1251 084a 20E0      		ldi r18,lo8(0x477fff00)
+ 1252 084c 3FEF      		ldi r19,hi8(0x477fff00)
+ 1253 084e 4FE7      		ldi r20,hlo8(0x477fff00)
+ 1254 0850 57E4      		ldi r21,hhi8(0x477fff00)
+ 1255 0852 6D89      		ldd r22,Y+21
+ 1256 0854 7E89      		ldd r23,Y+22
+ 1257 0856 8F89      		ldd r24,Y+23
+ 1258 0858 988D      		ldd r25,Y+24
+ 1259 085a 0E94 0000 		call __gtsf2
+ 1260 085e 1816      		cp __zero_reg__,r24
+ 1261 0860 04F0      		brlt .L92
+ 1262 0862 00C0      		rjmp .L90
+ 1263               	.L92:
+ 1264 0864 20E0      		ldi r18,lo8(0x41200000)
+ 1265 0866 30E0      		ldi r19,hi8(0x41200000)
+ 1266 0868 40E2      		ldi r20,hlo8(0x41200000)
+ 1267 086a 51E4      		ldi r21,hhi8(0x41200000)
+ 1268 086c 698D      		ldd r22,Y+25
+ 1269 086e 7A8D      		ldd r23,Y+26
+ 1270 0870 8B8D      		ldd r24,Y+27
+ 1271 0872 9C8D      		ldd r25,Y+28
+ 1272 0874 0E94 0000 		call __mulsf3
+ 1273 0878 DC01      		movw r26,r24
+ 1274 087a CB01      		movw r24,r22
+ 1275 087c BC01      		movw r22,r24
+ 1276 087e CD01      		movw r24,r26
+ 1277 0880 0E94 0000 		call __fixunssfsi
+ 1278 0884 DC01      		movw r26,r24
+ 1279 0886 CB01      		movw r24,r22
+ 1280 0888 9C8B      		std Y+20,r25
+ 1281 088a 8B8B      		std Y+19,r24
+ 1282 088c 00C0      		rjmp .L93
+ 1283               	.L94:
+ 1284 088e 89E1      		ldi r24,lo8(25)
+ 1285 0890 90E0      		ldi r25,hi8(25)
+ 1286 0892 9A8B      		std Y+18,r25
+ 1287 0894 898B      		std Y+17,r24
+ 1288 0896 8989      		ldd r24,Y+17
+ 1289 0898 9A89      		ldd r25,Y+18
+ 1290               	/* #APP */
+ 1291 089a 0197      		1: sbiw r24,1
+ 1292 089c 01F4      		brne 1b
+ 1293               	/* #NOAPP */
+ 1294 089e 9A8B      		std Y+18,r25
+ 1295 08a0 898B      		std Y+17,r24
+ 1296 08a2 8B89      		ldd r24,Y+19
+ 1297 08a4 9C89      		ldd r25,Y+20
+ 1298 08a6 0197      		sbiw r24,1
+ 1299 08a8 9C8B      		std Y+20,r25
+ 1300 08aa 8B8B      		std Y+19,r24
+ 1301               	.L93:
+ 1302 08ac 8B89      		ldd r24,Y+19
+ 1303 08ae 9C89      		ldd r25,Y+20
+ 1304 08b0 0097      		sbiw r24,0
+ 1305 08b2 01F4      		brne .L94
+ 1306 08b4 00C0      		rjmp .L96
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 24
+
+
+ 1307               	.L90:
+ 1308 08b6 6D89      		ldd r22,Y+21
+ 1309 08b8 7E89      		ldd r23,Y+22
+ 1310 08ba 8F89      		ldd r24,Y+23
+ 1311 08bc 988D      		ldd r25,Y+24
+ 1312 08be 0E94 0000 		call __fixunssfsi
+ 1313 08c2 DC01      		movw r26,r24
+ 1314 08c4 CB01      		movw r24,r22
+ 1315 08c6 9C8B      		std Y+20,r25
+ 1316 08c8 8B8B      		std Y+19,r24
+ 1317               	.L89:
+ 1318 08ca 8B89      		ldd r24,Y+19
+ 1319 08cc 9C89      		ldd r25,Y+20
+ 1320 08ce 988B      		std Y+16,r25
+ 1321 08d0 8F87      		std Y+15,r24
+ 1322 08d2 8F85      		ldd r24,Y+15
+ 1323 08d4 9889      		ldd r25,Y+16
+ 1324               	/* #APP */
+ 1325 08d6 0197      		1: sbiw r24,1
+ 1326 08d8 01F4      		brne 1b
+ 1327               	/* #NOAPP */
+ 1328 08da 988B      		std Y+16,r25
+ 1329 08dc 8F87      		std Y+15,r24
+ 1330               	.L96:
+ 1331 08de 80E0      		ldi r24,lo8(0)
+ 1332 08e0 0E94 0000 		call lcd_gotoxy1
+ 1333 08e4 80E0      		ldi r24,lo8(0x43fa0000)
+ 1334 08e6 90E0      		ldi r25,hi8(0x43fa0000)
+ 1335 08e8 AAEF      		ldi r26,hlo8(0x43fa0000)
+ 1336 08ea B3E4      		ldi r27,hhi8(0x43fa0000)
+ 1337 08ec 8B87      		std Y+11,r24
+ 1338 08ee 9C87      		std Y+12,r25
+ 1339 08f0 AD87      		std Y+13,r26
+ 1340 08f2 BE87      		std Y+14,r27
+ 1341 08f4 20E0      		ldi r18,lo8(0x437a0000)
+ 1342 08f6 30E0      		ldi r19,hi8(0x437a0000)
+ 1343 08f8 4AE7      		ldi r20,hlo8(0x437a0000)
+ 1344 08fa 53E4      		ldi r21,hhi8(0x437a0000)
+ 1345 08fc 6B85      		ldd r22,Y+11
+ 1346 08fe 7C85      		ldd r23,Y+12
+ 1347 0900 8D85      		ldd r24,Y+13
+ 1348 0902 9E85      		ldd r25,Y+14
+ 1349 0904 0E94 0000 		call __mulsf3
+ 1350 0908 DC01      		movw r26,r24
+ 1351 090a CB01      		movw r24,r22
+ 1352 090c 8F83      		std Y+7,r24
+ 1353 090e 9887      		std Y+8,r25
+ 1354 0910 A987      		std Y+9,r26
+ 1355 0912 BA87      		std Y+10,r27
+ 1356 0914 20E0      		ldi r18,lo8(0x3f800000)
+ 1357 0916 30E0      		ldi r19,hi8(0x3f800000)
+ 1358 0918 40E8      		ldi r20,hlo8(0x3f800000)
+ 1359 091a 5FE3      		ldi r21,hhi8(0x3f800000)
+ 1360 091c 6F81      		ldd r22,Y+7
+ 1361 091e 7885      		ldd r23,Y+8
+ 1362 0920 8985      		ldd r24,Y+9
+ 1363 0922 9A85      		ldd r25,Y+10
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 25
+
+
+ 1364 0924 0E94 0000 		call __ltsf2
+ 1365 0928 8823      		tst r24
+ 1366 092a 04F0      		brlt .L99
+ 1367 092c 00C0      		rjmp .L97
+ 1368               	.L99:
+ 1369 092e 81E0      		ldi r24,lo8(1)
+ 1370 0930 90E0      		ldi r25,hi8(1)
+ 1371 0932 9E83      		std Y+6,r25
+ 1372 0934 8D83      		std Y+5,r24
+ 1373 0936 00C0      		rjmp .L100
+ 1374               	.L97:
+ 1375 0938 20E0      		ldi r18,lo8(0x477fff00)
+ 1376 093a 3FEF      		ldi r19,hi8(0x477fff00)
+ 1377 093c 4FE7      		ldi r20,hlo8(0x477fff00)
+ 1378 093e 57E4      		ldi r21,hhi8(0x477fff00)
+ 1379 0940 6F81      		ldd r22,Y+7
+ 1380 0942 7885      		ldd r23,Y+8
+ 1381 0944 8985      		ldd r24,Y+9
+ 1382 0946 9A85      		ldd r25,Y+10
+ 1383 0948 0E94 0000 		call __gtsf2
+ 1384 094c 1816      		cp __zero_reg__,r24
+ 1385 094e 04F0      		brlt .L103
+ 1386 0950 00C0      		rjmp .L101
+ 1387               	.L103:
+ 1388 0952 20E0      		ldi r18,lo8(0x41200000)
+ 1389 0954 30E0      		ldi r19,hi8(0x41200000)
+ 1390 0956 40E2      		ldi r20,hlo8(0x41200000)
+ 1391 0958 51E4      		ldi r21,hhi8(0x41200000)
+ 1392 095a 6B85      		ldd r22,Y+11
+ 1393 095c 7C85      		ldd r23,Y+12
+ 1394 095e 8D85      		ldd r24,Y+13
+ 1395 0960 9E85      		ldd r25,Y+14
+ 1396 0962 0E94 0000 		call __mulsf3
+ 1397 0966 DC01      		movw r26,r24
+ 1398 0968 CB01      		movw r24,r22
+ 1399 096a BC01      		movw r22,r24
+ 1400 096c CD01      		movw r24,r26
+ 1401 096e 0E94 0000 		call __fixunssfsi
+ 1402 0972 DC01      		movw r26,r24
+ 1403 0974 CB01      		movw r24,r22
+ 1404 0976 9E83      		std Y+6,r25
+ 1405 0978 8D83      		std Y+5,r24
+ 1406 097a 00C0      		rjmp .L104
+ 1407               	.L105:
+ 1408 097c 89E1      		ldi r24,lo8(25)
+ 1409 097e 90E0      		ldi r25,hi8(25)
+ 1410 0980 9C83      		std Y+4,r25
+ 1411 0982 8B83      		std Y+3,r24
+ 1412 0984 8B81      		ldd r24,Y+3
+ 1413 0986 9C81      		ldd r25,Y+4
+ 1414               	/* #APP */
+ 1415 0988 0197      		1: sbiw r24,1
+ 1416 098a 01F4      		brne 1b
+ 1417               	/* #NOAPP */
+ 1418 098c 9C83      		std Y+4,r25
+ 1419 098e 8B83      		std Y+3,r24
+ 1420 0990 8D81      		ldd r24,Y+5
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 26
+
+
+ 1421 0992 9E81      		ldd r25,Y+6
+ 1422 0994 0197      		sbiw r24,1
+ 1423 0996 9E83      		std Y+6,r25
+ 1424 0998 8D83      		std Y+5,r24
+ 1425               	.L104:
+ 1426 099a 8D81      		ldd r24,Y+5
+ 1427 099c 9E81      		ldd r25,Y+6
+ 1428 099e 0097      		sbiw r24,0
+ 1429 09a0 01F4      		brne .L105
+ 1430 09a2 00C0      		rjmp .L107
+ 1431               	.L101:
+ 1432 09a4 6F81      		ldd r22,Y+7
+ 1433 09a6 7885      		ldd r23,Y+8
+ 1434 09a8 8985      		ldd r24,Y+9
+ 1435 09aa 9A85      		ldd r25,Y+10
+ 1436 09ac 0E94 0000 		call __fixunssfsi
+ 1437 09b0 DC01      		movw r26,r24
+ 1438 09b2 CB01      		movw r24,r22
+ 1439 09b4 9E83      		std Y+6,r25
+ 1440 09b6 8D83      		std Y+5,r24
+ 1441               	.L100:
+ 1442 09b8 8D81      		ldd r24,Y+5
+ 1443 09ba 9E81      		ldd r25,Y+6
+ 1444 09bc 9A83      		std Y+2,r25
+ 1445 09be 8983      		std Y+1,r24
+ 1446 09c0 8981      		ldd r24,Y+1
+ 1447 09c2 9A81      		ldd r25,Y+2
+ 1448               	/* #APP */
+ 1449 09c4 0197      		1: sbiw r24,1
+ 1450 09c6 01F4      		brne 1b
+ 1451               	/* #NOAPP */
+ 1452 09c8 9A83      		std Y+2,r25
+ 1453 09ca 8983      		std Y+1,r24
+ 1454               	.L107:
+ 1455 09cc 20E0      		ldi r18,lo8(0)
+ 1456 09ce 30E0      		ldi r19,hi8(0)
+ 1457 09d0 45E0      		ldi r20,lo8(5)
+ 1458 09d2 60E0      		ldi r22,lo8(0)
+ 1459 09d4 80E0      		ldi r24,lo8(0)
+ 1460 09d6 0E94 0000 		call OSTimeDlyHMSM
+ 1461 09da 00C0      		rjmp .L57
+ 1462               	/* epilogue: frame size=60 */
+ 1463               	/* epilogue: noreturn */
+ 1464               	/* epilogue end (size=0) */
+ 1465               	/* function task2 size 587 (577) */
+ 1466               		.size	task2, .-task2
+ 1467               	.global	task3
+ 1468               		.type	task3, @function
+ 1469               	task3:
+ 1470               	/* prologue: frame size=38 */
+ 1471 09dc CF93      		push r28
+ 1472 09de DF93      		push r29
+ 1473 09e0 CDB7      		in r28,__SP_L__
+ 1474 09e2 DEB7      		in r29,__SP_H__
+ 1475 09e4 A697      		sbiw r28,38
+ 1476 09e6 0FB6      		in __tmp_reg__,__SREG__
+ 1477 09e8 F894      		cli
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 27
+
+
+ 1478 09ea DEBF      		out __SP_H__,r29
+ 1479 09ec 0FBE      		out __SREG__,__tmp_reg__
+ 1480 09ee CDBF      		out __SP_L__,r28
+ 1481               	/* prologue end (size=10) */
+ 1482               	.L110:
+ 1483 09f0 EBE2      		ldi r30,lo8(43)
+ 1484 09f2 F0E0      		ldi r31,hi8(43)
+ 1485 09f4 8081      		ld r24,Z
+ 1486 09f6 8823      		tst r24
+ 1487 09f8 04F4      		brge .L110
+ 1488 09fa ECE2      		ldi r30,lo8(44)
+ 1489 09fc F0E0      		ldi r31,hi8(44)
+ 1490 09fe 8081      		ld r24,Z
+ 1491 0a00 8B83      		std Y+3,r24
+ 1492 0a02 8B81      		ldd r24,Y+3
+ 1493 0a04 8432      		cpi r24,lo8(36)
+ 1494 0a06 01F0      		breq .+2
+ 1495 0a08 00C0      		rjmp .L112
+ 1496               	.L113:
+ 1497 0a0a EBE2      		ldi r30,lo8(43)
+ 1498 0a0c F0E0      		ldi r31,hi8(43)
+ 1499 0a0e 8081      		ld r24,Z
+ 1500 0a10 8823      		tst r24
+ 1501 0a12 04F4      		brge .L113
+ 1502 0a14 ECE2      		ldi r30,lo8(44)
+ 1503 0a16 F0E0      		ldi r31,hi8(44)
+ 1504 0a18 8081      		ld r24,Z
+ 1505 0a1a 8B83      		std Y+3,r24
+ 1506 0a1c 8B81      		ldd r24,Y+3
+ 1507 0a1e 8734      		cpi r24,lo8(71)
+ 1508 0a20 01F0      		breq .+2
+ 1509 0a22 00C0      		rjmp .L112
+ 1510               	.L115:
+ 1511 0a24 EBE2      		ldi r30,lo8(43)
+ 1512 0a26 F0E0      		ldi r31,hi8(43)
+ 1513 0a28 8081      		ld r24,Z
+ 1514 0a2a 8823      		tst r24
+ 1515 0a2c 04F4      		brge .L115
+ 1516 0a2e ECE2      		ldi r30,lo8(44)
+ 1517 0a30 F0E0      		ldi r31,hi8(44)
+ 1518 0a32 8081      		ld r24,Z
+ 1519 0a34 8B83      		std Y+3,r24
+ 1520 0a36 8B81      		ldd r24,Y+3
+ 1521 0a38 8035      		cpi r24,lo8(80)
+ 1522 0a3a 01F0      		breq .+2
+ 1523 0a3c 00C0      		rjmp .L112
+ 1524               	.L117:
+ 1525 0a3e EBE2      		ldi r30,lo8(43)
+ 1526 0a40 F0E0      		ldi r31,hi8(43)
+ 1527 0a42 8081      		ld r24,Z
+ 1528 0a44 8823      		tst r24
+ 1529 0a46 04F4      		brge .L117
+ 1530 0a48 ECE2      		ldi r30,lo8(44)
+ 1531 0a4a F0E0      		ldi r31,hi8(44)
+ 1532 0a4c 8081      		ld r24,Z
+ 1533 0a4e 8B83      		std Y+3,r24
+ 1534 0a50 8B81      		ldd r24,Y+3
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 28
+
+
+ 1535 0a52 8235      		cpi r24,lo8(82)
+ 1536 0a54 01F0      		breq .+2
+ 1537 0a56 00C0      		rjmp .L112
+ 1538               	.L119:
+ 1539 0a58 EBE2      		ldi r30,lo8(43)
+ 1540 0a5a F0E0      		ldi r31,hi8(43)
+ 1541 0a5c 8081      		ld r24,Z
+ 1542 0a5e 8823      		tst r24
+ 1543 0a60 04F4      		brge .L119
+ 1544 0a62 ECE2      		ldi r30,lo8(44)
+ 1545 0a64 F0E0      		ldi r31,hi8(44)
+ 1546 0a66 8081      		ld r24,Z
+ 1547 0a68 8B83      		std Y+3,r24
+ 1548 0a6a 8B81      		ldd r24,Y+3
+ 1549 0a6c 8D34      		cpi r24,lo8(77)
+ 1550 0a6e 01F0      		breq .+2
+ 1551 0a70 00C0      		rjmp .L112
+ 1552               	.L121:
+ 1553 0a72 EBE2      		ldi r30,lo8(43)
+ 1554 0a74 F0E0      		ldi r31,hi8(43)
+ 1555 0a76 8081      		ld r24,Z
+ 1556 0a78 8823      		tst r24
+ 1557 0a7a 04F4      		brge .L121
+ 1558 0a7c ECE2      		ldi r30,lo8(44)
+ 1559 0a7e F0E0      		ldi r31,hi8(44)
+ 1560 0a80 8081      		ld r24,Z
+ 1561 0a82 8B83      		std Y+3,r24
+ 1562 0a84 8B81      		ldd r24,Y+3
+ 1563 0a86 8334      		cpi r24,lo8(67)
+ 1564 0a88 01F4      		brne .L112
+ 1565               	.L123:
+ 1566 0a8a EBE2      		ldi r30,lo8(43)
+ 1567 0a8c F0E0      		ldi r31,hi8(43)
+ 1568 0a8e 8081      		ld r24,Z
+ 1569 0a90 8823      		tst r24
+ 1570 0a92 04F4      		brge .L123
+ 1571 0a94 ECE2      		ldi r30,lo8(44)
+ 1572 0a96 F0E0      		ldi r31,hi8(44)
+ 1573 0a98 8081      		ld r24,Z
+ 1574 0a9a 8B83      		std Y+3,r24
+ 1575 0a9c 8B81      		ldd r24,Y+3
+ 1576 0a9e 8C32      		cpi r24,lo8(44)
+ 1577 0aa0 01F4      		brne .L112
+ 1578 0aa2 1A82      		std Y+2,__zero_reg__
+ 1579 0aa4 00C0      		rjmp .L126
+ 1580               	.L127:
+ 1581 0aa6 EBE2      		ldi r30,lo8(43)
+ 1582 0aa8 F0E0      		ldi r31,hi8(43)
+ 1583 0aaa 8081      		ld r24,Z
+ 1584 0aac 8823      		tst r24
+ 1585 0aae 04F4      		brge .L127
+ 1586 0ab0 ECE2      		ldi r30,lo8(44)
+ 1587 0ab2 F0E0      		ldi r31,hi8(44)
+ 1588 0ab4 8081      		ld r24,Z
+ 1589 0ab6 8B83      		std Y+3,r24
+ 1590 0ab8 8A81      		ldd r24,Y+2
+ 1591 0aba 282F      		mov r18,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 29
+
+
+ 1592 0abc 30E0      		ldi r19,lo8(0)
+ 1593 0abe CE01      		movw r24,r28
+ 1594 0ac0 0496      		adiw r24,4
+ 1595 0ac2 FC01      		movw r30,r24
+ 1596 0ac4 E20F      		add r30,r18
+ 1597 0ac6 F31F      		adc r31,r19
+ 1598 0ac8 8B81      		ldd r24,Y+3
+ 1599 0aca 8083      		st Z,r24
+ 1600               	.L129:
+ 1601 0acc EBE9      		ldi r30,lo8(155)
+ 1602 0ace F0E0      		ldi r31,hi8(155)
+ 1603 0ad0 8081      		ld r24,Z
+ 1604 0ad2 882F      		mov r24,r24
+ 1605 0ad4 90E0      		ldi r25,lo8(0)
+ 1606 0ad6 8072      		andi r24,lo8(32)
+ 1607 0ad8 9070      		andi r25,hi8(32)
+ 1608 0ada 0097      		sbiw r24,0
+ 1609 0adc 01F0      		breq .L129
+ 1610 0ade ACE9      		ldi r26,lo8(156)
+ 1611 0ae0 B0E0      		ldi r27,hi8(156)
+ 1612 0ae2 8A81      		ldd r24,Y+2
+ 1613 0ae4 282F      		mov r18,r24
+ 1614 0ae6 30E0      		ldi r19,lo8(0)
+ 1615 0ae8 CE01      		movw r24,r28
+ 1616 0aea 0496      		adiw r24,4
+ 1617 0aec FC01      		movw r30,r24
+ 1618 0aee E20F      		add r30,r18
+ 1619 0af0 F31F      		adc r31,r19
+ 1620 0af2 8081      		ld r24,Z
+ 1621 0af4 8C93      		st X,r24
+ 1622 0af6 8A81      		ldd r24,Y+2
+ 1623 0af8 8F5F      		subi r24,lo8(-(1))
+ 1624 0afa 8A83      		std Y+2,r24
+ 1625               	.L126:
+ 1626 0afc 8A81      		ldd r24,Y+2
+ 1627 0afe 8F31      		cpi r24,lo8(31)
+ 1628 0b00 00F0      		brlo .L127
+ 1629               	.L112:
+ 1630 0b02 84E6      		ldi r24,lo8(100)
+ 1631 0b04 90E0      		ldi r25,hi8(100)
+ 1632 0b06 0E94 0000 		call OSTimeDly
+ 1633 0b0a 00C0      		rjmp .L110
+ 1634               	/* epilogue: frame size=38 */
+ 1635               	/* epilogue: noreturn */
+ 1636               	/* epilogue end (size=0) */
+ 1637               	/* function task3 size 153 (143) */
+ 1638               		.size	task3, .-task3
+ 1639               	.global	delay
+ 1640               		.type	delay, @function
+ 1641               	delay:
+ 1642               	/* prologue: frame size=6 */
+ 1643 0b0c CF93      		push r28
+ 1644 0b0e DF93      		push r29
+ 1645 0b10 CDB7      		in r28,__SP_L__
+ 1646 0b12 DEB7      		in r29,__SP_H__
+ 1647 0b14 2697      		sbiw r28,6
+ 1648 0b16 0FB6      		in __tmp_reg__,__SREG__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 30
+
+
+ 1649 0b18 F894      		cli
+ 1650 0b1a DEBF      		out __SP_H__,r29
+ 1651 0b1c 0FBE      		out __SREG__,__tmp_reg__
+ 1652 0b1e CDBF      		out __SP_L__,r28
+ 1653               	/* prologue end (size=10) */
+ 1654 0b20 9E83      		std Y+6,r25
+ 1655 0b22 8D83      		std Y+5,r24
+ 1656 0b24 1C82      		std Y+4,__zero_reg__
+ 1657 0b26 1B82      		std Y+3,__zero_reg__
+ 1658 0b28 00C0      		rjmp .L133
+ 1659               	.L134:
+ 1660 0b2a 1A82      		std Y+2,__zero_reg__
+ 1661 0b2c 1982      		std Y+1,__zero_reg__
+ 1662 0b2e 00C0      		rjmp .L135
+ 1663               	.L136:
+ 1664 0b30 8981      		ldd r24,Y+1
+ 1665 0b32 9A81      		ldd r25,Y+2
+ 1666 0b34 0196      		adiw r24,1
+ 1667 0b36 9A83      		std Y+2,r25
+ 1668 0b38 8983      		std Y+1,r24
+ 1669               	.L135:
+ 1670 0b3a 8981      		ldd r24,Y+1
+ 1671 0b3c 9A81      		ldd r25,Y+2
+ 1672 0b3e 2FEF      		ldi r18,hi8(-1)
+ 1673 0b40 8F3F      		cpi r24,lo8(-1)
+ 1674 0b42 9207      		cpc r25,r18
+ 1675 0b44 01F4      		brne .L136
+ 1676 0b46 8B81      		ldd r24,Y+3
+ 1677 0b48 9C81      		ldd r25,Y+4
+ 1678 0b4a 0196      		adiw r24,1
+ 1679 0b4c 9C83      		std Y+4,r25
+ 1680 0b4e 8B83      		std Y+3,r24
+ 1681               	.L133:
+ 1682 0b50 2B81      		ldd r18,Y+3
+ 1683 0b52 3C81      		ldd r19,Y+4
+ 1684 0b54 8D81      		ldd r24,Y+5
+ 1685 0b56 9E81      		ldd r25,Y+6
+ 1686 0b58 2817      		cp r18,r24
+ 1687 0b5a 3907      		cpc r19,r25
+ 1688 0b5c 04F0      		brlt .L134
+ 1689               	/* epilogue: frame size=6 */
+ 1690 0b5e 2696      		adiw r28,6
+ 1691 0b60 0FB6      		in __tmp_reg__,__SREG__
+ 1692 0b62 F894      		cli
+ 1693 0b64 DEBF      		out __SP_H__,r29
+ 1694 0b66 0FBE      		out __SREG__,__tmp_reg__
+ 1695 0b68 CDBF      		out __SP_L__,r28
+ 1696 0b6a DF91      		pop r29
+ 1697 0b6c CF91      		pop r28
+ 1698 0b6e 0895      		ret
+ 1699               	/* epilogue end (size=9) */
+ 1700               	/* function delay size 50 (31) */
+ 1701               		.size	delay, .-delay
+ 1702               	.global	rec
+ 1703               		.type	rec, @function
+ 1704               	rec:
+ 1705               	/* prologue: frame size=38 */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 31
+
+
+ 1706 0b70 CF93      		push r28
+ 1707 0b72 DF93      		push r29
+ 1708 0b74 CDB7      		in r28,__SP_L__
+ 1709 0b76 DEB7      		in r29,__SP_H__
+ 1710 0b78 A697      		sbiw r28,38
+ 1711 0b7a 0FB6      		in __tmp_reg__,__SREG__
+ 1712 0b7c F894      		cli
+ 1713 0b7e DEBF      		out __SP_H__,r29
+ 1714 0b80 0FBE      		out __SREG__,__tmp_reg__
+ 1715 0b82 CDBF      		out __SP_L__,r28
+ 1716               	/* prologue end (size=10) */
+ 1717               	.L141:
+ 1718 0b84 EBE2      		ldi r30,lo8(43)
+ 1719 0b86 F0E0      		ldi r31,hi8(43)
+ 1720 0b88 8081      		ld r24,Z
+ 1721 0b8a 8823      		tst r24
+ 1722 0b8c 04F4      		brge .L141
+ 1723 0b8e ECE2      		ldi r30,lo8(44)
+ 1724 0b90 F0E0      		ldi r31,hi8(44)
+ 1725 0b92 8081      		ld r24,Z
+ 1726 0b94 8B83      		std Y+3,r24
+ 1727 0b96 8B81      		ldd r24,Y+3
+ 1728 0b98 8432      		cpi r24,lo8(36)
+ 1729 0b9a 01F0      		breq .+2
+ 1730 0b9c 00C0      		rjmp .L162
+ 1731               	.L144:
+ 1732 0b9e EBE2      		ldi r30,lo8(43)
+ 1733 0ba0 F0E0      		ldi r31,hi8(43)
+ 1734 0ba2 8081      		ld r24,Z
+ 1735 0ba4 8823      		tst r24
+ 1736 0ba6 04F4      		brge .L144
+ 1737 0ba8 ECE2      		ldi r30,lo8(44)
+ 1738 0baa F0E0      		ldi r31,hi8(44)
+ 1739 0bac 8081      		ld r24,Z
+ 1740 0bae 8B83      		std Y+3,r24
+ 1741 0bb0 8B81      		ldd r24,Y+3
+ 1742 0bb2 8734      		cpi r24,lo8(71)
+ 1743 0bb4 01F0      		breq .+2
+ 1744 0bb6 00C0      		rjmp .L162
+ 1745               	.L146:
+ 1746 0bb8 EBE2      		ldi r30,lo8(43)
+ 1747 0bba F0E0      		ldi r31,hi8(43)
+ 1748 0bbc 8081      		ld r24,Z
+ 1749 0bbe 8823      		tst r24
+ 1750 0bc0 04F4      		brge .L146
+ 1751 0bc2 ECE2      		ldi r30,lo8(44)
+ 1752 0bc4 F0E0      		ldi r31,hi8(44)
+ 1753 0bc6 8081      		ld r24,Z
+ 1754 0bc8 8B83      		std Y+3,r24
+ 1755 0bca 8B81      		ldd r24,Y+3
+ 1756 0bcc 8035      		cpi r24,lo8(80)
+ 1757 0bce 01F0      		breq .+2
+ 1758 0bd0 00C0      		rjmp .L162
+ 1759               	.L148:
+ 1760 0bd2 EBE2      		ldi r30,lo8(43)
+ 1761 0bd4 F0E0      		ldi r31,hi8(43)
+ 1762 0bd6 8081      		ld r24,Z
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 32
+
+
+ 1763 0bd8 8823      		tst r24
+ 1764 0bda 04F4      		brge .L148
+ 1765 0bdc ECE2      		ldi r30,lo8(44)
+ 1766 0bde F0E0      		ldi r31,hi8(44)
+ 1767 0be0 8081      		ld r24,Z
+ 1768 0be2 8B83      		std Y+3,r24
+ 1769 0be4 8B81      		ldd r24,Y+3
+ 1770 0be6 8235      		cpi r24,lo8(82)
+ 1771 0be8 01F0      		breq .+2
+ 1772 0bea 00C0      		rjmp .L162
+ 1773               	.L150:
+ 1774 0bec EBE2      		ldi r30,lo8(43)
+ 1775 0bee F0E0      		ldi r31,hi8(43)
+ 1776 0bf0 8081      		ld r24,Z
+ 1777 0bf2 8823      		tst r24
+ 1778 0bf4 04F4      		brge .L150
+ 1779 0bf6 ECE2      		ldi r30,lo8(44)
+ 1780 0bf8 F0E0      		ldi r31,hi8(44)
+ 1781 0bfa 8081      		ld r24,Z
+ 1782 0bfc 8B83      		std Y+3,r24
+ 1783 0bfe 8B81      		ldd r24,Y+3
+ 1784 0c00 8D34      		cpi r24,lo8(77)
+ 1785 0c02 01F0      		breq .+2
+ 1786 0c04 00C0      		rjmp .L162
+ 1787               	.L152:
+ 1788 0c06 EBE2      		ldi r30,lo8(43)
+ 1789 0c08 F0E0      		ldi r31,hi8(43)
+ 1790 0c0a 8081      		ld r24,Z
+ 1791 0c0c 8823      		tst r24
+ 1792 0c0e 04F4      		brge .L152
+ 1793 0c10 ECE2      		ldi r30,lo8(44)
+ 1794 0c12 F0E0      		ldi r31,hi8(44)
+ 1795 0c14 8081      		ld r24,Z
+ 1796 0c16 8B83      		std Y+3,r24
+ 1797 0c18 8B81      		ldd r24,Y+3
+ 1798 0c1a 8334      		cpi r24,lo8(67)
+ 1799 0c1c 01F4      		brne .L162
+ 1800               	.L154:
+ 1801 0c1e EBE2      		ldi r30,lo8(43)
+ 1802 0c20 F0E0      		ldi r31,hi8(43)
+ 1803 0c22 8081      		ld r24,Z
+ 1804 0c24 8823      		tst r24
+ 1805 0c26 04F4      		brge .L154
+ 1806 0c28 ECE2      		ldi r30,lo8(44)
+ 1807 0c2a F0E0      		ldi r31,hi8(44)
+ 1808 0c2c 8081      		ld r24,Z
+ 1809 0c2e 8B83      		std Y+3,r24
+ 1810 0c30 8B81      		ldd r24,Y+3
+ 1811 0c32 8C32      		cpi r24,lo8(44)
+ 1812 0c34 01F4      		brne .L162
+ 1813 0c36 1A82      		std Y+2,__zero_reg__
+ 1814 0c38 00C0      		rjmp .L157
+ 1815               	.L158:
+ 1816 0c3a EBE2      		ldi r30,lo8(43)
+ 1817 0c3c F0E0      		ldi r31,hi8(43)
+ 1818 0c3e 8081      		ld r24,Z
+ 1819 0c40 8823      		tst r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 33
+
+
+ 1820 0c42 04F4      		brge .L158
+ 1821 0c44 ECE2      		ldi r30,lo8(44)
+ 1822 0c46 F0E0      		ldi r31,hi8(44)
+ 1823 0c48 8081      		ld r24,Z
+ 1824 0c4a 8B83      		std Y+3,r24
+ 1825 0c4c 8A81      		ldd r24,Y+2
+ 1826 0c4e 282F      		mov r18,r24
+ 1827 0c50 30E0      		ldi r19,lo8(0)
+ 1828 0c52 CE01      		movw r24,r28
+ 1829 0c54 0496      		adiw r24,4
+ 1830 0c56 FC01      		movw r30,r24
+ 1831 0c58 E20F      		add r30,r18
+ 1832 0c5a F31F      		adc r31,r19
+ 1833 0c5c 8B81      		ldd r24,Y+3
+ 1834 0c5e 8083      		st Z,r24
+ 1835               	.L160:
+ 1836 0c60 EBE9      		ldi r30,lo8(155)
+ 1837 0c62 F0E0      		ldi r31,hi8(155)
+ 1838 0c64 8081      		ld r24,Z
+ 1839 0c66 882F      		mov r24,r24
+ 1840 0c68 90E0      		ldi r25,lo8(0)
+ 1841 0c6a 8072      		andi r24,lo8(32)
+ 1842 0c6c 9070      		andi r25,hi8(32)
+ 1843 0c6e 0097      		sbiw r24,0
+ 1844 0c70 01F0      		breq .L160
+ 1845 0c72 ACE9      		ldi r26,lo8(156)
+ 1846 0c74 B0E0      		ldi r27,hi8(156)
+ 1847 0c76 8A81      		ldd r24,Y+2
+ 1848 0c78 282F      		mov r18,r24
+ 1849 0c7a 30E0      		ldi r19,lo8(0)
+ 1850 0c7c CE01      		movw r24,r28
+ 1851 0c7e 0496      		adiw r24,4
+ 1852 0c80 FC01      		movw r30,r24
+ 1853 0c82 E20F      		add r30,r18
+ 1854 0c84 F31F      		adc r31,r19
+ 1855 0c86 8081      		ld r24,Z
+ 1856 0c88 8C93      		st X,r24
+ 1857 0c8a 8A81      		ldd r24,Y+2
+ 1858 0c8c 8F5F      		subi r24,lo8(-(1))
+ 1859 0c8e 8A83      		std Y+2,r24
+ 1860               	.L157:
+ 1861 0c90 8A81      		ldd r24,Y+2
+ 1862 0c92 8F31      		cpi r24,lo8(31)
+ 1863 0c94 00F0      		brlo .L158
+ 1864               	.L162:
+ 1865               	/* epilogue: frame size=38 */
+ 1866 0c96 A696      		adiw r28,38
+ 1867 0c98 0FB6      		in __tmp_reg__,__SREG__
+ 1868 0c9a F894      		cli
+ 1869 0c9c DEBF      		out __SP_H__,r29
+ 1870 0c9e 0FBE      		out __SREG__,__tmp_reg__
+ 1871 0ca0 CDBF      		out __SP_L__,r28
+ 1872 0ca2 DF91      		pop r29
+ 1873 0ca4 CF91      		pop r28
+ 1874 0ca6 0895      		ret
+ 1875               	/* epilogue end (size=9) */
+ 1876               	/* function rec size 157 (138) */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 34
+
+
+ 1877               		.size	rec, .-rec
+ 1878               		.comm buffer,15,1
+ 1879               		.comm uart_rec_sem,2,1
+ 1880               		.comm err,1,1
+ 1881               		.comm MyTaskStack1,512,1
+ 1882               		.comm MyTaskStack2,512,1
+ 1883               		.comm MyTaskStack3,512,1
+ 1884               	/* File "iam.c": code 1642 = 0x066a (1361), prologues 161, epilogues 120 */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s 			page 35
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 iam.c
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:5      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:6      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:14     .bss:00000000 k
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:20     .bss:00000001 j
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:26     .bss:00000002 save
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:31     .text:00000000 lcd_init
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:642    .text:0000042a WaitMs
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:159    .text:000000e0 lcd_cmd
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:77     .text:00000056 toggleE
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:109    .text:00000086 dely_ns
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:217    .text:00000146 lcd_putchar
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:281    .text:000001b8 lcd_char
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:590    .text:000003e2 lcd_gotoxy2
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:342    .text:0000021c lcd_string
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:452    .text:000002e6 lcd_showvalue
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:558    .text:000003b2 lcd_gotoxy1
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:622    .text:00000412 lcd_exit
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:708    .bss:00000003 i
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:714    .bss:00000005 RFID
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:720    .bss:00000006 buffer_count
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:725    .text:0000048a __vector_14
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:760    .text:000004c4 main
+                            *COM*:00000200 MyTaskStack2
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:867    .text:00000566 task2
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:837    .text:00000548 task1
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:1469   .text:000009dc task3
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:1641   .text:00000b0c delay
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccttVhXb.s:1704   .text:00000b70 rec
+                            *COM*:0000000f buffer
+                            *COM*:00000002 uart_rec_sem
+                            *COM*:00000001 err
+                            *COM*:00000200 MyTaskStack1
+                            *COM*:00000200 MyTaskStack3
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__udivmodqi4
+__divmodhi4
+OSInit
+OSTaskCreate
+OSStart
+OSTimeDlyHMSM
+__mulsf3
+__ltsf2
+__gtsf2
+__fixunssfsi
+OSTimeDly

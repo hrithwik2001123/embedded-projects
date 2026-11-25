@@ -1,0 +1,5 @@
+--cpu ARM7TDMI "startup.o" "timer_0_mcr0.o" 
+--strict --scatter "timer_0 MCR0.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\timer_0 MCR0.map" -o "timer_0 MCR0.axf"

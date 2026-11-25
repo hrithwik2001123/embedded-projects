@@ -1,0 +1,747 @@
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 1
+
+
+   1               		.file	"test2.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               		.text
+  10               	.global	rx_char
+  11               		.type	rx_char, @function
+  12               	rx_char:
+  13               	/* prologue: frame size=0 */
+  14 0000 CF93      		push r28
+  15 0002 DF93      		push r29
+  16 0004 CDB7      		in r28,__SP_L__
+  17 0006 DEB7      		in r29,__SP_H__
+  18               	/* prologue end (size=4) */
+  19               	.L2:
+  20 0008 EBE9      		ldi r30,lo8(155)
+  21 000a F0E0      		ldi r31,hi8(155)
+  22 000c 8081      		ld r24,Z
+  23 000e 8823      		tst r24
+  24 0010 04F0      		brlt .L3
+  25 0012 00C0      		rjmp .L2
+  26               	.L3:
+  27 0014 ECE9      		ldi r30,lo8(156)
+  28 0016 F0E0      		ldi r31,hi8(156)
+  29 0018 8081      		ld r24,Z
+  30 001a 882F      		mov r24,r24
+  31 001c 90E0      		ldi r25,lo8(0)
+  32               	/* epilogue: frame size=0 */
+  33 001e DF91      		pop r29
+  34 0020 CF91      		pop r28
+  35 0022 0895      		ret
+  36               	/* epilogue end (size=3) */
+  37               	/* function rx_char size 18 (11) */
+  38               		.size	rx_char, .-rx_char
+  39               	.global	rx_strng
+  40               		.type	rx_strng, @function
+  41               	rx_strng:
+  42               	/* prologue: frame size=4 */
+  43 0024 CF93      		push r28
+  44 0026 DF93      		push r29
+  45 0028 CDB7      		in r28,__SP_L__
+  46 002a DEB7      		in r29,__SP_H__
+  47 002c 2497      		sbiw r28,4
+  48 002e 0FB6      		in __tmp_reg__,__SREG__
+  49 0030 F894      		cli
+  50 0032 DEBF      		out __SP_H__,r29
+  51 0034 0FBE      		out __SREG__,__tmp_reg__
+  52 0036 CDBF      		out __SP_L__,r28
+  53               	/* prologue end (size=10) */
+  54 0038 9C83      		std Y+4,r25
+  55 003a 8B83      		std Y+3,r24
+  56 003c 1A82      		std Y+2,__zero_reg__
+  57 003e 1982      		std Y+1,__zero_reg__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 2
+
+
+  58               	.L7:
+  59 0040 0E94 0000 		call rx_char
+  60 0044 EB81      		ldd r30,Y+3
+  61 0046 FC81      		ldd r31,Y+4
+  62 0048 8083      		st Z,r24
+  63 004a EB81      		ldd r30,Y+3
+  64 004c FC81      		ldd r31,Y+4
+  65 004e 8081      		ld r24,Z
+  66 0050 8D30      		cpi r24,lo8(13)
+  67 0052 01F0      		breq .L8
+  68 0054 8B81      		ldd r24,Y+3
+  69 0056 9C81      		ldd r25,Y+4
+  70 0058 0196      		adiw r24,1
+  71 005a 9C83      		std Y+4,r25
+  72 005c 8B83      		std Y+3,r24
+  73 005e 8981      		ldd r24,Y+1
+  74 0060 9A81      		ldd r25,Y+2
+  75 0062 0196      		adiw r24,1
+  76 0064 9A83      		std Y+2,r25
+  77 0066 8983      		std Y+1,r24
+  78 0068 00C0      		rjmp .L7
+  79               	.L8:
+  80 006a EB81      		ldd r30,Y+3
+  81 006c FC81      		ldd r31,Y+4
+  82 006e 1082      		st Z,__zero_reg__
+  83               	/* epilogue: frame size=4 */
+  84 0070 2496      		adiw r28,4
+  85 0072 0FB6      		in __tmp_reg__,__SREG__
+  86 0074 F894      		cli
+  87 0076 DEBF      		out __SP_H__,r29
+  88 0078 0FBE      		out __SREG__,__tmp_reg__
+  89 007a CDBF      		out __SP_L__,r28
+  90 007c DF91      		pop r29
+  91 007e CF91      		pop r28
+  92 0080 0895      		ret
+  93               	/* epilogue end (size=9) */
+  94               	/* function rx_strng size 47 (28) */
+  95               		.size	rx_strng, .-rx_strng
+  96               	.global	tx_strng
+  97               		.type	tx_strng, @function
+  98               	tx_strng:
+  99               	/* prologue: frame size=2 */
+ 100 0082 CF93      		push r28
+ 101 0084 DF93      		push r29
+ 102 0086 CDB7      		in r28,__SP_L__
+ 103 0088 DEB7      		in r29,__SP_H__
+ 104 008a 2297      		sbiw r28,2
+ 105 008c 0FB6      		in __tmp_reg__,__SREG__
+ 106 008e F894      		cli
+ 107 0090 DEBF      		out __SP_H__,r29
+ 108 0092 0FBE      		out __SREG__,__tmp_reg__
+ 109 0094 CDBF      		out __SP_L__,r28
+ 110               	/* prologue end (size=10) */
+ 111 0096 9A83      		std Y+2,r25
+ 112 0098 8983      		std Y+1,r24
+ 113 009a 00C0      		rjmp .L12
+ 114               	.L13:
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 3
+
+
+ 115 009c E981      		ldd r30,Y+1
+ 116 009e FA81      		ldd r31,Y+2
+ 117 00a0 8081      		ld r24,Z
+ 118 00a2 0E94 0000 		call tx_char
+ 119 00a6 8981      		ldd r24,Y+1
+ 120 00a8 9A81      		ldd r25,Y+2
+ 121 00aa 0196      		adiw r24,1
+ 122 00ac 9A83      		std Y+2,r25
+ 123 00ae 8983      		std Y+1,r24
+ 124               	.L12:
+ 125 00b0 E981      		ldd r30,Y+1
+ 126 00b2 FA81      		ldd r31,Y+2
+ 127 00b4 8081      		ld r24,Z
+ 128 00b6 8823      		tst r24
+ 129 00b8 01F4      		brne .L13
+ 130               	/* epilogue: frame size=2 */
+ 131 00ba 2296      		adiw r28,2
+ 132 00bc 0FB6      		in __tmp_reg__,__SREG__
+ 133 00be F894      		cli
+ 134 00c0 DEBF      		out __SP_H__,r29
+ 135 00c2 0FBE      		out __SREG__,__tmp_reg__
+ 136 00c4 CDBF      		out __SP_L__,r28
+ 137 00c6 DF91      		pop r29
+ 138 00c8 CF91      		pop r28
+ 139 00ca 0895      		ret
+ 140               	/* epilogue end (size=9) */
+ 141               	/* function tx_strng size 37 (18) */
+ 142               		.size	tx_strng, .-tx_strng
+ 143               	.global	tx_char
+ 144               		.type	tx_char, @function
+ 145               	tx_char:
+ 146               	/* prologue: frame size=1 */
+ 147 00cc CF93      		push r28
+ 148 00ce DF93      		push r29
+ 149 00d0 CDB7      		in r28,__SP_L__
+ 150 00d2 DEB7      		in r29,__SP_H__
+ 151 00d4 2197      		sbiw r28,1
+ 152 00d6 0FB6      		in __tmp_reg__,__SREG__
+ 153 00d8 F894      		cli
+ 154 00da DEBF      		out __SP_H__,r29
+ 155 00dc 0FBE      		out __SREG__,__tmp_reg__
+ 156 00de CDBF      		out __SP_L__,r28
+ 157               	/* prologue end (size=10) */
+ 158 00e0 8983      		std Y+1,r24
+ 159               	.L17:
+ 160 00e2 EBE9      		ldi r30,lo8(155)
+ 161 00e4 F0E0      		ldi r31,hi8(155)
+ 162 00e6 8081      		ld r24,Z
+ 163 00e8 882F      		mov r24,r24
+ 164 00ea 90E0      		ldi r25,lo8(0)
+ 165 00ec 8072      		andi r24,lo8(32)
+ 166 00ee 9070      		andi r25,hi8(32)
+ 167 00f0 0097      		sbiw r24,0
+ 168 00f2 01F4      		brne .L18
+ 169 00f4 00C0      		rjmp .L17
+ 170               	.L18:
+ 171 00f6 ECE9      		ldi r30,lo8(156)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 4
+
+
+ 172 00f8 F0E0      		ldi r31,hi8(156)
+ 173 00fa 8981      		ldd r24,Y+1
+ 174 00fc 8083      		st Z,r24
+ 175               	/* epilogue: frame size=1 */
+ 176 00fe 2196      		adiw r28,1
+ 177 0100 0FB6      		in __tmp_reg__,__SREG__
+ 178 0102 F894      		cli
+ 179 0104 DEBF      		out __SP_H__,r29
+ 180 0106 0FBE      		out __SREG__,__tmp_reg__
+ 181 0108 CDBF      		out __SP_L__,r28
+ 182 010a DF91      		pop r29
+ 183 010c CF91      		pop r28
+ 184 010e 0895      		ret
+ 185               	/* epilogue end (size=9) */
+ 186               	/* function tx_char size 34 (15) */
+ 187               		.size	tx_char, .-tx_char
+ 188               	.global	uart_init
+ 189               		.type	uart_init, @function
+ 190               	uart_init:
+ 191               	/* prologue: frame size=0 */
+ 192 0110 CF93      		push r28
+ 193 0112 DF93      		push r29
+ 194 0114 CDB7      		in r28,__SP_L__
+ 195 0116 DEB7      		in r29,__SP_H__
+ 196               	/* prologue end (size=4) */
+ 197 0118 E9E9      		ldi r30,lo8(153)
+ 198 011a F0E0      		ldi r31,hi8(153)
+ 199 011c 87E6      		ldi r24,lo8(103)
+ 200 011e 8083      		st Z,r24
+ 201 0120 E8E9      		ldi r30,lo8(152)
+ 202 0122 F0E0      		ldi r31,hi8(152)
+ 203 0124 1082      		st Z,__zero_reg__
+ 204 0126 EBE9      		ldi r30,lo8(155)
+ 205 0128 F0E0      		ldi r31,hi8(155)
+ 206 012a 1082      		st Z,__zero_reg__
+ 207 012c EAE9      		ldi r30,lo8(154)
+ 208 012e F0E0      		ldi r31,hi8(154)
+ 209 0130 88E1      		ldi r24,lo8(24)
+ 210 0132 8083      		st Z,r24
+ 211 0134 EDE9      		ldi r30,lo8(157)
+ 212 0136 F0E0      		ldi r31,hi8(157)
+ 213 0138 86E0      		ldi r24,lo8(6)
+ 214 013a 8083      		st Z,r24
+ 215               	/* epilogue: frame size=0 */
+ 216 013c DF91      		pop r29
+ 217 013e CF91      		pop r28
+ 218 0140 0895      		ret
+ 219               	/* epilogue end (size=3) */
+ 220               	/* function uart_init size 25 (18) */
+ 221               		.size	uart_init, .-uart_init
+ 222               	.global	tx_num
+ 223               		.type	tx_num, @function
+ 224               	tx_num:
+ 225               	/* prologue: frame size=26 */
+ 226 0142 CF93      		push r28
+ 227 0144 DF93      		push r29
+ 228 0146 CDB7      		in r28,__SP_L__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 5
+
+
+ 229 0148 DEB7      		in r29,__SP_H__
+ 230 014a 6A97      		sbiw r28,26
+ 231 014c 0FB6      		in __tmp_reg__,__SREG__
+ 232 014e F894      		cli
+ 233 0150 DEBF      		out __SP_H__,r29
+ 234 0152 0FBE      		out __SREG__,__tmp_reg__
+ 235 0154 CDBF      		out __SP_L__,r28
+ 236               	/* prologue end (size=10) */
+ 237 0156 9A8F      		std Y+26,r25
+ 238 0158 898F      		std Y+25,r24
+ 239 015a 84E1      		ldi r24,lo8(20)
+ 240 015c FE01      		movw r30,r28
+ 241 015e 3596      		adiw r30,5
+ 242 0160 DF01      		movw r26,r30
+ 243 0162 982F      		mov r25,r24
+ 244 0164 1D92      		st X+,__zero_reg__
+ 245 0166 9A95      	        dec r25
+ 246 0168 01F4      		brne .-6
+ 247 016a 898D      		ldd r24,Y+25
+ 248 016c 9A8D      		ldd r25,Y+26
+ 249 016e 9A83      		std Y+2,r25
+ 250 0170 8983      		std Y+1,r24
+ 251 0172 1C82      		std Y+4,__zero_reg__
+ 252 0174 1B82      		std Y+3,__zero_reg__
+ 253 0176 00C0      		rjmp .L24
+ 254               	.L25:
+ 255 0178 EB81      		ldd r30,Y+3
+ 256 017a FC81      		ldd r31,Y+4
+ 257 017c 8981      		ldd r24,Y+1
+ 258 017e 9A81      		ldd r25,Y+2
+ 259 0180 2AE0      		ldi r18,lo8(10)
+ 260 0182 30E0      		ldi r19,hi8(10)
+ 261 0184 B901      		movw r22,r18
+ 262 0186 0E94 0000 		call __divmodhi4
+ 263 018a AC01      		movw r20,r24
+ 264 018c 9F01      		movw r18,r30
+ 265 018e 220F      		lsl r18
+ 266 0190 331F      		rol r19
+ 267 0192 CE01      		movw r24,r28
+ 268 0194 0196      		adiw r24,1
+ 269 0196 820F      		add r24,r18
+ 270 0198 931F      		adc r25,r19
+ 271 019a FC01      		movw r30,r24
+ 272 019c 3496      		adiw r30,4
+ 273 019e 5183      		std Z+1,r21
+ 274 01a0 4083      		st Z,r20
+ 275 01a2 8981      		ldd r24,Y+1
+ 276 01a4 9A81      		ldd r25,Y+2
+ 277 01a6 2AE0      		ldi r18,lo8(10)
+ 278 01a8 30E0      		ldi r19,hi8(10)
+ 279 01aa B901      		movw r22,r18
+ 280 01ac 0E94 0000 		call __divmodhi4
+ 281 01b0 CB01      		movw r24,r22
+ 282 01b2 9A83      		std Y+2,r25
+ 283 01b4 8983      		std Y+1,r24
+ 284 01b6 8B81      		ldd r24,Y+3
+ 285 01b8 9C81      		ldd r25,Y+4
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 6
+
+
+ 286 01ba 0196      		adiw r24,1
+ 287 01bc 9C83      		std Y+4,r25
+ 288 01be 8B83      		std Y+3,r24
+ 289               	.L24:
+ 290 01c0 8981      		ldd r24,Y+1
+ 291 01c2 9A81      		ldd r25,Y+2
+ 292 01c4 1816      		cp __zero_reg__,r24
+ 293 01c6 1906      		cpc __zero_reg__,r25
+ 294 01c8 04F0      		brlt .L25
+ 295 01ca 8B81      		ldd r24,Y+3
+ 296 01cc 9C81      		ldd r25,Y+4
+ 297 01ce 0197      		sbiw r24,1
+ 298 01d0 9C83      		std Y+4,r25
+ 299 01d2 8B83      		std Y+3,r24
+ 300 01d4 00C0      		rjmp .L27
+ 301               	.L28:
+ 302 01d6 8B81      		ldd r24,Y+3
+ 303 01d8 9C81      		ldd r25,Y+4
+ 304 01da 9C01      		movw r18,r24
+ 305 01dc 220F      		lsl r18
+ 306 01de 331F      		rol r19
+ 307 01e0 CE01      		movw r24,r28
+ 308 01e2 0196      		adiw r24,1
+ 309 01e4 820F      		add r24,r18
+ 310 01e6 931F      		adc r25,r19
+ 311 01e8 FC01      		movw r30,r24
+ 312 01ea 3496      		adiw r30,4
+ 313 01ec 8081      		ld r24,Z
+ 314 01ee 9181      		ldd r25,Z+1
+ 315 01f0 805D      		subi r24,lo8(-(48))
+ 316 01f2 0E94 0000 		call tx_char
+ 317 01f6 8B81      		ldd r24,Y+3
+ 318 01f8 9C81      		ldd r25,Y+4
+ 319 01fa 0197      		sbiw r24,1
+ 320 01fc 9C83      		std Y+4,r25
+ 321 01fe 8B83      		std Y+3,r24
+ 322               	.L27:
+ 323 0200 8B81      		ldd r24,Y+3
+ 324 0202 9C81      		ldd r25,Y+4
+ 325 0204 9923      		tst r25
+ 326 0206 04F4      		brge .L28
+ 327               	/* epilogue: frame size=26 */
+ 328 0208 6A96      		adiw r28,26
+ 329 020a 0FB6      		in __tmp_reg__,__SREG__
+ 330 020c F894      		cli
+ 331 020e DEBF      		out __SP_H__,r29
+ 332 0210 0FBE      		out __SREG__,__tmp_reg__
+ 333 0212 CDBF      		out __SP_L__,r28
+ 334 0214 DF91      		pop r29
+ 335 0216 CF91      		pop r28
+ 336 0218 0895      		ret
+ 337               	/* epilogue end (size=9) */
+ 338               	/* function tx_num size 108 (89) */
+ 339               		.size	tx_num, .-tx_num
+ 340               	.global	rx_num
+ 341               		.type	rx_num, @function
+ 342               	rx_num:
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 7
+
+
+ 343               	/* prologue: frame size=32 */
+ 344 021a 0F93      		push r16
+ 345 021c 1F93      		push r17
+ 346 021e CF93      		push r28
+ 347 0220 DF93      		push r29
+ 348 0222 CDB7      		in r28,__SP_L__
+ 349 0224 DEB7      		in r29,__SP_H__
+ 350 0226 A097      		sbiw r28,32
+ 351 0228 0FB6      		in __tmp_reg__,__SREG__
+ 352 022a F894      		cli
+ 353 022c DEBF      		out __SP_H__,r29
+ 354 022e 0FBE      		out __SREG__,__tmp_reg__
+ 355 0230 CDBF      		out __SP_L__,r28
+ 356               	/* prologue end (size=12) */
+ 357 0232 84E1      		ldi r24,lo8(20)
+ 358 0234 FE01      		movw r30,r28
+ 359 0236 3596      		adiw r30,5
+ 360 0238 DF01      		movw r26,r30
+ 361 023a 282F      		mov r18,r24
+ 362 023c 1D92      		st X+,__zero_reg__
+ 363 023e 2A95      	        dec r18
+ 364 0240 01F4      		brne .-6
+ 365 0242 81E0      		ldi r24,lo8(1)
+ 366 0244 90E0      		ldi r25,hi8(1)
+ 367 0246 9C83      		std Y+4,r25
+ 368 0248 8B83      		std Y+3,r24
+ 369 024a 1A82      		std Y+2,__zero_reg__
+ 370 024c 1982      		std Y+1,__zero_reg__
+ 371 024e 1A8E      		std Y+26,__zero_reg__
+ 372 0250 198E      		std Y+25,__zero_reg__
+ 373 0252 00C0      		rjmp .L32
+ 374               	.L33:
+ 375 0254 098D      		ldd r16,Y+25
+ 376 0256 1A8D      		ldd r17,Y+26
+ 377 0258 0E94 0000 		call rx_char
+ 378 025c 882F      		mov r24,r24
+ 379 025e 90E0      		ldi r25,lo8(0)
+ 380 0260 C097      		sbiw r24,48
+ 381 0262 AC01      		movw r20,r24
+ 382 0264 9801      		movw r18,r16
+ 383 0266 220F      		lsl r18
+ 384 0268 331F      		rol r19
+ 385 026a CE01      		movw r24,r28
+ 386 026c 0196      		adiw r24,1
+ 387 026e 820F      		add r24,r18
+ 388 0270 931F      		adc r25,r19
+ 389 0272 FC01      		movw r30,r24
+ 390 0274 3496      		adiw r30,4
+ 391 0276 5183      		std Z+1,r21
+ 392 0278 4083      		st Z,r20
+ 393 027a 898D      		ldd r24,Y+25
+ 394 027c 9A8D      		ldd r25,Y+26
+ 395 027e 0196      		adiw r24,1
+ 396 0280 9A8F      		std Y+26,r25
+ 397 0282 898F      		std Y+25,r24
+ 398               	.L32:
+ 399 0284 898D      		ldd r24,Y+25
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 8
+
+
+ 400 0286 9A8D      		ldd r25,Y+26
+ 401 0288 0197      		sbiw r24,1
+ 402 028a 9C01      		movw r18,r24
+ 403 028c 220F      		lsl r18
+ 404 028e 331F      		rol r19
+ 405 0290 CE01      		movw r24,r28
+ 406 0292 0196      		adiw r24,1
+ 407 0294 820F      		add r24,r18
+ 408 0296 931F      		adc r25,r19
+ 409 0298 FC01      		movw r30,r24
+ 410 029a 3496      		adiw r30,4
+ 411 029c 8081      		ld r24,Z
+ 412 029e 9181      		ldd r25,Z+1
+ 413 02a0 4FEF      		ldi r20,hi8(-35)
+ 414 02a2 8D3D      		cpi r24,lo8(-35)
+ 415 02a4 9407      		cpc r25,r20
+ 416 02a6 01F4      		brne .L33
+ 417 02a8 898D      		ldd r24,Y+25
+ 418 02aa 9A8D      		ldd r25,Y+26
+ 419 02ac 0297      		sbiw r24,2
+ 420 02ae 9A8F      		std Y+26,r25
+ 421 02b0 898F      		std Y+25,r24
+ 422 02b2 898D      		ldd r24,Y+25
+ 423 02b4 9A8D      		ldd r25,Y+26
+ 424 02b6 9E8F      		std Y+30,r25
+ 425 02b8 8D8F      		std Y+29,r24
+ 426 02ba 898D      		ldd r24,Y+25
+ 427 02bc 9A8D      		ldd r25,Y+26
+ 428 02be 98A3      		std Y+32,r25
+ 429 02c0 8F8F      		std Y+31,r24
+ 430 02c2 1C8E      		std Y+28,__zero_reg__
+ 431 02c4 1B8E      		std Y+27,__zero_reg__
+ 432 02c6 00C0      		rjmp .L35
+ 433               	.L36:
+ 434 02c8 81E0      		ldi r24,lo8(1)
+ 435 02ca 90E0      		ldi r25,hi8(1)
+ 436 02cc 9C83      		std Y+4,r25
+ 437 02ce 8B83      		std Y+3,r24
+ 438 02d0 8D8D      		ldd r24,Y+29
+ 439 02d2 9E8D      		ldd r25,Y+30
+ 440 02d4 0197      		sbiw r24,1
+ 441 02d6 9A8F      		std Y+26,r25
+ 442 02d8 898F      		std Y+25,r24
+ 443 02da 00C0      		rjmp .L37
+ 444               	.L38:
+ 445 02dc 8B81      		ldd r24,Y+3
+ 446 02de 9C81      		ldd r25,Y+4
+ 447 02e0 9C01      		movw r18,r24
+ 448 02e2 220F      		lsl r18
+ 449 02e4 331F      		rol r19
+ 450 02e6 C901      		movw r24,r18
+ 451 02e8 880F      		lsl r24
+ 452 02ea 991F      		rol r25
+ 453 02ec 880F      		lsl r24
+ 454 02ee 991F      		rol r25
+ 455 02f0 820F      		add r24,r18
+ 456 02f2 931F      		adc r25,r19
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 9
+
+
+ 457 02f4 9C83      		std Y+4,r25
+ 458 02f6 8B83      		std Y+3,r24
+ 459 02f8 898D      		ldd r24,Y+25
+ 460 02fa 9A8D      		ldd r25,Y+26
+ 461 02fc 0197      		sbiw r24,1
+ 462 02fe 9A8F      		std Y+26,r25
+ 463 0300 898F      		std Y+25,r24
+ 464               	.L37:
+ 465 0302 898D      		ldd r24,Y+25
+ 466 0304 9A8D      		ldd r25,Y+26
+ 467 0306 9923      		tst r25
+ 468 0308 04F4      		brge .L38
+ 469 030a 8B8D      		ldd r24,Y+27
+ 470 030c 9C8D      		ldd r25,Y+28
+ 471 030e 9C01      		movw r18,r24
+ 472 0310 220F      		lsl r18
+ 473 0312 331F      		rol r19
+ 474 0314 CE01      		movw r24,r28
+ 475 0316 0196      		adiw r24,1
+ 476 0318 820F      		add r24,r18
+ 477 031a 931F      		adc r25,r19
+ 478 031c FC01      		movw r30,r24
+ 479 031e 3496      		adiw r30,4
+ 480 0320 2081      		ld r18,Z
+ 481 0322 3181      		ldd r19,Z+1
+ 482 0324 8B81      		ldd r24,Y+3
+ 483 0326 9C81      		ldd r25,Y+4
+ 484 0328 D901      		movw r26,r18
+ 485 032a A89F      		mul r26,r24
+ 486 032c 9001      		movw r18,r0
+ 487 032e A99F      		mul r26,r25
+ 488 0330 300D      		add r19,r0
+ 489 0332 B89F      		mul r27,r24
+ 490 0334 300D      		add r19,r0
+ 491 0336 1124      		clr r1
+ 492 0338 8981      		ldd r24,Y+1
+ 493 033a 9A81      		ldd r25,Y+2
+ 494 033c 820F      		add r24,r18
+ 495 033e 931F      		adc r25,r19
+ 496 0340 9A83      		std Y+2,r25
+ 497 0342 8983      		std Y+1,r24
+ 498 0344 8D8D      		ldd r24,Y+29
+ 499 0346 9E8D      		ldd r25,Y+30
+ 500 0348 0197      		sbiw r24,1
+ 501 034a 9E8F      		std Y+30,r25
+ 502 034c 8D8F      		std Y+29,r24
+ 503 034e 8B8D      		ldd r24,Y+27
+ 504 0350 9C8D      		ldd r25,Y+28
+ 505 0352 0196      		adiw r24,1
+ 506 0354 9C8F      		std Y+28,r25
+ 507 0356 8B8F      		std Y+27,r24
+ 508               	.L35:
+ 509 0358 2B8D      		ldd r18,Y+27
+ 510 035a 3C8D      		ldd r19,Y+28
+ 511 035c 8F8D      		ldd r24,Y+31
+ 512 035e 98A1      		ldd r25,Y+32
+ 513 0360 8217      		cp r24,r18
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 10
+
+
+ 514 0362 9307      		cpc r25,r19
+ 515 0364 04F0      		brlt .+2
+ 516 0366 00C0      		rjmp .L36
+ 517 0368 8981      		ldd r24,Y+1
+ 518 036a 9A81      		ldd r25,Y+2
+ 519               	/* epilogue: frame size=32 */
+ 520 036c A096      		adiw r28,32
+ 521 036e 0FB6      		in __tmp_reg__,__SREG__
+ 522 0370 F894      		cli
+ 523 0372 DEBF      		out __SP_H__,r29
+ 524 0374 0FBE      		out __SREG__,__tmp_reg__
+ 525 0376 CDBF      		out __SP_L__,r28
+ 526 0378 DF91      		pop r29
+ 527 037a CF91      		pop r28
+ 528 037c 1F91      		pop r17
+ 529 037e 0F91      		pop r16
+ 530 0380 0895      		ret
+ 531               	/* epilogue end (size=11) */
+ 532               	/* function rx_num size 180 (157) */
+ 533               		.size	rx_num, .-rx_num
+ 534               		.data
+ 535               	.LC0:
+ 536 0000 5374 6172 		.string	"Start main...\n"
+ 536      7420 6D61 
+ 536      696E 2E2E 
+ 536      2E0A 00
+ 537               		.text
+ 538               	.global	main
+ 539               		.type	main, @function
+ 540               	main:
+ 541               	/* prologue: frame size=0 */
+ 542 0382 CF93      		push r28
+ 543 0384 DF93      		push r29
+ 544 0386 CDB7      		in r28,__SP_L__
+ 545 0388 DEB7      		in r29,__SP_H__
+ 546               	/* prologue end (size=4) */
+ 547 038a 0E94 0000 		call uart_init
+ 548 038e 80E0      		ldi r24,lo8(.LC0)
+ 549 0390 90E0      		ldi r25,hi8(.LC0)
+ 550 0392 0E94 0000 		call tx_strng
+ 551 0396 0E94 0000 		call OSInit
+ 552 039a 80E0      		ldi r24,lo8(Task1Stk+127)
+ 553 039c 90E0      		ldi r25,hi8(Task1Stk+127)
+ 554 039e E0E0      		ldi r30,lo8(gs(Task1))
+ 555 03a0 F0E0      		ldi r31,hi8(gs(Task1))
+ 556 03a2 22E0      		ldi r18,lo8(2)
+ 557 03a4 AC01      		movw r20,r24
+ 558 03a6 60E0      		ldi r22,lo8(0)
+ 559 03a8 70E0      		ldi r23,hi8(0)
+ 560 03aa CF01      		movw r24,r30
+ 561 03ac 0E94 0000 		call OSTaskCreate
+ 562 03b0 80E0      		ldi r24,lo8(Task2Stk+127)
+ 563 03b2 90E0      		ldi r25,hi8(Task2Stk+127)
+ 564 03b4 E0E0      		ldi r30,lo8(gs(Task2))
+ 565 03b6 F0E0      		ldi r31,hi8(gs(Task2))
+ 566 03b8 25E0      		ldi r18,lo8(5)
+ 567 03ba AC01      		movw r20,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 11
+
+
+ 568 03bc 60E0      		ldi r22,lo8(0)
+ 569 03be 70E0      		ldi r23,hi8(0)
+ 570 03c0 CF01      		movw r24,r30
+ 571 03c2 0E94 0000 		call OSTaskCreate
+ 572 03c6 0E94 0000 		call OSStart
+ 573 03ca 80E0      		ldi r24,lo8(0)
+ 574 03cc 90E0      		ldi r25,hi8(0)
+ 575               	/* epilogue: frame size=0 */
+ 576 03ce DF91      		pop r29
+ 577 03d0 CF91      		pop r28
+ 578 03d2 0895      		ret
+ 579               	/* epilogue end (size=3) */
+ 580               	/* function main size 41 (34) */
+ 581               		.size	main, .-main
+ 582               		.data
+ 583               	.LC1:
+ 584 000f 7420 6120 		.string	"t a s k 1\n"
+ 584      7320 6B20 
+ 584      310A 00
+ 585               		.text
+ 586               	.global	Task1
+ 587               		.type	Task1, @function
+ 588               	Task1:
+ 589               	/* prologue: frame size=2 */
+ 590 03d4 CF93      		push r28
+ 591 03d6 DF93      		push r29
+ 592 03d8 CDB7      		in r28,__SP_L__
+ 593 03da DEB7      		in r29,__SP_H__
+ 594 03dc 2297      		sbiw r28,2
+ 595 03de 0FB6      		in __tmp_reg__,__SREG__
+ 596 03e0 F894      		cli
+ 597 03e2 DEBF      		out __SP_H__,r29
+ 598 03e4 0FBE      		out __SREG__,__tmp_reg__
+ 599 03e6 CDBF      		out __SP_L__,r28
+ 600               	/* prologue end (size=10) */
+ 601 03e8 9A83      		std Y+2,r25
+ 602 03ea 8983      		std Y+1,r24
+ 603 03ec E4E3      		ldi r30,lo8(52)
+ 604 03ee F0E0      		ldi r31,hi8(52)
+ 605 03f0 8FEF      		ldi r24,lo8(-1)
+ 606 03f2 8083      		st Z,r24
+ 607 03f4 E5E3      		ldi r30,lo8(53)
+ 608 03f6 F0E0      		ldi r31,hi8(53)
+ 609 03f8 8FEF      		ldi r24,lo8(-1)
+ 610 03fa 8083      		st Z,r24
+ 611               	.L45:
+ 612 03fc 80E0      		ldi r24,lo8(.LC1)
+ 613 03fe 90E0      		ldi r25,hi8(.LC1)
+ 614 0400 0E94 0000 		call tx_strng
+ 615 0404 A5E3      		ldi r26,lo8(53)
+ 616 0406 B0E0      		ldi r27,hi8(53)
+ 617 0408 E5E3      		ldi r30,lo8(53)
+ 618 040a F0E0      		ldi r31,hi8(53)
+ 619 040c 8081      		ld r24,Z
+ 620 040e 8095      		com r24
+ 621 0410 8C93      		st X,r24
+ 622 0412 8FEF      		ldi r24,lo8(-1)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 12
+
+
+ 623 0414 0E94 0000 		call OSTaskSuspend
+ 624 0418 00C0      		rjmp .L45
+ 625               	/* epilogue: frame size=2 */
+ 626               	/* epilogue: noreturn */
+ 627               	/* epilogue end (size=0) */
+ 628               	/* function Task1 size 35 (25) */
+ 629               		.size	Task1, .-Task1
+ 630               		.data
+ 631               	.LC2:
+ 632 001a 5441 534B 		.string	"TASK2\n"
+ 632      320A 00
+ 633               		.text
+ 634               	.global	Task2
+ 635               		.type	Task2, @function
+ 636               	Task2:
+ 637               	/* prologue: frame size=2 */
+ 638 041a CF93      		push r28
+ 639 041c DF93      		push r29
+ 640 041e CDB7      		in r28,__SP_L__
+ 641 0420 DEB7      		in r29,__SP_H__
+ 642 0422 2297      		sbiw r28,2
+ 643 0424 0FB6      		in __tmp_reg__,__SREG__
+ 644 0426 F894      		cli
+ 645 0428 DEBF      		out __SP_H__,r29
+ 646 042a 0FBE      		out __SREG__,__tmp_reg__
+ 647 042c CDBF      		out __SP_L__,r28
+ 648               	/* prologue end (size=10) */
+ 649 042e 9A83      		std Y+2,r25
+ 650 0430 8983      		std Y+1,r24
+ 651               	.L48:
+ 652 0432 80E0      		ldi r24,lo8(.LC2)
+ 653 0434 90E0      		ldi r25,hi8(.LC2)
+ 654 0436 0E94 0000 		call tx_strng
+ 655 043a 82E0      		ldi r24,lo8(2)
+ 656 043c 0E94 0000 		call OSTaskResume
+ 657 0440 00C0      		rjmp .L48
+ 658               	/* epilogue: frame size=2 */
+ 659               	/* epilogue: noreturn */
+ 660               	/* epilogue end (size=0) */
+ 661               	/* function Task2 size 20 (10) */
+ 662               		.size	Task2, .-Task2
+ 663               		.comm Task1Stk,128,1
+ 664               		.comm Task2Stk,128,1
+ 665               		.comm TaskStartStk,128,1
+ 666               		.comm Task1Sem,2,1
+ 667               		.comm Task2Sem,2,1
+ 668               		.comm PortBSem,2,1
+ 669               	/* File "test2.c": code  545 = 0x0221 ( 405), prologues  84, epilogues  56 */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 test2.c
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:5      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:6      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:12     .text:00000000 rx_char
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:41     .text:00000024 rx_strng
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:98     .text:00000082 tx_strng
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:145    .text:000000cc tx_char
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:190    .text:00000110 uart_init
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:224    .text:00000142 tx_num
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:342    .text:0000021a rx_num
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:540    .text:00000382 main
+                            *COM*:00000080 Task1Stk
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:588    .text:000003d4 Task1
+                            *COM*:00000080 Task2Stk
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccPPyddN.s:636    .text:0000041a Task2
+                            *COM*:00000080 TaskStartStk
+                            *COM*:00000002 Task1Sem
+                            *COM*:00000002 Task2Sem
+                            *COM*:00000002 PortBSem
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__divmodhi4
+OSInit
+OSTaskCreate
+OSStart
+OSTaskSuspend
+OSTaskResume

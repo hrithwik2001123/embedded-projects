@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1723285194 source:d:\codeblock\star print\fibonacci series\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1726658636 source:d:\codeblock\loop\fibonacci series\main.c
+	<stdio.h>
+

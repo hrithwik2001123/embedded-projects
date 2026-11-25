@@ -1,0 +1,141 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ARM\WORK\New folder\timer0.uvproj
+Project File Date:  12/28/2024
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling timer.c...
+timer.c(2): error:  #20: identifier "PLL0CON" is undefined
+timer.c(3): error:  #20: identifier "PLL0CFG" is undefined
+timer.c(4): error:  #20: identifier "PLL0FEED" is undefined
+timer.c(6): error:  #20: identifier "PLL0STAT" is undefined
+timer.c(6): error:  #18: expected a ")"
+timer.c(11): warning:  #12-D: parsing restarts here after previous syntax error
+timer.c(11): error:  #127: expected a statement
+timer.c(14): error:  #20: identifier "T0CTCR" is undefined
+timer.c(15): error:  #20: identifier "T0TCR" is undefined
+timer.c(16): error:  #20: identifier "T0PR" is undefined
+timer.c(19): error:  #20: identifier "T0TC" is undefined
+timer.c(19): error:  #20: identifier "Z" is undefined
+timer.c(22): warning:  #940-D: missing return statement at end of non-void function "delay"
+timer.c(23): warning:  #951-D: return type of function "main" must be "int"
+timer.c(25): error:  #20: identifier "PINSEL0" is undefined
+timer.c(26): error:  #20: identifier "PINSEL1" is undefined
+timer.c(27): error:  #20: identifier "IODIR0" is undefined
+timer.c(28): error:  #20: identifier "IODIR1" is undefined
+timer.c(31): error:  #20: identifier "IOSET0" is undefined
+timer.c(32): error:  #20: identifier "IOSET1" is undefined
+timer.c(34): error:  #20: identifier "IOCLR0" is undefined
+timer.c(34): error:  #20: identifier "FFFFFFFF" is undefined
+timer.c(35): error:  #20: identifier "IOCLR1" is undefined
+timer.c(39): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling timer.c...
+timer.c(2): error:  #20: identifier "PLL0CON" is undefined
+timer.c(3): error:  #20: identifier "PLL0CFG" is undefined
+timer.c(4): error:  #20: identifier "PLL0FEED" is undefined
+timer.c(6): error:  #20: identifier "PLL0STAT" is undefined
+timer.c(6): error:  #18: expected a ")"
+timer.c(11): warning:  #12-D: parsing restarts here after previous syntax error
+timer.c(11): error:  #127: expected a statement
+timer.c(14): error:  #20: identifier "T0CTCR" is undefined
+timer.c(15): error:  #20: identifier "T0TCR" is undefined
+timer.c(16): error:  #20: identifier "T0PR" is undefined
+timer.c(19): error:  #20: identifier "T0TC" is undefined
+timer.c(19): error:  #20: identifier "Z" is undefined
+timer.c(22): warning:  #940-D: missing return statement at end of non-void function "delay"
+timer.c(23): warning:  #951-D: return type of function "main" must be "int"
+timer.c(25): error:  #20: identifier "PINSEL0" is undefined
+timer.c(26): error:  #20: identifier "PINSEL1" is undefined
+timer.c(27): error:  #20: identifier "IODIR0" is undefined
+timer.c(28): error:  #20: identifier "IODIR1" is undefined
+timer.c(31): error:  #20: identifier "IOSET0" is undefined
+timer.c(32): error:  #20: identifier "IOSET1" is undefined
+timer.c(34): error:  #20: identifier "I0CLR0" is undefined
+timer.c(34): error:  #20: identifier "FFFFFFFF" is undefined
+timer.c(35): error:  #20: identifier "I0CLR1" is undefined
+timer.c(39): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling timer.c...
+timer.c(2): error:  #20: identifier "PLL0CON" is undefined
+timer.c(3): error:  #20: identifier "PLL0CFG" is undefined
+timer.c(4): error:  #20: identifier "PLL0FEED" is undefined
+timer.c(6): error:  #20: identifier "PLL0STAT" is undefined
+timer.c(6): error:  #18: expected a ")"
+timer.c(11): warning:  #12-D: parsing restarts here after previous syntax error
+timer.c(11): error:  #127: expected a statement
+timer.c(14): error:  #20: identifier "T0CTCR" is undefined
+timer.c(15): error:  #20: identifier "T0TCR" is undefined
+timer.c(16): error:  #20: identifier "T0PR" is undefined
+timer.c(19): error:  #20: identifier "T0TC" is undefined
+timer.c(19): error:  #20: identifier "Z" is undefined
+timer.c(22): warning:  #940-D: missing return statement at end of non-void function "delay"
+timer.c(23): warning:  #951-D: return type of function "main" must be "int"
+timer.c(25): error:  #20: identifier "PINSEL0" is undefined
+timer.c(26): error:  #20: identifier "PINSEL1" is undefined
+timer.c(27): error:  #20: identifier "IODIR0" is undefined
+timer.c(28): error:  #20: identifier "IODIR1" is undefined
+timer.c(31): error:  #20: identifier "IOSET0" is undefined
+timer.c(32): error:  #20: identifier "IOSET1" is undefined
+timer.c(34): error:  #20: identifier "I0CLR0" is undefined
+timer.c(35): error:  #20: identifier "I0CLR1" is undefined
+timer.c(39): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling timer.c...
+timer.c(7): error:  #18: expected a ")"
+timer.c(12): warning:  #12-D: parsing restarts here after previous syntax error
+timer.c(12): error:  #127: expected a statement
+timer.c(20): error:  #20: identifier "Z" is undefined
+timer.c(23): warning:  #940-D: missing return statement at end of non-void function "delay"
+timer.c(24): warning:  #951-D: return type of function "main" must be "int"
+timer.c(35): error:  #20: identifier "I0CLR0" is undefined
+timer.c(36): error:  #20: identifier "I0CLR1" is undefined
+timer.c(40): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling timer.c...
+timer.c(7): error:  #18: expected a ")"
+timer.c(12): warning:  #12-D: parsing restarts here after previous syntax error
+timer.c(12): error:  #127: expected a statement
+timer.c(20): error:  #20: identifier "Z" is undefined
+timer.c(23): warning:  #940-D: missing return statement at end of non-void function "delay"
+timer.c(24): warning:  #951-D: return type of function "main" must be "int"
+timer.c(35): error:  #20: identifier "I0CLR0" is undefined
+timer.c(36): error:  #20: identifier "I0CLR1" is undefined
+timer.c(40): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling timer.c...
+timer.c(7): error:  #18: expected a ")"
+timer.c(12): warning:  #12-D: parsing restarts here after previous syntax error
+timer.c(12): error:  #127: expected a statement
+timer.c(23): warning:  #940-D: missing return statement at end of non-void function "delay"
+timer.c(24): warning:  #951-D: return type of function "main" must be "int"
+timer.c(35): error:  #20: identifier "I0CLR0" is undefined
+timer.c(36): error:  #20: identifier "I0CLR1" is undefined
+timer.c(40): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling timer.c...
+timer.c(7): error:  #18: expected a ")"
+timer.c(12): warning:  #12-D: parsing restarts here after previous syntax error
+timer.c(12): error:  #127: expected a statement
+timer.c(23): warning:  #940-D: missing return statement at end of non-void function "delay"
+timer.c(35): error:  #20: identifier "I0CLR0" is undefined
+timer.c(36): error:  #20: identifier "I0CLR1" is undefined
+timer.c(40): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+compiling timer.c...
+linking...
+Program Size: Code=968 RO-data=16 RW-data=0 ZI-data=1256  
+FromELF: creating hex file...
+"timer0.axf" - 0 Error(s), 0 Warning(s).

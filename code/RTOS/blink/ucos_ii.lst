@@ -1,0 +1,4864 @@
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 1
+
+
+   1               		.file	"ucos_ii.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               	.global	OSMapTbl
+   9               		.data
+  10               		.type	OSMapTbl, @object
+  11               		.size	OSMapTbl, 8
+  12               	OSMapTbl:
+  13 0000 01        		.byte	1
+  14 0001 02        		.byte	2
+  15 0002 04        		.byte	4
+  16 0003 08        		.byte	8
+  17 0004 10        		.byte	16
+  18 0005 20        		.byte	32
+  19 0006 40        		.byte	64
+  20 0007 80        		.byte	-128
+  21               	.global	OSUnMapTbl
+  22               		.type	OSUnMapTbl, @object
+  23               		.size	OSUnMapTbl, 256
+  24               	OSUnMapTbl:
+  25 0008 00        		.byte	0
+  26 0009 00        		.byte	0
+  27 000a 01        		.byte	1
+  28 000b 00        		.byte	0
+  29 000c 02        		.byte	2
+  30 000d 00        		.byte	0
+  31 000e 01        		.byte	1
+  32 000f 00        		.byte	0
+  33 0010 03        		.byte	3
+  34 0011 00        		.byte	0
+  35 0012 01        		.byte	1
+  36 0013 00        		.byte	0
+  37 0014 02        		.byte	2
+  38 0015 00        		.byte	0
+  39 0016 01        		.byte	1
+  40 0017 00        		.byte	0
+  41 0018 04        		.byte	4
+  42 0019 00        		.byte	0
+  43 001a 01        		.byte	1
+  44 001b 00        		.byte	0
+  45 001c 02        		.byte	2
+  46 001d 00        		.byte	0
+  47 001e 01        		.byte	1
+  48 001f 00        		.byte	0
+  49 0020 03        		.byte	3
+  50 0021 00        		.byte	0
+  51 0022 01        		.byte	1
+  52 0023 00        		.byte	0
+  53 0024 02        		.byte	2
+  54 0025 00        		.byte	0
+  55 0026 01        		.byte	1
+  56 0027 00        		.byte	0
+  57 0028 05        		.byte	5
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 2
+
+
+  58 0029 00        		.byte	0
+  59 002a 01        		.byte	1
+  60 002b 00        		.byte	0
+  61 002c 02        		.byte	2
+  62 002d 00        		.byte	0
+  63 002e 01        		.byte	1
+  64 002f 00        		.byte	0
+  65 0030 03        		.byte	3
+  66 0031 00        		.byte	0
+  67 0032 01        		.byte	1
+  68 0033 00        		.byte	0
+  69 0034 02        		.byte	2
+  70 0035 00        		.byte	0
+  71 0036 01        		.byte	1
+  72 0037 00        		.byte	0
+  73 0038 04        		.byte	4
+  74 0039 00        		.byte	0
+  75 003a 01        		.byte	1
+  76 003b 00        		.byte	0
+  77 003c 02        		.byte	2
+  78 003d 00        		.byte	0
+  79 003e 01        		.byte	1
+  80 003f 00        		.byte	0
+  81 0040 03        		.byte	3
+  82 0041 00        		.byte	0
+  83 0042 01        		.byte	1
+  84 0043 00        		.byte	0
+  85 0044 02        		.byte	2
+  86 0045 00        		.byte	0
+  87 0046 01        		.byte	1
+  88 0047 00        		.byte	0
+  89 0048 06        		.byte	6
+  90 0049 00        		.byte	0
+  91 004a 01        		.byte	1
+  92 004b 00        		.byte	0
+  93 004c 02        		.byte	2
+  94 004d 00        		.byte	0
+  95 004e 01        		.byte	1
+  96 004f 00        		.byte	0
+  97 0050 03        		.byte	3
+  98 0051 00        		.byte	0
+  99 0052 01        		.byte	1
+ 100 0053 00        		.byte	0
+ 101 0054 02        		.byte	2
+ 102 0055 00        		.byte	0
+ 103 0056 01        		.byte	1
+ 104 0057 00        		.byte	0
+ 105 0058 04        		.byte	4
+ 106 0059 00        		.byte	0
+ 107 005a 01        		.byte	1
+ 108 005b 00        		.byte	0
+ 109 005c 02        		.byte	2
+ 110 005d 00        		.byte	0
+ 111 005e 01        		.byte	1
+ 112 005f 00        		.byte	0
+ 113 0060 03        		.byte	3
+ 114 0061 00        		.byte	0
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 3
+
+
+ 115 0062 01        		.byte	1
+ 116 0063 00        		.byte	0
+ 117 0064 02        		.byte	2
+ 118 0065 00        		.byte	0
+ 119 0066 01        		.byte	1
+ 120 0067 00        		.byte	0
+ 121 0068 05        		.byte	5
+ 122 0069 00        		.byte	0
+ 123 006a 01        		.byte	1
+ 124 006b 00        		.byte	0
+ 125 006c 02        		.byte	2
+ 126 006d 00        		.byte	0
+ 127 006e 01        		.byte	1
+ 128 006f 00        		.byte	0
+ 129 0070 03        		.byte	3
+ 130 0071 00        		.byte	0
+ 131 0072 01        		.byte	1
+ 132 0073 00        		.byte	0
+ 133 0074 02        		.byte	2
+ 134 0075 00        		.byte	0
+ 135 0076 01        		.byte	1
+ 136 0077 00        		.byte	0
+ 137 0078 04        		.byte	4
+ 138 0079 00        		.byte	0
+ 139 007a 01        		.byte	1
+ 140 007b 00        		.byte	0
+ 141 007c 02        		.byte	2
+ 142 007d 00        		.byte	0
+ 143 007e 01        		.byte	1
+ 144 007f 00        		.byte	0
+ 145 0080 03        		.byte	3
+ 146 0081 00        		.byte	0
+ 147 0082 01        		.byte	1
+ 148 0083 00        		.byte	0
+ 149 0084 02        		.byte	2
+ 150 0085 00        		.byte	0
+ 151 0086 01        		.byte	1
+ 152 0087 00        		.byte	0
+ 153 0088 07        		.byte	7
+ 154 0089 00        		.byte	0
+ 155 008a 01        		.byte	1
+ 156 008b 00        		.byte	0
+ 157 008c 02        		.byte	2
+ 158 008d 00        		.byte	0
+ 159 008e 01        		.byte	1
+ 160 008f 00        		.byte	0
+ 161 0090 03        		.byte	3
+ 162 0091 00        		.byte	0
+ 163 0092 01        		.byte	1
+ 164 0093 00        		.byte	0
+ 165 0094 02        		.byte	2
+ 166 0095 00        		.byte	0
+ 167 0096 01        		.byte	1
+ 168 0097 00        		.byte	0
+ 169 0098 04        		.byte	4
+ 170 0099 00        		.byte	0
+ 171 009a 01        		.byte	1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 4
+
+
+ 172 009b 00        		.byte	0
+ 173 009c 02        		.byte	2
+ 174 009d 00        		.byte	0
+ 175 009e 01        		.byte	1
+ 176 009f 00        		.byte	0
+ 177 00a0 03        		.byte	3
+ 178 00a1 00        		.byte	0
+ 179 00a2 01        		.byte	1
+ 180 00a3 00        		.byte	0
+ 181 00a4 02        		.byte	2
+ 182 00a5 00        		.byte	0
+ 183 00a6 01        		.byte	1
+ 184 00a7 00        		.byte	0
+ 185 00a8 05        		.byte	5
+ 186 00a9 00        		.byte	0
+ 187 00aa 01        		.byte	1
+ 188 00ab 00        		.byte	0
+ 189 00ac 02        		.byte	2
+ 190 00ad 00        		.byte	0
+ 191 00ae 01        		.byte	1
+ 192 00af 00        		.byte	0
+ 193 00b0 03        		.byte	3
+ 194 00b1 00        		.byte	0
+ 195 00b2 01        		.byte	1
+ 196 00b3 00        		.byte	0
+ 197 00b4 02        		.byte	2
+ 198 00b5 00        		.byte	0
+ 199 00b6 01        		.byte	1
+ 200 00b7 00        		.byte	0
+ 201 00b8 04        		.byte	4
+ 202 00b9 00        		.byte	0
+ 203 00ba 01        		.byte	1
+ 204 00bb 00        		.byte	0
+ 205 00bc 02        		.byte	2
+ 206 00bd 00        		.byte	0
+ 207 00be 01        		.byte	1
+ 208 00bf 00        		.byte	0
+ 209 00c0 03        		.byte	3
+ 210 00c1 00        		.byte	0
+ 211 00c2 01        		.byte	1
+ 212 00c3 00        		.byte	0
+ 213 00c4 02        		.byte	2
+ 214 00c5 00        		.byte	0
+ 215 00c6 01        		.byte	1
+ 216 00c7 00        		.byte	0
+ 217 00c8 06        		.byte	6
+ 218 00c9 00        		.byte	0
+ 219 00ca 01        		.byte	1
+ 220 00cb 00        		.byte	0
+ 221 00cc 02        		.byte	2
+ 222 00cd 00        		.byte	0
+ 223 00ce 01        		.byte	1
+ 224 00cf 00        		.byte	0
+ 225 00d0 03        		.byte	3
+ 226 00d1 00        		.byte	0
+ 227 00d2 01        		.byte	1
+ 228 00d3 00        		.byte	0
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 5
+
+
+ 229 00d4 02        		.byte	2
+ 230 00d5 00        		.byte	0
+ 231 00d6 01        		.byte	1
+ 232 00d7 00        		.byte	0
+ 233 00d8 04        		.byte	4
+ 234 00d9 00        		.byte	0
+ 235 00da 01        		.byte	1
+ 236 00db 00        		.byte	0
+ 237 00dc 02        		.byte	2
+ 238 00dd 00        		.byte	0
+ 239 00de 01        		.byte	1
+ 240 00df 00        		.byte	0
+ 241 00e0 03        		.byte	3
+ 242 00e1 00        		.byte	0
+ 243 00e2 01        		.byte	1
+ 244 00e3 00        		.byte	0
+ 245 00e4 02        		.byte	2
+ 246 00e5 00        		.byte	0
+ 247 00e6 01        		.byte	1
+ 248 00e7 00        		.byte	0
+ 249 00e8 05        		.byte	5
+ 250 00e9 00        		.byte	0
+ 251 00ea 01        		.byte	1
+ 252 00eb 00        		.byte	0
+ 253 00ec 02        		.byte	2
+ 254 00ed 00        		.byte	0
+ 255 00ee 01        		.byte	1
+ 256 00ef 00        		.byte	0
+ 257 00f0 03        		.byte	3
+ 258 00f1 00        		.byte	0
+ 259 00f2 01        		.byte	1
+ 260 00f3 00        		.byte	0
+ 261 00f4 02        		.byte	2
+ 262 00f5 00        		.byte	0
+ 263 00f6 01        		.byte	1
+ 264 00f7 00        		.byte	0
+ 265 00f8 04        		.byte	4
+ 266 00f9 00        		.byte	0
+ 267 00fa 01        		.byte	1
+ 268 00fb 00        		.byte	0
+ 269 00fc 02        		.byte	2
+ 270 00fd 00        		.byte	0
+ 271 00fe 01        		.byte	1
+ 272 00ff 00        		.byte	0
+ 273 0100 03        		.byte	3
+ 274 0101 00        		.byte	0
+ 275 0102 01        		.byte	1
+ 276 0103 00        		.byte	0
+ 277 0104 02        		.byte	2
+ 278 0105 00        		.byte	0
+ 279 0106 01        		.byte	1
+ 280 0107 00        		.byte	0
+ 281               		.text
+ 282               	.global	OSInit
+ 283               		.type	OSInit, @function
+ 284               	OSInit:
+ 285 0000 DF93      		push r29
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 6
+
+
+ 286 0002 CF93      		push r28
+ 287 0004 CDB7      		in r28,__SP_L__
+ 288 0006 DEB7      		in r29,__SP_H__
+ 289               	/* prologue: function */
+ 290               	/* frame size = 0 */
+ 291 0008 0E94 0000 		call OSInitHookBegin
+ 292 000c 0E94 0000 		call OS_InitMisc
+ 293 0010 0E94 0000 		call OS_InitRdyList
+ 294 0014 0E94 0000 		call OS_InitTCBList
+ 295 0018 0E94 0000 		call OS_InitEventList
+ 296 001c 0E94 0000 		call OS_InitTaskIdle
+ 297 0020 0E94 0000 		call OS_InitTaskStat
+ 298 0024 0E94 0000 		call OSInitHookEnd
+ 299               	/* epilogue start */
+ 300 0028 CF91      		pop r28
+ 301 002a DF91      		pop r29
+ 302 002c 0895      		ret
+ 303               		.size	OSInit, .-OSInit
+ 304               	.global	OSIntEnter
+ 305               		.type	OSIntEnter, @function
+ 306               	OSIntEnter:
+ 307 002e DF93      		push r29
+ 308 0030 CF93      		push r28
+ 309 0032 CDB7      		in r28,__SP_L__
+ 310 0034 DEB7      		in r29,__SP_H__
+ 311               	/* prologue: function */
+ 312               	/* frame size = 0 */
+ 313 0036 8091 0000 		lds r24,OSRunning
+ 314 003a 8130      		cpi r24,lo8(1)
+ 315 003c 01F4      		brne .L5
+ 316 003e 8091 0000 		lds r24,OSIntNesting
+ 317 0042 8F3F      		cpi r24,lo8(-1)
+ 318 0044 01F0      		breq .L5
+ 319 0046 8091 0000 		lds r24,OSIntNesting
+ 320 004a 8F5F      		subi r24,lo8(-(1))
+ 321 004c 8093 0000 		sts OSIntNesting,r24
+ 322               	.L5:
+ 323               	/* epilogue start */
+ 324 0050 CF91      		pop r28
+ 325 0052 DF91      		pop r29
+ 326 0054 0895      		ret
+ 327               		.size	OSIntEnter, .-OSIntEnter
+ 328               	.global	OSIntExit
+ 329               		.type	OSIntExit, @function
+ 330               	OSIntExit:
+ 331 0056 DF93      		push r29
+ 332 0058 CF93      		push r28
+ 333 005a CDB7      		in r28,__SP_L__
+ 334 005c DEB7      		in r29,__SP_H__
+ 335               	/* prologue: function */
+ 336               	/* frame size = 0 */
+ 337 005e 8091 0000 		lds r24,OSRunning
+ 338 0062 8130      		cpi r24,lo8(1)
+ 339 0064 01F0      		breq .+2
+ 340 0066 00C0      		rjmp .L10
+ 341               	/* #APP */
+ 342               	 ;  180 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 7
+
+
+ 343 0068 F894      		cli
+ 344               	 ;  0 "" 2
+ 345               	/* #NOAPP */
+ 346 006a 8091 0000 		lds r24,OSIntNesting
+ 347 006e 8823      		tst r24
+ 348 0070 01F0      		breq .L8
+ 349 0072 8091 0000 		lds r24,OSIntNesting
+ 350 0076 8150      		subi r24,lo8(-(-1))
+ 351 0078 8093 0000 		sts OSIntNesting,r24
+ 352               	.L8:
+ 353 007c 8091 0000 		lds r24,OSIntNesting
+ 354 0080 8823      		tst r24
+ 355 0082 01F0      		breq .+2
+ 356 0084 00C0      		rjmp .L9
+ 357 0086 8091 0000 		lds r24,OSLockNesting
+ 358 008a 8823      		tst r24
+ 359 008c 01F0      		breq .+2
+ 360 008e 00C0      		rjmp .L9
+ 361 0090 8091 0000 		lds r24,OSRdyGrp
+ 362 0094 882F      		mov r24,r24
+ 363 0096 90E0      		ldi r25,lo8(0)
+ 364 0098 FC01      		movw r30,r24
+ 365 009a E050      		subi r30,lo8(-(OSUnMapTbl))
+ 366 009c F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 367 009e 8081      		ld r24,Z
+ 368 00a0 8093 0000 		sts OSIntExitY,r24
+ 369 00a4 8091 0000 		lds r24,OSIntExitY
+ 370 00a8 282F      		mov r18,r24
+ 371 00aa 220F      		lsl r18
+ 372 00ac 220F      		lsl r18
+ 373 00ae 220F      		lsl r18
+ 374 00b0 8091 0000 		lds r24,OSIntExitY
+ 375 00b4 882F      		mov r24,r24
+ 376 00b6 90E0      		ldi r25,lo8(0)
+ 377 00b8 FC01      		movw r30,r24
+ 378 00ba E050      		subi r30,lo8(-(OSRdyTbl))
+ 379 00bc F040      		sbci r31,hi8(-(OSRdyTbl))
+ 380 00be 8081      		ld r24,Z
+ 381 00c0 882F      		mov r24,r24
+ 382 00c2 90E0      		ldi r25,lo8(0)
+ 383 00c4 FC01      		movw r30,r24
+ 384 00c6 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 385 00c8 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 386 00ca 8081      		ld r24,Z
+ 387 00cc 820F      		add r24,r18
+ 388 00ce 8093 0000 		sts OSPrioHighRdy,r24
+ 389 00d2 9091 0000 		lds r25,OSPrioHighRdy
+ 390 00d6 8091 0000 		lds r24,OSPrioCur
+ 391 00da 9817      		cp r25,r24
+ 392 00dc 01F0      		breq .L9
+ 393 00de 8091 0000 		lds r24,OSPrioHighRdy
+ 394 00e2 882F      		mov r24,r24
+ 395 00e4 90E0      		ldi r25,lo8(0)
+ 396 00e6 880F      		lsl r24
+ 397 00e8 991F      		rol r25
+ 398 00ea FC01      		movw r30,r24
+ 399 00ec E050      		subi r30,lo8(-(OSTCBPrioTbl))
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 8
+
+
+ 400 00ee F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 401 00f0 8081      		ld r24,Z
+ 402 00f2 9181      		ldd r25,Z+1
+ 403 00f4 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 404 00f8 8093 0000 		sts OSTCBHighRdy,r24
+ 405 00fc 8091 0000 		lds r24,OSCtxSwCtr
+ 406 0100 9091 0000 		lds r25,(OSCtxSwCtr)+1
+ 407 0104 A091 0000 		lds r26,(OSCtxSwCtr)+2
+ 408 0108 B091 0000 		lds r27,(OSCtxSwCtr)+3
+ 409 010c 0196      		adiw r24,1
+ 410 010e A11D      		adc r26,__zero_reg__
+ 411 0110 B11D      		adc r27,__zero_reg__
+ 412 0112 8093 0000 		sts OSCtxSwCtr,r24
+ 413 0116 9093 0000 		sts (OSCtxSwCtr)+1,r25
+ 414 011a A093 0000 		sts (OSCtxSwCtr)+2,r26
+ 415 011e B093 0000 		sts (OSCtxSwCtr)+3,r27
+ 416 0122 0E94 0000 		call OSIntCtxSw
+ 417               	.L9:
+ 418               	/* #APP */
+ 419               	 ;  193 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 420 0126 7894      		sei
+ 421               	 ;  0 "" 2
+ 422               	/* #NOAPP */
+ 423               	.L10:
+ 424               	/* epilogue start */
+ 425 0128 CF91      		pop r28
+ 426 012a DF91      		pop r29
+ 427 012c 0895      		ret
+ 428               		.size	OSIntExit, .-OSIntExit
+ 429               	.global	OSSchedLock
+ 430               		.type	OSSchedLock, @function
+ 431               	OSSchedLock:
+ 432 012e DF93      		push r29
+ 433 0130 CF93      		push r28
+ 434 0132 CDB7      		in r28,__SP_L__
+ 435 0134 DEB7      		in r29,__SP_H__
+ 436               	/* prologue: function */
+ 437               	/* frame size = 0 */
+ 438 0136 8091 0000 		lds r24,OSRunning
+ 439 013a 8130      		cpi r24,lo8(1)
+ 440 013c 01F4      		brne .L14
+ 441               	/* #APP */
+ 442               	 ;  222 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 443 013e F894      		cli
+ 444               	 ;  0 "" 2
+ 445               	/* #NOAPP */
+ 446 0140 8091 0000 		lds r24,OSLockNesting
+ 447 0144 8F3F      		cpi r24,lo8(-1)
+ 448 0146 01F0      		breq .L13
+ 449 0148 8091 0000 		lds r24,OSLockNesting
+ 450 014c 8F5F      		subi r24,lo8(-(1))
+ 451 014e 8093 0000 		sts OSLockNesting,r24
+ 452               	.L13:
+ 453               	/* #APP */
+ 454               	 ;  226 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 455 0152 7894      		sei
+ 456               	 ;  0 "" 2
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 9
+
+
+ 457               	/* #NOAPP */
+ 458               	.L14:
+ 459               	/* epilogue start */
+ 460 0154 CF91      		pop r28
+ 461 0156 DF91      		pop r29
+ 462 0158 0895      		ret
+ 463               		.size	OSSchedLock, .-OSSchedLock
+ 464               	.global	OSSchedUnlock
+ 465               		.type	OSSchedUnlock, @function
+ 466               	OSSchedUnlock:
+ 467 015a DF93      		push r29
+ 468 015c CF93      		push r28
+ 469 015e CDB7      		in r28,__SP_L__
+ 470 0160 DEB7      		in r29,__SP_H__
+ 471               	/* prologue: function */
+ 472               	/* frame size = 0 */
+ 473 0162 8091 0000 		lds r24,OSRunning
+ 474 0166 8130      		cpi r24,lo8(1)
+ 475 0168 01F4      		brne .L20
+ 476               	/* #APP */
+ 477               	 ;  256 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 478 016a F894      		cli
+ 479               	 ;  0 "" 2
+ 480               	/* #NOAPP */
+ 481 016c 8091 0000 		lds r24,OSLockNesting
+ 482 0170 8823      		tst r24
+ 483 0172 01F0      		breq .L17
+ 484 0174 8091 0000 		lds r24,OSLockNesting
+ 485 0178 8150      		subi r24,lo8(-(-1))
+ 486 017a 8093 0000 		sts OSLockNesting,r24
+ 487 017e 8091 0000 		lds r24,OSLockNesting
+ 488 0182 8823      		tst r24
+ 489 0184 01F4      		brne .L18
+ 490 0186 8091 0000 		lds r24,OSIntNesting
+ 491 018a 8823      		tst r24
+ 492 018c 01F4      		brne .L18
+ 493               	/* #APP */
+ 494               	 ;  260 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 495 018e 7894      		sei
+ 496               	 ;  0 "" 2
+ 497               	/* #NOAPP */
+ 498 0190 0E94 0000 		call OS_Sched
+ 499 0194 00C0      		rjmp .L20
+ 500               	.L18:
+ 501               	/* #APP */
+ 502               	 ;  263 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 503 0196 7894      		sei
+ 504               	 ;  0 "" 2
+ 505               	/* #NOAPP */
+ 506 0198 00C0      		rjmp .L20
+ 507               	.L17:
+ 508               	/* #APP */
+ 509               	 ;  266 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 510 019a 7894      		sei
+ 511               	 ;  0 "" 2
+ 512               	/* #NOAPP */
+ 513               	.L20:
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 10
+
+
+ 514               	/* epilogue start */
+ 515 019c CF91      		pop r28
+ 516 019e DF91      		pop r29
+ 517 01a0 0895      		ret
+ 518               		.size	OSSchedUnlock, .-OSSchedUnlock
+ 519               	.global	OSStart
+ 520               		.type	OSStart, @function
+ 521               	OSStart:
+ 522 01a2 DF93      		push r29
+ 523 01a4 CF93      		push r28
+ 524 01a6 00D0      		rcall .
+ 525 01a8 CDB7      		in r28,__SP_L__
+ 526 01aa DEB7      		in r29,__SP_H__
+ 527               	/* prologue: function */
+ 528               	/* frame size = 2 */
+ 529 01ac 8091 0000 		lds r24,OSRunning
+ 530 01b0 8823      		tst r24
+ 531 01b2 01F4      		brne .L23
+ 532 01b4 8091 0000 		lds r24,OSRdyGrp
+ 533 01b8 882F      		mov r24,r24
+ 534 01ba 90E0      		ldi r25,lo8(0)
+ 535 01bc FC01      		movw r30,r24
+ 536 01be E050      		subi r30,lo8(-(OSUnMapTbl))
+ 537 01c0 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 538 01c2 8081      		ld r24,Z
+ 539 01c4 8A83      		std Y+2,r24
+ 540 01c6 8A81      		ldd r24,Y+2
+ 541 01c8 882F      		mov r24,r24
+ 542 01ca 90E0      		ldi r25,lo8(0)
+ 543 01cc FC01      		movw r30,r24
+ 544 01ce E050      		subi r30,lo8(-(OSRdyTbl))
+ 545 01d0 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 546 01d2 8081      		ld r24,Z
+ 547 01d4 882F      		mov r24,r24
+ 548 01d6 90E0      		ldi r25,lo8(0)
+ 549 01d8 FC01      		movw r30,r24
+ 550 01da E050      		subi r30,lo8(-(OSUnMapTbl))
+ 551 01dc F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 552 01de 8081      		ld r24,Z
+ 553 01e0 8983      		std Y+1,r24
+ 554 01e2 8A81      		ldd r24,Y+2
+ 555 01e4 982F      		mov r25,r24
+ 556 01e6 990F      		lsl r25
+ 557 01e8 990F      		lsl r25
+ 558 01ea 990F      		lsl r25
+ 559 01ec 8981      		ldd r24,Y+1
+ 560 01ee 890F      		add r24,r25
+ 561 01f0 8093 0000 		sts OSPrioHighRdy,r24
+ 562 01f4 8091 0000 		lds r24,OSPrioHighRdy
+ 563 01f8 8093 0000 		sts OSPrioCur,r24
+ 564 01fc 8091 0000 		lds r24,OSPrioHighRdy
+ 565 0200 882F      		mov r24,r24
+ 566 0202 90E0      		ldi r25,lo8(0)
+ 567 0204 880F      		lsl r24
+ 568 0206 991F      		rol r25
+ 569 0208 FC01      		movw r30,r24
+ 570 020a E050      		subi r30,lo8(-(OSTCBPrioTbl))
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 11
+
+
+ 571 020c F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 572 020e 8081      		ld r24,Z
+ 573 0210 9181      		ldd r25,Z+1
+ 574 0212 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 575 0216 8093 0000 		sts OSTCBHighRdy,r24
+ 576 021a 8091 0000 		lds r24,OSTCBHighRdy
+ 577 021e 9091 0000 		lds r25,(OSTCBHighRdy)+1
+ 578 0222 9093 0000 		sts (OSTCBCur)+1,r25
+ 579 0226 8093 0000 		sts OSTCBCur,r24
+ 580 022a 0E94 0000 		call OSStartHighRdy
+ 581               	.L23:
+ 582               	/* epilogue start */
+ 583 022e 0F90      		pop __tmp_reg__
+ 584 0230 0F90      		pop __tmp_reg__
+ 585 0232 CF91      		pop r28
+ 586 0234 DF91      		pop r29
+ 587 0236 0895      		ret
+ 588               		.size	OSStart, .-OSStart
+ 589               	.global	OSStatInit
+ 590               		.type	OSStatInit, @function
+ 591               	OSStatInit:
+ 592 0238 DF93      		push r29
+ 593 023a CF93      		push r28
+ 594 023c CDB7      		in r28,__SP_L__
+ 595 023e DEB7      		in r29,__SP_H__
+ 596               	/* prologue: function */
+ 597               	/* frame size = 0 */
+ 598 0240 82E0      		ldi r24,lo8(2)
+ 599 0242 90E0      		ldi r25,hi8(2)
+ 600 0244 0E94 0000 		call OSTimeDly
+ 601               	/* #APP */
+ 602               	 ;  339 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 603 0248 F894      		cli
+ 604               	 ;  0 "" 2
+ 605               	/* #NOAPP */
+ 606 024a 1092 0000 		sts OSIdleCtr,__zero_reg__
+ 607 024e 1092 0000 		sts (OSIdleCtr)+1,__zero_reg__
+ 608 0252 1092 0000 		sts (OSIdleCtr)+2,__zero_reg__
+ 609 0256 1092 0000 		sts (OSIdleCtr)+3,__zero_reg__
+ 610               	/* #APP */
+ 611               	 ;  341 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 612 025a 7894      		sei
+ 613               	 ;  0 "" 2
+ 614               	/* #NOAPP */
+ 615 025c 8DE3      		ldi r24,lo8(61)
+ 616 025e 90E0      		ldi r25,hi8(61)
+ 617 0260 0E94 0000 		call OSTimeDly
+ 618               	/* #APP */
+ 619               	 ;  343 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 620 0264 F894      		cli
+ 621               	 ;  0 "" 2
+ 622               	/* #NOAPP */
+ 623 0266 8091 0000 		lds r24,OSIdleCtr
+ 624 026a 9091 0000 		lds r25,(OSIdleCtr)+1
+ 625 026e A091 0000 		lds r26,(OSIdleCtr)+2
+ 626 0272 B091 0000 		lds r27,(OSIdleCtr)+3
+ 627 0276 8093 0000 		sts OSIdleCtrMax,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 12
+
+
+ 628 027a 9093 0000 		sts (OSIdleCtrMax)+1,r25
+ 629 027e A093 0000 		sts (OSIdleCtrMax)+2,r26
+ 630 0282 B093 0000 		sts (OSIdleCtrMax)+3,r27
+ 631 0286 81E0      		ldi r24,lo8(1)
+ 632 0288 8093 0000 		sts OSStatRdy,r24
+ 633               	/* #APP */
+ 634               	 ;  346 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 635 028c 7894      		sei
+ 636               	 ;  0 "" 2
+ 637               	/* epilogue start */
+ 638               	/* #NOAPP */
+ 639 028e CF91      		pop r28
+ 640 0290 DF91      		pop r29
+ 641 0292 0895      		ret
+ 642               		.size	OSStatInit, .-OSStatInit
+ 643               	.global	OSTimeTick
+ 644               		.type	OSTimeTick, @function
+ 645               	OSTimeTick:
+ 646 0294 DF93      		push r29
+ 647 0296 CF93      		push r28
+ 648 0298 00D0      		rcall .
+ 649 029a CDB7      		in r28,__SP_L__
+ 650 029c DEB7      		in r29,__SP_H__
+ 651               	/* prologue: function */
+ 652               	/* frame size = 2 */
+ 653 029e 0E94 0000 		call OSTimeTickHook
+ 654 02a2 8091 0000 		lds r24,OSRunning
+ 655 02a6 8130      		cpi r24,lo8(1)
+ 656 02a8 01F0      		breq .+2
+ 657 02aa 00C0      		rjmp .L32
+ 658 02ac 8091 0000 		lds r24,OSTCBList
+ 659 02b0 9091 0000 		lds r25,(OSTCBList)+1
+ 660 02b4 9A83      		std Y+2,r25
+ 661 02b6 8983      		std Y+1,r24
+ 662 02b8 00C0      		rjmp .L28
+ 663               	.L31:
+ 664               	/* #APP */
+ 665               	 ;  381 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 666 02ba F894      		cli
+ 667               	 ;  0 "" 2
+ 668               	/* #NOAPP */
+ 669 02bc E981      		ldd r30,Y+1
+ 670 02be FA81      		ldd r31,Y+2
+ 671 02c0 8285      		ldd r24,Z+10
+ 672 02c2 9385      		ldd r25,Z+11
+ 673 02c4 0097      		sbiw r24,0
+ 674 02c6 01F0      		breq .L29
+ 675 02c8 E981      		ldd r30,Y+1
+ 676 02ca FA81      		ldd r31,Y+2
+ 677 02cc 8285      		ldd r24,Z+10
+ 678 02ce 9385      		ldd r25,Z+11
+ 679 02d0 0197      		sbiw r24,1
+ 680 02d2 E981      		ldd r30,Y+1
+ 681 02d4 FA81      		ldd r31,Y+2
+ 682 02d6 9387      		std Z+11,r25
+ 683 02d8 8287      		std Z+10,r24
+ 684 02da E981      		ldd r30,Y+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 13
+
+
+ 685 02dc FA81      		ldd r31,Y+2
+ 686 02de 8285      		ldd r24,Z+10
+ 687 02e0 9385      		ldd r25,Z+11
+ 688 02e2 0097      		sbiw r24,0
+ 689 02e4 01F4      		brne .L29
+ 690 02e6 E981      		ldd r30,Y+1
+ 691 02e8 FA81      		ldd r31,Y+2
+ 692 02ea 8485      		ldd r24,Z+12
+ 693 02ec 882F      		mov r24,r24
+ 694 02ee 90E0      		ldi r25,lo8(0)
+ 695 02f0 8870      		andi r24,lo8(8)
+ 696 02f2 9070      		andi r25,hi8(8)
+ 697 02f4 0097      		sbiw r24,0
+ 698 02f6 01F4      		brne .L30
+ 699 02f8 E981      		ldd r30,Y+1
+ 700 02fa FA81      		ldd r31,Y+2
+ 701 02fc 9189      		ldd r25,Z+17
+ 702 02fe 8091 0000 		lds r24,OSRdyGrp
+ 703 0302 892B      		or r24,r25
+ 704 0304 8093 0000 		sts OSRdyGrp,r24
+ 705 0308 E981      		ldd r30,Y+1
+ 706 030a FA81      		ldd r31,Y+2
+ 707 030c 8785      		ldd r24,Z+15
+ 708 030e 282F      		mov r18,r24
+ 709 0310 30E0      		ldi r19,lo8(0)
+ 710 0312 E981      		ldd r30,Y+1
+ 711 0314 FA81      		ldd r31,Y+2
+ 712 0316 8785      		ldd r24,Z+15
+ 713 0318 882F      		mov r24,r24
+ 714 031a 90E0      		ldi r25,lo8(0)
+ 715 031c FC01      		movw r30,r24
+ 716 031e E050      		subi r30,lo8(-(OSRdyTbl))
+ 717 0320 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 718 0322 9081      		ld r25,Z
+ 719 0324 E981      		ldd r30,Y+1
+ 720 0326 FA81      		ldd r31,Y+2
+ 721 0328 8089      		ldd r24,Z+16
+ 722 032a 892B      		or r24,r25
+ 723 032c F901      		movw r30,r18
+ 724 032e E050      		subi r30,lo8(-(OSRdyTbl))
+ 725 0330 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 726 0332 8083      		st Z,r24
+ 727 0334 00C0      		rjmp .L29
+ 728               	.L30:
+ 729 0336 E981      		ldd r30,Y+1
+ 730 0338 FA81      		ldd r31,Y+2
+ 731 033a 81E0      		ldi r24,lo8(1)
+ 732 033c 90E0      		ldi r25,hi8(1)
+ 733 033e 9387      		std Z+11,r25
+ 734 0340 8287      		std Z+10,r24
+ 735               	.L29:
+ 736 0342 E981      		ldd r30,Y+1
+ 737 0344 FA81      		ldd r31,Y+2
+ 738 0346 8281      		ldd r24,Z+2
+ 739 0348 9381      		ldd r25,Z+3
+ 740 034a 9A83      		std Y+2,r25
+ 741 034c 8983      		std Y+1,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 14
+
+
+ 742               	/* #APP */
+ 743               	 ;  393 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 744 034e 7894      		sei
+ 745               	 ;  0 "" 2
+ 746               	/* #NOAPP */
+ 747               	.L28:
+ 748 0350 E981      		ldd r30,Y+1
+ 749 0352 FA81      		ldd r31,Y+2
+ 750 0354 8585      		ldd r24,Z+13
+ 751 0356 8C30      		cpi r24,lo8(12)
+ 752 0358 01F0      		breq .+2
+ 753 035a 00C0      		rjmp .L31
+ 754               	.L32:
+ 755               	/* epilogue start */
+ 756 035c 0F90      		pop __tmp_reg__
+ 757 035e 0F90      		pop __tmp_reg__
+ 758 0360 CF91      		pop r28
+ 759 0362 DF91      		pop r29
+ 760 0364 0895      		ret
+ 761               		.size	OSTimeTick, .-OSTimeTick
+ 762               	.global	OSVersion
+ 763               		.type	OSVersion, @function
+ 764               	OSVersion:
+ 765 0366 DF93      		push r29
+ 766 0368 CF93      		push r28
+ 767 036a CDB7      		in r28,__SP_L__
+ 768 036c DEB7      		in r29,__SP_H__
+ 769               	/* prologue: function */
+ 770               	/* frame size = 0 */
+ 771 036e 8CEF      		ldi r24,lo8(252)
+ 772 0370 90E0      		ldi r25,hi8(252)
+ 773               	/* epilogue start */
+ 774 0372 CF91      		pop r28
+ 775 0374 DF91      		pop r29
+ 776 0376 0895      		ret
+ 777               		.size	OSVersion, .-OSVersion
+ 778               	.global	OS_Dummy
+ 779               		.type	OS_Dummy, @function
+ 780               	OS_Dummy:
+ 781 0378 DF93      		push r29
+ 782 037a CF93      		push r28
+ 783 037c CDB7      		in r28,__SP_L__
+ 784 037e DEB7      		in r29,__SP_H__
+ 785               	/* prologue: function */
+ 786               	/* frame size = 0 */
+ 787               	/* epilogue start */
+ 788 0380 CF91      		pop r28
+ 789 0382 DF91      		pop r29
+ 790 0384 0895      		ret
+ 791               		.size	OS_Dummy, .-OS_Dummy
+ 792               	.global	OS_EventTaskRdy
+ 793               		.type	OS_EventTaskRdy, @function
+ 794               	OS_EventTaskRdy:
+ 795 0386 DF93      		push r29
+ 796 0388 CF93      		push r28
+ 797 038a CDB7      		in r28,__SP_L__
+ 798 038c DEB7      		in r29,__SP_H__
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 15
+
+
+ 799 038e 2C97      		sbiw r28,12
+ 800 0390 0FB6      		in __tmp_reg__,__SREG__
+ 801 0392 F894      		cli
+ 802 0394 DEBF      		out __SP_H__,r29
+ 803 0396 0FBE      		out __SREG__,__tmp_reg__
+ 804 0398 CDBF      		out __SP_L__,r28
+ 805               	/* prologue: function */
+ 806               	/* frame size = 12 */
+ 807 039a 9987      		std Y+9,r25
+ 808 039c 8887      		std Y+8,r24
+ 809 039e 7B87      		std Y+11,r23
+ 810 03a0 6A87      		std Y+10,r22
+ 811 03a2 4C87      		std Y+12,r20
+ 812 03a4 E885      		ldd r30,Y+8
+ 813 03a6 F985      		ldd r31,Y+9
+ 814 03a8 8181      		ldd r24,Z+1
+ 815 03aa 882F      		mov r24,r24
+ 816 03ac 90E0      		ldi r25,lo8(0)
+ 817 03ae FC01      		movw r30,r24
+ 818 03b0 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 819 03b2 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 820 03b4 8081      		ld r24,Z
+ 821 03b6 8C83      		std Y+4,r24
+ 822 03b8 8C81      		ldd r24,Y+4
+ 823 03ba 882F      		mov r24,r24
+ 824 03bc 90E0      		ldi r25,lo8(0)
+ 825 03be FC01      		movw r30,r24
+ 826 03c0 E050      		subi r30,lo8(-(OSMapTbl))
+ 827 03c2 F040      		sbci r31,hi8(-(OSMapTbl))
+ 828 03c4 8081      		ld r24,Z
+ 829 03c6 8A83      		std Y+2,r24
+ 830 03c8 8C81      		ldd r24,Y+4
+ 831 03ca 282F      		mov r18,r24
+ 832 03cc 30E0      		ldi r19,lo8(0)
+ 833 03ce 8885      		ldd r24,Y+8
+ 834 03d0 9985      		ldd r25,Y+9
+ 835 03d2 820F      		add r24,r18
+ 836 03d4 931F      		adc r25,r19
+ 837 03d6 FC01      		movw r30,r24
+ 838 03d8 3696      		adiw r30,6
+ 839 03da 8081      		ld r24,Z
+ 840 03dc 882F      		mov r24,r24
+ 841 03de 90E0      		ldi r25,lo8(0)
+ 842 03e0 FC01      		movw r30,r24
+ 843 03e2 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 844 03e4 F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 845 03e6 8081      		ld r24,Z
+ 846 03e8 8D83      		std Y+5,r24
+ 847 03ea 8D81      		ldd r24,Y+5
+ 848 03ec 882F      		mov r24,r24
+ 849 03ee 90E0      		ldi r25,lo8(0)
+ 850 03f0 FC01      		movw r30,r24
+ 851 03f2 E050      		subi r30,lo8(-(OSMapTbl))
+ 852 03f4 F040      		sbci r31,hi8(-(OSMapTbl))
+ 853 03f6 8081      		ld r24,Z
+ 854 03f8 8B83      		std Y+3,r24
+ 855 03fa 8C81      		ldd r24,Y+4
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 16
+
+
+ 856 03fc 982F      		mov r25,r24
+ 857 03fe 990F      		lsl r25
+ 858 0400 990F      		lsl r25
+ 859 0402 990F      		lsl r25
+ 860 0404 8D81      		ldd r24,Y+5
+ 861 0406 890F      		add r24,r25
+ 862 0408 8983      		std Y+1,r24
+ 863 040a 8C81      		ldd r24,Y+4
+ 864 040c 482F      		mov r20,r24
+ 865 040e 50E0      		ldi r21,lo8(0)
+ 866 0410 8C81      		ldd r24,Y+4
+ 867 0412 282F      		mov r18,r24
+ 868 0414 30E0      		ldi r19,lo8(0)
+ 869 0416 8885      		ldd r24,Y+8
+ 870 0418 9985      		ldd r25,Y+9
+ 871 041a 820F      		add r24,r18
+ 872 041c 931F      		adc r25,r19
+ 873 041e FC01      		movw r30,r24
+ 874 0420 3696      		adiw r30,6
+ 875 0422 8081      		ld r24,Z
+ 876 0424 982F      		mov r25,r24
+ 877 0426 8B81      		ldd r24,Y+3
+ 878 0428 8095      		com r24
+ 879 042a 8923      		and r24,r25
+ 880 042c 282F      		mov r18,r24
+ 881 042e 8885      		ldd r24,Y+8
+ 882 0430 9985      		ldd r25,Y+9
+ 883 0432 840F      		add r24,r20
+ 884 0434 951F      		adc r25,r21
+ 885 0436 FC01      		movw r30,r24
+ 886 0438 3696      		adiw r30,6
+ 887 043a 2083      		st Z,r18
+ 888 043c 8885      		ldd r24,Y+8
+ 889 043e 9985      		ldd r25,Y+9
+ 890 0440 840F      		add r24,r20
+ 891 0442 951F      		adc r25,r21
+ 892 0444 FC01      		movw r30,r24
+ 893 0446 3696      		adiw r30,6
+ 894 0448 8081      		ld r24,Z
+ 895 044a 8823      		tst r24
+ 896 044c 01F4      		brne .L38
+ 897 044e E885      		ldd r30,Y+8
+ 898 0450 F985      		ldd r31,Y+9
+ 899 0452 8181      		ldd r24,Z+1
+ 900 0454 982F      		mov r25,r24
+ 901 0456 8A81      		ldd r24,Y+2
+ 902 0458 8095      		com r24
+ 903 045a 8923      		and r24,r25
+ 904 045c E885      		ldd r30,Y+8
+ 905 045e F985      		ldd r31,Y+9
+ 906 0460 8183      		std Z+1,r24
+ 907               	.L38:
+ 908 0462 8981      		ldd r24,Y+1
+ 909 0464 882F      		mov r24,r24
+ 910 0466 90E0      		ldi r25,lo8(0)
+ 911 0468 880F      		lsl r24
+ 912 046a 991F      		rol r25
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 17
+
+
+ 913 046c FC01      		movw r30,r24
+ 914 046e E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 915 0470 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 916 0472 8081      		ld r24,Z
+ 917 0474 9181      		ldd r25,Z+1
+ 918 0476 9F83      		std Y+7,r25
+ 919 0478 8E83      		std Y+6,r24
+ 920 047a EE81      		ldd r30,Y+6
+ 921 047c FF81      		ldd r31,Y+7
+ 922 047e 1386      		std Z+11,__zero_reg__
+ 923 0480 1286      		std Z+10,__zero_reg__
+ 924 0482 EE81      		ldd r30,Y+6
+ 925 0484 FF81      		ldd r31,Y+7
+ 926 0486 1782      		std Z+7,__zero_reg__
+ 927 0488 1682      		std Z+6,__zero_reg__
+ 928 048a EE81      		ldd r30,Y+6
+ 929 048c FF81      		ldd r31,Y+7
+ 930 048e 8A85      		ldd r24,Y+10
+ 931 0490 9B85      		ldd r25,Y+11
+ 932 0492 9187      		std Z+9,r25
+ 933 0494 8087      		std Z+8,r24
+ 934 0496 EE81      		ldd r30,Y+6
+ 935 0498 FF81      		ldd r31,Y+7
+ 936 049a 8485      		ldd r24,Z+12
+ 937 049c 982F      		mov r25,r24
+ 938 049e 8C85      		ldd r24,Y+12
+ 939 04a0 8095      		com r24
+ 940 04a2 8923      		and r24,r25
+ 941 04a4 EE81      		ldd r30,Y+6
+ 942 04a6 FF81      		ldd r31,Y+7
+ 943 04a8 8487      		std Z+12,r24
+ 944 04aa EE81      		ldd r30,Y+6
+ 945 04ac FF81      		ldd r31,Y+7
+ 946 04ae 8485      		ldd r24,Z+12
+ 947 04b0 8823      		tst r24
+ 948 04b2 01F4      		brne .L39
+ 949 04b4 9091 0000 		lds r25,OSRdyGrp
+ 950 04b8 8A81      		ldd r24,Y+2
+ 951 04ba 892B      		or r24,r25
+ 952 04bc 8093 0000 		sts OSRdyGrp,r24
+ 953 04c0 8C81      		ldd r24,Y+4
+ 954 04c2 282F      		mov r18,r24
+ 955 04c4 30E0      		ldi r19,lo8(0)
+ 956 04c6 8C81      		ldd r24,Y+4
+ 957 04c8 882F      		mov r24,r24
+ 958 04ca 90E0      		ldi r25,lo8(0)
+ 959 04cc FC01      		movw r30,r24
+ 960 04ce E050      		subi r30,lo8(-(OSRdyTbl))
+ 961 04d0 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 962 04d2 9081      		ld r25,Z
+ 963 04d4 8B81      		ldd r24,Y+3
+ 964 04d6 892B      		or r24,r25
+ 965 04d8 F901      		movw r30,r18
+ 966 04da E050      		subi r30,lo8(-(OSRdyTbl))
+ 967 04dc F040      		sbci r31,hi8(-(OSRdyTbl))
+ 968 04de 8083      		st Z,r24
+ 969               	.L39:
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 18
+
+
+ 970 04e0 8981      		ldd r24,Y+1
+ 971               	/* epilogue start */
+ 972 04e2 2C96      		adiw r28,12
+ 973 04e4 0FB6      		in __tmp_reg__,__SREG__
+ 974 04e6 F894      		cli
+ 975 04e8 DEBF      		out __SP_H__,r29
+ 976 04ea 0FBE      		out __SREG__,__tmp_reg__
+ 977 04ec CDBF      		out __SP_L__,r28
+ 978 04ee CF91      		pop r28
+ 979 04f0 DF91      		pop r29
+ 980 04f2 0895      		ret
+ 981               		.size	OS_EventTaskRdy, .-OS_EventTaskRdy
+ 982               	.global	OS_EventTaskWait
+ 983               		.type	OS_EventTaskWait, @function
+ 984               	OS_EventTaskWait:
+ 985 04f4 DF93      		push r29
+ 986 04f6 CF93      		push r28
+ 987 04f8 00D0      		rcall .
+ 988 04fa CDB7      		in r28,__SP_L__
+ 989 04fc DEB7      		in r29,__SP_H__
+ 990               	/* prologue: function */
+ 991               	/* frame size = 2 */
+ 992 04fe 9A83      		std Y+2,r25
+ 993 0500 8983      		std Y+1,r24
+ 994 0502 E091 0000 		lds r30,OSTCBCur
+ 995 0506 F091 0000 		lds r31,(OSTCBCur)+1
+ 996 050a 8981      		ldd r24,Y+1
+ 997 050c 9A81      		ldd r25,Y+2
+ 998 050e 9783      		std Z+7,r25
+ 999 0510 8683      		std Z+6,r24
+ 1000 0512 E091 0000 		lds r30,OSTCBCur
+ 1001 0516 F091 0000 		lds r31,(OSTCBCur)+1
+ 1002 051a 8785      		ldd r24,Z+15
+ 1003 051c 282F      		mov r18,r24
+ 1004 051e 30E0      		ldi r19,lo8(0)
+ 1005 0520 E091 0000 		lds r30,OSTCBCur
+ 1006 0524 F091 0000 		lds r31,(OSTCBCur)+1
+ 1007 0528 8785      		ldd r24,Z+15
+ 1008 052a 882F      		mov r24,r24
+ 1009 052c 90E0      		ldi r25,lo8(0)
+ 1010 052e FC01      		movw r30,r24
+ 1011 0530 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1012 0532 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1013 0534 8081      		ld r24,Z
+ 1014 0536 982F      		mov r25,r24
+ 1015 0538 E091 0000 		lds r30,OSTCBCur
+ 1016 053c F091 0000 		lds r31,(OSTCBCur)+1
+ 1017 0540 8089      		ldd r24,Z+16
+ 1018 0542 8095      		com r24
+ 1019 0544 8923      		and r24,r25
+ 1020 0546 F901      		movw r30,r18
+ 1021 0548 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1022 054a F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1023 054c 8083      		st Z,r24
+ 1024 054e F901      		movw r30,r18
+ 1025 0550 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1026 0552 F040      		sbci r31,hi8(-(OSRdyTbl))
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 19
+
+
+ 1027 0554 8081      		ld r24,Z
+ 1028 0556 8823      		tst r24
+ 1029 0558 01F4      		brne .L42
+ 1030 055a E091 0000 		lds r30,OSTCBCur
+ 1031 055e F091 0000 		lds r31,(OSTCBCur)+1
+ 1032 0562 8189      		ldd r24,Z+17
+ 1033 0564 982F      		mov r25,r24
+ 1034 0566 9095      		com r25
+ 1035 0568 8091 0000 		lds r24,OSRdyGrp
+ 1036 056c 8923      		and r24,r25
+ 1037 056e 8093 0000 		sts OSRdyGrp,r24
+ 1038               	.L42:
+ 1039 0572 E091 0000 		lds r30,OSTCBCur
+ 1040 0576 F091 0000 		lds r31,(OSTCBCur)+1
+ 1041 057a 8785      		ldd r24,Z+15
+ 1042 057c 482F      		mov r20,r24
+ 1043 057e 50E0      		ldi r21,lo8(0)
+ 1044 0580 E091 0000 		lds r30,OSTCBCur
+ 1045 0584 F091 0000 		lds r31,(OSTCBCur)+1
+ 1046 0588 8785      		ldd r24,Z+15
+ 1047 058a 282F      		mov r18,r24
+ 1048 058c 30E0      		ldi r19,lo8(0)
+ 1049 058e 8981      		ldd r24,Y+1
+ 1050 0590 9A81      		ldd r25,Y+2
+ 1051 0592 820F      		add r24,r18
+ 1052 0594 931F      		adc r25,r19
+ 1053 0596 FC01      		movw r30,r24
+ 1054 0598 3696      		adiw r30,6
+ 1055 059a 9081      		ld r25,Z
+ 1056 059c E091 0000 		lds r30,OSTCBCur
+ 1057 05a0 F091 0000 		lds r31,(OSTCBCur)+1
+ 1058 05a4 8089      		ldd r24,Z+16
+ 1059 05a6 292F      		mov r18,r25
+ 1060 05a8 282B      		or r18,r24
+ 1061 05aa 8981      		ldd r24,Y+1
+ 1062 05ac 9A81      		ldd r25,Y+2
+ 1063 05ae 840F      		add r24,r20
+ 1064 05b0 951F      		adc r25,r21
+ 1065 05b2 FC01      		movw r30,r24
+ 1066 05b4 3696      		adiw r30,6
+ 1067 05b6 2083      		st Z,r18
+ 1068 05b8 E981      		ldd r30,Y+1
+ 1069 05ba FA81      		ldd r31,Y+2
+ 1070 05bc 9181      		ldd r25,Z+1
+ 1071 05be E091 0000 		lds r30,OSTCBCur
+ 1072 05c2 F091 0000 		lds r31,(OSTCBCur)+1
+ 1073 05c6 8189      		ldd r24,Z+17
+ 1074 05c8 892B      		or r24,r25
+ 1075 05ca E981      		ldd r30,Y+1
+ 1076 05cc FA81      		ldd r31,Y+2
+ 1077 05ce 8183      		std Z+1,r24
+ 1078               	/* epilogue start */
+ 1079 05d0 0F90      		pop __tmp_reg__
+ 1080 05d2 0F90      		pop __tmp_reg__
+ 1081 05d4 CF91      		pop r28
+ 1082 05d6 DF91      		pop r29
+ 1083 05d8 0895      		ret
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 20
+
+
+ 1084               		.size	OS_EventTaskWait, .-OS_EventTaskWait
+ 1085               	.global	OS_EventTO
+ 1086               		.type	OS_EventTO, @function
+ 1087               	OS_EventTO:
+ 1088 05da DF93      		push r29
+ 1089 05dc CF93      		push r28
+ 1090 05de 00D0      		rcall .
+ 1091 05e0 CDB7      		in r28,__SP_L__
+ 1092 05e2 DEB7      		in r29,__SP_H__
+ 1093               	/* prologue: function */
+ 1094               	/* frame size = 2 */
+ 1095 05e4 9A83      		std Y+2,r25
+ 1096 05e6 8983      		std Y+1,r24
+ 1097 05e8 E091 0000 		lds r30,OSTCBCur
+ 1098 05ec F091 0000 		lds r31,(OSTCBCur)+1
+ 1099 05f0 8785      		ldd r24,Z+15
+ 1100 05f2 482F      		mov r20,r24
+ 1101 05f4 50E0      		ldi r21,lo8(0)
+ 1102 05f6 E091 0000 		lds r30,OSTCBCur
+ 1103 05fa F091 0000 		lds r31,(OSTCBCur)+1
+ 1104 05fe 8785      		ldd r24,Z+15
+ 1105 0600 282F      		mov r18,r24
+ 1106 0602 30E0      		ldi r19,lo8(0)
+ 1107 0604 8981      		ldd r24,Y+1
+ 1108 0606 9A81      		ldd r25,Y+2
+ 1109 0608 820F      		add r24,r18
+ 1110 060a 931F      		adc r25,r19
+ 1111 060c FC01      		movw r30,r24
+ 1112 060e 3696      		adiw r30,6
+ 1113 0610 8081      		ld r24,Z
+ 1114 0612 982F      		mov r25,r24
+ 1115 0614 E091 0000 		lds r30,OSTCBCur
+ 1116 0618 F091 0000 		lds r31,(OSTCBCur)+1
+ 1117 061c 8089      		ldd r24,Z+16
+ 1118 061e 8095      		com r24
+ 1119 0620 8923      		and r24,r25
+ 1120 0622 282F      		mov r18,r24
+ 1121 0624 8981      		ldd r24,Y+1
+ 1122 0626 9A81      		ldd r25,Y+2
+ 1123 0628 840F      		add r24,r20
+ 1124 062a 951F      		adc r25,r21
+ 1125 062c FC01      		movw r30,r24
+ 1126 062e 3696      		adiw r30,6
+ 1127 0630 2083      		st Z,r18
+ 1128 0632 8981      		ldd r24,Y+1
+ 1129 0634 9A81      		ldd r25,Y+2
+ 1130 0636 840F      		add r24,r20
+ 1131 0638 951F      		adc r25,r21
+ 1132 063a FC01      		movw r30,r24
+ 1133 063c 3696      		adiw r30,6
+ 1134 063e 8081      		ld r24,Z
+ 1135 0640 8823      		tst r24
+ 1136 0642 01F4      		brne .L45
+ 1137 0644 E981      		ldd r30,Y+1
+ 1138 0646 FA81      		ldd r31,Y+2
+ 1139 0648 8181      		ldd r24,Z+1
+ 1140 064a 982F      		mov r25,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 21
+
+
+ 1141 064c E091 0000 		lds r30,OSTCBCur
+ 1142 0650 F091 0000 		lds r31,(OSTCBCur)+1
+ 1143 0654 8189      		ldd r24,Z+17
+ 1144 0656 8095      		com r24
+ 1145 0658 8923      		and r24,r25
+ 1146 065a E981      		ldd r30,Y+1
+ 1147 065c FA81      		ldd r31,Y+2
+ 1148 065e 8183      		std Z+1,r24
+ 1149               	.L45:
+ 1150 0660 E091 0000 		lds r30,OSTCBCur
+ 1151 0664 F091 0000 		lds r31,(OSTCBCur)+1
+ 1152 0668 1486      		std Z+12,__zero_reg__
+ 1153 066a E091 0000 		lds r30,OSTCBCur
+ 1154 066e F091 0000 		lds r31,(OSTCBCur)+1
+ 1155 0672 1782      		std Z+7,__zero_reg__
+ 1156 0674 1682      		std Z+6,__zero_reg__
+ 1157               	/* epilogue start */
+ 1158 0676 0F90      		pop __tmp_reg__
+ 1159 0678 0F90      		pop __tmp_reg__
+ 1160 067a CF91      		pop r28
+ 1161 067c DF91      		pop r29
+ 1162 067e 0895      		ret
+ 1163               		.size	OS_EventTO, .-OS_EventTO
+ 1164               	.global	OS_EventWaitListInit
+ 1165               		.type	OS_EventWaitListInit, @function
+ 1166               	OS_EventWaitListInit:
+ 1167 0680 DF93      		push r29
+ 1168 0682 CF93      		push r28
+ 1169 0684 00D0      		rcall .
+ 1170 0686 00D0      		rcall .
+ 1171 0688 CDB7      		in r28,__SP_L__
+ 1172 068a DEB7      		in r29,__SP_H__
+ 1173               	/* prologue: function */
+ 1174               	/* frame size = 4 */
+ 1175 068c 9C83      		std Y+4,r25
+ 1176 068e 8B83      		std Y+3,r24
+ 1177 0690 EB81      		ldd r30,Y+3
+ 1178 0692 FC81      		ldd r31,Y+4
+ 1179 0694 1182      		std Z+1,__zero_reg__
+ 1180 0696 8B81      		ldd r24,Y+3
+ 1181 0698 9C81      		ldd r25,Y+4
+ 1182 069a 0696      		adiw r24,6
+ 1183 069c 9A83      		std Y+2,r25
+ 1184 069e 8983      		std Y+1,r24
+ 1185 06a0 E981      		ldd r30,Y+1
+ 1186 06a2 FA81      		ldd r31,Y+2
+ 1187 06a4 1082      		st Z,__zero_reg__
+ 1188 06a6 8981      		ldd r24,Y+1
+ 1189 06a8 9A81      		ldd r25,Y+2
+ 1190 06aa 0196      		adiw r24,1
+ 1191 06ac 9A83      		std Y+2,r25
+ 1192 06ae 8983      		std Y+1,r24
+ 1193 06b0 E981      		ldd r30,Y+1
+ 1194 06b2 FA81      		ldd r31,Y+2
+ 1195 06b4 1082      		st Z,__zero_reg__
+ 1196 06b6 8981      		ldd r24,Y+1
+ 1197 06b8 9A81      		ldd r25,Y+2
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 22
+
+
+ 1198 06ba 0196      		adiw r24,1
+ 1199 06bc 9A83      		std Y+2,r25
+ 1200 06be 8983      		std Y+1,r24
+ 1201               	/* epilogue start */
+ 1202 06c0 0F90      		pop __tmp_reg__
+ 1203 06c2 0F90      		pop __tmp_reg__
+ 1204 06c4 0F90      		pop __tmp_reg__
+ 1205 06c6 0F90      		pop __tmp_reg__
+ 1206 06c8 CF91      		pop r28
+ 1207 06ca DF91      		pop r29
+ 1208 06cc 0895      		ret
+ 1209               		.size	OS_EventWaitListInit, .-OS_EventWaitListInit
+ 1210               		.type	OS_InitEventList, @function
+ 1211               	OS_InitEventList:
+ 1212 06ce DF93      		push r29
+ 1213 06d0 CF93      		push r28
+ 1214 06d2 00D0      		rcall .
+ 1215 06d4 00D0      		rcall .
+ 1216 06d6 00D0      		rcall .
+ 1217 06d8 CDB7      		in r28,__SP_L__
+ 1218 06da DEB7      		in r29,__SP_H__
+ 1219               	/* prologue: function */
+ 1220               	/* frame size = 6 */
+ 1221 06dc 80E0      		ldi r24,lo8(OSEventTbl)
+ 1222 06de 90E0      		ldi r25,hi8(OSEventTbl)
+ 1223 06e0 9C83      		std Y+4,r25
+ 1224 06e2 8B83      		std Y+3,r24
+ 1225 06e4 80E0      		ldi r24,lo8(OSEventTbl+8)
+ 1226 06e6 90E0      		ldi r25,hi8(OSEventTbl+8)
+ 1227 06e8 9A83      		std Y+2,r25
+ 1228 06ea 8983      		std Y+1,r24
+ 1229 06ec 1E82      		std Y+6,__zero_reg__
+ 1230 06ee 1D82      		std Y+5,__zero_reg__
+ 1231 06f0 00C0      		rjmp .L50
+ 1232               	.L51:
+ 1233 06f2 EB81      		ldd r30,Y+3
+ 1234 06f4 FC81      		ldd r31,Y+4
+ 1235 06f6 1082      		st Z,__zero_reg__
+ 1236 06f8 EB81      		ldd r30,Y+3
+ 1237 06fa FC81      		ldd r31,Y+4
+ 1238 06fc 8981      		ldd r24,Y+1
+ 1239 06fe 9A81      		ldd r25,Y+2
+ 1240 0700 9583      		std Z+5,r25
+ 1241 0702 8483      		std Z+4,r24
+ 1242 0704 8B81      		ldd r24,Y+3
+ 1243 0706 9C81      		ldd r25,Y+4
+ 1244 0708 0896      		adiw r24,8
+ 1245 070a 9C83      		std Y+4,r25
+ 1246 070c 8B83      		std Y+3,r24
+ 1247 070e 8981      		ldd r24,Y+1
+ 1248 0710 9A81      		ldd r25,Y+2
+ 1249 0712 0896      		adiw r24,8
+ 1250 0714 9A83      		std Y+2,r25
+ 1251 0716 8983      		std Y+1,r24
+ 1252 0718 8D81      		ldd r24,Y+5
+ 1253 071a 9E81      		ldd r25,Y+6
+ 1254 071c 0196      		adiw r24,1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 23
+
+
+ 1255 071e 9E83      		std Y+6,r25
+ 1256 0720 8D83      		std Y+5,r24
+ 1257               	.L50:
+ 1258 0722 8D81      		ldd r24,Y+5
+ 1259 0724 9E81      		ldd r25,Y+6
+ 1260 0726 8230      		cpi r24,2
+ 1261 0728 9105      		cpc r25,__zero_reg__
+ 1262 072a 00F0      		brlo .L51
+ 1263 072c EB81      		ldd r30,Y+3
+ 1264 072e FC81      		ldd r31,Y+4
+ 1265 0730 1082      		st Z,__zero_reg__
+ 1266 0732 EB81      		ldd r30,Y+3
+ 1267 0734 FC81      		ldd r31,Y+4
+ 1268 0736 1582      		std Z+5,__zero_reg__
+ 1269 0738 1482      		std Z+4,__zero_reg__
+ 1270 073a 80E0      		ldi r24,lo8(OSEventTbl)
+ 1271 073c 90E0      		ldi r25,hi8(OSEventTbl)
+ 1272 073e 9093 0000 		sts (OSEventFreeList)+1,r25
+ 1273 0742 8093 0000 		sts OSEventFreeList,r24
+ 1274               	/* epilogue start */
+ 1275 0746 2696      		adiw r28,6
+ 1276 0748 0FB6      		in __tmp_reg__,__SREG__
+ 1277 074a F894      		cli
+ 1278 074c DEBF      		out __SP_H__,r29
+ 1279 074e 0FBE      		out __SREG__,__tmp_reg__
+ 1280 0750 CDBF      		out __SP_L__,r28
+ 1281 0752 CF91      		pop r28
+ 1282 0754 DF91      		pop r29
+ 1283 0756 0895      		ret
+ 1284               		.size	OS_InitEventList, .-OS_InitEventList
+ 1285               		.type	OS_InitMisc, @function
+ 1286               	OS_InitMisc:
+ 1287 0758 DF93      		push r29
+ 1288 075a CF93      		push r28
+ 1289 075c CDB7      		in r28,__SP_L__
+ 1290 075e DEB7      		in r29,__SP_H__
+ 1291               	/* prologue: function */
+ 1292               	/* frame size = 0 */
+ 1293 0760 1092 0000 		sts OSIntNesting,__zero_reg__
+ 1294 0764 1092 0000 		sts OSLockNesting,__zero_reg__
+ 1295 0768 1092 0000 		sts OSTaskCtr,__zero_reg__
+ 1296 076c 1092 0000 		sts OSRunning,__zero_reg__
+ 1297 0770 1092 0000 		sts OSCtxSwCtr,__zero_reg__
+ 1298 0774 1092 0000 		sts (OSCtxSwCtr)+1,__zero_reg__
+ 1299 0778 1092 0000 		sts (OSCtxSwCtr)+2,__zero_reg__
+ 1300 077c 1092 0000 		sts (OSCtxSwCtr)+3,__zero_reg__
+ 1301 0780 1092 0000 		sts OSIdleCtr,__zero_reg__
+ 1302 0784 1092 0000 		sts (OSIdleCtr)+1,__zero_reg__
+ 1303 0788 1092 0000 		sts (OSIdleCtr)+2,__zero_reg__
+ 1304 078c 1092 0000 		sts (OSIdleCtr)+3,__zero_reg__
+ 1305               	/* epilogue start */
+ 1306 0790 CF91      		pop r28
+ 1307 0792 DF91      		pop r29
+ 1308 0794 0895      		ret
+ 1309               		.size	OS_InitMisc, .-OS_InitMisc
+ 1310               		.type	OS_InitRdyList, @function
+ 1311               	OS_InitRdyList:
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 24
+
+
+ 1312 0796 DF93      		push r29
+ 1313 0798 CF93      		push r28
+ 1314 079a 00D0      		rcall .
+ 1315 079c 00D0      		rcall .
+ 1316 079e CDB7      		in r28,__SP_L__
+ 1317 07a0 DEB7      		in r29,__SP_H__
+ 1318               	/* prologue: function */
+ 1319               	/* frame size = 4 */
+ 1320 07a2 1092 0000 		sts OSRdyGrp,__zero_reg__
+ 1321 07a6 80E0      		ldi r24,lo8(OSRdyTbl)
+ 1322 07a8 90E0      		ldi r25,hi8(OSRdyTbl)
+ 1323 07aa 9A83      		std Y+2,r25
+ 1324 07ac 8983      		std Y+1,r24
+ 1325 07ae 1C82      		std Y+4,__zero_reg__
+ 1326 07b0 1B82      		std Y+3,__zero_reg__
+ 1327 07b2 00C0      		rjmp .L56
+ 1328               	.L57:
+ 1329 07b4 E981      		ldd r30,Y+1
+ 1330 07b6 FA81      		ldd r31,Y+2
+ 1331 07b8 1082      		st Z,__zero_reg__
+ 1332 07ba 8981      		ldd r24,Y+1
+ 1333 07bc 9A81      		ldd r25,Y+2
+ 1334 07be 0196      		adiw r24,1
+ 1335 07c0 9A83      		std Y+2,r25
+ 1336 07c2 8983      		std Y+1,r24
+ 1337 07c4 8B81      		ldd r24,Y+3
+ 1338 07c6 9C81      		ldd r25,Y+4
+ 1339 07c8 0196      		adiw r24,1
+ 1340 07ca 9C83      		std Y+4,r25
+ 1341 07cc 8B83      		std Y+3,r24
+ 1342               	.L56:
+ 1343 07ce 8B81      		ldd r24,Y+3
+ 1344 07d0 9C81      		ldd r25,Y+4
+ 1345 07d2 8230      		cpi r24,2
+ 1346 07d4 9105      		cpc r25,__zero_reg__
+ 1347 07d6 00F0      		brlo .L57
+ 1348 07d8 1092 0000 		sts OSPrioCur,__zero_reg__
+ 1349 07dc 1092 0000 		sts OSPrioHighRdy,__zero_reg__
+ 1350 07e0 1092 0000 		sts (OSTCBHighRdy)+1,__zero_reg__
+ 1351 07e4 1092 0000 		sts OSTCBHighRdy,__zero_reg__
+ 1352 07e8 1092 0000 		sts (OSTCBCur)+1,__zero_reg__
+ 1353 07ec 1092 0000 		sts OSTCBCur,__zero_reg__
+ 1354               	/* epilogue start */
+ 1355 07f0 0F90      		pop __tmp_reg__
+ 1356 07f2 0F90      		pop __tmp_reg__
+ 1357 07f4 0F90      		pop __tmp_reg__
+ 1358 07f6 0F90      		pop __tmp_reg__
+ 1359 07f8 CF91      		pop r28
+ 1360 07fa DF91      		pop r29
+ 1361 07fc 0895      		ret
+ 1362               		.size	OS_InitRdyList, .-OS_InitRdyList
+ 1363               		.type	OS_InitTaskIdle, @function
+ 1364               	OS_InitTaskIdle:
+ 1365 07fe DF93      		push r29
+ 1366 0800 CF93      		push r28
+ 1367 0802 CDB7      		in r28,__SP_L__
+ 1368 0804 DEB7      		in r29,__SP_H__
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 25
+
+
+ 1369               	/* prologue: function */
+ 1370               	/* frame size = 0 */
+ 1371 0806 80E0      		ldi r24,lo8(gs(OS_TaskIdle))
+ 1372 0808 90E0      		ldi r25,hi8(gs(OS_TaskIdle))
+ 1373 080a 20E0      		ldi r18,lo8(OSTaskIdleStk+127)
+ 1374 080c 30E0      		ldi r19,hi8(OSTaskIdleStk+127)
+ 1375 080e 60E0      		ldi r22,lo8(0)
+ 1376 0810 70E0      		ldi r23,hi8(0)
+ 1377 0812 A901      		movw r20,r18
+ 1378 0814 2CE0      		ldi r18,lo8(12)
+ 1379 0816 0E94 0000 		call OSTaskCreate
+ 1380               	/* epilogue start */
+ 1381 081a CF91      		pop r28
+ 1382 081c DF91      		pop r29
+ 1383 081e 0895      		ret
+ 1384               		.size	OS_InitTaskIdle, .-OS_InitTaskIdle
+ 1385               		.type	OS_InitTaskStat, @function
+ 1386               	OS_InitTaskStat:
+ 1387 0820 DF93      		push r29
+ 1388 0822 CF93      		push r28
+ 1389 0824 CDB7      		in r28,__SP_L__
+ 1390 0826 DEB7      		in r29,__SP_H__
+ 1391               	/* prologue: function */
+ 1392               	/* frame size = 0 */
+ 1393 0828 80E0      		ldi r24,lo8(gs(OS_TaskStat))
+ 1394 082a 90E0      		ldi r25,hi8(gs(OS_TaskStat))
+ 1395 082c 20E0      		ldi r18,lo8(OSTaskStatStk+127)
+ 1396 082e 30E0      		ldi r19,hi8(OSTaskStatStk+127)
+ 1397 0830 60E0      		ldi r22,lo8(0)
+ 1398 0832 70E0      		ldi r23,hi8(0)
+ 1399 0834 A901      		movw r20,r18
+ 1400 0836 2BE0      		ldi r18,lo8(11)
+ 1401 0838 0E94 0000 		call OSTaskCreate
+ 1402               	/* epilogue start */
+ 1403 083c CF91      		pop r28
+ 1404 083e DF91      		pop r29
+ 1405 0840 0895      		ret
+ 1406               		.size	OS_InitTaskStat, .-OS_InitTaskStat
+ 1407               		.type	OS_InitTCBList, @function
+ 1408               	OS_InitTCBList:
+ 1409 0842 DF93      		push r29
+ 1410 0844 CF93      		push r28
+ 1411 0846 00D0      		rcall .
+ 1412 0848 00D0      		rcall .
+ 1413 084a 0F92      		push __tmp_reg__
+ 1414 084c CDB7      		in r28,__SP_L__
+ 1415 084e DEB7      		in r29,__SP_H__
+ 1416               	/* prologue: function */
+ 1417               	/* frame size = 5 */
+ 1418 0850 1092 0000 		sts (OSTCBList)+1,__zero_reg__
+ 1419 0854 1092 0000 		sts OSTCBList,__zero_reg__
+ 1420 0858 1D82      		std Y+5,__zero_reg__
+ 1421 085a 00C0      		rjmp .L64
+ 1422               	.L65:
+ 1423 085c 8D81      		ldd r24,Y+5
+ 1424 085e 882F      		mov r24,r24
+ 1425 0860 90E0      		ldi r25,lo8(0)
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 26
+
+
+ 1426 0862 880F      		lsl r24
+ 1427 0864 991F      		rol r25
+ 1428 0866 FC01      		movw r30,r24
+ 1429 0868 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 1430 086a F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 1431 086c 1182      		std Z+1,__zero_reg__
+ 1432 086e 1082      		st Z,__zero_reg__
+ 1433 0870 8D81      		ldd r24,Y+5
+ 1434 0872 8F5F      		subi r24,lo8(-(1))
+ 1435 0874 8D83      		std Y+5,r24
+ 1436               	.L64:
+ 1437 0876 8D81      		ldd r24,Y+5
+ 1438 0878 8D30      		cpi r24,lo8(13)
+ 1439 087a 00F0      		brlo .L65
+ 1440 087c 80E0      		ldi r24,lo8(OSTCBTbl)
+ 1441 087e 90E0      		ldi r25,hi8(OSTCBTbl)
+ 1442 0880 9C83      		std Y+4,r25
+ 1443 0882 8B83      		std Y+3,r24
+ 1444 0884 80E0      		ldi r24,lo8(OSTCBTbl+19)
+ 1445 0886 90E0      		ldi r25,hi8(OSTCBTbl+19)
+ 1446 0888 9A83      		std Y+2,r25
+ 1447 088a 8983      		std Y+1,r24
+ 1448 088c 1D82      		std Y+5,__zero_reg__
+ 1449 088e 00C0      		rjmp .L66
+ 1450               	.L67:
+ 1451 0890 EB81      		ldd r30,Y+3
+ 1452 0892 FC81      		ldd r31,Y+4
+ 1453 0894 8981      		ldd r24,Y+1
+ 1454 0896 9A81      		ldd r25,Y+2
+ 1455 0898 9383      		std Z+3,r25
+ 1456 089a 8283      		std Z+2,r24
+ 1457 089c 8B81      		ldd r24,Y+3
+ 1458 089e 9C81      		ldd r25,Y+4
+ 1459 08a0 4396      		adiw r24,19
+ 1460 08a2 9C83      		std Y+4,r25
+ 1461 08a4 8B83      		std Y+3,r24
+ 1462 08a6 8981      		ldd r24,Y+1
+ 1463 08a8 9A81      		ldd r25,Y+2
+ 1464 08aa 4396      		adiw r24,19
+ 1465 08ac 9A83      		std Y+2,r25
+ 1466 08ae 8983      		std Y+1,r24
+ 1467 08b0 8D81      		ldd r24,Y+5
+ 1468 08b2 8F5F      		subi r24,lo8(-(1))
+ 1469 08b4 8D83      		std Y+5,r24
+ 1470               	.L66:
+ 1471 08b6 8D81      		ldd r24,Y+5
+ 1472 08b8 8C30      		cpi r24,lo8(12)
+ 1473 08ba 00F0      		brlo .L67
+ 1474 08bc EB81      		ldd r30,Y+3
+ 1475 08be FC81      		ldd r31,Y+4
+ 1476 08c0 1382      		std Z+3,__zero_reg__
+ 1477 08c2 1282      		std Z+2,__zero_reg__
+ 1478 08c4 80E0      		ldi r24,lo8(OSTCBTbl)
+ 1479 08c6 90E0      		ldi r25,hi8(OSTCBTbl)
+ 1480 08c8 9093 0000 		sts (OSTCBFreeList)+1,r25
+ 1481 08cc 8093 0000 		sts OSTCBFreeList,r24
+ 1482               	/* epilogue start */
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 27
+
+
+ 1483 08d0 0F90      		pop __tmp_reg__
+ 1484 08d2 0F90      		pop __tmp_reg__
+ 1485 08d4 0F90      		pop __tmp_reg__
+ 1486 08d6 0F90      		pop __tmp_reg__
+ 1487 08d8 0F90      		pop __tmp_reg__
+ 1488 08da CF91      		pop r28
+ 1489 08dc DF91      		pop r29
+ 1490 08de 0895      		ret
+ 1491               		.size	OS_InitTCBList, .-OS_InitTCBList
+ 1492               	.global	OS_Sched
+ 1493               		.type	OS_Sched, @function
+ 1494               	OS_Sched:
+ 1495 08e0 DF93      		push r29
+ 1496 08e2 CF93      		push r28
+ 1497 08e4 0F92      		push __tmp_reg__
+ 1498 08e6 CDB7      		in r28,__SP_L__
+ 1499 08e8 DEB7      		in r29,__SP_H__
+ 1500               	/* prologue: function */
+ 1501               	/* frame size = 1 */
+ 1502               	/* #APP */
+ 1503               	 ;  877 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1504 08ea F894      		cli
+ 1505               	 ;  0 "" 2
+ 1506               	/* #NOAPP */
+ 1507 08ec 8091 0000 		lds r24,OSIntNesting
+ 1508 08f0 8823      		tst r24
+ 1509 08f2 01F0      		breq .+2
+ 1510 08f4 00C0      		rjmp .L70
+ 1511 08f6 8091 0000 		lds r24,OSLockNesting
+ 1512 08fa 8823      		tst r24
+ 1513 08fc 01F0      		breq .+2
+ 1514 08fe 00C0      		rjmp .L70
+ 1515 0900 8091 0000 		lds r24,OSRdyGrp
+ 1516 0904 882F      		mov r24,r24
+ 1517 0906 90E0      		ldi r25,lo8(0)
+ 1518 0908 FC01      		movw r30,r24
+ 1519 090a E050      		subi r30,lo8(-(OSUnMapTbl))
+ 1520 090c F040      		sbci r31,hi8(-(OSUnMapTbl))
+ 1521 090e 8081      		ld r24,Z
+ 1522 0910 8983      		std Y+1,r24
+ 1523 0912 8981      		ldd r24,Y+1
+ 1524 0914 282F      		mov r18,r24
+ 1525 0916 220F      		lsl r18
+ 1526 0918 220F      		lsl r18
+ 1527 091a 220F      		lsl r18
+ 1528 091c 8981      		ldd r24,Y+1
+ 1529 091e 882F      		mov r24,r24
+ 1530 0920 90E0      		ldi r25,lo8(0)
+ 1531 0922 FC01      		movw r30,r24
+ 1532 0924 E050      		subi r30,lo8(-(OSRdyTbl))
+ 1533 0926 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1534 0928 8081      		ld r24,Z
+ 1535 092a 882F      		mov r24,r24
+ 1536 092c 90E0      		ldi r25,lo8(0)
+ 1537 092e FC01      		movw r30,r24
+ 1538 0930 E050      		subi r30,lo8(-(OSUnMapTbl))
+ 1539 0932 F040      		sbci r31,hi8(-(OSUnMapTbl))
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 28
+
+
+ 1540 0934 8081      		ld r24,Z
+ 1541 0936 820F      		add r24,r18
+ 1542 0938 8093 0000 		sts OSPrioHighRdy,r24
+ 1543 093c 9091 0000 		lds r25,OSPrioHighRdy
+ 1544 0940 8091 0000 		lds r24,OSPrioCur
+ 1545 0944 9817      		cp r25,r24
+ 1546 0946 01F0      		breq .L70
+ 1547 0948 8091 0000 		lds r24,OSPrioHighRdy
+ 1548 094c 882F      		mov r24,r24
+ 1549 094e 90E0      		ldi r25,lo8(0)
+ 1550 0950 880F      		lsl r24
+ 1551 0952 991F      		rol r25
+ 1552 0954 FC01      		movw r30,r24
+ 1553 0956 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 1554 0958 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 1555 095a 8081      		ld r24,Z
+ 1556 095c 9181      		ldd r25,Z+1
+ 1557 095e 9093 0000 		sts (OSTCBHighRdy)+1,r25
+ 1558 0962 8093 0000 		sts OSTCBHighRdy,r24
+ 1559 0966 8091 0000 		lds r24,OSCtxSwCtr
+ 1560 096a 9091 0000 		lds r25,(OSCtxSwCtr)+1
+ 1561 096e A091 0000 		lds r26,(OSCtxSwCtr)+2
+ 1562 0972 B091 0000 		lds r27,(OSCtxSwCtr)+3
+ 1563 0976 0196      		adiw r24,1
+ 1564 0978 A11D      		adc r26,__zero_reg__
+ 1565 097a B11D      		adc r27,__zero_reg__
+ 1566 097c 8093 0000 		sts OSCtxSwCtr,r24
+ 1567 0980 9093 0000 		sts (OSCtxSwCtr)+1,r25
+ 1568 0984 A093 0000 		sts (OSCtxSwCtr)+2,r26
+ 1569 0988 B093 0000 		sts (OSCtxSwCtr)+3,r27
+ 1570 098c 0E94 0000 		call OSCtxSw
+ 1571               	.L70:
+ 1572               	/* #APP */
+ 1573               	 ;  887 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1574 0990 7894      		sei
+ 1575               	 ;  0 "" 2
+ 1576               	/* epilogue start */
+ 1577               	/* #NOAPP */
+ 1578 0992 0F90      		pop __tmp_reg__
+ 1579 0994 CF91      		pop r28
+ 1580 0996 DF91      		pop r29
+ 1581 0998 0895      		ret
+ 1582               		.size	OS_Sched, .-OS_Sched
+ 1583               	.global	OS_TaskIdle
+ 1584               		.type	OS_TaskIdle, @function
+ 1585               	OS_TaskIdle:
+ 1586 099a DF93      		push r29
+ 1587 099c CF93      		push r28
+ 1588 099e 00D0      		rcall .
+ 1589 09a0 CDB7      		in r28,__SP_L__
+ 1590 09a2 DEB7      		in r29,__SP_H__
+ 1591               	/* prologue: function */
+ 1592               	/* frame size = 2 */
+ 1593 09a4 9A83      		std Y+2,r25
+ 1594 09a6 8983      		std Y+1,r24
+ 1595               	.L73:
+ 1596               	/* #APP */
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 29
+
+
+ 1597               	 ;  920 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1598 09a8 F894      		cli
+ 1599               	 ;  0 "" 2
+ 1600               	/* #NOAPP */
+ 1601 09aa 8091 0000 		lds r24,OSIdleCtr
+ 1602 09ae 9091 0000 		lds r25,(OSIdleCtr)+1
+ 1603 09b2 A091 0000 		lds r26,(OSIdleCtr)+2
+ 1604 09b6 B091 0000 		lds r27,(OSIdleCtr)+3
+ 1605 09ba 0196      		adiw r24,1
+ 1606 09bc A11D      		adc r26,__zero_reg__
+ 1607 09be B11D      		adc r27,__zero_reg__
+ 1608 09c0 8093 0000 		sts OSIdleCtr,r24
+ 1609 09c4 9093 0000 		sts (OSIdleCtr)+1,r25
+ 1610 09c8 A093 0000 		sts (OSIdleCtr)+2,r26
+ 1611 09cc B093 0000 		sts (OSIdleCtr)+3,r27
+ 1612               	/* #APP */
+ 1613               	 ;  922 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1614 09d0 7894      		sei
+ 1615               	 ;  0 "" 2
+ 1616               	/* #NOAPP */
+ 1617 09d2 0E94 0000 		call OSTaskIdleHook
+ 1618 09d6 00C0      		rjmp .L73
+ 1619               		.size	OS_TaskIdle, .-OS_TaskIdle
+ 1620               	.global	OS_TaskStat
+ 1621               		.type	OS_TaskStat, @function
+ 1622               	OS_TaskStat:
+ 1623 09d8 DF93      		push r29
+ 1624 09da CF93      		push r28
+ 1625 09dc CDB7      		in r28,__SP_L__
+ 1626 09de DEB7      		in r29,__SP_H__
+ 1627 09e0 2B97      		sbiw r28,11
+ 1628 09e2 0FB6      		in __tmp_reg__,__SREG__
+ 1629 09e4 F894      		cli
+ 1630 09e6 DEBF      		out __SP_H__,r29
+ 1631 09e8 0FBE      		out __SREG__,__tmp_reg__
+ 1632 09ea CDBF      		out __SP_L__,r28
+ 1633               	/* prologue: function */
+ 1634               	/* frame size = 11 */
+ 1635 09ec 9B87      		std Y+11,r25
+ 1636 09ee 8A87      		std Y+10,r24
+ 1637 09f0 00C0      		rjmp .L76
+ 1638               	.L77:
+ 1639 09f2 8AE7      		ldi r24,lo8(122)
+ 1640 09f4 90E0      		ldi r25,hi8(122)
+ 1641 09f6 0E94 0000 		call OSTimeDly
+ 1642               	.L76:
+ 1643 09fa 8091 0000 		lds r24,OSStatRdy
+ 1644 09fe 8823      		tst r24
+ 1645 0a00 01F0      		breq .L77
+ 1646 0a02 8091 0000 		lds r24,OSIdleCtrMax
+ 1647 0a06 9091 0000 		lds r25,(OSIdleCtrMax)+1
+ 1648 0a0a A091 0000 		lds r26,(OSIdleCtrMax)+2
+ 1649 0a0e B091 0000 		lds r27,(OSIdleCtrMax)+3
+ 1650 0a12 24E6      		ldi r18,lo8(100)
+ 1651 0a14 30E0      		ldi r19,hi8(100)
+ 1652 0a16 40E0      		ldi r20,hlo8(100)
+ 1653 0a18 50E0      		ldi r21,hhi8(100)
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 30
+
+
+ 1654 0a1a BC01      		movw r22,r24
+ 1655 0a1c CD01      		movw r24,r26
+ 1656 0a1e 0E94 0000 		call __udivmodsi4
+ 1657 0a22 DA01      		movw r26,r20
+ 1658 0a24 C901      		movw r24,r18
+ 1659 0a26 8A83      		std Y+2,r24
+ 1660 0a28 9B83      		std Y+3,r25
+ 1661 0a2a AC83      		std Y+4,r26
+ 1662 0a2c BD83      		std Y+5,r27
+ 1663               	.L82:
+ 1664               	/* #APP */
+ 1665               	 ;  970 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1666 0a2e F894      		cli
+ 1667               	 ;  0 "" 2
+ 1668               	/* #NOAPP */
+ 1669 0a30 8091 0000 		lds r24,OSIdleCtr
+ 1670 0a34 9091 0000 		lds r25,(OSIdleCtr)+1
+ 1671 0a38 A091 0000 		lds r26,(OSIdleCtr)+2
+ 1672 0a3c B091 0000 		lds r27,(OSIdleCtr)+3
+ 1673 0a40 8093 0000 		sts OSIdleCtrRun,r24
+ 1674 0a44 9093 0000 		sts (OSIdleCtrRun)+1,r25
+ 1675 0a48 A093 0000 		sts (OSIdleCtrRun)+2,r26
+ 1676 0a4c B093 0000 		sts (OSIdleCtrRun)+3,r27
+ 1677 0a50 8091 0000 		lds r24,OSIdleCtr
+ 1678 0a54 9091 0000 		lds r25,(OSIdleCtr)+1
+ 1679 0a58 A091 0000 		lds r26,(OSIdleCtr)+2
+ 1680 0a5c B091 0000 		lds r27,(OSIdleCtr)+3
+ 1681 0a60 8E83      		std Y+6,r24
+ 1682 0a62 9F83      		std Y+7,r25
+ 1683 0a64 A887      		std Y+8,r26
+ 1684 0a66 B987      		std Y+9,r27
+ 1685 0a68 1092 0000 		sts OSIdleCtr,__zero_reg__
+ 1686 0a6c 1092 0000 		sts (OSIdleCtr)+1,__zero_reg__
+ 1687 0a70 1092 0000 		sts (OSIdleCtr)+2,__zero_reg__
+ 1688 0a74 1092 0000 		sts (OSIdleCtr)+3,__zero_reg__
+ 1689               	/* #APP */
+ 1690               	 ;  974 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1691 0a78 7894      		sei
+ 1692               	 ;  0 "" 2
+ 1693               	/* #NOAPP */
+ 1694 0a7a 8A81      		ldd r24,Y+2
+ 1695 0a7c 9B81      		ldd r25,Y+3
+ 1696 0a7e AC81      		ldd r26,Y+4
+ 1697 0a80 BD81      		ldd r27,Y+5
+ 1698 0a82 0097      		sbiw r24,0
+ 1699 0a84 A105      		cpc r26,__zero_reg__
+ 1700 0a86 B105      		cpc r27,__zero_reg__
+ 1701 0a88 01F0      		breq .L78
+ 1702 0a8a 8E81      		ldd r24,Y+6
+ 1703 0a8c 9F81      		ldd r25,Y+7
+ 1704 0a8e A885      		ldd r26,Y+8
+ 1705 0a90 B985      		ldd r27,Y+9
+ 1706 0a92 2A81      		ldd r18,Y+2
+ 1707 0a94 3B81      		ldd r19,Y+3
+ 1708 0a96 4C81      		ldd r20,Y+4
+ 1709 0a98 5D81      		ldd r21,Y+5
+ 1710 0a9a BC01      		movw r22,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 31
+
+
+ 1711 0a9c CD01      		movw r24,r26
+ 1712 0a9e 0E94 0000 		call __udivmodsi4
+ 1713 0aa2 DA01      		movw r26,r20
+ 1714 0aa4 C901      		movw r24,r18
+ 1715 0aa6 982F      		mov r25,r24
+ 1716 0aa8 84E6      		ldi r24,lo8(100)
+ 1717 0aaa 891B      		sub r24,r25
+ 1718 0aac 8983      		std Y+1,r24
+ 1719 0aae 8981      		ldd r24,Y+1
+ 1720 0ab0 8823      		tst r24
+ 1721 0ab2 04F0      		brlt .L79
+ 1722 0ab4 8981      		ldd r24,Y+1
+ 1723 0ab6 8093 0000 		sts OSCPUUsage,r24
+ 1724 0aba 00C0      		rjmp .L81
+ 1725               	.L79:
+ 1726 0abc 1092 0000 		sts OSCPUUsage,__zero_reg__
+ 1727 0ac0 00C0      		rjmp .L81
+ 1728               	.L78:
+ 1729 0ac2 1092 0000 		sts OSCPUUsage,__zero_reg__
+ 1730 0ac6 8091 0000 		lds r24,OSIdleCtrMax
+ 1731 0aca 9091 0000 		lds r25,(OSIdleCtrMax)+1
+ 1732 0ace A091 0000 		lds r26,(OSIdleCtrMax)+2
+ 1733 0ad2 B091 0000 		lds r27,(OSIdleCtrMax)+3
+ 1734 0ad6 24E6      		ldi r18,lo8(100)
+ 1735 0ad8 30E0      		ldi r19,hi8(100)
+ 1736 0ada 40E0      		ldi r20,hlo8(100)
+ 1737 0adc 50E0      		ldi r21,hhi8(100)
+ 1738 0ade BC01      		movw r22,r24
+ 1739 0ae0 CD01      		movw r24,r26
+ 1740 0ae2 0E94 0000 		call __udivmodsi4
+ 1741 0ae6 DA01      		movw r26,r20
+ 1742 0ae8 C901      		movw r24,r18
+ 1743 0aea 8A83      		std Y+2,r24
+ 1744 0aec 9B83      		std Y+3,r25
+ 1745 0aee AC83      		std Y+4,r26
+ 1746 0af0 BD83      		std Y+5,r27
+ 1747               	.L81:
+ 1748 0af2 0E94 0000 		call OSTaskStatHook
+ 1749 0af6 8DE3      		ldi r24,lo8(61)
+ 1750 0af8 90E0      		ldi r25,hi8(61)
+ 1751 0afa 0E94 0000 		call OSTimeDly
+ 1752 0afe 00C0      		rjmp .L82
+ 1753               		.size	OS_TaskStat, .-OS_TaskStat
+ 1754               	.global	OS_TCBInit
+ 1755               		.type	OS_TCBInit, @function
+ 1756               	OS_TCBInit:
+ 1757 0b00 AF92      		push r10
+ 1758 0b02 BF92      		push r11
+ 1759 0b04 CF92      		push r12
+ 1760 0b06 DF92      		push r13
+ 1761 0b08 EF92      		push r14
+ 1762 0b0a FF92      		push r15
+ 1763 0b0c 0F93      		push r16
+ 1764 0b0e 1F93      		push r17
+ 1765 0b10 DF93      		push r29
+ 1766 0b12 CF93      		push r28
+ 1767 0b14 CDB7      		in r28,__SP_L__
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 32
+
+
+ 1768 0b16 DEB7      		in r29,__SP_H__
+ 1769 0b18 6297      		sbiw r28,18
+ 1770 0b1a 0FB6      		in __tmp_reg__,__SREG__
+ 1771 0b1c F894      		cli
+ 1772 0b1e DEBF      		out __SP_H__,r29
+ 1773 0b20 0FBE      		out __SREG__,__tmp_reg__
+ 1774 0b22 CDBF      		out __SP_L__,r28
+ 1775               	/* prologue: function */
+ 1776               	/* frame size = 18 */
+ 1777 0b24 8B83      		std Y+3,r24
+ 1778 0b26 7D83      		std Y+5,r23
+ 1779 0b28 6C83      		std Y+4,r22
+ 1780 0b2a 5F83      		std Y+7,r21
+ 1781 0b2c 4E83      		std Y+6,r20
+ 1782 0b2e 3987      		std Y+9,r19
+ 1783 0b30 2887      		std Y+8,r18
+ 1784 0b32 EA86      		std Y+10,r14
+ 1785 0b34 FB86      		std Y+11,r15
+ 1786 0b36 0C87      		std Y+12,r16
+ 1787 0b38 1D87      		std Y+13,r17
+ 1788 0b3a DF86      		std Y+15,r13
+ 1789 0b3c CE86      		std Y+14,r12
+ 1790 0b3e B98A      		std Y+17,r11
+ 1791 0b40 A88A      		std Y+16,r10
+ 1792               	/* #APP */
+ 1793               	 ;  1043 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1794 0b42 F894      		cli
+ 1795               	 ;  0 "" 2
+ 1796               	/* #NOAPP */
+ 1797 0b44 8091 0000 		lds r24,OSTCBFreeList
+ 1798 0b48 9091 0000 		lds r25,(OSTCBFreeList)+1
+ 1799 0b4c 9A83      		std Y+2,r25
+ 1800 0b4e 8983      		std Y+1,r24
+ 1801 0b50 8981      		ldd r24,Y+1
+ 1802 0b52 9A81      		ldd r25,Y+2
+ 1803 0b54 0097      		sbiw r24,0
+ 1804 0b56 01F4      		brne .+2
+ 1805 0b58 00C0      		rjmp .L85
+ 1806 0b5a E981      		ldd r30,Y+1
+ 1807 0b5c FA81      		ldd r31,Y+2
+ 1808 0b5e 8281      		ldd r24,Z+2
+ 1809 0b60 9381      		ldd r25,Z+3
+ 1810 0b62 9093 0000 		sts (OSTCBFreeList)+1,r25
+ 1811 0b66 8093 0000 		sts OSTCBFreeList,r24
+ 1812               	/* #APP */
+ 1813               	 ;  1047 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1814 0b6a 7894      		sei
+ 1815               	 ;  0 "" 2
+ 1816               	/* #NOAPP */
+ 1817 0b6c E981      		ldd r30,Y+1
+ 1818 0b6e FA81      		ldd r31,Y+2
+ 1819 0b70 8C81      		ldd r24,Y+4
+ 1820 0b72 9D81      		ldd r25,Y+5
+ 1821 0b74 9183      		std Z+1,r25
+ 1822 0b76 8083      		st Z,r24
+ 1823 0b78 E981      		ldd r30,Y+1
+ 1824 0b7a FA81      		ldd r31,Y+2
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 33
+
+
+ 1825 0b7c 8B81      		ldd r24,Y+3
+ 1826 0b7e 8587      		std Z+13,r24
+ 1827 0b80 E981      		ldd r30,Y+1
+ 1828 0b82 FA81      		ldd r31,Y+2
+ 1829 0b84 1486      		std Z+12,__zero_reg__
+ 1830 0b86 E981      		ldd r30,Y+1
+ 1831 0b88 FA81      		ldd r31,Y+2
+ 1832 0b8a 1386      		std Z+11,__zero_reg__
+ 1833 0b8c 1286      		std Z+10,__zero_reg__
+ 1834 0b8e E981      		ldd r30,Y+1
+ 1835 0b90 FA81      		ldd r31,Y+2
+ 1836 0b92 128A      		std Z+18,__zero_reg__
+ 1837 0b94 8B81      		ldd r24,Y+3
+ 1838 0b96 8695      		lsr r24
+ 1839 0b98 8695      		lsr r24
+ 1840 0b9a 8695      		lsr r24
+ 1841 0b9c E981      		ldd r30,Y+1
+ 1842 0b9e FA81      		ldd r31,Y+2
+ 1843 0ba0 8787      		std Z+15,r24
+ 1844 0ba2 E981      		ldd r30,Y+1
+ 1845 0ba4 FA81      		ldd r31,Y+2
+ 1846 0ba6 8785      		ldd r24,Z+15
+ 1847 0ba8 882F      		mov r24,r24
+ 1848 0baa 90E0      		ldi r25,lo8(0)
+ 1849 0bac FC01      		movw r30,r24
+ 1850 0bae E050      		subi r30,lo8(-(OSMapTbl))
+ 1851 0bb0 F040      		sbci r31,hi8(-(OSMapTbl))
+ 1852 0bb2 8081      		ld r24,Z
+ 1853 0bb4 E981      		ldd r30,Y+1
+ 1854 0bb6 FA81      		ldd r31,Y+2
+ 1855 0bb8 818B      		std Z+17,r24
+ 1856 0bba 8B81      		ldd r24,Y+3
+ 1857 0bbc 8770      		andi r24,lo8(7)
+ 1858 0bbe E981      		ldd r30,Y+1
+ 1859 0bc0 FA81      		ldd r31,Y+2
+ 1860 0bc2 8687      		std Z+14,r24
+ 1861 0bc4 E981      		ldd r30,Y+1
+ 1862 0bc6 FA81      		ldd r31,Y+2
+ 1863 0bc8 8685      		ldd r24,Z+14
+ 1864 0bca 882F      		mov r24,r24
+ 1865 0bcc 90E0      		ldi r25,lo8(0)
+ 1866 0bce FC01      		movw r30,r24
+ 1867 0bd0 E050      		subi r30,lo8(-(OSMapTbl))
+ 1868 0bd2 F040      		sbci r31,hi8(-(OSMapTbl))
+ 1869 0bd4 8081      		ld r24,Z
+ 1870 0bd6 E981      		ldd r30,Y+1
+ 1871 0bd8 FA81      		ldd r31,Y+2
+ 1872 0bda 808B      		std Z+16,r24
+ 1873 0bdc E981      		ldd r30,Y+1
+ 1874 0bde FA81      		ldd r31,Y+2
+ 1875 0be0 1782      		std Z+7,__zero_reg__
+ 1876 0be2 1682      		std Z+6,__zero_reg__
+ 1877 0be4 E981      		ldd r30,Y+1
+ 1878 0be6 FA81      		ldd r31,Y+2
+ 1879 0be8 1186      		std Z+9,__zero_reg__
+ 1880 0bea 1086      		std Z+8,__zero_reg__
+ 1881 0bec 8981      		ldd r24,Y+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 34
+
+
+ 1882 0bee 9A81      		ldd r25,Y+2
+ 1883 0bf0 0E94 0000 		call OSTCBInitHook
+ 1884 0bf4 8981      		ldd r24,Y+1
+ 1885 0bf6 9A81      		ldd r25,Y+2
+ 1886 0bf8 0E94 0000 		call OSTaskCreateHook
+ 1887               	/* #APP */
+ 1888               	 ;  1094 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1889 0bfc F894      		cli
+ 1890               	 ;  0 "" 2
+ 1891               	/* #NOAPP */
+ 1892 0bfe 8B81      		ldd r24,Y+3
+ 1893 0c00 882F      		mov r24,r24
+ 1894 0c02 90E0      		ldi r25,lo8(0)
+ 1895 0c04 880F      		lsl r24
+ 1896 0c06 991F      		rol r25
+ 1897 0c08 FC01      		movw r30,r24
+ 1898 0c0a E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 1899 0c0c F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 1900 0c0e 8981      		ldd r24,Y+1
+ 1901 0c10 9A81      		ldd r25,Y+2
+ 1902 0c12 9183      		std Z+1,r25
+ 1903 0c14 8083      		st Z,r24
+ 1904 0c16 8091 0000 		lds r24,OSTCBList
+ 1905 0c1a 9091 0000 		lds r25,(OSTCBList)+1
+ 1906 0c1e E981      		ldd r30,Y+1
+ 1907 0c20 FA81      		ldd r31,Y+2
+ 1908 0c22 9383      		std Z+3,r25
+ 1909 0c24 8283      		std Z+2,r24
+ 1910 0c26 E981      		ldd r30,Y+1
+ 1911 0c28 FA81      		ldd r31,Y+2
+ 1912 0c2a 1582      		std Z+5,__zero_reg__
+ 1913 0c2c 1482      		std Z+4,__zero_reg__
+ 1914 0c2e 8091 0000 		lds r24,OSTCBList
+ 1915 0c32 9091 0000 		lds r25,(OSTCBList)+1
+ 1916 0c36 0097      		sbiw r24,0
+ 1917 0c38 01F0      		breq .L86
+ 1918 0c3a E091 0000 		lds r30,OSTCBList
+ 1919 0c3e F091 0000 		lds r31,(OSTCBList)+1
+ 1920 0c42 8981      		ldd r24,Y+1
+ 1921 0c44 9A81      		ldd r25,Y+2
+ 1922 0c46 9583      		std Z+5,r25
+ 1923 0c48 8483      		std Z+4,r24
+ 1924               	.L86:
+ 1925 0c4a 8981      		ldd r24,Y+1
+ 1926 0c4c 9A81      		ldd r25,Y+2
+ 1927 0c4e 9093 0000 		sts (OSTCBList)+1,r25
+ 1928 0c52 8093 0000 		sts OSTCBList,r24
+ 1929 0c56 E981      		ldd r30,Y+1
+ 1930 0c58 FA81      		ldd r31,Y+2
+ 1931 0c5a 9189      		ldd r25,Z+17
+ 1932 0c5c 8091 0000 		lds r24,OSRdyGrp
+ 1933 0c60 892B      		or r24,r25
+ 1934 0c62 8093 0000 		sts OSRdyGrp,r24
+ 1935 0c66 E981      		ldd r30,Y+1
+ 1936 0c68 FA81      		ldd r31,Y+2
+ 1937 0c6a 8785      		ldd r24,Z+15
+ 1938 0c6c 282F      		mov r18,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 35
+
+
+ 1939 0c6e 30E0      		ldi r19,lo8(0)
+ 1940 0c70 E981      		ldd r30,Y+1
+ 1941 0c72 FA81      		ldd r31,Y+2
+ 1942 0c74 8785      		ldd r24,Z+15
+ 1943 0c76 882F      		mov r24,r24
+ 1944 0c78 90E0      		ldi r25,lo8(0)
+ 1945 0c7a FC01      		movw r30,r24
+ 1946 0c7c E050      		subi r30,lo8(-(OSRdyTbl))
+ 1947 0c7e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1948 0c80 9081      		ld r25,Z
+ 1949 0c82 E981      		ldd r30,Y+1
+ 1950 0c84 FA81      		ldd r31,Y+2
+ 1951 0c86 8089      		ldd r24,Z+16
+ 1952 0c88 892B      		or r24,r25
+ 1953 0c8a F901      		movw r30,r18
+ 1954 0c8c E050      		subi r30,lo8(-(OSRdyTbl))
+ 1955 0c8e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 1956 0c90 8083      		st Z,r24
+ 1957               	/* #APP */
+ 1958               	 ;  1104 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1959 0c92 7894      		sei
+ 1960               	 ;  0 "" 2
+ 1961               	/* #NOAPP */
+ 1962 0c94 1A8A      		std Y+18,__zero_reg__
+ 1963 0c96 00C0      		rjmp .L87
+ 1964               	.L85:
+ 1965               	/* #APP */
+ 1966               	 ;  1107 "C:\Micrium\Micrium\software\ucos-ii\source\os_core.c" 1
+ 1967 0c98 7894      		sei
+ 1968               	 ;  0 "" 2
+ 1969               	/* #NOAPP */
+ 1970 0c9a 86E4      		ldi r24,lo8(70)
+ 1971 0c9c 8A8B      		std Y+18,r24
+ 1972               	.L87:
+ 1973 0c9e 8A89      		ldd r24,Y+18
+ 1974               	/* epilogue start */
+ 1975 0ca0 6296      		adiw r28,18
+ 1976 0ca2 0FB6      		in __tmp_reg__,__SREG__
+ 1977 0ca4 F894      		cli
+ 1978 0ca6 DEBF      		out __SP_H__,r29
+ 1979 0ca8 0FBE      		out __SREG__,__tmp_reg__
+ 1980 0caa CDBF      		out __SP_L__,r28
+ 1981 0cac CF91      		pop r28
+ 1982 0cae DF91      		pop r29
+ 1983 0cb0 1F91      		pop r17
+ 1984 0cb2 0F91      		pop r16
+ 1985 0cb4 FF90      		pop r15
+ 1986 0cb6 EF90      		pop r14
+ 1987 0cb8 DF90      		pop r13
+ 1988 0cba CF90      		pop r12
+ 1989 0cbc BF90      		pop r11
+ 1990 0cbe AF90      		pop r10
+ 1991 0cc0 0895      		ret
+ 1992               		.size	OS_TCBInit, .-OS_TCBInit
+ 1993               	.global	OSMboxCreate
+ 1994               		.type	OSMboxCreate, @function
+ 1995               	OSMboxCreate:
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 36
+
+
+ 1996 0cc2 DF93      		push r29
+ 1997 0cc4 CF93      		push r28
+ 1998 0cc6 00D0      		rcall .
+ 1999 0cc8 00D0      		rcall .
+ 2000 0cca 00D0      		rcall .
+ 2001 0ccc CDB7      		in r28,__SP_L__
+ 2002 0cce DEB7      		in r29,__SP_H__
+ 2003               	/* prologue: function */
+ 2004               	/* frame size = 6 */
+ 2005 0cd0 9C83      		std Y+4,r25
+ 2006 0cd2 8B83      		std Y+3,r24
+ 2007 0cd4 8091 0000 		lds r24,OSIntNesting
+ 2008 0cd8 8823      		tst r24
+ 2009 0cda 01F0      		breq .L90
+ 2010 0cdc 1E82      		std Y+6,__zero_reg__
+ 2011 0cde 1D82      		std Y+5,__zero_reg__
+ 2012 0ce0 00C0      		rjmp .L91
+ 2013               	.L90:
+ 2014               	/* #APP */
+ 2015               	 ;  89 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2016 0ce2 F894      		cli
+ 2017               	 ;  0 "" 2
+ 2018               	/* #NOAPP */
+ 2019 0ce4 8091 0000 		lds r24,OSEventFreeList
+ 2020 0ce8 9091 0000 		lds r25,(OSEventFreeList)+1
+ 2021 0cec 9A83      		std Y+2,r25
+ 2022 0cee 8983      		std Y+1,r24
+ 2023 0cf0 8091 0000 		lds r24,OSEventFreeList
+ 2024 0cf4 9091 0000 		lds r25,(OSEventFreeList)+1
+ 2025 0cf8 0097      		sbiw r24,0
+ 2026 0cfa 01F0      		breq .L92
+ 2027 0cfc E091 0000 		lds r30,OSEventFreeList
+ 2028 0d00 F091 0000 		lds r31,(OSEventFreeList)+1
+ 2029 0d04 8481      		ldd r24,Z+4
+ 2030 0d06 9581      		ldd r25,Z+5
+ 2031 0d08 9093 0000 		sts (OSEventFreeList)+1,r25
+ 2032 0d0c 8093 0000 		sts OSEventFreeList,r24
+ 2033               	.L92:
+ 2034               	/* #APP */
+ 2035               	 ;  94 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2036 0d10 7894      		sei
+ 2037               	 ;  0 "" 2
+ 2038               	/* #NOAPP */
+ 2039 0d12 8981      		ldd r24,Y+1
+ 2040 0d14 9A81      		ldd r25,Y+2
+ 2041 0d16 0097      		sbiw r24,0
+ 2042 0d18 01F0      		breq .L93
+ 2043 0d1a E981      		ldd r30,Y+1
+ 2044 0d1c FA81      		ldd r31,Y+2
+ 2045 0d1e 81E0      		ldi r24,lo8(1)
+ 2046 0d20 8083      		st Z,r24
+ 2047 0d22 E981      		ldd r30,Y+1
+ 2048 0d24 FA81      		ldd r31,Y+2
+ 2049 0d26 1382      		std Z+3,__zero_reg__
+ 2050 0d28 1282      		std Z+2,__zero_reg__
+ 2051 0d2a E981      		ldd r30,Y+1
+ 2052 0d2c FA81      		ldd r31,Y+2
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 37
+
+
+ 2053 0d2e 8B81      		ldd r24,Y+3
+ 2054 0d30 9C81      		ldd r25,Y+4
+ 2055 0d32 9583      		std Z+5,r25
+ 2056 0d34 8483      		std Z+4,r24
+ 2057 0d36 8981      		ldd r24,Y+1
+ 2058 0d38 9A81      		ldd r25,Y+2
+ 2059 0d3a 0E94 0000 		call OS_EventWaitListInit
+ 2060               	.L93:
+ 2061 0d3e 8981      		ldd r24,Y+1
+ 2062 0d40 9A81      		ldd r25,Y+2
+ 2063 0d42 9E83      		std Y+6,r25
+ 2064 0d44 8D83      		std Y+5,r24
+ 2065               	.L91:
+ 2066 0d46 8D81      		ldd r24,Y+5
+ 2067 0d48 9E81      		ldd r25,Y+6
+ 2068               	/* epilogue start */
+ 2069 0d4a 2696      		adiw r28,6
+ 2070 0d4c 0FB6      		in __tmp_reg__,__SREG__
+ 2071 0d4e F894      		cli
+ 2072 0d50 DEBF      		out __SP_H__,r29
+ 2073 0d52 0FBE      		out __SREG__,__tmp_reg__
+ 2074 0d54 CDBF      		out __SP_L__,r28
+ 2075 0d56 CF91      		pop r28
+ 2076 0d58 DF91      		pop r29
+ 2077 0d5a 0895      		ret
+ 2078               		.size	OSMboxCreate, .-OSMboxCreate
+ 2079               	.global	OSMboxPend
+ 2080               		.type	OSMboxPend, @function
+ 2081               	OSMboxPend:
+ 2082 0d5c DF93      		push r29
+ 2083 0d5e CF93      		push r28
+ 2084 0d60 CDB7      		in r28,__SP_L__
+ 2085 0d62 DEB7      		in r29,__SP_H__
+ 2086 0d64 2A97      		sbiw r28,10
+ 2087 0d66 0FB6      		in __tmp_reg__,__SREG__
+ 2088 0d68 F894      		cli
+ 2089 0d6a DEBF      		out __SP_H__,r29
+ 2090 0d6c 0FBE      		out __SREG__,__tmp_reg__
+ 2091 0d6e CDBF      		out __SP_L__,r28
+ 2092               	/* prologue: function */
+ 2093               	/* frame size = 10 */
+ 2094 0d70 9C83      		std Y+4,r25
+ 2095 0d72 8B83      		std Y+3,r24
+ 2096 0d74 7E83      		std Y+6,r23
+ 2097 0d76 6D83      		std Y+5,r22
+ 2098 0d78 5887      		std Y+8,r21
+ 2099 0d7a 4F83      		std Y+7,r20
+ 2100 0d7c 8091 0000 		lds r24,OSIntNesting
+ 2101 0d80 8823      		tst r24
+ 2102 0d82 01F0      		breq .L96
+ 2103 0d84 EF81      		ldd r30,Y+7
+ 2104 0d86 F885      		ldd r31,Y+8
+ 2105 0d88 82E0      		ldi r24,lo8(2)
+ 2106 0d8a 8083      		st Z,r24
+ 2107 0d8c 1A86      		std Y+10,__zero_reg__
+ 2108 0d8e 1986      		std Y+9,__zero_reg__
+ 2109 0d90 00C0      		rjmp .L97
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 38
+
+
+ 2110               	.L96:
+ 2111               	/* #APP */
+ 2112               	 ;  260 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2113 0d92 F894      		cli
+ 2114               	 ;  0 "" 2
+ 2115               	/* #NOAPP */
+ 2116 0d94 EB81      		ldd r30,Y+3
+ 2117 0d96 FC81      		ldd r31,Y+4
+ 2118 0d98 8481      		ldd r24,Z+4
+ 2119 0d9a 9581      		ldd r25,Z+5
+ 2120 0d9c 9A83      		std Y+2,r25
+ 2121 0d9e 8983      		std Y+1,r24
+ 2122 0da0 8981      		ldd r24,Y+1
+ 2123 0da2 9A81      		ldd r25,Y+2
+ 2124 0da4 0097      		sbiw r24,0
+ 2125 0da6 01F0      		breq .L98
+ 2126 0da8 EB81      		ldd r30,Y+3
+ 2127 0daa FC81      		ldd r31,Y+4
+ 2128 0dac 1582      		std Z+5,__zero_reg__
+ 2129 0dae 1482      		std Z+4,__zero_reg__
+ 2130               	/* #APP */
+ 2131               	 ;  264 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2132 0db0 7894      		sei
+ 2133               	 ;  0 "" 2
+ 2134               	/* #NOAPP */
+ 2135 0db2 EF81      		ldd r30,Y+7
+ 2136 0db4 F885      		ldd r31,Y+8
+ 2137 0db6 1082      		st Z,__zero_reg__
+ 2138 0db8 8981      		ldd r24,Y+1
+ 2139 0dba 9A81      		ldd r25,Y+2
+ 2140 0dbc 9A87      		std Y+10,r25
+ 2141 0dbe 8987      		std Y+9,r24
+ 2142 0dc0 00C0      		rjmp .L97
+ 2143               	.L98:
+ 2144 0dc2 A091 0000 		lds r26,OSTCBCur
+ 2145 0dc6 B091 0000 		lds r27,(OSTCBCur)+1
+ 2146 0dca E091 0000 		lds r30,OSTCBCur
+ 2147 0dce F091 0000 		lds r31,(OSTCBCur)+1
+ 2148 0dd2 8485      		ldd r24,Z+12
+ 2149 0dd4 8260      		ori r24,lo8(2)
+ 2150 0dd6 1C96      		adiw r26,12
+ 2151 0dd8 8C93      		st X,r24
+ 2152 0dda E091 0000 		lds r30,OSTCBCur
+ 2153 0dde F091 0000 		lds r31,(OSTCBCur)+1
+ 2154 0de2 8D81      		ldd r24,Y+5
+ 2155 0de4 9E81      		ldd r25,Y+6
+ 2156 0de6 9387      		std Z+11,r25
+ 2157 0de8 8287      		std Z+10,r24
+ 2158 0dea 8B81      		ldd r24,Y+3
+ 2159 0dec 9C81      		ldd r25,Y+4
+ 2160 0dee 0E94 0000 		call OS_EventTaskWait
+ 2161               	/* #APP */
+ 2162               	 ;  271 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2163 0df2 7894      		sei
+ 2164               	 ;  0 "" 2
+ 2165               	/* #NOAPP */
+ 2166 0df4 0E94 0000 		call OS_Sched
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 39
+
+
+ 2167               	/* #APP */
+ 2168               	 ;  273 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2169 0df8 F894      		cli
+ 2170               	 ;  0 "" 2
+ 2171               	/* #NOAPP */
+ 2172 0dfa E091 0000 		lds r30,OSTCBCur
+ 2173 0dfe F091 0000 		lds r31,(OSTCBCur)+1
+ 2174 0e02 8085      		ldd r24,Z+8
+ 2175 0e04 9185      		ldd r25,Z+9
+ 2176 0e06 9A83      		std Y+2,r25
+ 2177 0e08 8983      		std Y+1,r24
+ 2178 0e0a 8981      		ldd r24,Y+1
+ 2179 0e0c 9A81      		ldd r25,Y+2
+ 2180 0e0e 0097      		sbiw r24,0
+ 2181 0e10 01F0      		breq .L99
+ 2182 0e12 E091 0000 		lds r30,OSTCBCur
+ 2183 0e16 F091 0000 		lds r31,(OSTCBCur)+1
+ 2184 0e1a 1186      		std Z+9,__zero_reg__
+ 2185 0e1c 1086      		std Z+8,__zero_reg__
+ 2186 0e1e E091 0000 		lds r30,OSTCBCur
+ 2187 0e22 F091 0000 		lds r31,(OSTCBCur)+1
+ 2188 0e26 1486      		std Z+12,__zero_reg__
+ 2189 0e28 E091 0000 		lds r30,OSTCBCur
+ 2190 0e2c F091 0000 		lds r31,(OSTCBCur)+1
+ 2191 0e30 1782      		std Z+7,__zero_reg__
+ 2192 0e32 1682      		std Z+6,__zero_reg__
+ 2193               	/* #APP */
+ 2194               	 ;  279 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2195 0e34 7894      		sei
+ 2196               	 ;  0 "" 2
+ 2197               	/* #NOAPP */
+ 2198 0e36 EF81      		ldd r30,Y+7
+ 2199 0e38 F885      		ldd r31,Y+8
+ 2200 0e3a 1082      		st Z,__zero_reg__
+ 2201 0e3c 8981      		ldd r24,Y+1
+ 2202 0e3e 9A81      		ldd r25,Y+2
+ 2203 0e40 9A87      		std Y+10,r25
+ 2204 0e42 8987      		std Y+9,r24
+ 2205 0e44 00C0      		rjmp .L97
+ 2206               	.L99:
+ 2207 0e46 8B81      		ldd r24,Y+3
+ 2208 0e48 9C81      		ldd r25,Y+4
+ 2209 0e4a 0E94 0000 		call OS_EventTO
+ 2210               	/* #APP */
+ 2211               	 ;  284 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2212 0e4e 7894      		sei
+ 2213               	 ;  0 "" 2
+ 2214               	/* #NOAPP */
+ 2215 0e50 EF81      		ldd r30,Y+7
+ 2216 0e52 F885      		ldd r31,Y+8
+ 2217 0e54 8AE0      		ldi r24,lo8(10)
+ 2218 0e56 8083      		st Z,r24
+ 2219 0e58 1A86      		std Y+10,__zero_reg__
+ 2220 0e5a 1986      		std Y+9,__zero_reg__
+ 2221               	.L97:
+ 2222 0e5c 8985      		ldd r24,Y+9
+ 2223 0e5e 9A85      		ldd r25,Y+10
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 40
+
+
+ 2224               	/* epilogue start */
+ 2225 0e60 2A96      		adiw r28,10
+ 2226 0e62 0FB6      		in __tmp_reg__,__SREG__
+ 2227 0e64 F894      		cli
+ 2228 0e66 DEBF      		out __SP_H__,r29
+ 2229 0e68 0FBE      		out __SREG__,__tmp_reg__
+ 2230 0e6a CDBF      		out __SP_L__,r28
+ 2231 0e6c CF91      		pop r28
+ 2232 0e6e DF91      		pop r29
+ 2233 0e70 0895      		ret
+ 2234               		.size	OSMboxPend, .-OSMboxPend
+ 2235               	.global	OSMboxPost
+ 2236               		.type	OSMboxPost, @function
+ 2237               	OSMboxPost:
+ 2238 0e72 DF93      		push r29
+ 2239 0e74 CF93      		push r28
+ 2240 0e76 00D0      		rcall .
+ 2241 0e78 00D0      		rcall .
+ 2242 0e7a 0F92      		push __tmp_reg__
+ 2243 0e7c CDB7      		in r28,__SP_L__
+ 2244 0e7e DEB7      		in r29,__SP_H__
+ 2245               	/* prologue: function */
+ 2246               	/* frame size = 5 */
+ 2247 0e80 9A83      		std Y+2,r25
+ 2248 0e82 8983      		std Y+1,r24
+ 2249 0e84 7C83      		std Y+4,r23
+ 2250 0e86 6B83      		std Y+3,r22
+ 2251               	/* #APP */
+ 2252               	 ;  328 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2253 0e88 F894      		cli
+ 2254               	 ;  0 "" 2
+ 2255               	/* #NOAPP */
+ 2256 0e8a E981      		ldd r30,Y+1
+ 2257 0e8c FA81      		ldd r31,Y+2
+ 2258 0e8e 8181      		ldd r24,Z+1
+ 2259 0e90 8823      		tst r24
+ 2260 0e92 01F0      		breq .L102
+ 2261 0e94 8981      		ldd r24,Y+1
+ 2262 0e96 9A81      		ldd r25,Y+2
+ 2263 0e98 2B81      		ldd r18,Y+3
+ 2264 0e9a 3C81      		ldd r19,Y+4
+ 2265 0e9c B901      		movw r22,r18
+ 2266 0e9e 42E0      		ldi r20,lo8(2)
+ 2267 0ea0 0E94 0000 		call OS_EventTaskRdy
+ 2268               	/* #APP */
+ 2269               	 ;  331 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2270 0ea4 7894      		sei
+ 2271               	 ;  0 "" 2
+ 2272               	/* #NOAPP */
+ 2273 0ea6 0E94 0000 		call OS_Sched
+ 2274 0eaa 1D82      		std Y+5,__zero_reg__
+ 2275 0eac 00C0      		rjmp .L103
+ 2276               	.L102:
+ 2277 0eae E981      		ldd r30,Y+1
+ 2278 0eb0 FA81      		ldd r31,Y+2
+ 2279 0eb2 8481      		ldd r24,Z+4
+ 2280 0eb4 9581      		ldd r25,Z+5
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 41
+
+
+ 2281 0eb6 0097      		sbiw r24,0
+ 2282 0eb8 01F0      		breq .L104
+ 2283               	/* #APP */
+ 2284               	 ;  336 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2285 0eba 7894      		sei
+ 2286               	 ;  0 "" 2
+ 2287               	/* #NOAPP */
+ 2288 0ebc 84E1      		ldi r24,lo8(20)
+ 2289 0ebe 8D83      		std Y+5,r24
+ 2290 0ec0 00C0      		rjmp .L103
+ 2291               	.L104:
+ 2292 0ec2 E981      		ldd r30,Y+1
+ 2293 0ec4 FA81      		ldd r31,Y+2
+ 2294 0ec6 8B81      		ldd r24,Y+3
+ 2295 0ec8 9C81      		ldd r25,Y+4
+ 2296 0eca 9583      		std Z+5,r25
+ 2297 0ecc 8483      		std Z+4,r24
+ 2298               	/* #APP */
+ 2299               	 ;  340 "C:\Micrium\Micrium\software\ucos-ii\source\os_mbox.c" 1
+ 2300 0ece 7894      		sei
+ 2301               	 ;  0 "" 2
+ 2302               	/* #NOAPP */
+ 2303 0ed0 1D82      		std Y+5,__zero_reg__
+ 2304               	.L103:
+ 2305 0ed2 8D81      		ldd r24,Y+5
+ 2306               	/* epilogue start */
+ 2307 0ed4 0F90      		pop __tmp_reg__
+ 2308 0ed6 0F90      		pop __tmp_reg__
+ 2309 0ed8 0F90      		pop __tmp_reg__
+ 2310 0eda 0F90      		pop __tmp_reg__
+ 2311 0edc 0F90      		pop __tmp_reg__
+ 2312 0ede CF91      		pop r28
+ 2313 0ee0 DF91      		pop r29
+ 2314 0ee2 0895      		ret
+ 2315               		.size	OSMboxPost, .-OSMboxPost
+ 2316               	.global	OSMutexCreate
+ 2317               		.type	OSMutexCreate, @function
+ 2318               	OSMutexCreate:
+ 2319 0ee4 DF93      		push r29
+ 2320 0ee6 CF93      		push r28
+ 2321 0ee8 CDB7      		in r28,__SP_L__
+ 2322 0eea DEB7      		in r29,__SP_H__
+ 2323 0eec 2797      		sbiw r28,7
+ 2324 0eee 0FB6      		in __tmp_reg__,__SREG__
+ 2325 0ef0 F894      		cli
+ 2326 0ef2 DEBF      		out __SP_H__,r29
+ 2327 0ef4 0FBE      		out __SREG__,__tmp_reg__
+ 2328 0ef6 CDBF      		out __SP_L__,r28
+ 2329               	/* prologue: function */
+ 2330               	/* frame size = 7 */
+ 2331 0ef8 8B83      		std Y+3,r24
+ 2332 0efa 7D83      		std Y+5,r23
+ 2333 0efc 6C83      		std Y+4,r22
+ 2334 0efe 8091 0000 		lds r24,OSIntNesting
+ 2335 0f02 8823      		tst r24
+ 2336 0f04 01F0      		breq .L107
+ 2337 0f06 EC81      		ldd r30,Y+4
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 42
+
+
+ 2338 0f08 FD81      		ldd r31,Y+5
+ 2339 0f0a 8DE8      		ldi r24,lo8(-115)
+ 2340 0f0c 8083      		st Z,r24
+ 2341 0f0e 1F82      		std Y+7,__zero_reg__
+ 2342 0f10 1E82      		std Y+6,__zero_reg__
+ 2343 0f12 00C0      		rjmp .L108
+ 2344               	.L107:
+ 2345               	/* #APP */
+ 2346               	 ;  147 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2347 0f14 F894      		cli
+ 2348               	 ;  0 "" 2
+ 2349               	/* #NOAPP */
+ 2350 0f16 8B81      		ldd r24,Y+3
+ 2351 0f18 882F      		mov r24,r24
+ 2352 0f1a 90E0      		ldi r25,lo8(0)
+ 2353 0f1c 880F      		lsl r24
+ 2354 0f1e 991F      		rol r25
+ 2355 0f20 FC01      		movw r30,r24
+ 2356 0f22 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 2357 0f24 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 2358 0f26 8081      		ld r24,Z
+ 2359 0f28 9181      		ldd r25,Z+1
+ 2360 0f2a 0097      		sbiw r24,0
+ 2361 0f2c 01F0      		breq .L109
+ 2362               	/* #APP */
+ 2363               	 ;  149 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2364 0f2e 7894      		sei
+ 2365               	 ;  0 "" 2
+ 2366               	/* #NOAPP */
+ 2367 0f30 EC81      		ldd r30,Y+4
+ 2368 0f32 FD81      		ldd r31,Y+5
+ 2369 0f34 88E2      		ldi r24,lo8(40)
+ 2370 0f36 8083      		st Z,r24
+ 2371 0f38 1F82      		std Y+7,__zero_reg__
+ 2372 0f3a 1E82      		std Y+6,__zero_reg__
+ 2373 0f3c 00C0      		rjmp .L108
+ 2374               	.L109:
+ 2375 0f3e 8B81      		ldd r24,Y+3
+ 2376 0f40 882F      		mov r24,r24
+ 2377 0f42 90E0      		ldi r25,lo8(0)
+ 2378 0f44 880F      		lsl r24
+ 2379 0f46 991F      		rol r25
+ 2380 0f48 FC01      		movw r30,r24
+ 2381 0f4a E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 2382 0f4c F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 2383 0f4e 81E0      		ldi r24,lo8(1)
+ 2384 0f50 90E0      		ldi r25,hi8(1)
+ 2385 0f52 9183      		std Z+1,r25
+ 2386 0f54 8083      		st Z,r24
+ 2387 0f56 8091 0000 		lds r24,OSEventFreeList
+ 2388 0f5a 9091 0000 		lds r25,(OSEventFreeList)+1
+ 2389 0f5e 9A83      		std Y+2,r25
+ 2390 0f60 8983      		std Y+1,r24
+ 2391 0f62 8981      		ldd r24,Y+1
+ 2392 0f64 9A81      		ldd r25,Y+2
+ 2393 0f66 0097      		sbiw r24,0
+ 2394 0f68 01F4      		brne .L110
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 43
+
+
+ 2395 0f6a 8B81      		ldd r24,Y+3
+ 2396 0f6c 882F      		mov r24,r24
+ 2397 0f6e 90E0      		ldi r25,lo8(0)
+ 2398 0f70 880F      		lsl r24
+ 2399 0f72 991F      		rol r25
+ 2400 0f74 FC01      		movw r30,r24
+ 2401 0f76 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 2402 0f78 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 2403 0f7a 1182      		std Z+1,__zero_reg__
+ 2404 0f7c 1082      		st Z,__zero_reg__
+ 2405               	/* #APP */
+ 2406               	 ;  157 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2407 0f7e 7894      		sei
+ 2408               	 ;  0 "" 2
+ 2409               	/* #NOAPP */
+ 2410 0f80 EC81      		ldd r30,Y+4
+ 2411 0f82 FD81      		ldd r31,Y+5
+ 2412 0f84 84E0      		ldi r24,lo8(4)
+ 2413 0f86 8083      		st Z,r24
+ 2414 0f88 8981      		ldd r24,Y+1
+ 2415 0f8a 9A81      		ldd r25,Y+2
+ 2416 0f8c 9F83      		std Y+7,r25
+ 2417 0f8e 8E83      		std Y+6,r24
+ 2418 0f90 00C0      		rjmp .L108
+ 2419               	.L110:
+ 2420 0f92 E091 0000 		lds r30,OSEventFreeList
+ 2421 0f96 F091 0000 		lds r31,(OSEventFreeList)+1
+ 2422 0f9a 8481      		ldd r24,Z+4
+ 2423 0f9c 9581      		ldd r25,Z+5
+ 2424 0f9e 9093 0000 		sts (OSEventFreeList)+1,r25
+ 2425 0fa2 8093 0000 		sts OSEventFreeList,r24
+ 2426               	/* #APP */
+ 2427               	 ;  162 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2428 0fa6 7894      		sei
+ 2429               	 ;  0 "" 2
+ 2430               	/* #NOAPP */
+ 2431 0fa8 E981      		ldd r30,Y+1
+ 2432 0faa FA81      		ldd r31,Y+2
+ 2433 0fac 84E0      		ldi r24,lo8(4)
+ 2434 0fae 8083      		st Z,r24
+ 2435 0fb0 8B81      		ldd r24,Y+3
+ 2436 0fb2 882F      		mov r24,r24
+ 2437 0fb4 90E0      		ldi r25,lo8(0)
+ 2438 0fb6 982F      		mov r25,r24
+ 2439 0fb8 8827      		clr r24
+ 2440 0fba 8F6F      		ori r24,lo8(255)
+ 2441 0fbc E981      		ldd r30,Y+1
+ 2442 0fbe FA81      		ldd r31,Y+2
+ 2443 0fc0 9383      		std Z+3,r25
+ 2444 0fc2 8283      		std Z+2,r24
+ 2445 0fc4 E981      		ldd r30,Y+1
+ 2446 0fc6 FA81      		ldd r31,Y+2
+ 2447 0fc8 1582      		std Z+5,__zero_reg__
+ 2448 0fca 1482      		std Z+4,__zero_reg__
+ 2449 0fcc 8981      		ldd r24,Y+1
+ 2450 0fce 9A81      		ldd r25,Y+2
+ 2451 0fd0 0E94 0000 		call OS_EventWaitListInit
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 44
+
+
+ 2452 0fd4 EC81      		ldd r30,Y+4
+ 2453 0fd6 FD81      		ldd r31,Y+5
+ 2454 0fd8 1082      		st Z,__zero_reg__
+ 2455 0fda 8981      		ldd r24,Y+1
+ 2456 0fdc 9A81      		ldd r25,Y+2
+ 2457 0fde 9F83      		std Y+7,r25
+ 2458 0fe0 8E83      		std Y+6,r24
+ 2459               	.L108:
+ 2460 0fe2 8E81      		ldd r24,Y+6
+ 2461 0fe4 9F81      		ldd r25,Y+7
+ 2462               	/* epilogue start */
+ 2463 0fe6 2796      		adiw r28,7
+ 2464 0fe8 0FB6      		in __tmp_reg__,__SREG__
+ 2465 0fea F894      		cli
+ 2466 0fec DEBF      		out __SP_H__,r29
+ 2467 0fee 0FBE      		out __SREG__,__tmp_reg__
+ 2468 0ff0 CDBF      		out __SP_L__,r28
+ 2469 0ff2 CF91      		pop r28
+ 2470 0ff4 DF91      		pop r29
+ 2471 0ff6 0895      		ret
+ 2472               		.size	OSMutexCreate, .-OSMutexCreate
+ 2473               	.global	OSMutexPend
+ 2474               		.type	OSMutexPend, @function
+ 2475               	OSMutexPend:
+ 2476 0ff8 DF93      		push r29
+ 2477 0ffa CF93      		push r28
+ 2478 0ffc CDB7      		in r28,__SP_L__
+ 2479 0ffe DEB7      		in r29,__SP_H__
+ 2480 1000 2B97      		sbiw r28,11
+ 2481 1002 0FB6      		in __tmp_reg__,__SREG__
+ 2482 1004 F894      		cli
+ 2483 1006 DEBF      		out __SP_H__,r29
+ 2484 1008 0FBE      		out __SREG__,__tmp_reg__
+ 2485 100a CDBF      		out __SP_L__,r28
+ 2486               	/* prologue: function */
+ 2487               	/* frame size = 11 */
+ 2488 100c 9F83      		std Y+7,r25
+ 2489 100e 8E83      		std Y+6,r24
+ 2490 1010 7987      		std Y+9,r23
+ 2491 1012 6887      		std Y+8,r22
+ 2492 1014 5B87      		std Y+11,r21
+ 2493 1016 4A87      		std Y+10,r20
+ 2494 1018 8091 0000 		lds r24,OSIntNesting
+ 2495 101c 8823      		tst r24
+ 2496 101e 01F0      		breq .L113
+ 2497 1020 EA85      		ldd r30,Y+10
+ 2498 1022 FB85      		ldd r31,Y+11
+ 2499 1024 82E0      		ldi r24,lo8(2)
+ 2500 1026 8083      		st Z,r24
+ 2501 1028 00C0      		rjmp .L122
+ 2502               	.L113:
+ 2503               	/* #APP */
+ 2504               	 ;  331 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2505 102a F894      		cli
+ 2506               	 ;  0 "" 2
+ 2507               	/* #NOAPP */
+ 2508 102c EE81      		ldd r30,Y+6
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 45
+
+
+ 2509 102e FF81      		ldd r31,Y+7
+ 2510 1030 8281      		ldd r24,Z+2
+ 2511 1032 9381      		ldd r25,Z+3
+ 2512 1034 8F3F      		cpi r24,lo8(-1)
+ 2513 1036 01F4      		brne .L115
+ 2514 1038 EE81      		ldd r30,Y+6
+ 2515 103a FF81      		ldd r31,Y+7
+ 2516 103c 8281      		ldd r24,Z+2
+ 2517 103e 9381      		ldd r25,Z+3
+ 2518 1040 8070      		andi r24,lo8(-256)
+ 2519 1042 EE81      		ldd r30,Y+6
+ 2520 1044 FF81      		ldd r31,Y+7
+ 2521 1046 9383      		std Z+3,r25
+ 2522 1048 8283      		std Z+2,r24
+ 2523 104a EE81      		ldd r30,Y+6
+ 2524 104c FF81      		ldd r31,Y+7
+ 2525 104e 2281      		ldd r18,Z+2
+ 2526 1050 3381      		ldd r19,Z+3
+ 2527 1052 E091 0000 		lds r30,OSTCBCur
+ 2528 1056 F091 0000 		lds r31,(OSTCBCur)+1
+ 2529 105a 8585      		ldd r24,Z+13
+ 2530 105c 882F      		mov r24,r24
+ 2531 105e 90E0      		ldi r25,lo8(0)
+ 2532 1060 822B      		or r24,r18
+ 2533 1062 932B      		or r25,r19
+ 2534 1064 EE81      		ldd r30,Y+6
+ 2535 1066 FF81      		ldd r31,Y+7
+ 2536 1068 9383      		std Z+3,r25
+ 2537 106a 8283      		std Z+2,r24
+ 2538 106c 8091 0000 		lds r24,OSTCBCur
+ 2539 1070 9091 0000 		lds r25,(OSTCBCur)+1
+ 2540 1074 EE81      		ldd r30,Y+6
+ 2541 1076 FF81      		ldd r31,Y+7
+ 2542 1078 9583      		std Z+5,r25
+ 2543 107a 8483      		std Z+4,r24
+ 2544               	/* #APP */
+ 2545               	 ;  336 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2546 107c 7894      		sei
+ 2547               	 ;  0 "" 2
+ 2548               	/* #NOAPP */
+ 2549 107e EA85      		ldd r30,Y+10
+ 2550 1080 FB85      		ldd r31,Y+11
+ 2551 1082 1082      		st Z,__zero_reg__
+ 2552 1084 00C0      		rjmp .L122
+ 2553               	.L115:
+ 2554 1086 EE81      		ldd r30,Y+6
+ 2555 1088 FF81      		ldd r31,Y+7
+ 2556 108a 8281      		ldd r24,Z+2
+ 2557 108c 9381      		ldd r25,Z+3
+ 2558 108e 892F      		mov r24,r25
+ 2559 1090 9927      		clr r25
+ 2560 1092 8D83      		std Y+5,r24
+ 2561 1094 EE81      		ldd r30,Y+6
+ 2562 1096 FF81      		ldd r31,Y+7
+ 2563 1098 8281      		ldd r24,Z+2
+ 2564 109a 9381      		ldd r25,Z+3
+ 2565 109c 8C83      		std Y+4,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 46
+
+
+ 2566 109e EE81      		ldd r30,Y+6
+ 2567 10a0 FF81      		ldd r31,Y+7
+ 2568 10a2 8481      		ldd r24,Z+4
+ 2569 10a4 9581      		ldd r25,Z+5
+ 2570 10a6 9A83      		std Y+2,r25
+ 2571 10a8 8983      		std Y+1,r24
+ 2572 10aa E981      		ldd r30,Y+1
+ 2573 10ac FA81      		ldd r31,Y+2
+ 2574 10ae 9585      		ldd r25,Z+13
+ 2575 10b0 8D81      		ldd r24,Y+5
+ 2576 10b2 9817      		cp r25,r24
+ 2577 10b4 01F4      		brne .+2
+ 2578 10b6 00C0      		rjmp .L116
+ 2579 10b8 E091 0000 		lds r30,OSTCBCur
+ 2580 10bc F091 0000 		lds r31,(OSTCBCur)+1
+ 2581 10c0 9585      		ldd r25,Z+13
+ 2582 10c2 8C81      		ldd r24,Y+4
+ 2583 10c4 9817      		cp r25,r24
+ 2584 10c6 00F0      		brlo .+2
+ 2585 10c8 00C0      		rjmp .L116
+ 2586 10ca E981      		ldd r30,Y+1
+ 2587 10cc FA81      		ldd r31,Y+2
+ 2588 10ce 8785      		ldd r24,Z+15
+ 2589 10d0 882F      		mov r24,r24
+ 2590 10d2 90E0      		ldi r25,lo8(0)
+ 2591 10d4 FC01      		movw r30,r24
+ 2592 10d6 E050      		subi r30,lo8(-(OSRdyTbl))
+ 2593 10d8 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2594 10da 9081      		ld r25,Z
+ 2595 10dc E981      		ldd r30,Y+1
+ 2596 10de FA81      		ldd r31,Y+2
+ 2597 10e0 8089      		ldd r24,Z+16
+ 2598 10e2 8923      		and r24,r25
+ 2599 10e4 8823      		tst r24
+ 2600 10e6 01F0      		breq .L117
+ 2601 10e8 E981      		ldd r30,Y+1
+ 2602 10ea FA81      		ldd r31,Y+2
+ 2603 10ec 8785      		ldd r24,Z+15
+ 2604 10ee 282F      		mov r18,r24
+ 2605 10f0 30E0      		ldi r19,lo8(0)
+ 2606 10f2 E981      		ldd r30,Y+1
+ 2607 10f4 FA81      		ldd r31,Y+2
+ 2608 10f6 8785      		ldd r24,Z+15
+ 2609 10f8 882F      		mov r24,r24
+ 2610 10fa 90E0      		ldi r25,lo8(0)
+ 2611 10fc FC01      		movw r30,r24
+ 2612 10fe E050      		subi r30,lo8(-(OSRdyTbl))
+ 2613 1100 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2614 1102 8081      		ld r24,Z
+ 2615 1104 982F      		mov r25,r24
+ 2616 1106 E981      		ldd r30,Y+1
+ 2617 1108 FA81      		ldd r31,Y+2
+ 2618 110a 8089      		ldd r24,Z+16
+ 2619 110c 8095      		com r24
+ 2620 110e 8923      		and r24,r25
+ 2621 1110 F901      		movw r30,r18
+ 2622 1112 E050      		subi r30,lo8(-(OSRdyTbl))
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 47
+
+
+ 2623 1114 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2624 1116 8083      		st Z,r24
+ 2625 1118 F901      		movw r30,r18
+ 2626 111a E050      		subi r30,lo8(-(OSRdyTbl))
+ 2627 111c F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2628 111e 8081      		ld r24,Z
+ 2629 1120 8823      		tst r24
+ 2630 1122 01F4      		brne .L118
+ 2631 1124 E981      		ldd r30,Y+1
+ 2632 1126 FA81      		ldd r31,Y+2
+ 2633 1128 8189      		ldd r24,Z+17
+ 2634 112a 982F      		mov r25,r24
+ 2635 112c 9095      		com r25
+ 2636 112e 8091 0000 		lds r24,OSRdyGrp
+ 2637 1132 8923      		and r24,r25
+ 2638 1134 8093 0000 		sts OSRdyGrp,r24
+ 2639               	.L118:
+ 2640 1138 81E0      		ldi r24,lo8(1)
+ 2641 113a 8B83      		std Y+3,r24
+ 2642 113c 00C0      		rjmp .L119
+ 2643               	.L117:
+ 2644 113e 1B82      		std Y+3,__zero_reg__
+ 2645               	.L119:
+ 2646 1140 E981      		ldd r30,Y+1
+ 2647 1142 FA81      		ldd r31,Y+2
+ 2648 1144 8D81      		ldd r24,Y+5
+ 2649 1146 8587      		std Z+13,r24
+ 2650 1148 E981      		ldd r30,Y+1
+ 2651 114a FA81      		ldd r31,Y+2
+ 2652 114c 8585      		ldd r24,Z+13
+ 2653 114e 8695      		lsr r24
+ 2654 1150 8695      		lsr r24
+ 2655 1152 8695      		lsr r24
+ 2656 1154 E981      		ldd r30,Y+1
+ 2657 1156 FA81      		ldd r31,Y+2
+ 2658 1158 8787      		std Z+15,r24
+ 2659 115a E981      		ldd r30,Y+1
+ 2660 115c FA81      		ldd r31,Y+2
+ 2661 115e 8785      		ldd r24,Z+15
+ 2662 1160 882F      		mov r24,r24
+ 2663 1162 90E0      		ldi r25,lo8(0)
+ 2664 1164 FC01      		movw r30,r24
+ 2665 1166 E050      		subi r30,lo8(-(OSMapTbl))
+ 2666 1168 F040      		sbci r31,hi8(-(OSMapTbl))
+ 2667 116a 8081      		ld r24,Z
+ 2668 116c E981      		ldd r30,Y+1
+ 2669 116e FA81      		ldd r31,Y+2
+ 2670 1170 818B      		std Z+17,r24
+ 2671 1172 E981      		ldd r30,Y+1
+ 2672 1174 FA81      		ldd r31,Y+2
+ 2673 1176 8585      		ldd r24,Z+13
+ 2674 1178 8770      		andi r24,lo8(7)
+ 2675 117a E981      		ldd r30,Y+1
+ 2676 117c FA81      		ldd r31,Y+2
+ 2677 117e 8687      		std Z+14,r24
+ 2678 1180 E981      		ldd r30,Y+1
+ 2679 1182 FA81      		ldd r31,Y+2
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 48
+
+
+ 2680 1184 8685      		ldd r24,Z+14
+ 2681 1186 882F      		mov r24,r24
+ 2682 1188 90E0      		ldi r25,lo8(0)
+ 2683 118a FC01      		movw r30,r24
+ 2684 118c E050      		subi r30,lo8(-(OSMapTbl))
+ 2685 118e F040      		sbci r31,hi8(-(OSMapTbl))
+ 2686 1190 8081      		ld r24,Z
+ 2687 1192 E981      		ldd r30,Y+1
+ 2688 1194 FA81      		ldd r31,Y+2
+ 2689 1196 808B      		std Z+16,r24
+ 2690 1198 8B81      		ldd r24,Y+3
+ 2691 119a 8130      		cpi r24,lo8(1)
+ 2692 119c 01F4      		brne .L120
+ 2693 119e E981      		ldd r30,Y+1
+ 2694 11a0 FA81      		ldd r31,Y+2
+ 2695 11a2 9189      		ldd r25,Z+17
+ 2696 11a4 8091 0000 		lds r24,OSRdyGrp
+ 2697 11a8 892B      		or r24,r25
+ 2698 11aa 8093 0000 		sts OSRdyGrp,r24
+ 2699 11ae E981      		ldd r30,Y+1
+ 2700 11b0 FA81      		ldd r31,Y+2
+ 2701 11b2 8785      		ldd r24,Z+15
+ 2702 11b4 282F      		mov r18,r24
+ 2703 11b6 30E0      		ldi r19,lo8(0)
+ 2704 11b8 E981      		ldd r30,Y+1
+ 2705 11ba FA81      		ldd r31,Y+2
+ 2706 11bc 8785      		ldd r24,Z+15
+ 2707 11be 882F      		mov r24,r24
+ 2708 11c0 90E0      		ldi r25,lo8(0)
+ 2709 11c2 FC01      		movw r30,r24
+ 2710 11c4 E050      		subi r30,lo8(-(OSRdyTbl))
+ 2711 11c6 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2712 11c8 9081      		ld r25,Z
+ 2713 11ca E981      		ldd r30,Y+1
+ 2714 11cc FA81      		ldd r31,Y+2
+ 2715 11ce 8089      		ldd r24,Z+16
+ 2716 11d0 892B      		or r24,r25
+ 2717 11d2 F901      		movw r30,r18
+ 2718 11d4 E050      		subi r30,lo8(-(OSRdyTbl))
+ 2719 11d6 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2720 11d8 8083      		st Z,r24
+ 2721               	.L120:
+ 2722 11da 8D81      		ldd r24,Y+5
+ 2723 11dc 882F      		mov r24,r24
+ 2724 11de 90E0      		ldi r25,lo8(0)
+ 2725 11e0 880F      		lsl r24
+ 2726 11e2 991F      		rol r25
+ 2727 11e4 FC01      		movw r30,r24
+ 2728 11e6 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 2729 11e8 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 2730 11ea 8981      		ldd r24,Y+1
+ 2731 11ec 9A81      		ldd r25,Y+2
+ 2732 11ee 9183      		std Z+1,r25
+ 2733 11f0 8083      		st Z,r24
+ 2734               	.L116:
+ 2735 11f2 A091 0000 		lds r26,OSTCBCur
+ 2736 11f6 B091 0000 		lds r27,(OSTCBCur)+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 49
+
+
+ 2737 11fa E091 0000 		lds r30,OSTCBCur
+ 2738 11fe F091 0000 		lds r31,(OSTCBCur)+1
+ 2739 1202 8485      		ldd r24,Z+12
+ 2740 1204 8061      		ori r24,lo8(16)
+ 2741 1206 1C96      		adiw r26,12
+ 2742 1208 8C93      		st X,r24
+ 2743 120a E091 0000 		lds r30,OSTCBCur
+ 2744 120e F091 0000 		lds r31,(OSTCBCur)+1
+ 2745 1212 8885      		ldd r24,Y+8
+ 2746 1214 9985      		ldd r25,Y+9
+ 2747 1216 9387      		std Z+11,r25
+ 2748 1218 8287      		std Z+10,r24
+ 2749 121a 8E81      		ldd r24,Y+6
+ 2750 121c 9F81      		ldd r25,Y+7
+ 2751 121e 0E94 0000 		call OS_EventTaskWait
+ 2752               	/* #APP */
+ 2753               	 ;  368 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2754 1222 7894      		sei
+ 2755               	 ;  0 "" 2
+ 2756               	/* #NOAPP */
+ 2757 1224 0E94 0000 		call OS_Sched
+ 2758               	/* #APP */
+ 2759               	 ;  370 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2760 1228 F894      		cli
+ 2761               	 ;  0 "" 2
+ 2762               	/* #NOAPP */
+ 2763 122a E091 0000 		lds r30,OSTCBCur
+ 2764 122e F091 0000 		lds r31,(OSTCBCur)+1
+ 2765 1232 8485      		ldd r24,Z+12
+ 2766 1234 882F      		mov r24,r24
+ 2767 1236 90E0      		ldi r25,lo8(0)
+ 2768 1238 8071      		andi r24,lo8(16)
+ 2769 123a 9070      		andi r25,hi8(16)
+ 2770 123c 0097      		sbiw r24,0
+ 2771 123e 01F0      		breq .L121
+ 2772 1240 8E81      		ldd r24,Y+6
+ 2773 1242 9F81      		ldd r25,Y+7
+ 2774 1244 0E94 0000 		call OS_EventTO
+ 2775               	/* #APP */
+ 2776               	 ;  373 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2777 1248 7894      		sei
+ 2778               	 ;  0 "" 2
+ 2779               	/* #NOAPP */
+ 2780 124a EA85      		ldd r30,Y+10
+ 2781 124c FB85      		ldd r31,Y+11
+ 2782 124e 8AE0      		ldi r24,lo8(10)
+ 2783 1250 8083      		st Z,r24
+ 2784 1252 00C0      		rjmp .L122
+ 2785               	.L121:
+ 2786 1254 E091 0000 		lds r30,OSTCBCur
+ 2787 1258 F091 0000 		lds r31,(OSTCBCur)+1
+ 2788 125c 1782      		std Z+7,__zero_reg__
+ 2789 125e 1682      		std Z+6,__zero_reg__
+ 2790               	/* #APP */
+ 2791               	 ;  378 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2792 1260 7894      		sei
+ 2793               	 ;  0 "" 2
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 50
+
+
+ 2794               	/* #NOAPP */
+ 2795 1262 EA85      		ldd r30,Y+10
+ 2796 1264 FB85      		ldd r31,Y+11
+ 2797 1266 1082      		st Z,__zero_reg__
+ 2798               	.L122:
+ 2799               	/* epilogue start */
+ 2800 1268 2B96      		adiw r28,11
+ 2801 126a 0FB6      		in __tmp_reg__,__SREG__
+ 2802 126c F894      		cli
+ 2803 126e DEBF      		out __SP_H__,r29
+ 2804 1270 0FBE      		out __SREG__,__tmp_reg__
+ 2805 1272 CDBF      		out __SP_L__,r28
+ 2806 1274 CF91      		pop r28
+ 2807 1276 DF91      		pop r29
+ 2808 1278 0895      		ret
+ 2809               		.size	OSMutexPend, .-OSMutexPend
+ 2810               	.global	OSMutexPost
+ 2811               		.type	OSMutexPost, @function
+ 2812               	OSMutexPost:
+ 2813 127a DF93      		push r29
+ 2814 127c CF93      		push r28
+ 2815 127e 00D0      		rcall .
+ 2816 1280 00D0      		rcall .
+ 2817 1282 0F92      		push __tmp_reg__
+ 2818 1284 CDB7      		in r28,__SP_L__
+ 2819 1286 DEB7      		in r29,__SP_H__
+ 2820               	/* prologue: function */
+ 2821               	/* frame size = 5 */
+ 2822 1288 9C83      		std Y+4,r25
+ 2823 128a 8B83      		std Y+3,r24
+ 2824 128c 8091 0000 		lds r24,OSIntNesting
+ 2825 1290 8823      		tst r24
+ 2826 1292 01F0      		breq .L124
+ 2827 1294 85E0      		ldi r24,lo8(5)
+ 2828 1296 8D83      		std Y+5,r24
+ 2829 1298 00C0      		rjmp .L125
+ 2830               	.L124:
+ 2831               	/* #APP */
+ 2832               	 ;  419 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2833 129a F894      		cli
+ 2834               	 ;  0 "" 2
+ 2835               	/* #NOAPP */
+ 2836 129c EB81      		ldd r30,Y+3
+ 2837 129e FC81      		ldd r31,Y+4
+ 2838 12a0 8281      		ldd r24,Z+2
+ 2839 12a2 9381      		ldd r25,Z+3
+ 2840 12a4 892F      		mov r24,r25
+ 2841 12a6 9927      		clr r25
+ 2842 12a8 8A83      		std Y+2,r24
+ 2843 12aa EB81      		ldd r30,Y+3
+ 2844 12ac FC81      		ldd r31,Y+4
+ 2845 12ae 8281      		ldd r24,Z+2
+ 2846 12b0 9381      		ldd r25,Z+3
+ 2847 12b2 8983      		std Y+1,r24
+ 2848 12b4 E091 0000 		lds r30,OSTCBCur
+ 2849 12b8 F091 0000 		lds r31,(OSTCBCur)+1
+ 2850 12bc 9585      		ldd r25,Z+13
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 51
+
+
+ 2851 12be 8A81      		ldd r24,Y+2
+ 2852 12c0 9817      		cp r25,r24
+ 2853 12c2 01F0      		breq .L126
+ 2854 12c4 E091 0000 		lds r30,OSTCBCur
+ 2855 12c8 F091 0000 		lds r31,(OSTCBCur)+1
+ 2856 12cc 9585      		ldd r25,Z+13
+ 2857 12ce 8981      		ldd r24,Y+1
+ 2858 12d0 9817      		cp r25,r24
+ 2859 12d2 01F0      		breq .L126
+ 2860               	/* #APP */
+ 2861               	 ;  424 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 2862 12d4 7894      		sei
+ 2863               	 ;  0 "" 2
+ 2864               	/* #NOAPP */
+ 2865 12d6 88E7      		ldi r24,lo8(120)
+ 2866 12d8 8D83      		std Y+5,r24
+ 2867 12da 00C0      		rjmp .L125
+ 2868               	.L126:
+ 2869 12dc E091 0000 		lds r30,OSTCBCur
+ 2870 12e0 F091 0000 		lds r31,(OSTCBCur)+1
+ 2871 12e4 9585      		ldd r25,Z+13
+ 2872 12e6 8A81      		ldd r24,Y+2
+ 2873 12e8 9817      		cp r25,r24
+ 2874 12ea 01F0      		breq .+2
+ 2875 12ec 00C0      		rjmp .L127
+ 2876 12ee E091 0000 		lds r30,OSTCBCur
+ 2877 12f2 F091 0000 		lds r31,(OSTCBCur)+1
+ 2878 12f6 8785      		ldd r24,Z+15
+ 2879 12f8 282F      		mov r18,r24
+ 2880 12fa 30E0      		ldi r19,lo8(0)
+ 2881 12fc E091 0000 		lds r30,OSTCBCur
+ 2882 1300 F091 0000 		lds r31,(OSTCBCur)+1
+ 2883 1304 8785      		ldd r24,Z+15
+ 2884 1306 882F      		mov r24,r24
+ 2885 1308 90E0      		ldi r25,lo8(0)
+ 2886 130a FC01      		movw r30,r24
+ 2887 130c E050      		subi r30,lo8(-(OSRdyTbl))
+ 2888 130e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2889 1310 8081      		ld r24,Z
+ 2890 1312 982F      		mov r25,r24
+ 2891 1314 E091 0000 		lds r30,OSTCBCur
+ 2892 1318 F091 0000 		lds r31,(OSTCBCur)+1
+ 2893 131c 8089      		ldd r24,Z+16
+ 2894 131e 8095      		com r24
+ 2895 1320 8923      		and r24,r25
+ 2896 1322 F901      		movw r30,r18
+ 2897 1324 E050      		subi r30,lo8(-(OSRdyTbl))
+ 2898 1326 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2899 1328 8083      		st Z,r24
+ 2900 132a F901      		movw r30,r18
+ 2901 132c E050      		subi r30,lo8(-(OSRdyTbl))
+ 2902 132e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2903 1330 8081      		ld r24,Z
+ 2904 1332 8823      		tst r24
+ 2905 1334 01F4      		brne .L128
+ 2906 1336 E091 0000 		lds r30,OSTCBCur
+ 2907 133a F091 0000 		lds r31,(OSTCBCur)+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 52
+
+
+ 2908 133e 8189      		ldd r24,Z+17
+ 2909 1340 982F      		mov r25,r24
+ 2910 1342 9095      		com r25
+ 2911 1344 8091 0000 		lds r24,OSRdyGrp
+ 2912 1348 8923      		and r24,r25
+ 2913 134a 8093 0000 		sts OSRdyGrp,r24
+ 2914               	.L128:
+ 2915 134e E091 0000 		lds r30,OSTCBCur
+ 2916 1352 F091 0000 		lds r31,(OSTCBCur)+1
+ 2917 1356 8981      		ldd r24,Y+1
+ 2918 1358 8587      		std Z+13,r24
+ 2919 135a E091 0000 		lds r30,OSTCBCur
+ 2920 135e F091 0000 		lds r31,(OSTCBCur)+1
+ 2921 1362 8981      		ldd r24,Y+1
+ 2922 1364 8695      		lsr r24
+ 2923 1366 8695      		lsr r24
+ 2924 1368 8695      		lsr r24
+ 2925 136a 8787      		std Z+15,r24
+ 2926 136c A091 0000 		lds r26,OSTCBCur
+ 2927 1370 B091 0000 		lds r27,(OSTCBCur)+1
+ 2928 1374 E091 0000 		lds r30,OSTCBCur
+ 2929 1378 F091 0000 		lds r31,(OSTCBCur)+1
+ 2930 137c 8785      		ldd r24,Z+15
+ 2931 137e 882F      		mov r24,r24
+ 2932 1380 90E0      		ldi r25,lo8(0)
+ 2933 1382 FC01      		movw r30,r24
+ 2934 1384 E050      		subi r30,lo8(-(OSMapTbl))
+ 2935 1386 F040      		sbci r31,hi8(-(OSMapTbl))
+ 2936 1388 8081      		ld r24,Z
+ 2937 138a 5196      		adiw r26,17
+ 2938 138c 8C93      		st X,r24
+ 2939 138e E091 0000 		lds r30,OSTCBCur
+ 2940 1392 F091 0000 		lds r31,(OSTCBCur)+1
+ 2941 1396 8981      		ldd r24,Y+1
+ 2942 1398 8770      		andi r24,lo8(7)
+ 2943 139a 8687      		std Z+14,r24
+ 2944 139c A091 0000 		lds r26,OSTCBCur
+ 2945 13a0 B091 0000 		lds r27,(OSTCBCur)+1
+ 2946 13a4 E091 0000 		lds r30,OSTCBCur
+ 2947 13a8 F091 0000 		lds r31,(OSTCBCur)+1
+ 2948 13ac 8685      		ldd r24,Z+14
+ 2949 13ae 882F      		mov r24,r24
+ 2950 13b0 90E0      		ldi r25,lo8(0)
+ 2951 13b2 FC01      		movw r30,r24
+ 2952 13b4 E050      		subi r30,lo8(-(OSMapTbl))
+ 2953 13b6 F040      		sbci r31,hi8(-(OSMapTbl))
+ 2954 13b8 8081      		ld r24,Z
+ 2955 13ba 5096      		adiw r26,16
+ 2956 13bc 8C93      		st X,r24
+ 2957 13be 5097      		sbiw r26,16
+ 2958 13c0 E091 0000 		lds r30,OSTCBCur
+ 2959 13c4 F091 0000 		lds r31,(OSTCBCur)+1
+ 2960 13c8 9189      		ldd r25,Z+17
+ 2961 13ca 8091 0000 		lds r24,OSRdyGrp
+ 2962 13ce 892B      		or r24,r25
+ 2963 13d0 8093 0000 		sts OSRdyGrp,r24
+ 2964 13d4 E091 0000 		lds r30,OSTCBCur
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 53
+
+
+ 2965 13d8 F091 0000 		lds r31,(OSTCBCur)+1
+ 2966 13dc 8785      		ldd r24,Z+15
+ 2967 13de 282F      		mov r18,r24
+ 2968 13e0 30E0      		ldi r19,lo8(0)
+ 2969 13e2 E091 0000 		lds r30,OSTCBCur
+ 2970 13e6 F091 0000 		lds r31,(OSTCBCur)+1
+ 2971 13ea 8785      		ldd r24,Z+15
+ 2972 13ec 882F      		mov r24,r24
+ 2973 13ee 90E0      		ldi r25,lo8(0)
+ 2974 13f0 FC01      		movw r30,r24
+ 2975 13f2 E050      		subi r30,lo8(-(OSRdyTbl))
+ 2976 13f4 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2977 13f6 9081      		ld r25,Z
+ 2978 13f8 E091 0000 		lds r30,OSTCBCur
+ 2979 13fc F091 0000 		lds r31,(OSTCBCur)+1
+ 2980 1400 8089      		ldd r24,Z+16
+ 2981 1402 892B      		or r24,r25
+ 2982 1404 F901      		movw r30,r18
+ 2983 1406 E050      		subi r30,lo8(-(OSRdyTbl))
+ 2984 1408 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 2985 140a 8083      		st Z,r24
+ 2986 140c 8981      		ldd r24,Y+1
+ 2987 140e 882F      		mov r24,r24
+ 2988 1410 90E0      		ldi r25,lo8(0)
+ 2989 1412 2091 0000 		lds r18,OSTCBCur
+ 2990 1416 3091 0000 		lds r19,(OSTCBCur)+1
+ 2991 141a 880F      		lsl r24
+ 2992 141c 991F      		rol r25
+ 2993 141e FC01      		movw r30,r24
+ 2994 1420 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 2995 1422 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 2996 1424 3183      		std Z+1,r19
+ 2997 1426 2083      		st Z,r18
+ 2998               	.L127:
+ 2999 1428 8A81      		ldd r24,Y+2
+ 3000 142a 882F      		mov r24,r24
+ 3001 142c 90E0      		ldi r25,lo8(0)
+ 3002 142e 880F      		lsl r24
+ 3003 1430 991F      		rol r25
+ 3004 1432 FC01      		movw r30,r24
+ 3005 1434 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3006 1436 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3007 1438 81E0      		ldi r24,lo8(1)
+ 3008 143a 90E0      		ldi r25,hi8(1)
+ 3009 143c 9183      		std Z+1,r25
+ 3010 143e 8083      		st Z,r24
+ 3011 1440 EB81      		ldd r30,Y+3
+ 3012 1442 FC81      		ldd r31,Y+4
+ 3013 1444 8181      		ldd r24,Z+1
+ 3014 1446 8823      		tst r24
+ 3015 1448 01F0      		breq .L129
+ 3016 144a 8B81      		ldd r24,Y+3
+ 3017 144c 9C81      		ldd r25,Y+4
+ 3018 144e 60E0      		ldi r22,lo8(0)
+ 3019 1450 70E0      		ldi r23,hi8(0)
+ 3020 1452 40E1      		ldi r20,lo8(16)
+ 3021 1454 0E94 0000 		call OS_EventTaskRdy
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 54
+
+
+ 3022 1458 8983      		std Y+1,r24
+ 3023 145a EB81      		ldd r30,Y+3
+ 3024 145c FC81      		ldd r31,Y+4
+ 3025 145e 8281      		ldd r24,Z+2
+ 3026 1460 9381      		ldd r25,Z+3
+ 3027 1462 8070      		andi r24,lo8(-256)
+ 3028 1464 EB81      		ldd r30,Y+3
+ 3029 1466 FC81      		ldd r31,Y+4
+ 3030 1468 9383      		std Z+3,r25
+ 3031 146a 8283      		std Z+2,r24
+ 3032 146c EB81      		ldd r30,Y+3
+ 3033 146e FC81      		ldd r31,Y+4
+ 3034 1470 2281      		ldd r18,Z+2
+ 3035 1472 3381      		ldd r19,Z+3
+ 3036 1474 8981      		ldd r24,Y+1
+ 3037 1476 882F      		mov r24,r24
+ 3038 1478 90E0      		ldi r25,lo8(0)
+ 3039 147a 822B      		or r24,r18
+ 3040 147c 932B      		or r25,r19
+ 3041 147e EB81      		ldd r30,Y+3
+ 3042 1480 FC81      		ldd r31,Y+4
+ 3043 1482 9383      		std Z+3,r25
+ 3044 1484 8283      		std Z+2,r24
+ 3045 1486 8981      		ldd r24,Y+1
+ 3046 1488 882F      		mov r24,r24
+ 3047 148a 90E0      		ldi r25,lo8(0)
+ 3048 148c 880F      		lsl r24
+ 3049 148e 991F      		rol r25
+ 3050 1490 FC01      		movw r30,r24
+ 3051 1492 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3052 1494 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3053 1496 8081      		ld r24,Z
+ 3054 1498 9181      		ldd r25,Z+1
+ 3055 149a EB81      		ldd r30,Y+3
+ 3056 149c FC81      		ldd r31,Y+4
+ 3057 149e 9583      		std Z+5,r25
+ 3058 14a0 8483      		std Z+4,r24
+ 3059               	/* #APP */
+ 3060               	 ;  449 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 3061 14a2 7894      		sei
+ 3062               	 ;  0 "" 2
+ 3063               	/* #NOAPP */
+ 3064 14a4 0E94 0000 		call OS_Sched
+ 3065 14a8 1D82      		std Y+5,__zero_reg__
+ 3066 14aa 00C0      		rjmp .L125
+ 3067               	.L129:
+ 3068 14ac EB81      		ldd r30,Y+3
+ 3069 14ae FC81      		ldd r31,Y+4
+ 3070 14b0 8281      		ldd r24,Z+2
+ 3071 14b2 9381      		ldd r25,Z+3
+ 3072 14b4 8F6F      		ori r24,lo8(255)
+ 3073 14b6 EB81      		ldd r30,Y+3
+ 3074 14b8 FC81      		ldd r31,Y+4
+ 3075 14ba 9383      		std Z+3,r25
+ 3076 14bc 8283      		std Z+2,r24
+ 3077 14be EB81      		ldd r30,Y+3
+ 3078 14c0 FC81      		ldd r31,Y+4
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 55
+
+
+ 3079 14c2 1582      		std Z+5,__zero_reg__
+ 3080 14c4 1482      		std Z+4,__zero_reg__
+ 3081               	/* #APP */
+ 3082               	 ;  455 "C:\Micrium\Micrium\software\ucos-ii\source\os_mutex.c" 1
+ 3083 14c6 7894      		sei
+ 3084               	 ;  0 "" 2
+ 3085               	/* #NOAPP */
+ 3086 14c8 1D82      		std Y+5,__zero_reg__
+ 3087               	.L125:
+ 3088 14ca 8D81      		ldd r24,Y+5
+ 3089               	/* epilogue start */
+ 3090 14cc 0F90      		pop __tmp_reg__
+ 3091 14ce 0F90      		pop __tmp_reg__
+ 3092 14d0 0F90      		pop __tmp_reg__
+ 3093 14d2 0F90      		pop __tmp_reg__
+ 3094 14d4 0F90      		pop __tmp_reg__
+ 3095 14d6 CF91      		pop r28
+ 3096 14d8 DF91      		pop r29
+ 3097 14da 0895      		ret
+ 3098               		.size	OSMutexPost, .-OSMutexPost
+ 3099               	.global	OSSemCreate
+ 3100               		.type	OSSemCreate, @function
+ 3101               	OSSemCreate:
+ 3102 14dc DF93      		push r29
+ 3103 14de CF93      		push r28
+ 3104 14e0 00D0      		rcall .
+ 3105 14e2 00D0      		rcall .
+ 3106 14e4 00D0      		rcall .
+ 3107 14e6 CDB7      		in r28,__SP_L__
+ 3108 14e8 DEB7      		in r29,__SP_H__
+ 3109               	/* prologue: function */
+ 3110               	/* frame size = 6 */
+ 3111 14ea 9C83      		std Y+4,r25
+ 3112 14ec 8B83      		std Y+3,r24
+ 3113 14ee 8091 0000 		lds r24,OSIntNesting
+ 3114 14f2 8823      		tst r24
+ 3115 14f4 01F0      		breq .L132
+ 3116 14f6 1E82      		std Y+6,__zero_reg__
+ 3117 14f8 1D82      		std Y+5,__zero_reg__
+ 3118 14fa 00C0      		rjmp .L133
+ 3119               	.L132:
+ 3120               	/* #APP */
+ 3121               	 ;  94 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3122 14fc F894      		cli
+ 3123               	 ;  0 "" 2
+ 3124               	/* #NOAPP */
+ 3125 14fe 8091 0000 		lds r24,OSEventFreeList
+ 3126 1502 9091 0000 		lds r25,(OSEventFreeList)+1
+ 3127 1506 9A83      		std Y+2,r25
+ 3128 1508 8983      		std Y+1,r24
+ 3129 150a 8091 0000 		lds r24,OSEventFreeList
+ 3130 150e 9091 0000 		lds r25,(OSEventFreeList)+1
+ 3131 1512 0097      		sbiw r24,0
+ 3132 1514 01F0      		breq .L134
+ 3133 1516 E091 0000 		lds r30,OSEventFreeList
+ 3134 151a F091 0000 		lds r31,(OSEventFreeList)+1
+ 3135 151e 8481      		ldd r24,Z+4
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 56
+
+
+ 3136 1520 9581      		ldd r25,Z+5
+ 3137 1522 9093 0000 		sts (OSEventFreeList)+1,r25
+ 3138 1526 8093 0000 		sts OSEventFreeList,r24
+ 3139               	.L134:
+ 3140               	/* #APP */
+ 3141               	 ;  99 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3142 152a 7894      		sei
+ 3143               	 ;  0 "" 2
+ 3144               	/* #NOAPP */
+ 3145 152c 8981      		ldd r24,Y+1
+ 3146 152e 9A81      		ldd r25,Y+2
+ 3147 1530 0097      		sbiw r24,0
+ 3148 1532 01F0      		breq .L135
+ 3149 1534 E981      		ldd r30,Y+1
+ 3150 1536 FA81      		ldd r31,Y+2
+ 3151 1538 83E0      		ldi r24,lo8(3)
+ 3152 153a 8083      		st Z,r24
+ 3153 153c E981      		ldd r30,Y+1
+ 3154 153e FA81      		ldd r31,Y+2
+ 3155 1540 8B81      		ldd r24,Y+3
+ 3156 1542 9C81      		ldd r25,Y+4
+ 3157 1544 9383      		std Z+3,r25
+ 3158 1546 8283      		std Z+2,r24
+ 3159 1548 E981      		ldd r30,Y+1
+ 3160 154a FA81      		ldd r31,Y+2
+ 3161 154c 1582      		std Z+5,__zero_reg__
+ 3162 154e 1482      		std Z+4,__zero_reg__
+ 3163 1550 8981      		ldd r24,Y+1
+ 3164 1552 9A81      		ldd r25,Y+2
+ 3165 1554 0E94 0000 		call OS_EventWaitListInit
+ 3166               	.L135:
+ 3167 1558 8981      		ldd r24,Y+1
+ 3168 155a 9A81      		ldd r25,Y+2
+ 3169 155c 9E83      		std Y+6,r25
+ 3170 155e 8D83      		std Y+5,r24
+ 3171               	.L133:
+ 3172 1560 8D81      		ldd r24,Y+5
+ 3173 1562 9E81      		ldd r25,Y+6
+ 3174               	/* epilogue start */
+ 3175 1564 2696      		adiw r28,6
+ 3176 1566 0FB6      		in __tmp_reg__,__SREG__
+ 3177 1568 F894      		cli
+ 3178 156a DEBF      		out __SP_H__,r29
+ 3179 156c 0FBE      		out __SREG__,__tmp_reg__
+ 3180 156e CDBF      		out __SP_L__,r28
+ 3181 1570 CF91      		pop r28
+ 3182 1572 DF91      		pop r29
+ 3183 1574 0895      		ret
+ 3184               		.size	OSSemCreate, .-OSSemCreate
+ 3185               	.global	OSSemPend
+ 3186               		.type	OSSemPend, @function
+ 3187               	OSSemPend:
+ 3188 1576 DF93      		push r29
+ 3189 1578 CF93      		push r28
+ 3190 157a 00D0      		rcall .
+ 3191 157c 00D0      		rcall .
+ 3192 157e 00D0      		rcall .
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 57
+
+
+ 3193 1580 CDB7      		in r28,__SP_L__
+ 3194 1582 DEB7      		in r29,__SP_H__
+ 3195               	/* prologue: function */
+ 3196               	/* frame size = 6 */
+ 3197 1584 9A83      		std Y+2,r25
+ 3198 1586 8983      		std Y+1,r24
+ 3199 1588 7C83      		std Y+4,r23
+ 3200 158a 6B83      		std Y+3,r22
+ 3201 158c 5E83      		std Y+6,r21
+ 3202 158e 4D83      		std Y+5,r20
+ 3203 1590 8091 0000 		lds r24,OSIntNesting
+ 3204 1594 8823      		tst r24
+ 3205 1596 01F0      		breq .L138
+ 3206 1598 ED81      		ldd r30,Y+5
+ 3207 159a FE81      		ldd r31,Y+6
+ 3208 159c 82E0      		ldi r24,lo8(2)
+ 3209 159e 8083      		st Z,r24
+ 3210 15a0 00C0      		rjmp .L142
+ 3211               	.L138:
+ 3212               	/* #APP */
+ 3213               	 ;  265 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3214 15a2 F894      		cli
+ 3215               	 ;  0 "" 2
+ 3216               	/* #NOAPP */
+ 3217 15a4 E981      		ldd r30,Y+1
+ 3218 15a6 FA81      		ldd r31,Y+2
+ 3219 15a8 8281      		ldd r24,Z+2
+ 3220 15aa 9381      		ldd r25,Z+3
+ 3221 15ac 0097      		sbiw r24,0
+ 3222 15ae 01F0      		breq .L140
+ 3223 15b0 E981      		ldd r30,Y+1
+ 3224 15b2 FA81      		ldd r31,Y+2
+ 3225 15b4 8281      		ldd r24,Z+2
+ 3226 15b6 9381      		ldd r25,Z+3
+ 3227 15b8 0197      		sbiw r24,1
+ 3228 15ba E981      		ldd r30,Y+1
+ 3229 15bc FA81      		ldd r31,Y+2
+ 3230 15be 9383      		std Z+3,r25
+ 3231 15c0 8283      		std Z+2,r24
+ 3232               	/* #APP */
+ 3233               	 ;  268 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3234 15c2 7894      		sei
+ 3235               	 ;  0 "" 2
+ 3236               	/* #NOAPP */
+ 3237 15c4 ED81      		ldd r30,Y+5
+ 3238 15c6 FE81      		ldd r31,Y+6
+ 3239 15c8 1082      		st Z,__zero_reg__
+ 3240 15ca 00C0      		rjmp .L142
+ 3241               	.L140:
+ 3242 15cc A091 0000 		lds r26,OSTCBCur
+ 3243 15d0 B091 0000 		lds r27,(OSTCBCur)+1
+ 3244 15d4 E091 0000 		lds r30,OSTCBCur
+ 3245 15d8 F091 0000 		lds r31,(OSTCBCur)+1
+ 3246 15dc 8485      		ldd r24,Z+12
+ 3247 15de 8160      		ori r24,lo8(1)
+ 3248 15e0 1C96      		adiw r26,12
+ 3249 15e2 8C93      		st X,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 58
+
+
+ 3250 15e4 E091 0000 		lds r30,OSTCBCur
+ 3251 15e8 F091 0000 		lds r31,(OSTCBCur)+1
+ 3252 15ec 8B81      		ldd r24,Y+3
+ 3253 15ee 9C81      		ldd r25,Y+4
+ 3254 15f0 9387      		std Z+11,r25
+ 3255 15f2 8287      		std Z+10,r24
+ 3256 15f4 8981      		ldd r24,Y+1
+ 3257 15f6 9A81      		ldd r25,Y+2
+ 3258 15f8 0E94 0000 		call OS_EventTaskWait
+ 3259               	/* #APP */
+ 3260               	 ;  276 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3261 15fc 7894      		sei
+ 3262               	 ;  0 "" 2
+ 3263               	/* #NOAPP */
+ 3264 15fe 0E94 0000 		call OS_Sched
+ 3265               	/* #APP */
+ 3266               	 ;  278 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3267 1602 F894      		cli
+ 3268               	 ;  0 "" 2
+ 3269               	/* #NOAPP */
+ 3270 1604 E091 0000 		lds r30,OSTCBCur
+ 3271 1608 F091 0000 		lds r31,(OSTCBCur)+1
+ 3272 160c 8485      		ldd r24,Z+12
+ 3273 160e 882F      		mov r24,r24
+ 3274 1610 90E0      		ldi r25,lo8(0)
+ 3275 1612 8170      		andi r24,lo8(1)
+ 3276 1614 9070      		andi r25,hi8(1)
+ 3277 1616 8823      		tst r24
+ 3278 1618 01F0      		breq .L141
+ 3279 161a 8981      		ldd r24,Y+1
+ 3280 161c 9A81      		ldd r25,Y+2
+ 3281 161e 0E94 0000 		call OS_EventTO
+ 3282               	/* #APP */
+ 3283               	 ;  281 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3284 1622 7894      		sei
+ 3285               	 ;  0 "" 2
+ 3286               	/* #NOAPP */
+ 3287 1624 ED81      		ldd r30,Y+5
+ 3288 1626 FE81      		ldd r31,Y+6
+ 3289 1628 8AE0      		ldi r24,lo8(10)
+ 3290 162a 8083      		st Z,r24
+ 3291 162c 00C0      		rjmp .L142
+ 3292               	.L141:
+ 3293 162e E091 0000 		lds r30,OSTCBCur
+ 3294 1632 F091 0000 		lds r31,(OSTCBCur)+1
+ 3295 1636 1782      		std Z+7,__zero_reg__
+ 3296 1638 1682      		std Z+6,__zero_reg__
+ 3297               	/* #APP */
+ 3298               	 ;  286 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3299 163a 7894      		sei
+ 3300               	 ;  0 "" 2
+ 3301               	/* #NOAPP */
+ 3302 163c ED81      		ldd r30,Y+5
+ 3303 163e FE81      		ldd r31,Y+6
+ 3304 1640 1082      		st Z,__zero_reg__
+ 3305               	.L142:
+ 3306               	/* epilogue start */
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 59
+
+
+ 3307 1642 2696      		adiw r28,6
+ 3308 1644 0FB6      		in __tmp_reg__,__SREG__
+ 3309 1646 F894      		cli
+ 3310 1648 DEBF      		out __SP_H__,r29
+ 3311 164a 0FBE      		out __SREG__,__tmp_reg__
+ 3312 164c CDBF      		out __SP_L__,r28
+ 3313 164e CF91      		pop r28
+ 3314 1650 DF91      		pop r29
+ 3315 1652 0895      		ret
+ 3316               		.size	OSSemPend, .-OSSemPend
+ 3317               	.global	OSSemPost
+ 3318               		.type	OSSemPost, @function
+ 3319               	OSSemPost:
+ 3320 1654 DF93      		push r29
+ 3321 1656 CF93      		push r28
+ 3322 1658 00D0      		rcall .
+ 3323 165a 0F92      		push __tmp_reg__
+ 3324 165c CDB7      		in r28,__SP_L__
+ 3325 165e DEB7      		in r29,__SP_H__
+ 3326               	/* prologue: function */
+ 3327               	/* frame size = 3 */
+ 3328 1660 9A83      		std Y+2,r25
+ 3329 1662 8983      		std Y+1,r24
+ 3330               	/* #APP */
+ 3331               	 ;  323 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3332 1664 F894      		cli
+ 3333               	 ;  0 "" 2
+ 3334               	/* #NOAPP */
+ 3335 1666 E981      		ldd r30,Y+1
+ 3336 1668 FA81      		ldd r31,Y+2
+ 3337 166a 8181      		ldd r24,Z+1
+ 3338 166c 8823      		tst r24
+ 3339 166e 01F0      		breq .L144
+ 3340 1670 8981      		ldd r24,Y+1
+ 3341 1672 9A81      		ldd r25,Y+2
+ 3342 1674 60E0      		ldi r22,lo8(0)
+ 3343 1676 70E0      		ldi r23,hi8(0)
+ 3344 1678 41E0      		ldi r20,lo8(1)
+ 3345 167a 0E94 0000 		call OS_EventTaskRdy
+ 3346               	/* #APP */
+ 3347               	 ;  326 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3348 167e 7894      		sei
+ 3349               	 ;  0 "" 2
+ 3350               	/* #NOAPP */
+ 3351 1680 0E94 0000 		call OS_Sched
+ 3352 1684 1B82      		std Y+3,__zero_reg__
+ 3353 1686 00C0      		rjmp .L145
+ 3354               	.L144:
+ 3355 1688 E981      		ldd r30,Y+1
+ 3356 168a FA81      		ldd r31,Y+2
+ 3357 168c 8281      		ldd r24,Z+2
+ 3358 168e 9381      		ldd r25,Z+3
+ 3359 1690 2FEF      		ldi r18,hi8(-1)
+ 3360 1692 8F3F      		cpi r24,lo8(-1)
+ 3361 1694 9207      		cpc r25,r18
+ 3362 1696 01F0      		breq .L146
+ 3363 1698 E981      		ldd r30,Y+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 60
+
+
+ 3364 169a FA81      		ldd r31,Y+2
+ 3365 169c 8281      		ldd r24,Z+2
+ 3366 169e 9381      		ldd r25,Z+3
+ 3367 16a0 0196      		adiw r24,1
+ 3368 16a2 E981      		ldd r30,Y+1
+ 3369 16a4 FA81      		ldd r31,Y+2
+ 3370 16a6 9383      		std Z+3,r25
+ 3371 16a8 8283      		std Z+2,r24
+ 3372               	/* #APP */
+ 3373               	 ;  332 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3374 16aa 7894      		sei
+ 3375               	 ;  0 "" 2
+ 3376               	/* #NOAPP */
+ 3377 16ac 1B82      		std Y+3,__zero_reg__
+ 3378 16ae 00C0      		rjmp .L145
+ 3379               	.L146:
+ 3380               	/* #APP */
+ 3381               	 ;  335 "C:\Micrium\Micrium\software\ucos-ii\source\os_sem.c" 1
+ 3382 16b0 7894      		sei
+ 3383               	 ;  0 "" 2
+ 3384               	/* #NOAPP */
+ 3385 16b2 82E3      		ldi r24,lo8(50)
+ 3386 16b4 8B83      		std Y+3,r24
+ 3387               	.L145:
+ 3388 16b6 8B81      		ldd r24,Y+3
+ 3389               	/* epilogue start */
+ 3390 16b8 0F90      		pop __tmp_reg__
+ 3391 16ba 0F90      		pop __tmp_reg__
+ 3392 16bc 0F90      		pop __tmp_reg__
+ 3393 16be CF91      		pop r28
+ 3394 16c0 DF91      		pop r29
+ 3395 16c2 0895      		ret
+ 3396               		.size	OSSemPost, .-OSSemPost
+ 3397               	.global	OSTaskCreate
+ 3398               		.type	OSTaskCreate, @function
+ 3399               	OSTaskCreate:
+ 3400 16c4 AF92      		push r10
+ 3401 16c6 BF92      		push r11
+ 3402 16c8 CF92      		push r12
+ 3403 16ca DF92      		push r13
+ 3404 16cc EF92      		push r14
+ 3405 16ce FF92      		push r15
+ 3406 16d0 0F93      		push r16
+ 3407 16d2 1F93      		push r17
+ 3408 16d4 DF93      		push r29
+ 3409 16d6 CF93      		push r28
+ 3410 16d8 CDB7      		in r28,__SP_L__
+ 3411 16da DEB7      		in r29,__SP_H__
+ 3412 16dc 2B97      		sbiw r28,11
+ 3413 16de 0FB6      		in __tmp_reg__,__SREG__
+ 3414 16e0 F894      		cli
+ 3415 16e2 DEBF      		out __SP_H__,r29
+ 3416 16e4 0FBE      		out __SREG__,__tmp_reg__
+ 3417 16e6 CDBF      		out __SP_L__,r28
+ 3418               	/* prologue: function */
+ 3419               	/* frame size = 11 */
+ 3420 16e8 9D83      		std Y+5,r25
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 61
+
+
+ 3421 16ea 8C83      		std Y+4,r24
+ 3422 16ec 7F83      		std Y+7,r23
+ 3423 16ee 6E83      		std Y+6,r22
+ 3424 16f0 5987      		std Y+9,r21
+ 3425 16f2 4887      		std Y+8,r20
+ 3426 16f4 2A87      		std Y+10,r18
+ 3427               	/* #APP */
+ 3428               	 ;  172 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3429 16f6 F894      		cli
+ 3430               	 ;  0 "" 2
+ 3431               	/* #NOAPP */
+ 3432 16f8 8A85      		ldd r24,Y+10
+ 3433 16fa 882F      		mov r24,r24
+ 3434 16fc 90E0      		ldi r25,lo8(0)
+ 3435 16fe 880F      		lsl r24
+ 3436 1700 991F      		rol r25
+ 3437 1702 FC01      		movw r30,r24
+ 3438 1704 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3439 1706 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3440 1708 8081      		ld r24,Z
+ 3441 170a 9181      		ldd r25,Z+1
+ 3442 170c 0097      		sbiw r24,0
+ 3443 170e 01F0      		breq .+2
+ 3444 1710 00C0      		rjmp .L149
+ 3445 1712 8A85      		ldd r24,Y+10
+ 3446 1714 882F      		mov r24,r24
+ 3447 1716 90E0      		ldi r25,lo8(0)
+ 3448 1718 880F      		lsl r24
+ 3449 171a 991F      		rol r25
+ 3450 171c FC01      		movw r30,r24
+ 3451 171e E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3452 1720 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3453 1722 81E0      		ldi r24,lo8(1)
+ 3454 1724 90E0      		ldi r25,hi8(1)
+ 3455 1726 9183      		std Z+1,r25
+ 3456 1728 8083      		st Z,r24
+ 3457               	/* #APP */
+ 3458               	 ;  176 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3459 172a 7894      		sei
+ 3460               	 ;  0 "" 2
+ 3461               	/* #NOAPP */
+ 3462 172c 8C81      		ldd r24,Y+4
+ 3463 172e 9D81      		ldd r25,Y+5
+ 3464 1730 2E81      		ldd r18,Y+6
+ 3465 1732 3F81      		ldd r19,Y+7
+ 3466 1734 4885      		ldd r20,Y+8
+ 3467 1736 5985      		ldd r21,Y+9
+ 3468 1738 B901      		movw r22,r18
+ 3469 173a 20E0      		ldi r18,lo8(0)
+ 3470 173c 30E0      		ldi r19,hi8(0)
+ 3471 173e 0E94 0000 		call OSTaskStkInit
+ 3472 1742 9B83      		std Y+3,r25
+ 3473 1744 8A83      		std Y+2,r24
+ 3474 1746 2A81      		ldd r18,Y+2
+ 3475 1748 3B81      		ldd r19,Y+3
+ 3476 174a 8A85      		ldd r24,Y+10
+ 3477 174c B901      		movw r22,r18
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 62
+
+
+ 3478 174e 40E0      		ldi r20,lo8(0)
+ 3479 1750 50E0      		ldi r21,hi8(0)
+ 3480 1752 20E0      		ldi r18,lo8(0)
+ 3481 1754 30E0      		ldi r19,hi8(0)
+ 3482 1756 EE24      		clr r14
+ 3483 1758 FF24      		clr r15
+ 3484 175a 8701      		movw r16,r14
+ 3485 175c CC24      		clr r12
+ 3486 175e DD24      		clr r13
+ 3487 1760 AA24      		clr r10
+ 3488 1762 BB24      		clr r11
+ 3489 1764 0E94 0000 		call OS_TCBInit
+ 3490 1768 8983      		std Y+1,r24
+ 3491 176a 8981      		ldd r24,Y+1
+ 3492 176c 8823      		tst r24
+ 3493 176e 01F4      		brne .L150
+ 3494               	/* #APP */
+ 3495               	 ;  180 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3496 1770 F894      		cli
+ 3497               	 ;  0 "" 2
+ 3498               	/* #NOAPP */
+ 3499 1772 8091 0000 		lds r24,OSTaskCtr
+ 3500 1776 8F5F      		subi r24,lo8(-(1))
+ 3501 1778 8093 0000 		sts OSTaskCtr,r24
+ 3502               	/* #APP */
+ 3503               	 ;  182 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3504 177c 7894      		sei
+ 3505               	 ;  0 "" 2
+ 3506               	/* #NOAPP */
+ 3507 177e 8091 0000 		lds r24,OSRunning
+ 3508 1782 8130      		cpi r24,lo8(1)
+ 3509 1784 01F4      		brne .L152
+ 3510 1786 0E94 0000 		call OS_Sched
+ 3511 178a 00C0      		rjmp .L152
+ 3512               	.L150:
+ 3513               	/* #APP */
+ 3514               	 ;  187 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3515 178c F894      		cli
+ 3516               	 ;  0 "" 2
+ 3517               	/* #NOAPP */
+ 3518 178e 8A85      		ldd r24,Y+10
+ 3519 1790 882F      		mov r24,r24
+ 3520 1792 90E0      		ldi r25,lo8(0)
+ 3521 1794 880F      		lsl r24
+ 3522 1796 991F      		rol r25
+ 3523 1798 FC01      		movw r30,r24
+ 3524 179a E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3525 179c F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3526 179e 1182      		std Z+1,__zero_reg__
+ 3527 17a0 1082      		st Z,__zero_reg__
+ 3528               	/* #APP */
+ 3529               	 ;  189 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3530 17a2 7894      		sei
+ 3531               	 ;  0 "" 2
+ 3532               	/* #NOAPP */
+ 3533               	.L152:
+ 3534 17a4 8981      		ldd r24,Y+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 63
+
+
+ 3535 17a6 8B87      		std Y+11,r24
+ 3536 17a8 00C0      		rjmp .L153
+ 3537               	.L149:
+ 3538               	/* #APP */
+ 3539               	 ;  193 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3540 17aa 7894      		sei
+ 3541               	 ;  0 "" 2
+ 3542               	/* #NOAPP */
+ 3543 17ac 88E2      		ldi r24,lo8(40)
+ 3544 17ae 8B87      		std Y+11,r24
+ 3545               	.L153:
+ 3546 17b0 8B85      		ldd r24,Y+11
+ 3547               	/* epilogue start */
+ 3548 17b2 2B96      		adiw r28,11
+ 3549 17b4 0FB6      		in __tmp_reg__,__SREG__
+ 3550 17b6 F894      		cli
+ 3551 17b8 DEBF      		out __SP_H__,r29
+ 3552 17ba 0FBE      		out __SREG__,__tmp_reg__
+ 3553 17bc CDBF      		out __SP_L__,r28
+ 3554 17be CF91      		pop r28
+ 3555 17c0 DF91      		pop r29
+ 3556 17c2 1F91      		pop r17
+ 3557 17c4 0F91      		pop r16
+ 3558 17c6 FF90      		pop r15
+ 3559 17c8 EF90      		pop r14
+ 3560 17ca DF90      		pop r13
+ 3561 17cc CF90      		pop r12
+ 3562 17ce BF90      		pop r11
+ 3563 17d0 AF90      		pop r10
+ 3564 17d2 0895      		ret
+ 3565               		.size	OSTaskCreate, .-OSTaskCreate
+ 3566               	.global	OSTaskDel
+ 3567               		.type	OSTaskDel, @function
+ 3568               	OSTaskDel:
+ 3569 17d4 DF93      		push r29
+ 3570 17d6 CF93      		push r28
+ 3571 17d8 CDB7      		in r28,__SP_L__
+ 3572 17da DEB7      		in r29,__SP_H__
+ 3573 17dc 2797      		sbiw r28,7
+ 3574 17de 0FB6      		in __tmp_reg__,__SREG__
+ 3575 17e0 F894      		cli
+ 3576 17e2 DEBF      		out __SP_H__,r29
+ 3577 17e4 0FBE      		out __SREG__,__tmp_reg__
+ 3578 17e6 CDBF      		out __SP_L__,r28
+ 3579               	/* prologue: function */
+ 3580               	/* frame size = 7 */
+ 3581 17e8 8E83      		std Y+6,r24
+ 3582 17ea 8091 0000 		lds r24,OSIntNesting
+ 3583 17ee 8823      		tst r24
+ 3584 17f0 01F0      		breq .L156
+ 3585 17f2 8FE3      		ldi r24,lo8(63)
+ 3586 17f4 8F83      		std Y+7,r24
+ 3587 17f6 00C0      		rjmp .L157
+ 3588               	.L156:
+ 3589               	/* #APP */
+ 3590               	 ;  385 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3591 17f8 F894      		cli
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 64
+
+
+ 3592               	 ;  0 "" 2
+ 3593               	/* #NOAPP */
+ 3594 17fa 8E81      		ldd r24,Y+6
+ 3595 17fc 8F3F      		cpi r24,lo8(-1)
+ 3596 17fe 01F4      		brne .L158
+ 3597 1800 E091 0000 		lds r30,OSTCBCur
+ 3598 1804 F091 0000 		lds r31,(OSTCBCur)+1
+ 3599 1808 8585      		ldd r24,Z+13
+ 3600 180a 8E83      		std Y+6,r24
+ 3601               	.L158:
+ 3602 180c 8E81      		ldd r24,Y+6
+ 3603 180e 882F      		mov r24,r24
+ 3604 1810 90E0      		ldi r25,lo8(0)
+ 3605 1812 880F      		lsl r24
+ 3606 1814 991F      		rol r25
+ 3607 1816 FC01      		movw r30,r24
+ 3608 1818 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3609 181a F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3610 181c 8081      		ld r24,Z
+ 3611 181e 9181      		ldd r25,Z+1
+ 3612 1820 9B83      		std Y+3,r25
+ 3613 1822 8A83      		std Y+2,r24
+ 3614 1824 8A81      		ldd r24,Y+2
+ 3615 1826 9B81      		ldd r25,Y+3
+ 3616 1828 0097      		sbiw r24,0
+ 3617 182a 01F4      		brne .+2
+ 3618 182c 00C0      		rjmp .L159
+ 3619 182e EA81      		ldd r30,Y+2
+ 3620 1830 FB81      		ldd r31,Y+3
+ 3621 1832 8785      		ldd r24,Z+15
+ 3622 1834 282F      		mov r18,r24
+ 3623 1836 30E0      		ldi r19,lo8(0)
+ 3624 1838 EA81      		ldd r30,Y+2
+ 3625 183a FB81      		ldd r31,Y+3
+ 3626 183c 8785      		ldd r24,Z+15
+ 3627 183e 882F      		mov r24,r24
+ 3628 1840 90E0      		ldi r25,lo8(0)
+ 3629 1842 FC01      		movw r30,r24
+ 3630 1844 E050      		subi r30,lo8(-(OSRdyTbl))
+ 3631 1846 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 3632 1848 8081      		ld r24,Z
+ 3633 184a 982F      		mov r25,r24
+ 3634 184c EA81      		ldd r30,Y+2
+ 3635 184e FB81      		ldd r31,Y+3
+ 3636 1850 8089      		ldd r24,Z+16
+ 3637 1852 8095      		com r24
+ 3638 1854 8923      		and r24,r25
+ 3639 1856 F901      		movw r30,r18
+ 3640 1858 E050      		subi r30,lo8(-(OSRdyTbl))
+ 3641 185a F040      		sbci r31,hi8(-(OSRdyTbl))
+ 3642 185c 8083      		st Z,r24
+ 3643 185e F901      		movw r30,r18
+ 3644 1860 E050      		subi r30,lo8(-(OSRdyTbl))
+ 3645 1862 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 3646 1864 8081      		ld r24,Z
+ 3647 1866 8823      		tst r24
+ 3648 1868 01F4      		brne .L160
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 65
+
+
+ 3649 186a EA81      		ldd r30,Y+2
+ 3650 186c FB81      		ldd r31,Y+3
+ 3651 186e 8189      		ldd r24,Z+17
+ 3652 1870 982F      		mov r25,r24
+ 3653 1872 9095      		com r25
+ 3654 1874 8091 0000 		lds r24,OSRdyGrp
+ 3655 1878 8923      		and r24,r25
+ 3656 187a 8093 0000 		sts OSRdyGrp,r24
+ 3657               	.L160:
+ 3658 187e EA81      		ldd r30,Y+2
+ 3659 1880 FB81      		ldd r31,Y+3
+ 3660 1882 8681      		ldd r24,Z+6
+ 3661 1884 9781      		ldd r25,Z+7
+ 3662 1886 9D83      		std Y+5,r25
+ 3663 1888 8C83      		std Y+4,r24
+ 3664 188a 8C81      		ldd r24,Y+4
+ 3665 188c 9D81      		ldd r25,Y+5
+ 3666 188e 0097      		sbiw r24,0
+ 3667 1890 01F0      		breq .L161
+ 3668 1892 EA81      		ldd r30,Y+2
+ 3669 1894 FB81      		ldd r31,Y+3
+ 3670 1896 8785      		ldd r24,Z+15
+ 3671 1898 482F      		mov r20,r24
+ 3672 189a 50E0      		ldi r21,lo8(0)
+ 3673 189c EA81      		ldd r30,Y+2
+ 3674 189e FB81      		ldd r31,Y+3
+ 3675 18a0 8785      		ldd r24,Z+15
+ 3676 18a2 282F      		mov r18,r24
+ 3677 18a4 30E0      		ldi r19,lo8(0)
+ 3678 18a6 8C81      		ldd r24,Y+4
+ 3679 18a8 9D81      		ldd r25,Y+5
+ 3680 18aa 820F      		add r24,r18
+ 3681 18ac 931F      		adc r25,r19
+ 3682 18ae FC01      		movw r30,r24
+ 3683 18b0 3696      		adiw r30,6
+ 3684 18b2 8081      		ld r24,Z
+ 3685 18b4 982F      		mov r25,r24
+ 3686 18b6 EA81      		ldd r30,Y+2
+ 3687 18b8 FB81      		ldd r31,Y+3
+ 3688 18ba 8089      		ldd r24,Z+16
+ 3689 18bc 8095      		com r24
+ 3690 18be 8923      		and r24,r25
+ 3691 18c0 282F      		mov r18,r24
+ 3692 18c2 8C81      		ldd r24,Y+4
+ 3693 18c4 9D81      		ldd r25,Y+5
+ 3694 18c6 840F      		add r24,r20
+ 3695 18c8 951F      		adc r25,r21
+ 3696 18ca FC01      		movw r30,r24
+ 3697 18cc 3696      		adiw r30,6
+ 3698 18ce 2083      		st Z,r18
+ 3699 18d0 8C81      		ldd r24,Y+4
+ 3700 18d2 9D81      		ldd r25,Y+5
+ 3701 18d4 840F      		add r24,r20
+ 3702 18d6 951F      		adc r25,r21
+ 3703 18d8 FC01      		movw r30,r24
+ 3704 18da 3696      		adiw r30,6
+ 3705 18dc 8081      		ld r24,Z
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 66
+
+
+ 3706 18de 8823      		tst r24
+ 3707 18e0 01F4      		brne .L161
+ 3708 18e2 EC81      		ldd r30,Y+4
+ 3709 18e4 FD81      		ldd r31,Y+5
+ 3710 18e6 8181      		ldd r24,Z+1
+ 3711 18e8 982F      		mov r25,r24
+ 3712 18ea EA81      		ldd r30,Y+2
+ 3713 18ec FB81      		ldd r31,Y+3
+ 3714 18ee 8189      		ldd r24,Z+17
+ 3715 18f0 8095      		com r24
+ 3716 18f2 8923      		and r24,r25
+ 3717 18f4 EC81      		ldd r30,Y+4
+ 3718 18f6 FD81      		ldd r31,Y+5
+ 3719 18f8 8183      		std Z+1,r24
+ 3720               	.L161:
+ 3721 18fa EA81      		ldd r30,Y+2
+ 3722 18fc FB81      		ldd r31,Y+3
+ 3723 18fe 1386      		std Z+11,__zero_reg__
+ 3724 1900 1286      		std Z+10,__zero_reg__
+ 3725 1902 EA81      		ldd r30,Y+2
+ 3726 1904 FB81      		ldd r31,Y+3
+ 3727 1906 1486      		std Z+12,__zero_reg__
+ 3728 1908 8091 0000 		lds r24,OSLockNesting
+ 3729 190c 8F3F      		cpi r24,lo8(-1)
+ 3730 190e 01F0      		breq .L162
+ 3731 1910 8091 0000 		lds r24,OSLockNesting
+ 3732 1914 8F5F      		subi r24,lo8(-(1))
+ 3733 1916 8093 0000 		sts OSLockNesting,r24
+ 3734               	.L162:
+ 3735               	/* #APP */
+ 3736               	 ;  413 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3737 191a 7894      		sei
+ 3738               	 ;  0 "" 2
+ 3739               	/* #NOAPP */
+ 3740 191c 0E94 0000 		call OS_Dummy
+ 3741               	/* #APP */
+ 3742               	 ;  415 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3743 1920 F894      		cli
+ 3744               	 ;  0 "" 2
+ 3745               	/* #NOAPP */
+ 3746 1922 8091 0000 		lds r24,OSLockNesting
+ 3747 1926 8823      		tst r24
+ 3748 1928 01F0      		breq .L163
+ 3749 192a 8091 0000 		lds r24,OSLockNesting
+ 3750 192e 8150      		subi r24,lo8(-(-1))
+ 3751 1930 8093 0000 		sts OSLockNesting,r24
+ 3752               	.L163:
+ 3753 1934 8A81      		ldd r24,Y+2
+ 3754 1936 9B81      		ldd r25,Y+3
+ 3755 1938 0E94 0000 		call OSTaskDelHook
+ 3756 193c 8091 0000 		lds r24,OSTaskCtr
+ 3757 1940 8150      		subi r24,lo8(-(-1))
+ 3758 1942 8093 0000 		sts OSTaskCtr,r24
+ 3759 1946 8E81      		ldd r24,Y+6
+ 3760 1948 882F      		mov r24,r24
+ 3761 194a 90E0      		ldi r25,lo8(0)
+ 3762 194c 880F      		lsl r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 67
+
+
+ 3763 194e 991F      		rol r25
+ 3764 1950 FC01      		movw r30,r24
+ 3765 1952 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3766 1954 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3767 1956 1182      		std Z+1,__zero_reg__
+ 3768 1958 1082      		st Z,__zero_reg__
+ 3769 195a EA81      		ldd r30,Y+2
+ 3770 195c FB81      		ldd r31,Y+3
+ 3771 195e 8481      		ldd r24,Z+4
+ 3772 1960 9581      		ldd r25,Z+5
+ 3773 1962 0097      		sbiw r24,0
+ 3774 1964 01F4      		brne .L164
+ 3775 1966 EA81      		ldd r30,Y+2
+ 3776 1968 FB81      		ldd r31,Y+3
+ 3777 196a 0280      		ldd __tmp_reg__,Z+2
+ 3778 196c F381      		ldd r31,Z+3
+ 3779 196e E02D      		mov r30,__tmp_reg__
+ 3780 1970 1582      		std Z+5,__zero_reg__
+ 3781 1972 1482      		std Z+4,__zero_reg__
+ 3782 1974 EA81      		ldd r30,Y+2
+ 3783 1976 FB81      		ldd r31,Y+3
+ 3784 1978 8281      		ldd r24,Z+2
+ 3785 197a 9381      		ldd r25,Z+3
+ 3786 197c 9093 0000 		sts (OSTCBList)+1,r25
+ 3787 1980 8093 0000 		sts OSTCBList,r24
+ 3788 1984 00C0      		rjmp .L165
+ 3789               	.L164:
+ 3790 1986 EA81      		ldd r30,Y+2
+ 3791 1988 FB81      		ldd r31,Y+3
+ 3792 198a A481      		ldd r26,Z+4
+ 3793 198c B581      		ldd r27,Z+5
+ 3794 198e EA81      		ldd r30,Y+2
+ 3795 1990 FB81      		ldd r31,Y+3
+ 3796 1992 8281      		ldd r24,Z+2
+ 3797 1994 9381      		ldd r25,Z+3
+ 3798 1996 1396      		adiw r26,2+1
+ 3799 1998 9C93      		st X,r25
+ 3800 199a 8E93      		st -X,r24
+ 3801 199c 1297      		sbiw r26,2
+ 3802 199e EA81      		ldd r30,Y+2
+ 3803 19a0 FB81      		ldd r31,Y+3
+ 3804 19a2 A281      		ldd r26,Z+2
+ 3805 19a4 B381      		ldd r27,Z+3
+ 3806 19a6 EA81      		ldd r30,Y+2
+ 3807 19a8 FB81      		ldd r31,Y+3
+ 3808 19aa 8481      		ldd r24,Z+4
+ 3809 19ac 9581      		ldd r25,Z+5
+ 3810 19ae 1596      		adiw r26,4+1
+ 3811 19b0 9C93      		st X,r25
+ 3812 19b2 8E93      		st -X,r24
+ 3813 19b4 1497      		sbiw r26,4
+ 3814               	.L165:
+ 3815 19b6 8091 0000 		lds r24,OSTCBFreeList
+ 3816 19ba 9091 0000 		lds r25,(OSTCBFreeList)+1
+ 3817 19be EA81      		ldd r30,Y+2
+ 3818 19c0 FB81      		ldd r31,Y+3
+ 3819 19c2 9383      		std Z+3,r25
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 68
+
+
+ 3820 19c4 8283      		std Z+2,r24
+ 3821 19c6 8A81      		ldd r24,Y+2
+ 3822 19c8 9B81      		ldd r25,Y+3
+ 3823 19ca 9093 0000 		sts (OSTCBFreeList)+1,r25
+ 3824 19ce 8093 0000 		sts OSTCBFreeList,r24
+ 3825               	/* #APP */
+ 3826               	 ;  431 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3827 19d2 7894      		sei
+ 3828               	 ;  0 "" 2
+ 3829               	/* #NOAPP */
+ 3830 19d4 0E94 0000 		call OS_Sched
+ 3831 19d8 1F82      		std Y+7,__zero_reg__
+ 3832 19da 00C0      		rjmp .L157
+ 3833               	.L159:
+ 3834               	/* #APP */
+ 3835               	 ;  435 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3836 19dc 7894      		sei
+ 3837               	 ;  0 "" 2
+ 3838               	/* #NOAPP */
+ 3839 19de 8CE3      		ldi r24,lo8(60)
+ 3840 19e0 8F83      		std Y+7,r24
+ 3841               	.L157:
+ 3842 19e2 8F81      		ldd r24,Y+7
+ 3843               	/* epilogue start */
+ 3844 19e4 2796      		adiw r28,7
+ 3845 19e6 0FB6      		in __tmp_reg__,__SREG__
+ 3846 19e8 F894      		cli
+ 3847 19ea DEBF      		out __SP_H__,r29
+ 3848 19ec 0FBE      		out __SREG__,__tmp_reg__
+ 3849 19ee CDBF      		out __SP_L__,r28
+ 3850 19f0 CF91      		pop r28
+ 3851 19f2 DF91      		pop r29
+ 3852 19f4 0895      		ret
+ 3853               		.size	OSTaskDel, .-OSTaskDel
+ 3854               	.global	OSTaskDelReq
+ 3855               		.type	OSTaskDelReq, @function
+ 3856               	OSTaskDelReq:
+ 3857 19f6 DF93      		push r29
+ 3858 19f8 CF93      		push r28
+ 3859 19fa 00D0      		rcall .
+ 3860 19fc 00D0      		rcall .
+ 3861 19fe 00D0      		rcall .
+ 3862 1a00 CDB7      		in r28,__SP_L__
+ 3863 1a02 DEB7      		in r29,__SP_H__
+ 3864               	/* prologue: function */
+ 3865               	/* frame size = 6 */
+ 3866 1a04 8D83      		std Y+5,r24
+ 3867 1a06 8D81      		ldd r24,Y+5
+ 3868 1a08 8F3F      		cpi r24,lo8(-1)
+ 3869 1a0a 01F4      		brne .L168
+ 3870               	/* #APP */
+ 3871               	 ;  505 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3872 1a0c F894      		cli
+ 3873               	 ;  0 "" 2
+ 3874               	/* #NOAPP */
+ 3875 1a0e E091 0000 		lds r30,OSTCBCur
+ 3876 1a12 F091 0000 		lds r31,(OSTCBCur)+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 69
+
+
+ 3877 1a16 8289      		ldd r24,Z+18
+ 3878 1a18 8C83      		std Y+4,r24
+ 3879               	/* #APP */
+ 3880               	 ;  507 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3881 1a1a 7894      		sei
+ 3882               	 ;  0 "" 2
+ 3883               	/* #NOAPP */
+ 3884 1a1c 8C81      		ldd r24,Y+4
+ 3885 1a1e 8E83      		std Y+6,r24
+ 3886 1a20 00C0      		rjmp .L169
+ 3887               	.L168:
+ 3888               	/* #APP */
+ 3889               	 ;  510 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3890 1a22 F894      		cli
+ 3891               	 ;  0 "" 2
+ 3892               	/* #NOAPP */
+ 3893 1a24 8D81      		ldd r24,Y+5
+ 3894 1a26 882F      		mov r24,r24
+ 3895 1a28 90E0      		ldi r25,lo8(0)
+ 3896 1a2a 880F      		lsl r24
+ 3897 1a2c 991F      		rol r25
+ 3898 1a2e FC01      		movw r30,r24
+ 3899 1a30 E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3900 1a32 F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3901 1a34 8081      		ld r24,Z
+ 3902 1a36 9181      		ldd r25,Z+1
+ 3903 1a38 9A83      		std Y+2,r25
+ 3904 1a3a 8983      		std Y+1,r24
+ 3905 1a3c 8981      		ldd r24,Y+1
+ 3906 1a3e 9A81      		ldd r25,Y+2
+ 3907 1a40 0097      		sbiw r24,0
+ 3908 1a42 01F0      		breq .L170
+ 3909 1a44 E981      		ldd r30,Y+1
+ 3910 1a46 FA81      		ldd r31,Y+2
+ 3911 1a48 8EE3      		ldi r24,lo8(62)
+ 3912 1a4a 828B      		std Z+18,r24
+ 3913 1a4c 1B82      		std Y+3,__zero_reg__
+ 3914 1a4e 00C0      		rjmp .L171
+ 3915               	.L170:
+ 3916 1a50 8BE0      		ldi r24,lo8(11)
+ 3917 1a52 8B83      		std Y+3,r24
+ 3918               	.L171:
+ 3919               	/* #APP */
+ 3920               	 ;  518 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3921 1a54 7894      		sei
+ 3922               	 ;  0 "" 2
+ 3923               	/* #NOAPP */
+ 3924 1a56 8B81      		ldd r24,Y+3
+ 3925 1a58 8E83      		std Y+6,r24
+ 3926               	.L169:
+ 3927 1a5a 8E81      		ldd r24,Y+6
+ 3928               	/* epilogue start */
+ 3929 1a5c 2696      		adiw r28,6
+ 3930 1a5e 0FB6      		in __tmp_reg__,__SREG__
+ 3931 1a60 F894      		cli
+ 3932 1a62 DEBF      		out __SP_H__,r29
+ 3933 1a64 0FBE      		out __SREG__,__tmp_reg__
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 70
+
+
+ 3934 1a66 CDBF      		out __SP_L__,r28
+ 3935 1a68 CF91      		pop r28
+ 3936 1a6a DF91      		pop r29
+ 3937 1a6c 0895      		ret
+ 3938               		.size	OSTaskDelReq, .-OSTaskDelReq
+ 3939               	.global	OSTaskResume
+ 3940               		.type	OSTaskResume, @function
+ 3941               	OSTaskResume:
+ 3942 1a6e DF93      		push r29
+ 3943 1a70 CF93      		push r28
+ 3944 1a72 00D0      		rcall .
+ 3945 1a74 00D0      		rcall .
+ 3946 1a76 CDB7      		in r28,__SP_L__
+ 3947 1a78 DEB7      		in r29,__SP_H__
+ 3948               	/* prologue: function */
+ 3949               	/* frame size = 4 */
+ 3950 1a7a 8B83      		std Y+3,r24
+ 3951               	/* #APP */
+ 3952               	 ;  554 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3953 1a7c F894      		cli
+ 3954               	 ;  0 "" 2
+ 3955               	/* #NOAPP */
+ 3956 1a7e 8B81      		ldd r24,Y+3
+ 3957 1a80 882F      		mov r24,r24
+ 3958 1a82 90E0      		ldi r25,lo8(0)
+ 3959 1a84 880F      		lsl r24
+ 3960 1a86 991F      		rol r25
+ 3961 1a88 FC01      		movw r30,r24
+ 3962 1a8a E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 3963 1a8c F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 3964 1a8e 8081      		ld r24,Z
+ 3965 1a90 9181      		ldd r25,Z+1
+ 3966 1a92 9A83      		std Y+2,r25
+ 3967 1a94 8983      		std Y+1,r24
+ 3968 1a96 8981      		ldd r24,Y+1
+ 3969 1a98 9A81      		ldd r25,Y+2
+ 3970 1a9a 0097      		sbiw r24,0
+ 3971 1a9c 01F4      		brne .L174
+ 3972               	/* #APP */
+ 3973               	 ;  557 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 3974 1a9e 7894      		sei
+ 3975               	 ;  0 "" 2
+ 3976               	/* #NOAPP */
+ 3977 1aa0 84E6      		ldi r24,lo8(100)
+ 3978 1aa2 8C83      		std Y+4,r24
+ 3979 1aa4 00C0      		rjmp .L175
+ 3980               	.L174:
+ 3981 1aa6 E981      		ldd r30,Y+1
+ 3982 1aa8 FA81      		ldd r31,Y+2
+ 3983 1aaa 8485      		ldd r24,Z+12
+ 3984 1aac 882F      		mov r24,r24
+ 3985 1aae 90E0      		ldi r25,lo8(0)
+ 3986 1ab0 8870      		andi r24,lo8(8)
+ 3987 1ab2 9070      		andi r25,hi8(8)
+ 3988 1ab4 0097      		sbiw r24,0
+ 3989 1ab6 01F0      		breq .L176
+ 3990 1ab8 E981      		ldd r30,Y+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 71
+
+
+ 3991 1aba FA81      		ldd r31,Y+2
+ 3992 1abc 8485      		ldd r24,Z+12
+ 3993 1abe 877F      		andi r24,lo8(-9)
+ 3994 1ac0 E981      		ldd r30,Y+1
+ 3995 1ac2 FA81      		ldd r31,Y+2
+ 3996 1ac4 8487      		std Z+12,r24
+ 3997 1ac6 E981      		ldd r30,Y+1
+ 3998 1ac8 FA81      		ldd r31,Y+2
+ 3999 1aca 8485      		ldd r24,Z+12
+ 4000 1acc 8823      		tst r24
+ 4001 1ace 01F4      		brne .L177
+ 4002 1ad0 E981      		ldd r30,Y+1
+ 4003 1ad2 FA81      		ldd r31,Y+2
+ 4004 1ad4 8285      		ldd r24,Z+10
+ 4005 1ad6 9385      		ldd r25,Z+11
+ 4006 1ad8 0097      		sbiw r24,0
+ 4007 1ada 01F4      		brne .L177
+ 4008 1adc E981      		ldd r30,Y+1
+ 4009 1ade FA81      		ldd r31,Y+2
+ 4010 1ae0 9189      		ldd r25,Z+17
+ 4011 1ae2 8091 0000 		lds r24,OSRdyGrp
+ 4012 1ae6 892B      		or r24,r25
+ 4013 1ae8 8093 0000 		sts OSRdyGrp,r24
+ 4014 1aec E981      		ldd r30,Y+1
+ 4015 1aee FA81      		ldd r31,Y+2
+ 4016 1af0 8785      		ldd r24,Z+15
+ 4017 1af2 282F      		mov r18,r24
+ 4018 1af4 30E0      		ldi r19,lo8(0)
+ 4019 1af6 E981      		ldd r30,Y+1
+ 4020 1af8 FA81      		ldd r31,Y+2
+ 4021 1afa 8785      		ldd r24,Z+15
+ 4022 1afc 882F      		mov r24,r24
+ 4023 1afe 90E0      		ldi r25,lo8(0)
+ 4024 1b00 FC01      		movw r30,r24
+ 4025 1b02 E050      		subi r30,lo8(-(OSRdyTbl))
+ 4026 1b04 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 4027 1b06 9081      		ld r25,Z
+ 4028 1b08 E981      		ldd r30,Y+1
+ 4029 1b0a FA81      		ldd r31,Y+2
+ 4030 1b0c 8089      		ldd r24,Z+16
+ 4031 1b0e 892B      		or r24,r25
+ 4032 1b10 F901      		movw r30,r18
+ 4033 1b12 E050      		subi r30,lo8(-(OSRdyTbl))
+ 4034 1b14 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 4035 1b16 8083      		st Z,r24
+ 4036               	/* #APP */
+ 4037               	 ;  565 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 4038 1b18 7894      		sei
+ 4039               	 ;  0 "" 2
+ 4040               	/* #NOAPP */
+ 4041 1b1a 0E94 0000 		call OS_Sched
+ 4042 1b1e 00C0      		rjmp .L178
+ 4043               	.L177:
+ 4044               	/* #APP */
+ 4045               	 ;  568 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 4046 1b20 7894      		sei
+ 4047               	 ;  0 "" 2
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 72
+
+
+ 4048               	/* #NOAPP */
+ 4049               	.L178:
+ 4050 1b22 1C82      		std Y+4,__zero_reg__
+ 4051 1b24 00C0      		rjmp .L175
+ 4052               	.L176:
+ 4053               	/* #APP */
+ 4054               	 ;  572 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 4055 1b26 7894      		sei
+ 4056               	 ;  0 "" 2
+ 4057               	/* #NOAPP */
+ 4058 1b28 85E6      		ldi r24,lo8(101)
+ 4059 1b2a 8C83      		std Y+4,r24
+ 4060               	.L175:
+ 4061 1b2c 8C81      		ldd r24,Y+4
+ 4062               	/* epilogue start */
+ 4063 1b2e 0F90      		pop __tmp_reg__
+ 4064 1b30 0F90      		pop __tmp_reg__
+ 4065 1b32 0F90      		pop __tmp_reg__
+ 4066 1b34 0F90      		pop __tmp_reg__
+ 4067 1b36 CF91      		pop r28
+ 4068 1b38 DF91      		pop r29
+ 4069 1b3a 0895      		ret
+ 4070               		.size	OSTaskResume, .-OSTaskResume
+ 4071               	.global	OSTaskSuspend
+ 4072               		.type	OSTaskSuspend, @function
+ 4073               	OSTaskSuspend:
+ 4074 1b3c DF93      		push r29
+ 4075 1b3e CF93      		push r28
+ 4076 1b40 00D0      		rcall .
+ 4077 1b42 00D0      		rcall .
+ 4078 1b44 0F92      		push __tmp_reg__
+ 4079 1b46 CDB7      		in r28,__SP_L__
+ 4080 1b48 DEB7      		in r29,__SP_H__
+ 4081               	/* prologue: function */
+ 4082               	/* frame size = 5 */
+ 4083 1b4a 8C83      		std Y+4,r24
+ 4084               	/* #APP */
+ 4085               	 ;  686 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 4086 1b4c F894      		cli
+ 4087               	 ;  0 "" 2
+ 4088               	/* #NOAPP */
+ 4089 1b4e 8C81      		ldd r24,Y+4
+ 4090 1b50 8F3F      		cpi r24,lo8(-1)
+ 4091 1b52 01F4      		brne .L181
+ 4092 1b54 E091 0000 		lds r30,OSTCBCur
+ 4093 1b58 F091 0000 		lds r31,(OSTCBCur)+1
+ 4094 1b5c 8585      		ldd r24,Z+13
+ 4095 1b5e 8C83      		std Y+4,r24
+ 4096 1b60 81E0      		ldi r24,lo8(1)
+ 4097 1b62 8B83      		std Y+3,r24
+ 4098 1b64 00C0      		rjmp .L182
+ 4099               	.L181:
+ 4100 1b66 E091 0000 		lds r30,OSTCBCur
+ 4101 1b6a F091 0000 		lds r31,(OSTCBCur)+1
+ 4102 1b6e 9585      		ldd r25,Z+13
+ 4103 1b70 8C81      		ldd r24,Y+4
+ 4104 1b72 9817      		cp r25,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 73
+
+
+ 4105 1b74 01F4      		brne .L183
+ 4106 1b76 81E0      		ldi r24,lo8(1)
+ 4107 1b78 8B83      		std Y+3,r24
+ 4108 1b7a 00C0      		rjmp .L182
+ 4109               	.L183:
+ 4110 1b7c 1B82      		std Y+3,__zero_reg__
+ 4111               	.L182:
+ 4112 1b7e 8C81      		ldd r24,Y+4
+ 4113 1b80 882F      		mov r24,r24
+ 4114 1b82 90E0      		ldi r25,lo8(0)
+ 4115 1b84 880F      		lsl r24
+ 4116 1b86 991F      		rol r25
+ 4117 1b88 FC01      		movw r30,r24
+ 4118 1b8a E050      		subi r30,lo8(-(OSTCBPrioTbl))
+ 4119 1b8c F040      		sbci r31,hi8(-(OSTCBPrioTbl))
+ 4120 1b8e 8081      		ld r24,Z
+ 4121 1b90 9181      		ldd r25,Z+1
+ 4122 1b92 9A83      		std Y+2,r25
+ 4123 1b94 8983      		std Y+1,r24
+ 4124 1b96 8981      		ldd r24,Y+1
+ 4125 1b98 9A81      		ldd r25,Y+2
+ 4126 1b9a 0097      		sbiw r24,0
+ 4127 1b9c 01F4      		brne .L184
+ 4128               	/* #APP */
+ 4129               	 ;  697 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 4130 1b9e 7894      		sei
+ 4131               	 ;  0 "" 2
+ 4132               	/* #NOAPP */
+ 4133 1ba0 8AE5      		ldi r24,lo8(90)
+ 4134 1ba2 8D83      		std Y+5,r24
+ 4135 1ba4 00C0      		rjmp .L185
+ 4136               	.L184:
+ 4137 1ba6 E981      		ldd r30,Y+1
+ 4138 1ba8 FA81      		ldd r31,Y+2
+ 4139 1baa 8785      		ldd r24,Z+15
+ 4140 1bac 282F      		mov r18,r24
+ 4141 1bae 30E0      		ldi r19,lo8(0)
+ 4142 1bb0 E981      		ldd r30,Y+1
+ 4143 1bb2 FA81      		ldd r31,Y+2
+ 4144 1bb4 8785      		ldd r24,Z+15
+ 4145 1bb6 882F      		mov r24,r24
+ 4146 1bb8 90E0      		ldi r25,lo8(0)
+ 4147 1bba FC01      		movw r30,r24
+ 4148 1bbc E050      		subi r30,lo8(-(OSRdyTbl))
+ 4149 1bbe F040      		sbci r31,hi8(-(OSRdyTbl))
+ 4150 1bc0 8081      		ld r24,Z
+ 4151 1bc2 982F      		mov r25,r24
+ 4152 1bc4 E981      		ldd r30,Y+1
+ 4153 1bc6 FA81      		ldd r31,Y+2
+ 4154 1bc8 8089      		ldd r24,Z+16
+ 4155 1bca 8095      		com r24
+ 4156 1bcc 8923      		and r24,r25
+ 4157 1bce F901      		movw r30,r18
+ 4158 1bd0 E050      		subi r30,lo8(-(OSRdyTbl))
+ 4159 1bd2 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 4160 1bd4 8083      		st Z,r24
+ 4161 1bd6 F901      		movw r30,r18
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 74
+
+
+ 4162 1bd8 E050      		subi r30,lo8(-(OSRdyTbl))
+ 4163 1bda F040      		sbci r31,hi8(-(OSRdyTbl))
+ 4164 1bdc 8081      		ld r24,Z
+ 4165 1bde 8823      		tst r24
+ 4166 1be0 01F4      		brne .L186
+ 4167 1be2 E981      		ldd r30,Y+1
+ 4168 1be4 FA81      		ldd r31,Y+2
+ 4169 1be6 8189      		ldd r24,Z+17
+ 4170 1be8 982F      		mov r25,r24
+ 4171 1bea 9095      		com r25
+ 4172 1bec 8091 0000 		lds r24,OSRdyGrp
+ 4173 1bf0 8923      		and r24,r25
+ 4174 1bf2 8093 0000 		sts OSRdyGrp,r24
+ 4175               	.L186:
+ 4176 1bf6 E981      		ldd r30,Y+1
+ 4177 1bf8 FA81      		ldd r31,Y+2
+ 4178 1bfa 8485      		ldd r24,Z+12
+ 4179 1bfc 8860      		ori r24,lo8(8)
+ 4180 1bfe E981      		ldd r30,Y+1
+ 4181 1c00 FA81      		ldd r31,Y+2
+ 4182 1c02 8487      		std Z+12,r24
+ 4183               	/* #APP */
+ 4184               	 ;  704 "C:\Micrium\Micrium\software\ucos-ii\source\os_task.c" 1
+ 4185 1c04 7894      		sei
+ 4186               	 ;  0 "" 2
+ 4187               	/* #NOAPP */
+ 4188 1c06 8B81      		ldd r24,Y+3
+ 4189 1c08 8130      		cpi r24,lo8(1)
+ 4190 1c0a 01F4      		brne .L187
+ 4191 1c0c 0E94 0000 		call OS_Sched
+ 4192               	.L187:
+ 4193 1c10 1D82      		std Y+5,__zero_reg__
+ 4194               	.L185:
+ 4195 1c12 8D81      		ldd r24,Y+5
+ 4196               	/* epilogue start */
+ 4197 1c14 0F90      		pop __tmp_reg__
+ 4198 1c16 0F90      		pop __tmp_reg__
+ 4199 1c18 0F90      		pop __tmp_reg__
+ 4200 1c1a 0F90      		pop __tmp_reg__
+ 4201 1c1c 0F90      		pop __tmp_reg__
+ 4202 1c1e CF91      		pop r28
+ 4203 1c20 DF91      		pop r29
+ 4204 1c22 0895      		ret
+ 4205               		.size	OSTaskSuspend, .-OSTaskSuspend
+ 4206               	.global	OSTimeDly
+ 4207               		.type	OSTimeDly, @function
+ 4208               	OSTimeDly:
+ 4209 1c24 DF93      		push r29
+ 4210 1c26 CF93      		push r28
+ 4211 1c28 00D0      		rcall .
+ 4212 1c2a CDB7      		in r28,__SP_L__
+ 4213 1c2c DEB7      		in r29,__SP_H__
+ 4214               	/* prologue: function */
+ 4215               	/* frame size = 2 */
+ 4216 1c2e 9A83      		std Y+2,r25
+ 4217 1c30 8983      		std Y+1,r24
+ 4218 1c32 8981      		ldd r24,Y+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 75
+
+
+ 4219 1c34 9A81      		ldd r25,Y+2
+ 4220 1c36 0097      		sbiw r24,0
+ 4221 1c38 01F4      		brne .+2
+ 4222 1c3a 00C0      		rjmp .L192
+ 4223               	/* #APP */
+ 4224               	 ;  43 "C:\Micrium\Micrium\software\ucos-ii\source\os_time.c" 1
+ 4225 1c3c F894      		cli
+ 4226               	 ;  0 "" 2
+ 4227               	/* #NOAPP */
+ 4228 1c3e E091 0000 		lds r30,OSTCBCur
+ 4229 1c42 F091 0000 		lds r31,(OSTCBCur)+1
+ 4230 1c46 8785      		ldd r24,Z+15
+ 4231 1c48 282F      		mov r18,r24
+ 4232 1c4a 30E0      		ldi r19,lo8(0)
+ 4233 1c4c E091 0000 		lds r30,OSTCBCur
+ 4234 1c50 F091 0000 		lds r31,(OSTCBCur)+1
+ 4235 1c54 8785      		ldd r24,Z+15
+ 4236 1c56 882F      		mov r24,r24
+ 4237 1c58 90E0      		ldi r25,lo8(0)
+ 4238 1c5a FC01      		movw r30,r24
+ 4239 1c5c E050      		subi r30,lo8(-(OSRdyTbl))
+ 4240 1c5e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 4241 1c60 8081      		ld r24,Z
+ 4242 1c62 982F      		mov r25,r24
+ 4243 1c64 E091 0000 		lds r30,OSTCBCur
+ 4244 1c68 F091 0000 		lds r31,(OSTCBCur)+1
+ 4245 1c6c 8089      		ldd r24,Z+16
+ 4246 1c6e 8095      		com r24
+ 4247 1c70 8923      		and r24,r25
+ 4248 1c72 F901      		movw r30,r18
+ 4249 1c74 E050      		subi r30,lo8(-(OSRdyTbl))
+ 4250 1c76 F040      		sbci r31,hi8(-(OSRdyTbl))
+ 4251 1c78 8083      		st Z,r24
+ 4252 1c7a F901      		movw r30,r18
+ 4253 1c7c E050      		subi r30,lo8(-(OSRdyTbl))
+ 4254 1c7e F040      		sbci r31,hi8(-(OSRdyTbl))
+ 4255 1c80 8081      		ld r24,Z
+ 4256 1c82 8823      		tst r24
+ 4257 1c84 01F4      		brne .L191
+ 4258 1c86 E091 0000 		lds r30,OSTCBCur
+ 4259 1c8a F091 0000 		lds r31,(OSTCBCur)+1
+ 4260 1c8e 8189      		ldd r24,Z+17
+ 4261 1c90 982F      		mov r25,r24
+ 4262 1c92 9095      		com r25
+ 4263 1c94 8091 0000 		lds r24,OSRdyGrp
+ 4264 1c98 8923      		and r24,r25
+ 4265 1c9a 8093 0000 		sts OSRdyGrp,r24
+ 4266               	.L191:
+ 4267 1c9e E091 0000 		lds r30,OSTCBCur
+ 4268 1ca2 F091 0000 		lds r31,(OSTCBCur)+1
+ 4269 1ca6 8981      		ldd r24,Y+1
+ 4270 1ca8 9A81      		ldd r25,Y+2
+ 4271 1caa 9387      		std Z+11,r25
+ 4272 1cac 8287      		std Z+10,r24
+ 4273               	/* #APP */
+ 4274               	 ;  48 "C:\Micrium\Micrium\software\ucos-ii\source\os_time.c" 1
+ 4275 1cae 7894      		sei
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 76
+
+
+ 4276               	 ;  0 "" 2
+ 4277               	/* #NOAPP */
+ 4278 1cb0 0E94 0000 		call OS_Sched
+ 4279               	.L192:
+ 4280               	/* epilogue start */
+ 4281 1cb4 0F90      		pop __tmp_reg__
+ 4282 1cb6 0F90      		pop __tmp_reg__
+ 4283 1cb8 CF91      		pop r28
+ 4284 1cba DF91      		pop r29
+ 4285 1cbc 0895      		ret
+ 4286               		.size	OSTimeDly, .-OSTimeDly
+ 4287               	.global	OSTimeDlyHMSM
+ 4288               		.type	OSTimeDlyHMSM, @function
+ 4289               	OSTimeDlyHMSM:
+ 4290 1cbe EF92      		push r14
+ 4291 1cc0 FF92      		push r15
+ 4292 1cc2 0F93      		push r16
+ 4293 1cc4 1F93      		push r17
+ 4294 1cc6 DF93      		push r29
+ 4295 1cc8 CF93      		push r28
+ 4296 1cca CDB7      		in r28,__SP_L__
+ 4297 1ccc DEB7      		in r29,__SP_H__
+ 4298 1cce 2C97      		sbiw r28,12
+ 4299 1cd0 0FB6      		in __tmp_reg__,__SREG__
+ 4300 1cd2 F894      		cli
+ 4301 1cd4 DEBF      		out __SP_H__,r29
+ 4302 1cd6 0FBE      		out __SREG__,__tmp_reg__
+ 4303 1cd8 CDBF      		out __SP_L__,r28
+ 4304               	/* prologue: function */
+ 4305               	/* frame size = 12 */
+ 4306 1cda 8F83      		std Y+7,r24
+ 4307 1cdc 6887      		std Y+8,r22
+ 4308 1cde 4987      		std Y+9,r20
+ 4309 1ce0 3B87      		std Y+11,r19
+ 4310 1ce2 2A87      		std Y+10,r18
+ 4311 1ce4 8F81      		ldd r24,Y+7
+ 4312 1ce6 8823      		tst r24
+ 4313 1ce8 01F4      		brne .L194
+ 4314 1cea 8885      		ldd r24,Y+8
+ 4315 1cec 8823      		tst r24
+ 4316 1cee 01F4      		brne .L194
+ 4317 1cf0 8985      		ldd r24,Y+9
+ 4318 1cf2 8823      		tst r24
+ 4319 1cf4 01F4      		brne .L194
+ 4320 1cf6 8A85      		ldd r24,Y+10
+ 4321 1cf8 9B85      		ldd r25,Y+11
+ 4322 1cfa 0097      		sbiw r24,0
+ 4323 1cfc 01F4      		brne .+2
+ 4324 1cfe 00C0      		rjmp .L195
+ 4325               	.L194:
+ 4326 1d00 8885      		ldd r24,Y+8
+ 4327 1d02 8C33      		cpi r24,lo8(60)
+ 4328 1d04 00F0      		brlo .L196
+ 4329 1d06 21E5      		ldi r18,lo8(81)
+ 4330 1d08 2C87      		std Y+12,r18
+ 4331 1d0a 00C0      		rjmp .L197
+ 4332               	.L196:
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 77
+
+
+ 4333 1d0c 8985      		ldd r24,Y+9
+ 4334 1d0e 8C33      		cpi r24,lo8(60)
+ 4335 1d10 00F0      		brlo .L198
+ 4336 1d12 82E5      		ldi r24,lo8(82)
+ 4337 1d14 8C87      		std Y+12,r24
+ 4338 1d16 00C0      		rjmp .L197
+ 4339               	.L198:
+ 4340 1d18 8A85      		ldd r24,Y+10
+ 4341 1d1a 9B85      		ldd r25,Y+11
+ 4342 1d1c 23E0      		ldi r18,hi8(1000)
+ 4343 1d1e 883E      		cpi r24,lo8(1000)
+ 4344 1d20 9207      		cpc r25,r18
+ 4345 1d22 00F0      		brlo .L199
+ 4346 1d24 83E5      		ldi r24,lo8(83)
+ 4347 1d26 8C87      		std Y+12,r24
+ 4348 1d28 00C0      		rjmp .L197
+ 4349               	.L199:
+ 4350 1d2a 8F81      		ldd r24,Y+7
+ 4351 1d2c 882F      		mov r24,r24
+ 4352 1d2e 90E0      		ldi r25,lo8(0)
+ 4353 1d30 A0E0      		ldi r26,lo8(0)
+ 4354 1d32 B0E0      		ldi r27,hi8(0)
+ 4355 1d34 20E1      		ldi r18,lo8(3600)
+ 4356 1d36 3EE0      		ldi r19,hi8(3600)
+ 4357 1d38 40E0      		ldi r20,hlo8(3600)
+ 4358 1d3a 50E0      		ldi r21,hhi8(3600)
+ 4359 1d3c BC01      		movw r22,r24
+ 4360 1d3e CD01      		movw r24,r26
+ 4361 1d40 0E94 0000 		call __mulsi3
+ 4362 1d44 7B01      		movw r14,r22
+ 4363 1d46 8C01      		movw r16,r24
+ 4364 1d48 8885      		ldd r24,Y+8
+ 4365 1d4a 882F      		mov r24,r24
+ 4366 1d4c 90E0      		ldi r25,lo8(0)
+ 4367 1d4e A0E0      		ldi r26,lo8(0)
+ 4368 1d50 B0E0      		ldi r27,hi8(0)
+ 4369 1d52 2CE3      		ldi r18,lo8(60)
+ 4370 1d54 30E0      		ldi r19,hi8(60)
+ 4371 1d56 40E0      		ldi r20,hlo8(60)
+ 4372 1d58 50E0      		ldi r21,hhi8(60)
+ 4373 1d5a BC01      		movw r22,r24
+ 4374 1d5c CD01      		movw r24,r26
+ 4375 1d5e 0E94 0000 		call __mulsi3
+ 4376 1d62 DC01      		movw r26,r24
+ 4377 1d64 CB01      		movw r24,r22
+ 4378 1d66 A801      		movw r20,r16
+ 4379 1d68 9701      		movw r18,r14
+ 4380 1d6a 280F      		add r18,r24
+ 4381 1d6c 391F      		adc r19,r25
+ 4382 1d6e 4A1F      		adc r20,r26
+ 4383 1d70 5B1F      		adc r21,r27
+ 4384 1d72 8985      		ldd r24,Y+9
+ 4385 1d74 882F      		mov r24,r24
+ 4386 1d76 90E0      		ldi r25,lo8(0)
+ 4387 1d78 A0E0      		ldi r26,lo8(0)
+ 4388 1d7a B0E0      		ldi r27,hi8(0)
+ 4389 1d7c 820F      		add r24,r18
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 78
+
+
+ 4390 1d7e 931F      		adc r25,r19
+ 4391 1d80 A41F      		adc r26,r20
+ 4392 1d82 B51F      		adc r27,r21
+ 4393 1d84 2DE3      		ldi r18,lo8(61)
+ 4394 1d86 30E0      		ldi r19,hi8(61)
+ 4395 1d88 40E0      		ldi r20,hlo8(61)
+ 4396 1d8a 50E0      		ldi r21,hhi8(61)
+ 4397 1d8c BC01      		movw r22,r24
+ 4398 1d8e CD01      		movw r24,r26
+ 4399 1d90 0E94 0000 		call __mulsi3
+ 4400 1d94 7B01      		movw r14,r22
+ 4401 1d96 8C01      		movw r16,r24
+ 4402 1d98 8A85      		ldd r24,Y+10
+ 4403 1d9a 9B85      		ldd r25,Y+11
+ 4404 1d9c CC01      		movw r24,r24
+ 4405 1d9e A0E0      		ldi r26,lo8(0)
+ 4406 1da0 B0E0      		ldi r27,hi8(0)
+ 4407 1da2 2DE3      		ldi r18,lo8(61)
+ 4408 1da4 30E0      		ldi r19,hi8(61)
+ 4409 1da6 40E0      		ldi r20,hlo8(61)
+ 4410 1da8 50E0      		ldi r21,hhi8(61)
+ 4411 1daa BC01      		movw r22,r24
+ 4412 1dac CD01      		movw r24,r26
+ 4413 1dae 0E94 0000 		call __mulsi3
+ 4414 1db2 DC01      		movw r26,r24
+ 4415 1db4 CB01      		movw r24,r22
+ 4416 1db6 8851      		subi r24,lo8(-(488))
+ 4417 1db8 9E4F      		sbci r25,hi8(-(488))
+ 4418 1dba AF4F      		sbci r26,hlo8(-(488))
+ 4419 1dbc BF4F      		sbci r27,hhi8(-(488))
+ 4420 1dbe 28EE      		ldi r18,lo8(1000)
+ 4421 1dc0 33E0      		ldi r19,hi8(1000)
+ 4422 1dc2 40E0      		ldi r20,hlo8(1000)
+ 4423 1dc4 50E0      		ldi r21,hhi8(1000)
+ 4424 1dc6 BC01      		movw r22,r24
+ 4425 1dc8 CD01      		movw r24,r26
+ 4426 1dca 0E94 0000 		call __udivmodsi4
+ 4427 1dce DA01      		movw r26,r20
+ 4428 1dd0 C901      		movw r24,r18
+ 4429 1dd2 8E0D      		add r24,r14
+ 4430 1dd4 9F1D      		adc r25,r15
+ 4431 1dd6 A01F      		adc r26,r16
+ 4432 1dd8 B11F      		adc r27,r17
+ 4433 1dda 8B83      		std Y+3,r24
+ 4434 1ddc 9C83      		std Y+4,r25
+ 4435 1dde AD83      		std Y+5,r26
+ 4436 1de0 BE83      		std Y+6,r27
+ 4437 1de2 8B81      		ldd r24,Y+3
+ 4438 1de4 9C81      		ldd r25,Y+4
+ 4439 1de6 AD81      		ldd r26,Y+5
+ 4440 1de8 BE81      		ldd r27,Y+6
+ 4441 1dea CD01      		movw r24,r26
+ 4442 1dec AA27      		clr r26
+ 4443 1dee BB27      		clr r27
+ 4444 1df0 9A83      		std Y+2,r25
+ 4445 1df2 8983      		std Y+1,r24
+ 4446 1df4 8B81      		ldd r24,Y+3
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 79
+
+
+ 4447 1df6 9C81      		ldd r25,Y+4
+ 4448 1df8 AD81      		ldd r26,Y+5
+ 4449 1dfa BE81      		ldd r27,Y+6
+ 4450 1dfc A070      		andi r26,hlo8(65535)
+ 4451 1dfe B070      		andi r27,hhi8(65535)
+ 4452 1e00 8B83      		std Y+3,r24
+ 4453 1e02 9C83      		std Y+4,r25
+ 4454 1e04 AD83      		std Y+5,r26
+ 4455 1e06 BE83      		std Y+6,r27
+ 4456 1e08 8B81      		ldd r24,Y+3
+ 4457 1e0a 9C81      		ldd r25,Y+4
+ 4458 1e0c 0E94 0000 		call OSTimeDly
+ 4459 1e10 00C0      		rjmp .L200
+ 4460               	.L201:
+ 4461 1e12 80E0      		ldi r24,lo8(-32768)
+ 4462 1e14 90E8      		ldi r25,hi8(-32768)
+ 4463 1e16 0E94 0000 		call OSTimeDly
+ 4464 1e1a 80E0      		ldi r24,lo8(-32768)
+ 4465 1e1c 90E8      		ldi r25,hi8(-32768)
+ 4466 1e1e 0E94 0000 		call OSTimeDly
+ 4467 1e22 8981      		ldd r24,Y+1
+ 4468 1e24 9A81      		ldd r25,Y+2
+ 4469 1e26 0197      		sbiw r24,1
+ 4470 1e28 9A83      		std Y+2,r25
+ 4471 1e2a 8983      		std Y+1,r24
+ 4472               	.L200:
+ 4473 1e2c 8981      		ldd r24,Y+1
+ 4474 1e2e 9A81      		ldd r25,Y+2
+ 4475 1e30 0097      		sbiw r24,0
+ 4476 1e32 01F4      		brne .L201
+ 4477 1e34 1C86      		std Y+12,__zero_reg__
+ 4478 1e36 00C0      		rjmp .L197
+ 4479               	.L195:
+ 4480 1e38 24E5      		ldi r18,lo8(84)
+ 4481 1e3a 2C87      		std Y+12,r18
+ 4482               	.L197:
+ 4483 1e3c 8C85      		ldd r24,Y+12
+ 4484               	/* epilogue start */
+ 4485 1e3e 2C96      		adiw r28,12
+ 4486 1e40 0FB6      		in __tmp_reg__,__SREG__
+ 4487 1e42 F894      		cli
+ 4488 1e44 DEBF      		out __SP_H__,r29
+ 4489 1e46 0FBE      		out __SREG__,__tmp_reg__
+ 4490 1e48 CDBF      		out __SP_L__,r28
+ 4491 1e4a CF91      		pop r28
+ 4492 1e4c DF91      		pop r29
+ 4493 1e4e 1F91      		pop r17
+ 4494 1e50 0F91      		pop r16
+ 4495 1e52 FF90      		pop r15
+ 4496 1e54 EF90      		pop r14
+ 4497 1e56 0895      		ret
+ 4498               		.size	OSTimeDlyHMSM, .-OSTimeDlyHMSM
+ 4499               		.comm OSCtxSwCtr,4,1
+ 4500               		.comm OSEventFreeList,2,1
+ 4501               		.comm OSEventTbl,24,1
+ 4502               		.comm OSCPUUsage,1,1
+ 4503               		.comm OSIdleCtrMax,4,1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 80
+
+
+ 4504               		.comm OSIdleCtrRun,4,1
+ 4505               		.comm OSStatRdy,1,1
+ 4506               		.comm OSTaskStatStk,128,1
+ 4507               		.comm OSIntNesting,1,1
+ 4508               		.comm OSIntExitY,1,1
+ 4509               		.comm OSLockNesting,1,1
+ 4510               		.comm OSPrioCur,1,1
+ 4511               		.comm OSPrioHighRdy,1,1
+ 4512               		.comm OSRdyGrp,1,1
+ 4513               		.comm OSRdyTbl,2,1
+ 4514               		.comm OSRunning,1,1
+ 4515               		.comm OSTaskCtr,1,1
+ 4516               		.comm OSIdleCtr,4,1
+ 4517               		.comm OSTaskIdleStk,128,1
+ 4518               		.comm OSTCBCur,2,1
+ 4519               		.comm OSTCBFreeList,2,1
+ 4520               		.comm OSTCBHighRdy,2,1
+ 4521               		.comm OSTCBList,2,1
+ 4522               		.comm OSTCBPrioTbl,26,1
+ 4523               		.comm OSTCBTbl,247,1
+ 4524               	.global __do_copy_data
+ 4525               	.global __do_clear_bss
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 81
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ucos_ii.c
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:2      *ABS*:0000003f __SREG__
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:3      *ABS*:0000003e __SP_H__
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:4      *ABS*:0000003d __SP_L__
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:5      *ABS*:00000034 __CCP__
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:12     .data:00000000 OSMapTbl
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:24     .data:00000008 OSUnMapTbl
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:284    .text:00000000 OSInit
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1286   .text:00000758 OS_InitMisc
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1311   .text:00000796 OS_InitRdyList
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1408   .text:00000842 OS_InitTCBList
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1211   .text:000006ce OS_InitEventList
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1364   .text:000007fe OS_InitTaskIdle
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1386   .text:00000820 OS_InitTaskStat
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:306    .text:0000002e OSIntEnter
+                            *COM*:00000001 OSRunning
+                            *COM*:00000001 OSIntNesting
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:330    .text:00000056 OSIntExit
+                            *COM*:00000001 OSLockNesting
+                            *COM*:00000001 OSRdyGrp
+                            *COM*:00000001 OSIntExitY
+                            *COM*:00000002 OSRdyTbl
+                            *COM*:00000001 OSPrioHighRdy
+                            *COM*:00000001 OSPrioCur
+                            *COM*:0000001a OSTCBPrioTbl
+                            *COM*:00000002 OSTCBHighRdy
+                            *COM*:00000004 OSCtxSwCtr
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:431    .text:0000012e OSSchedLock
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:466    .text:0000015a OSSchedUnlock
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1494   .text:000008e0 OS_Sched
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:521    .text:000001a2 OSStart
+                            *COM*:00000002 OSTCBCur
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:591    .text:00000238 OSStatInit
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:4208   .text:00001c24 OSTimeDly
+                            *COM*:00000004 OSIdleCtr
+                            *COM*:00000004 OSIdleCtrMax
+                            *COM*:00000001 OSStatRdy
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:645    .text:00000294 OSTimeTick
+                            *COM*:00000002 OSTCBList
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:764    .text:00000366 OSVersion
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:780    .text:00000378 OS_Dummy
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:794    .text:00000386 OS_EventTaskRdy
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:984    .text:000004f4 OS_EventTaskWait
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1087   .text:000005da OS_EventTO
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1166   .text:00000680 OS_EventWaitListInit
+                            *COM*:00000018 OSEventTbl
+                            *COM*:00000002 OSEventFreeList
+                            *COM*:00000001 OSTaskCtr
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1585   .text:0000099a OS_TaskIdle
+                            *COM*:00000080 OSTaskIdleStk
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:3399   .text:000016c4 OSTaskCreate
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1622   .text:000009d8 OS_TaskStat
+                            *COM*:00000080 OSTaskStatStk
+                            *COM*:000000f7 OSTCBTbl
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccK2wi2R.s 			page 82
+
+
+                            *COM*:00000002 OSTCBFreeList
+                            *COM*:00000004 OSIdleCtrRun
+                            *COM*:00000001 OSCPUUsage
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1756   .text:00000b00 OS_TCBInit
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:1995   .text:00000cc2 OSMboxCreate
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:2081   .text:00000d5c OSMboxPend
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:2237   .text:00000e72 OSMboxPost
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:2318   .text:00000ee4 OSMutexCreate
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:2475   .text:00000ff8 OSMutexPend
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:2812   .text:0000127a OSMutexPost
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:3101   .text:000014dc OSSemCreate
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:3187   .text:00001576 OSSemPend
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:3319   .text:00001654 OSSemPost
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:3568   .text:000017d4 OSTaskDel
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:3856   .text:000019f6 OSTaskDelReq
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:3941   .text:00001a6e OSTaskResume
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:4073   .text:00001b3c OSTaskSuspend
+C:\Users\user\AppData\Local\Temp/ccK2wi2R.s:4289   .text:00001cbe OSTimeDlyHMSM
+
+UNDEFINED SYMBOLS
+OSInitHookBegin
+OSInitHookEnd
+OSIntCtxSw
+OSStartHighRdy
+OSTimeTickHook
+OSCtxSw
+OSTaskIdleHook
+__udivmodsi4
+OSTaskStatHook
+OSTCBInitHook
+OSTaskCreateHook
+OSTaskStkInit
+OSTaskDelHook
+__mulsi3
+__do_copy_data
+__do_clear_bss

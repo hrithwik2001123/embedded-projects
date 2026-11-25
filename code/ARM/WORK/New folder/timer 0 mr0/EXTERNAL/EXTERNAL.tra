@@ -1,0 +1,21 @@
+*** Creating Trace Output File 'EXTERNAL.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"external.o"'
+### ADS-LD Command completed:
+--cpu ARM7TDMI "startup.o" "external.o" 
+--strict --scatter "EXTERNAL.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\EXTERNAL.map" -o EXTERNAL.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'EXTERNAL.axf'
+### ADS-LD Command File: 'EXTERNAL.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'EXTERNAL.lnp', Handle=0x000007B4
+### Writing '.lnp' file
+### ADS-LD Command file 'EXTERNAL.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

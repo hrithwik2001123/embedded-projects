@@ -1,0 +1,26 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ARM\WORK\New folder\timer 0 mr0\UART INTERRUPT\UARTINTERRUPT\UARTINTERRUPT.uvproj
+Project File Date:  01/11/2025
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling UARTINTERRUPT.C...
+UARTINTERRUPT.C(32): error:  #20: identifier "CH" is undefined
+UARTINTERRUPT.C(33): error:  #118: a void function may not return a value
+UARTINTERRUPT.C(38): error:  #20: identifier "CH" is undefined
+Target not created
+Build target 'Target 1'
+compiling UARTINTERRUPT.C...
+UARTINTERRUPT.C(34): error:  #118: a void function may not return a value
+Target not created
+Build target 'Target 1'
+compiling UARTINTERRUPT.C...
+linking...
+Program Size: Code=1668 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"UARTINTERRUPT.axf" - 0 Error(s), 0 Warning(s).

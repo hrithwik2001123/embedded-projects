@@ -1,0 +1,185 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ARM\WORK\New folder\timer 0 mr0\EXTERNAL\EXTERNAL.uvproj
+Project File Date:  01/12/2025
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(44): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(44): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(53): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(53): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(55): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(55): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1212 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(44): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(44): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(45): error:  #20: identifier "EXTINT0" is undefined
+EXTERNAL.C(46): error:  #20: identifier "EXTMODE0" is undefined
+EXTERNAL.C(47): error:  #20: identifier "EXTPOLAR0" is undefined
+EXTERNAL.C(53): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(53): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(55): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(55): warning:  #68-D: integer conversion resulted in a change of sign
+Target not created
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(44): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(44): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(45): error:  #20: identifier "EXTINT0" is undefined
+EXTERNAL.C(53): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(53): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(55): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(55): warning:  #68-D: integer conversion resulted in a change of sign
+Target not created
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(44): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(44): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(53): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(53): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(55): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(55): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1212 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(45): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(45): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(57): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(57): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(59): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(59): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(45): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(45): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(57): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(57): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(59): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(59): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(45): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(45): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(59): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(59): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+linking...
+Program Size: Code=1264 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(46): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(46): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(58): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(58): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(60): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(60): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1264 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+linking...
+Program Size: Code=1264 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+linking...
+Program Size: Code=1252 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(45): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(45): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(57): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(57): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(59): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(59): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1264 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(45): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(45): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(57): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(57): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(59): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(59): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1264 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 6 Warning(s).
+Build target 'Target 1'
+compiling EXTERNAL.C...
+EXTERNAL.C(32): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(32): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(44): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(44): warning:  #68-D: integer conversion resulted in a change of sign
+EXTERNAL.C(46): warning:  #61-D: integer operation result is out of range
+EXTERNAL.C(46): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1164 RO-data=32 RW-data=4 ZI-data=1260  
+FromELF: creating hex file...
+"EXTERNAL.axf" - 0 Error(s), 6 Warning(s).

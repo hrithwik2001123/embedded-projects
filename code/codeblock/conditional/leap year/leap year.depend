@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1722314598 source:d:\codeblock\conditional\leap year\main.c
+	<stdio.h>
+	<stdlib.h>
+

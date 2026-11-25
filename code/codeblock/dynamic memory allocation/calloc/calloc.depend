@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1727673124 source:d:\codeblock\dynamic memory allocation\calloc\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1726029850 source:d:\codeblock\recursion\palindrome\main.c
+	<stdio.h>
+	<stdlib.h>
+

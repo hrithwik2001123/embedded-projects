@@ -1,0 +1,5 @@
+--cpu Cortex-M3 "startup_lpc17xx.o" "led.o" 
+--strict --scatter "arm binling.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\arm binling.map" -o "arm binling.axf"

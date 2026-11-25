@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1722392234 source:d:\codeblock\loop\mutiply\main.c
+	<stdio.h>
+	<stdlib.h>
+

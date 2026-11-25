@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1725255148 source:d:\codeblock\function\odd and even\main.c
+	<stdio.h>
+	<stdlib.h>
+

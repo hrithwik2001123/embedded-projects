@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1723279800 source:d:\codeblock\star print\perfect number\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1723279988 source:d:\codeblock\loop\perfect number\main.c
+	<stdio.h>
+	<stdlib.h>
+

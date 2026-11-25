@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1721366442 source:d:\even or odd\main.c
+	<stdio.h>
+	<stdlib.h>
+

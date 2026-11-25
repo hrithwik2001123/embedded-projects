@@ -1,0 +1,109 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F876A ]
+[d frameptr 6 ]
+"492 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"24 D:\mplab code\hai.X\newmain.c
+[v _print print `(v  1 e 1 0 ]
+"31
+[v _main main `(v  1 e 1 0 ]
+"839 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic16f876a.h
+[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
+"933
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1020
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1026
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+"1190
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"1300
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1729
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"1809
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"1948
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"1954
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"2224
+[v _GO GO `VEb  1 e 0 @250 ]
+"2464
+[v _TRMT TRMT `VEb  1 e 0 @1217 ]
+"354 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+[v _dpowers dpowers `DCC[5]ui  1 s 10 dpowers ]
+"31 D:\mplab code\hai.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+{
+"45
+[v main@RES RES `i  1 a 2 34 ]
+"32
+[v main@arr arr `[20]uc  1 a 20 14 ]
+"49
+} 0
+"492 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"528
+[v sprintf@val val `ui  1 a 2 9 ]
+"499
+[v sprintf@c c `c  1 a 1 12 ]
+"506
+[v sprintf@prec prec `c  1 a 1 8 ]
+"508
+[v sprintf@flag flag `uc  1 a 1 7 ]
+"494
+[v sprintf@ap ap `[1]*.4v  1 a 1 6 ]
+"492
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCCuc  1 p 1 0 ]
+"533
+[v sprintf@sp sp `*.4uc  1 a 1 11 ]
+"1541
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 13 ]
+"6
+[v ___lwmod@divisor divisor `ui  1 p 2 8 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+"26
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"31
+} 0
+"24 D:\mplab code\hai.X\newmain.c
+[v _print print `(v  1 e 1 0 ]
+{
+[v print@data data `*.4uc  1 a 1 wreg ]
+[v print@data data `*.4uc  1 a 1 wreg ]
+[v print@data data `*.4uc  1 a 1 2 ]
+"30
+} 0

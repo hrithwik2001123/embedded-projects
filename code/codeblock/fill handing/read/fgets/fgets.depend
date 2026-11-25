@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1727760746 source:d:\codeblock\fill handing\read\fgets\main.c
+	<stdio.h>
+	<stdlib.h>
+

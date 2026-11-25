@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1726808834 source:d:\codeblock\pointer\printing sum\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,2222 @@
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 1
+
+
+   1               		.file	"iam.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.global __do_copy_data
+   8               		.global __do_clear_bss
+   9               	.global	k
+  10               	.global	k
+  11               		.section .bss
+  12               		.type	k, @object
+  13               		.size	k, 1
+  14               	k:
+  15 0000 00        		.skip 1,0
+  16               	.global	j
+  17               	.global	j
+  18               		.type	j, @object
+  19               		.size	j, 1
+  20               	j:
+  21 0001 00        		.skip 1,0
+  22               	.global	save
+  23               	.global	save
+  24               		.type	save, @object
+  25               		.size	save, 1
+  26               	save:
+  27 0002 00        		.skip 1,0
+  28               		.text
+  29               	.global	lcd_init
+  30               		.type	lcd_init, @function
+  31               	lcd_init:
+  32               	/* prologue: frame size=0 */
+  33 0000 CF93      		push r28
+  34 0002 DF93      		push r29
+  35 0004 CDB7      		in r28,__SP_L__
+  36 0006 DEB7      		in r29,__SP_H__
+  37               	/* prologue end (size=4) */
+  38 0008 EBE3      		ldi r30,lo8(59)
+  39 000a F0E0      		ldi r31,hi8(59)
+  40 000c 8081      		ld r24,Z
+  41 000e 8093 0000 		sts save,r24
+  42 0012 EAE3      		ldi r30,lo8(58)
+  43 0014 F0E0      		ldi r31,hi8(58)
+  44 0016 8FEF      		ldi r24,lo8(-1)
+  45 0018 8083      		st Z,r24
+  46 001a 8FE0      		ldi r24,lo8(15)
+  47 001c 90E0      		ldi r25,hi8(15)
+  48 001e 0E94 0000 		call WaitMs
+  49 0022 ABE3      		ldi r26,lo8(59)
+  50 0024 B0E0      		ldi r27,hi8(59)
+  51 0026 EBE3      		ldi r30,lo8(59)
+  52 0028 F0E0      		ldi r31,hi8(59)
+  53 002a 8081      		ld r24,Z
+  54 002c 8470      		andi r24,lo8(4)
+  55 002e 8C93      		st X,r24
+  56 0030 EBE3      		ldi r30,lo8(59)
+  57 0032 F0E0      		ldi r31,hi8(59)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 2
+
+
+  58 0034 80E2      		ldi r24,lo8(32)
+  59 0036 8083      		st Z,r24
+  60 0038 81E0      		ldi r24,lo8(1)
+  61 003a 0E94 0000 		call lcd_cmd
+  62 003e 8FE0      		ldi r24,lo8(15)
+  63 0040 0E94 0000 		call lcd_cmd
+  64 0044 82E0      		ldi r24,lo8(2)
+  65 0046 0E94 0000 		call lcd_cmd
+  66 004a 80E8      		ldi r24,lo8(-128)
+  67 004c 0E94 0000 		call lcd_cmd
+  68               	/* epilogue: frame size=0 */
+  69 0050 DF91      		pop r29
+  70 0052 CF91      		pop r28
+  71 0054 0895      		ret
+  72               	/* epilogue end (size=3) */
+  73               	/* function lcd_init size 43 (36) */
+  74               		.size	lcd_init, .-lcd_init
+  75               	.global	toggleE
+  76               		.type	toggleE, @function
+  77               	toggleE:
+  78               	/* prologue: frame size=0 */
+  79 0056 CF93      		push r28
+  80 0058 DF93      		push r29
+  81 005a CDB7      		in r28,__SP_L__
+  82 005c DEB7      		in r29,__SP_H__
+  83               	/* prologue end (size=4) */
+  84 005e ABE3      		ldi r26,lo8(59)
+  85 0060 B0E0      		ldi r27,hi8(59)
+  86 0062 EBE3      		ldi r30,lo8(59)
+  87 0064 F0E0      		ldi r31,hi8(59)
+  88 0066 8081      		ld r24,Z
+  89 0068 8460      		ori r24,lo8(4)
+  90 006a 8C93      		st X,r24
+  91 006c 8AEF      		ldi r24,lo8(-6)
+  92 006e 0E94 0000 		call dely_ns
+  93 0072 ABE3      		ldi r26,lo8(59)
+  94 0074 B0E0      		ldi r27,hi8(59)
+  95 0076 EBE3      		ldi r30,lo8(59)
+  96 0078 F0E0      		ldi r31,hi8(59)
+  97 007a 8081      		ld r24,Z
+  98 007c 8B7F      		andi r24,lo8(-5)
+  99 007e 8C93      		st X,r24
+ 100               	/* epilogue: frame size=0 */
+ 101 0080 DF91      		pop r29
+ 102 0082 CF91      		pop r28
+ 103 0084 0895      		ret
+ 104               	/* epilogue end (size=3) */
+ 105               	/* function toggleE size 24 (17) */
+ 106               		.size	toggleE, .-toggleE
+ 107               	.global	dely_ns
+ 108               		.type	dely_ns, @function
+ 109               	dely_ns:
+ 110               	/* prologue: frame size=1 */
+ 111 0086 CF93      		push r28
+ 112 0088 DF93      		push r29
+ 113 008a CDB7      		in r28,__SP_L__
+ 114 008c DEB7      		in r29,__SP_H__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 3
+
+
+ 115 008e 2197      		sbiw r28,1
+ 116 0090 0FB6      		in __tmp_reg__,__SREG__
+ 117 0092 F894      		cli
+ 118 0094 DEBF      		out __SP_H__,r29
+ 119 0096 0FBE      		out __SREG__,__tmp_reg__
+ 120 0098 CDBF      		out __SP_L__,r28
+ 121               	/* prologue end (size=10) */
+ 122 009a 8983      		std Y+1,r24
+ 123 009c 1092 0000 		sts j,__zero_reg__
+ 124 00a0 00C0      		rjmp .L6
+ 125               	.L7:
+ 126 00a2 1092 0000 		sts k,__zero_reg__
+ 127 00a6 00C0      		rjmp .L8
+ 128               	.L9:
+ 129 00a8 8091 0000 		lds r24,k
+ 130 00ac 8F5F      		subi r24,lo8(-(1))
+ 131 00ae 8093 0000 		sts k,r24
+ 132               	.L8:
+ 133 00b2 8091 0000 		lds r24,k
+ 134 00b6 8A30      		cpi r24,lo8(10)
+ 135 00b8 00F0      		brlo .L9
+ 136 00ba 8091 0000 		lds r24,j
+ 137 00be 8F5F      		subi r24,lo8(-(1))
+ 138 00c0 8093 0000 		sts j,r24
+ 139               	.L6:
+ 140 00c4 9091 0000 		lds r25,j
+ 141 00c8 8981      		ldd r24,Y+1
+ 142 00ca 9817      		cp r25,r24
+ 143 00cc 00F0      		brlo .L7
+ 144               	/* epilogue: frame size=1 */
+ 145 00ce 2196      		adiw r28,1
+ 146 00d0 0FB6      		in __tmp_reg__,__SREG__
+ 147 00d2 F894      		cli
+ 148 00d4 DEBF      		out __SP_H__,r29
+ 149 00d6 0FBE      		out __SREG__,__tmp_reg__
+ 150 00d8 CDBF      		out __SP_L__,r28
+ 151 00da DF91      		pop r29
+ 152 00dc CF91      		pop r28
+ 153 00de 0895      		ret
+ 154               	/* epilogue end (size=9) */
+ 155               	/* function dely_ns size 45 (26) */
+ 156               		.size	dely_ns, .-dely_ns
+ 157               	.global	lcd_cmd
+ 158               		.type	lcd_cmd, @function
+ 159               	lcd_cmd:
+ 160               	/* prologue: frame size=1 */
+ 161 00e0 CF93      		push r28
+ 162 00e2 DF93      		push r29
+ 163 00e4 CDB7      		in r28,__SP_L__
+ 164 00e6 DEB7      		in r29,__SP_H__
+ 165 00e8 2197      		sbiw r28,1
+ 166 00ea 0FB6      		in __tmp_reg__,__SREG__
+ 167 00ec F894      		cli
+ 168 00ee DEBF      		out __SP_H__,r29
+ 169 00f0 0FBE      		out __SREG__,__tmp_reg__
+ 170 00f2 CDBF      		out __SP_L__,r28
+ 171               	/* prologue end (size=10) */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 4
+
+
+ 172 00f4 8983      		std Y+1,r24
+ 173 00f6 ABE3      		ldi r26,lo8(59)
+ 174 00f8 B0E0      		ldi r27,hi8(59)
+ 175 00fa EBE3      		ldi r30,lo8(59)
+ 176 00fc F0E0      		ldi r31,hi8(59)
+ 177 00fe 8081      		ld r24,Z
+ 178 0100 8470      		andi r24,lo8(4)
+ 179 0102 8C93      		st X,r24
+ 180 0104 EBE3      		ldi r30,lo8(59)
+ 181 0106 F0E0      		ldi r31,hi8(59)
+ 182 0108 90EF      		ldi r25,lo8(-16)
+ 183 010a 8981      		ldd r24,Y+1
+ 184 010c 8923      		and r24,r25
+ 185 010e 8083      		st Z,r24
+ 186 0110 0E94 0000 		call toggleE
+ 187 0114 EBE3      		ldi r30,lo8(59)
+ 188 0116 F0E0      		ldi r31,hi8(59)
+ 189 0118 8981      		ldd r24,Y+1
+ 190 011a 882F      		mov r24,r24
+ 191 011c 90E0      		ldi r25,lo8(0)
+ 192 011e 8F70      		andi r24,lo8(15)
+ 193 0120 9070      		andi r25,hi8(15)
+ 194 0122 8295      		swap r24
+ 195 0124 9295      		swap r25
+ 196 0126 907F      		andi r25,0xf0
+ 197 0128 9827      		eor r25,r24
+ 198 012a 807F      		andi r24,0xf0
+ 199 012c 9827      		eor r25,r24
+ 200 012e 8083      		st Z,r24
+ 201 0130 0E94 0000 		call toggleE
+ 202               	/* epilogue: frame size=1 */
+ 203 0134 2196      		adiw r28,1
+ 204 0136 0FB6      		in __tmp_reg__,__SREG__
+ 205 0138 F894      		cli
+ 206 013a DEBF      		out __SP_H__,r29
+ 207 013c 0FBE      		out __SREG__,__tmp_reg__
+ 208 013e CDBF      		out __SP_L__,r28
+ 209 0140 DF91      		pop r29
+ 210 0142 CF91      		pop r28
+ 211 0144 0895      		ret
+ 212               	/* epilogue end (size=9) */
+ 213               	/* function lcd_cmd size 51 (32) */
+ 214               		.size	lcd_cmd, .-lcd_cmd
+ 215               	.global	lcd_putchar
+ 216               		.type	lcd_putchar, @function
+ 217               	lcd_putchar:
+ 218               	/* prologue: frame size=1 */
+ 219 0146 CF93      		push r28
+ 220 0148 DF93      		push r29
+ 221 014a CDB7      		in r28,__SP_L__
+ 222 014c DEB7      		in r29,__SP_H__
+ 223 014e 2197      		sbiw r28,1
+ 224 0150 0FB6      		in __tmp_reg__,__SREG__
+ 225 0152 F894      		cli
+ 226 0154 DEBF      		out __SP_H__,r29
+ 227 0156 0FBE      		out __SREG__,__tmp_reg__
+ 228 0158 CDBF      		out __SP_L__,r28
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 5
+
+
+ 229               	/* prologue end (size=10) */
+ 230 015a 8983      		std Y+1,r24
+ 231 015c EBE3      		ldi r30,lo8(59)
+ 232 015e F0E0      		ldi r31,hi8(59)
+ 233 0160 81E0      		ldi r24,lo8(1)
+ 234 0162 8083      		st Z,r24
+ 235 0164 ABE3      		ldi r26,lo8(59)
+ 236 0166 B0E0      		ldi r27,hi8(59)
+ 237 0168 EBE3      		ldi r30,lo8(59)
+ 238 016a F0E0      		ldi r31,hi8(59)
+ 239 016c 8081      		ld r24,Z
+ 240 016e 8270      		andi r24,lo8(2)
+ 241 0170 8C93      		st X,r24
+ 242 0172 EBE3      		ldi r30,lo8(59)
+ 243 0174 F0E0      		ldi r31,hi8(59)
+ 244 0176 9981      		ldd r25,Y+1
+ 245 0178 80EF      		ldi r24,lo8(-16)
+ 246 017a 8923      		and r24,r25
+ 247 017c 8160      		ori r24,lo8(1)
+ 248 017e 8083      		st Z,r24
+ 249 0180 0E94 0000 		call toggleE
+ 250 0184 EBE3      		ldi r30,lo8(59)
+ 251 0186 F0E0      		ldi r31,hi8(59)
+ 252 0188 8981      		ldd r24,Y+1
+ 253 018a 882F      		mov r24,r24
+ 254 018c 90E0      		ldi r25,lo8(0)
+ 255 018e 8F70      		andi r24,lo8(15)
+ 256 0190 9070      		andi r25,hi8(15)
+ 257 0192 8295      		swap r24
+ 258 0194 9295      		swap r25
+ 259 0196 907F      		andi r25,0xf0
+ 260 0198 9827      		eor r25,r24
+ 261 019a 807F      		andi r24,0xf0
+ 262 019c 9827      		eor r25,r24
+ 263 019e 8160      		ori r24,lo8(1)
+ 264 01a0 8083      		st Z,r24
+ 265 01a2 0E94 0000 		call toggleE
+ 266               	/* epilogue: frame size=1 */
+ 267 01a6 2196      		adiw r28,1
+ 268 01a8 0FB6      		in __tmp_reg__,__SREG__
+ 269 01aa F894      		cli
+ 270 01ac DEBF      		out __SP_H__,r29
+ 271 01ae 0FBE      		out __SREG__,__tmp_reg__
+ 272 01b0 CDBF      		out __SP_L__,r28
+ 273 01b2 DF91      		pop r29
+ 274 01b4 CF91      		pop r28
+ 275 01b6 0895      		ret
+ 276               	/* epilogue end (size=9) */
+ 277               	/* function lcd_putchar size 57 (38) */
+ 278               		.size	lcd_putchar, .-lcd_putchar
+ 279               	.global	lcd_char
+ 280               		.type	lcd_char, @function
+ 281               	lcd_char:
+ 282               	/* prologue: frame size=3 */
+ 283 01b8 CF93      		push r28
+ 284 01ba DF93      		push r29
+ 285 01bc CDB7      		in r28,__SP_L__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 6
+
+
+ 286 01be DEB7      		in r29,__SP_H__
+ 287 01c0 2397      		sbiw r28,3
+ 288 01c2 0FB6      		in __tmp_reg__,__SREG__
+ 289 01c4 F894      		cli
+ 290 01c6 DEBF      		out __SP_H__,r29
+ 291 01c8 0FBE      		out __SREG__,__tmp_reg__
+ 292 01ca CDBF      		out __SP_L__,r28
+ 293               	/* prologue end (size=10) */
+ 294 01cc 8B83      		std Y+3,r24
+ 295 01ce 8B81      		ldd r24,Y+3
+ 296 01d0 8930      		cpi r24,lo8(9)
+ 297 01d2 01F4      		brne .L18
+ 298 01d4 1A82      		std Y+2,__zero_reg__
+ 299 01d6 1982      		std Y+1,__zero_reg__
+ 300 01d8 00C0      		rjmp .L20
+ 301               	.L21:
+ 302 01da 8B81      		ldd r24,Y+3
+ 303 01dc 0E94 0000 		call lcd_putchar
+ 304 01e0 8981      		ldd r24,Y+1
+ 305 01e2 9A81      		ldd r25,Y+2
+ 306 01e4 0196      		adiw r24,1
+ 307 01e6 9A83      		std Y+2,r25
+ 308 01e8 8983      		std Y+1,r24
+ 309               	.L20:
+ 310 01ea 8981      		ldd r24,Y+1
+ 311 01ec 9A81      		ldd r25,Y+2
+ 312 01ee 8230      		cpi r24,2
+ 313 01f0 9105      		cpc r25,__zero_reg__
+ 314 01f2 04F0      		brlt .L21
+ 315 01f4 00C0      		rjmp .L26
+ 316               	.L18:
+ 317 01f6 8B81      		ldd r24,Y+3
+ 318 01f8 8A30      		cpi r24,lo8(10)
+ 319 01fa 01F4      		brne .L24
+ 320 01fc 80E0      		ldi r24,lo8(0)
+ 321 01fe 0E94 0000 		call lcd_gotoxy2
+ 322 0202 00C0      		rjmp .L26
+ 323               	.L24:
+ 324 0204 8B81      		ldd r24,Y+3
+ 325 0206 0E94 0000 		call lcd_putchar
+ 326               	.L26:
+ 327               	/* epilogue: frame size=3 */
+ 328 020a 2396      		adiw r28,3
+ 329 020c 0FB6      		in __tmp_reg__,__SREG__
+ 330 020e F894      		cli
+ 331 0210 DEBF      		out __SP_H__,r29
+ 332 0212 0FBE      		out __SREG__,__tmp_reg__
+ 333 0214 CDBF      		out __SP_L__,r28
+ 334 0216 DF91      		pop r29
+ 335 0218 CF91      		pop r28
+ 336 021a 0895      		ret
+ 337               	/* epilogue end (size=9) */
+ 338               	/* function lcd_char size 50 (31) */
+ 339               		.size	lcd_char, .-lcd_char
+ 340               	.global	lcd_string
+ 341               		.type	lcd_string, @function
+ 342               	lcd_string:
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 7
+
+
+ 343               	/* prologue: frame size=3 */
+ 344 021c CF93      		push r28
+ 345 021e DF93      		push r29
+ 346 0220 CDB7      		in r28,__SP_L__
+ 347 0222 DEB7      		in r29,__SP_H__
+ 348 0224 2397      		sbiw r28,3
+ 349 0226 0FB6      		in __tmp_reg__,__SREG__
+ 350 0228 F894      		cli
+ 351 022a DEBF      		out __SP_H__,r29
+ 352 022c 0FBE      		out __SREG__,__tmp_reg__
+ 353 022e CDBF      		out __SP_L__,r28
+ 354               	/* prologue end (size=10) */
+ 355 0230 9B83      		std Y+3,r25
+ 356 0232 8A83      		std Y+2,r24
+ 357 0234 1982      		std Y+1,__zero_reg__
+ 358 0236 EBE3      		ldi r30,lo8(59)
+ 359 0238 F0E0      		ldi r31,hi8(59)
+ 360 023a 81E0      		ldi r24,lo8(1)
+ 361 023c 8083      		st Z,r24
+ 362 023e ABE3      		ldi r26,lo8(59)
+ 363 0240 B0E0      		ldi r27,hi8(59)
+ 364 0242 EBE3      		ldi r30,lo8(59)
+ 365 0244 F0E0      		ldi r31,hi8(59)
+ 366 0246 8081      		ld r24,Z
+ 367 0248 8270      		andi r24,lo8(2)
+ 368 024a 8C93      		st X,r24
+ 369 024c 00C0      		rjmp .L28
+ 370               	.L29:
+ 371 024e 8981      		ldd r24,Y+1
+ 372 0250 8031      		cpi r24,lo8(16)
+ 373 0252 01F4      		brne .L30
+ 374 0254 80EC      		ldi r24,lo8(-64)
+ 375 0256 0E94 0000 		call lcd_cmd
+ 376               	.L30:
+ 377 025a ABE3      		ldi r26,lo8(59)
+ 378 025c B0E0      		ldi r27,hi8(59)
+ 379 025e 8981      		ldd r24,Y+1
+ 380 0260 882F      		mov r24,r24
+ 381 0262 90E0      		ldi r25,lo8(0)
+ 382 0264 9C01      		movw r18,r24
+ 383 0266 8A81      		ldd r24,Y+2
+ 384 0268 9B81      		ldd r25,Y+3
+ 385 026a F901      		movw r30,r18
+ 386 026c E80F      		add r30,r24
+ 387 026e F91F      		adc r31,r25
+ 388 0270 8081      		ld r24,Z
+ 389 0272 982F      		mov r25,r24
+ 390 0274 80EF      		ldi r24,lo8(-16)
+ 391 0276 8923      		and r24,r25
+ 392 0278 8160      		ori r24,lo8(1)
+ 393 027a 8C93      		st X,r24
+ 394 027c 0E94 0000 		call toggleE
+ 395 0280 ABE3      		ldi r26,lo8(59)
+ 396 0282 B0E0      		ldi r27,hi8(59)
+ 397 0284 8981      		ldd r24,Y+1
+ 398 0286 882F      		mov r24,r24
+ 399 0288 90E0      		ldi r25,lo8(0)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 8
+
+
+ 400 028a 9C01      		movw r18,r24
+ 401 028c 8A81      		ldd r24,Y+2
+ 402 028e 9B81      		ldd r25,Y+3
+ 403 0290 F901      		movw r30,r18
+ 404 0292 E80F      		add r30,r24
+ 405 0294 F91F      		adc r31,r25
+ 406 0296 8081      		ld r24,Z
+ 407 0298 882F      		mov r24,r24
+ 408 029a 90E0      		ldi r25,lo8(0)
+ 409 029c 8F70      		andi r24,lo8(15)
+ 410 029e 9070      		andi r25,hi8(15)
+ 411 02a0 8295      		swap r24
+ 412 02a2 9295      		swap r25
+ 413 02a4 907F      		andi r25,0xf0
+ 414 02a6 9827      		eor r25,r24
+ 415 02a8 807F      		andi r24,0xf0
+ 416 02aa 9827      		eor r25,r24
+ 417 02ac 8160      		ori r24,lo8(1)
+ 418 02ae 8C93      		st X,r24
+ 419 02b0 0E94 0000 		call toggleE
+ 420 02b4 8981      		ldd r24,Y+1
+ 421 02b6 8F5F      		subi r24,lo8(-(1))
+ 422 02b8 8983      		std Y+1,r24
+ 423               	.L28:
+ 424 02ba 8981      		ldd r24,Y+1
+ 425 02bc 882F      		mov r24,r24
+ 426 02be 90E0      		ldi r25,lo8(0)
+ 427 02c0 9C01      		movw r18,r24
+ 428 02c2 8A81      		ldd r24,Y+2
+ 429 02c4 9B81      		ldd r25,Y+3
+ 430 02c6 F901      		movw r30,r18
+ 431 02c8 E80F      		add r30,r24
+ 432 02ca F91F      		adc r31,r25
+ 433 02cc 8081      		ld r24,Z
+ 434 02ce 8823      		tst r24
+ 435 02d0 01F0      		breq .+2
+ 436 02d2 00C0      		rjmp .L29
+ 437               	/* epilogue: frame size=3 */
+ 438 02d4 2396      		adiw r28,3
+ 439 02d6 0FB6      		in __tmp_reg__,__SREG__
+ 440 02d8 F894      		cli
+ 441 02da DEBF      		out __SP_H__,r29
+ 442 02dc 0FBE      		out __SREG__,__tmp_reg__
+ 443 02de CDBF      		out __SP_L__,r28
+ 444 02e0 DF91      		pop r29
+ 445 02e2 CF91      		pop r28
+ 446 02e4 0895      		ret
+ 447               	/* epilogue end (size=9) */
+ 448               	/* function lcd_string size 101 (82) */
+ 449               		.size	lcd_string, .-lcd_string
+ 450               	.global	lcd_showvalue
+ 451               		.type	lcd_showvalue, @function
+ 452               	lcd_showvalue:
+ 453               	/* prologue: frame size=4 */
+ 454 02e6 CF93      		push r28
+ 455 02e8 DF93      		push r29
+ 456 02ea CDB7      		in r28,__SP_L__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 9
+
+
+ 457 02ec DEB7      		in r29,__SP_H__
+ 458 02ee 2497      		sbiw r28,4
+ 459 02f0 0FB6      		in __tmp_reg__,__SREG__
+ 460 02f2 F894      		cli
+ 461 02f4 DEBF      		out __SP_H__,r29
+ 462 02f6 0FBE      		out __SREG__,__tmp_reg__
+ 463 02f8 CDBF      		out __SP_L__,r28
+ 464               	/* prologue end (size=10) */
+ 465 02fa 8C83      		std Y+4,r24
+ 466 02fc 1B82      		std Y+3,__zero_reg__
+ 467 02fe 1A82      		std Y+2,__zero_reg__
+ 468 0300 1982      		std Y+1,__zero_reg__
+ 469 0302 8C81      		ldd r24,Y+4
+ 470 0304 94E6      		ldi r25,lo8(100)
+ 471 0306 692F      		mov r22,r25
+ 472 0308 0E94 0000 		call __udivmodqi4
+ 473 030c 8B83      		std Y+3,r24
+ 474 030e 8C81      		ldd r24,Y+4
+ 475 0310 482F      		mov r20,r24
+ 476 0312 50E0      		ldi r21,lo8(0)
+ 477 0314 8B81      		ldd r24,Y+3
+ 478 0316 282F      		mov r18,r24
+ 479 0318 30E0      		ldi r19,lo8(0)
+ 480 031a 84E6      		ldi r24,lo8(100)
+ 481 031c 90E0      		ldi r25,hi8(100)
+ 482 031e BC01      		movw r22,r24
+ 483 0320 269F      		mul r18,r22
+ 484 0322 C001      		movw r24,r0
+ 485 0324 279F      		mul r18,r23
+ 486 0326 900D      		add r25,r0
+ 487 0328 369F      		mul r19,r22
+ 488 032a 900D      		add r25,r0
+ 489 032c 1124      		clr r1
+ 490 032e 9A01      		movw r18,r20
+ 491 0330 281B      		sub r18,r24
+ 492 0332 390B      		sbc r19,r25
+ 493 0334 C901      		movw r24,r18
+ 494 0336 2AE0      		ldi r18,lo8(10)
+ 495 0338 30E0      		ldi r19,hi8(10)
+ 496 033a B901      		movw r22,r18
+ 497 033c 0E94 0000 		call __divmodhi4
+ 498 0340 CB01      		movw r24,r22
+ 499 0342 8A83      		std Y+2,r24
+ 500 0344 8B81      		ldd r24,Y+3
+ 501 0346 282F      		mov r18,r24
+ 502 0348 30E0      		ldi r19,lo8(0)
+ 503 034a 84E6      		ldi r24,lo8(100)
+ 504 034c 90E0      		ldi r25,hi8(100)
+ 505 034e AC01      		movw r20,r24
+ 506 0350 249F      		mul r18,r20
+ 507 0352 C001      		movw r24,r0
+ 508 0354 259F      		mul r18,r21
+ 509 0356 900D      		add r25,r0
+ 510 0358 349F      		mul r19,r20
+ 511 035a 900D      		add r25,r0
+ 512 035c 1124      		clr r1
+ 513 035e 982F      		mov r25,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 10
+
+
+ 514 0360 8C81      		ldd r24,Y+4
+ 515 0362 482F      		mov r20,r24
+ 516 0364 491B      		sub r20,r25
+ 517 0366 8A81      		ldd r24,Y+2
+ 518 0368 882F      		mov r24,r24
+ 519 036a 90E0      		ldi r25,lo8(0)
+ 520 036c 9C01      		movw r18,r24
+ 521 036e 220F      		lsl r18
+ 522 0370 331F      		rol r19
+ 523 0372 C901      		movw r24,r18
+ 524 0374 880F      		lsl r24
+ 525 0376 991F      		rol r25
+ 526 0378 880F      		lsl r24
+ 527 037a 991F      		rol r25
+ 528 037c 820F      		add r24,r18
+ 529 037e 931F      		adc r25,r19
+ 530 0380 542F      		mov r21,r20
+ 531 0382 581B      		sub r21,r24
+ 532 0384 852F      		mov r24,r21
+ 533 0386 8983      		std Y+1,r24
+ 534 0388 8B81      		ldd r24,Y+3
+ 535 038a 805D      		subi r24,lo8(-(48))
+ 536 038c 0E94 0000 		call lcd_char
+ 537 0390 8A81      		ldd r24,Y+2
+ 538 0392 805D      		subi r24,lo8(-(48))
+ 539 0394 0E94 0000 		call lcd_char
+ 540 0398 8981      		ldd r24,Y+1
+ 541 039a 805D      		subi r24,lo8(-(48))
+ 542 039c 0E94 0000 		call lcd_char
+ 543               	/* epilogue: frame size=4 */
+ 544 03a0 2496      		adiw r28,4
+ 545 03a2 0FB6      		in __tmp_reg__,__SREG__
+ 546 03a4 F894      		cli
+ 547 03a6 DEBF      		out __SP_H__,r29
+ 548 03a8 0FBE      		out __SREG__,__tmp_reg__
+ 549 03aa CDBF      		out __SP_L__,r28
+ 550 03ac DF91      		pop r29
+ 551 03ae CF91      		pop r28
+ 552 03b0 0895      		ret
+ 553               	/* epilogue end (size=9) */
+ 554               	/* function lcd_showvalue size 102 (83) */
+ 555               		.size	lcd_showvalue, .-lcd_showvalue
+ 556               	.global	lcd_gotoxy1
+ 557               		.type	lcd_gotoxy1, @function
+ 558               	lcd_gotoxy1:
+ 559               	/* prologue: frame size=1 */
+ 560 03b2 CF93      		push r28
+ 561 03b4 DF93      		push r29
+ 562 03b6 CDB7      		in r28,__SP_L__
+ 563 03b8 DEB7      		in r29,__SP_H__
+ 564 03ba 2197      		sbiw r28,1
+ 565 03bc 0FB6      		in __tmp_reg__,__SREG__
+ 566 03be F894      		cli
+ 567 03c0 DEBF      		out __SP_H__,r29
+ 568 03c2 0FBE      		out __SREG__,__tmp_reg__
+ 569 03c4 CDBF      		out __SP_L__,r28
+ 570               	/* prologue end (size=10) */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 11
+
+
+ 571 03c6 8983      		std Y+1,r24
+ 572 03c8 8981      		ldd r24,Y+1
+ 573 03ca 8058      		subi r24,lo8(-(-128))
+ 574 03cc 0E94 0000 		call lcd_cmd
+ 575               	/* epilogue: frame size=1 */
+ 576 03d0 2196      		adiw r28,1
+ 577 03d2 0FB6      		in __tmp_reg__,__SREG__
+ 578 03d4 F894      		cli
+ 579 03d6 DEBF      		out __SP_H__,r29
+ 580 03d8 0FBE      		out __SREG__,__tmp_reg__
+ 581 03da CDBF      		out __SP_L__,r28
+ 582 03dc DF91      		pop r29
+ 583 03de CF91      		pop r28
+ 584 03e0 0895      		ret
+ 585               	/* epilogue end (size=9) */
+ 586               	/* function lcd_gotoxy1 size 24 (5) */
+ 587               		.size	lcd_gotoxy1, .-lcd_gotoxy1
+ 588               	.global	lcd_gotoxy2
+ 589               		.type	lcd_gotoxy2, @function
+ 590               	lcd_gotoxy2:
+ 591               	/* prologue: frame size=1 */
+ 592 03e2 CF93      		push r28
+ 593 03e4 DF93      		push r29
+ 594 03e6 CDB7      		in r28,__SP_L__
+ 595 03e8 DEB7      		in r29,__SP_H__
+ 596 03ea 2197      		sbiw r28,1
+ 597 03ec 0FB6      		in __tmp_reg__,__SREG__
+ 598 03ee F894      		cli
+ 599 03f0 DEBF      		out __SP_H__,r29
+ 600 03f2 0FBE      		out __SREG__,__tmp_reg__
+ 601 03f4 CDBF      		out __SP_L__,r28
+ 602               	/* prologue end (size=10) */
+ 603 03f6 8983      		std Y+1,r24
+ 604 03f8 8981      		ldd r24,Y+1
+ 605 03fa 8054      		subi r24,lo8(-(-64))
+ 606 03fc 0E94 0000 		call lcd_cmd
+ 607               	/* epilogue: frame size=1 */
+ 608 0400 2196      		adiw r28,1
+ 609 0402 0FB6      		in __tmp_reg__,__SREG__
+ 610 0404 F894      		cli
+ 611 0406 DEBF      		out __SP_H__,r29
+ 612 0408 0FBE      		out __SREG__,__tmp_reg__
+ 613 040a CDBF      		out __SP_L__,r28
+ 614 040c DF91      		pop r29
+ 615 040e CF91      		pop r28
+ 616 0410 0895      		ret
+ 617               	/* epilogue end (size=9) */
+ 618               	/* function lcd_gotoxy2 size 24 (5) */
+ 619               		.size	lcd_gotoxy2, .-lcd_gotoxy2
+ 620               	.global	lcd_exit
+ 621               		.type	lcd_exit, @function
+ 622               	lcd_exit:
+ 623               	/* prologue: frame size=0 */
+ 624 0412 CF93      		push r28
+ 625 0414 DF93      		push r29
+ 626 0416 CDB7      		in r28,__SP_L__
+ 627 0418 DEB7      		in r29,__SP_H__
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 12
+
+
+ 628               	/* prologue end (size=4) */
+ 629 041a EBE3      		ldi r30,lo8(59)
+ 630 041c F0E0      		ldi r31,hi8(59)
+ 631 041e 8091 0000 		lds r24,save
+ 632 0422 8083      		st Z,r24
+ 633               	/* epilogue: frame size=0 */
+ 634 0424 DF91      		pop r29
+ 635 0426 CF91      		pop r28
+ 636 0428 0895      		ret
+ 637               	/* epilogue end (size=3) */
+ 638               	/* function lcd_exit size 12 (5) */
+ 639               		.size	lcd_exit, .-lcd_exit
+ 640               	.global	WaitMs
+ 641               		.type	WaitMs, @function
+ 642               	WaitMs:
+ 643               	/* prologue: frame size=4 */
+ 644 042a CF93      		push r28
+ 645 042c DF93      		push r29
+ 646 042e CDB7      		in r28,__SP_L__
+ 647 0430 DEB7      		in r29,__SP_H__
+ 648 0432 2497      		sbiw r28,4
+ 649 0434 0FB6      		in __tmp_reg__,__SREG__
+ 650 0436 F894      		cli
+ 651 0438 DEBF      		out __SP_H__,r29
+ 652 043a 0FBE      		out __SREG__,__tmp_reg__
+ 653 043c CDBF      		out __SP_L__,r28
+ 654               	/* prologue end (size=10) */
+ 655 043e 9C83      		std Y+4,r25
+ 656 0440 8B83      		std Y+3,r24
+ 657 0442 00C0      		rjmp .L43
+ 658               	.L44:
+ 659 0444 1A82      		std Y+2,__zero_reg__
+ 660 0446 1982      		std Y+1,__zero_reg__
+ 661 0448 00C0      		rjmp .L45
+ 662               	.L46:
+ 663               	/* #APP */
+ 664 044a 0000      		nop
+ 665               	/* #NOAPP */
+ 666 044c 8981      		ldd r24,Y+1
+ 667 044e 9A81      		ldd r25,Y+2
+ 668 0450 0196      		adiw r24,1
+ 669 0452 9A83      		std Y+2,r25
+ 670 0454 8983      		std Y+1,r24
+ 671               	.L45:
+ 672 0456 8981      		ldd r24,Y+1
+ 673 0458 9A81      		ldd r25,Y+2
+ 674 045a 2CE0      		ldi r18,hi8(3276)
+ 675 045c 8C3C      		cpi r24,lo8(3276)
+ 676 045e 9207      		cpc r25,r18
+ 677 0460 04F0      		brlt .L46
+ 678               	.L43:
+ 679 0462 8B81      		ldd r24,Y+3
+ 680 0464 9C81      		ldd r25,Y+4
+ 681 0466 0197      		sbiw r24,1
+ 682 0468 9C83      		std Y+4,r25
+ 683 046a 8B83      		std Y+3,r24
+ 684 046c 8B81      		ldd r24,Y+3
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 13
+
+
+ 685 046e 9C81      		ldd r25,Y+4
+ 686 0470 2FEF      		ldi r18,hi8(-1)
+ 687 0472 8F3F      		cpi r24,lo8(-1)
+ 688 0474 9207      		cpc r25,r18
+ 689 0476 01F4      		brne .L44
+ 690               	/* epilogue: frame size=4 */
+ 691 0478 2496      		adiw r28,4
+ 692 047a 0FB6      		in __tmp_reg__,__SREG__
+ 693 047c F894      		cli
+ 694 047e DEBF      		out __SP_H__,r29
+ 695 0480 0FBE      		out __SREG__,__tmp_reg__
+ 696 0482 CDBF      		out __SP_L__,r28
+ 697 0484 DF91      		pop r29
+ 698 0486 CF91      		pop r28
+ 699 0488 0895      		ret
+ 700               	/* epilogue end (size=9) */
+ 701               	/* function WaitMs size 49 (30) */
+ 702               		.size	WaitMs, .-WaitMs
+ 703               		.data
+ 704               		.type	C.7.1945, @object
+ 705               		.size	C.7.1945, 20
+ 706               	C.7.1945:
+ 707 0000 9F01      		.word	415
+ 708 0002 CF00      		.word	207
+ 709 0004 6700      		.word	103
+ 710 0006 4400      		.word	68
+ 711 0008 3300      		.word	51
+ 712 000a 2200      		.word	34
+ 713 000c 1900      		.word	25
+ 714 000e 1000      		.word	16
+ 715 0010 0C00      		.word	12
+ 716 0012 0800      		.word	8
+ 717               		.type	C.6.1944, @object
+ 718               		.size	C.6.1944, 40
+ 719               	C.6.1944:
+ 720 0014 60        		.byte	96
+ 721 0015 09        		.byte	9
+ 722 0016 00        		.byte	0
+ 723 0017 00        		.byte	0
+ 724 0018 C0        		.byte	-64
+ 725 0019 12        		.byte	18
+ 726 001a 00        		.byte	0
+ 727 001b 00        		.byte	0
+ 728 001c 80        		.byte	-128
+ 729 001d 25        		.byte	37
+ 730 001e 00        		.byte	0
+ 731 001f 00        		.byte	0
+ 732 0020 40        		.byte	64
+ 733 0021 38        		.byte	56
+ 734 0022 00        		.byte	0
+ 735 0023 00        		.byte	0
+ 736 0024 00        		.byte	0
+ 737 0025 4B        		.byte	75
+ 738 0026 00        		.byte	0
+ 739 0027 00        		.byte	0
+ 740 0028 80        		.byte	-128
+ 741 0029 70        		.byte	112
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 14
+
+
+ 742 002a 00        		.byte	0
+ 743 002b 00        		.byte	0
+ 744 002c 00        		.byte	0
+ 745 002d 96        		.byte	-106
+ 746 002e 00        		.byte	0
+ 747 002f 00        		.byte	0
+ 748 0030 00        		.byte	0
+ 749 0031 E1        		.byte	-31
+ 750 0032 00        		.byte	0
+ 751 0033 00        		.byte	0
+ 752 0034 00        		.byte	0
+ 753 0035 2C        		.byte	44
+ 754 0036 01        		.byte	1
+ 755 0037 00        		.byte	0
+ 756 0038 00        		.byte	0
+ 757 0039 C2        		.byte	-62
+ 758 003a 01        		.byte	1
+ 759 003b 00        		.byte	0
+ 760               		.text
+ 761               	.global	UART_config
+ 762               		.type	UART_config, @function
+ 763               	UART_config:
+ 764               	/* prologue: frame size=82 */
+ 765 048a CF93      		push r28
+ 766 048c DF93      		push r29
+ 767 048e CDB7      		in r28,__SP_L__
+ 768 0490 DEB7      		in r29,__SP_H__
+ 769 0492 C255      		subi r28,lo8(82)
+ 770 0494 D040      		sbci r29,hi8(82)
+ 771 0496 0FB6      		in __tmp_reg__,__SREG__
+ 772 0498 F894      		cli
+ 773 049a DEBF      		out __SP_H__,r29
+ 774 049c 0FBE      		out __SREG__,__tmp_reg__
+ 775 049e CDBF      		out __SP_L__,r28
+ 776               	/* prologue end (size=11) */
+ 777 04a0 FE01      		movw r30,r28
+ 778 04a2 EB5B      		subi r30,lo8(-(69))
+ 779 04a4 FF4F      		sbci r31,hi8(-(69))
+ 780 04a6 6083      		st Z,r22
+ 781 04a8 7183      		std Z+1,r23
+ 782 04aa 8283      		std Z+2,r24
+ 783 04ac 9383      		std Z+3,r25
+ 784 04ae 1E82      		std Y+6,__zero_reg__
+ 785 04b0 1D82      		std Y+5,__zero_reg__
+ 786 04b2 CE01      		movw r24,r28
+ 787 04b4 0996      		adiw r24,9
+ 788 04b6 2B96      		adiw r28,73-62
+ 789 04b8 9FAF      		std Y+63,r25
+ 790 04ba 8EAF      		std Y+62,r24
+ 791 04bc 2B97      		sbiw r28,73-62
+ 792 04be E0E0      		ldi r30,lo8(C.6.1944)
+ 793 04c0 F0E0      		ldi r31,hi8(C.6.1944)
+ 794 04c2 2D96      		adiw r28,75-62
+ 795 04c4 FFAF      		std Y+63,r31
+ 796 04c6 EEAF      		std Y+62,r30
+ 797 04c8 2D97      		sbiw r28,75-62
+ 798 04ca F8E2      		ldi r31,lo8(40)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 15
+
+
+ 799 04cc 2E96      		adiw r28,77-63
+ 800 04ce FFAF      		std Y+63,r31
+ 801 04d0 2E97      		sbiw r28,77-63
+ 802               	.L50:
+ 803 04d2 2D96      		adiw r28,75-62
+ 804 04d4 EEAD      		ldd r30,Y+62
+ 805 04d6 FFAD      		ldd r31,Y+63
+ 806 04d8 2D97      		sbiw r28,75-62
+ 807 04da 0080      		ld r0,Z
+ 808 04dc 2D96      		adiw r28,75-62
+ 809 04de 8EAD      		ldd r24,Y+62
+ 810 04e0 9FAD      		ldd r25,Y+63
+ 811 04e2 2D97      		sbiw r28,75-62
+ 812 04e4 0196      		adiw r24,1
+ 813 04e6 2D96      		adiw r28,75-62
+ 814 04e8 9FAF      		std Y+63,r25
+ 815 04ea 8EAF      		std Y+62,r24
+ 816 04ec 2D97      		sbiw r28,75-62
+ 817 04ee 2B96      		adiw r28,73-62
+ 818 04f0 EEAD      		ldd r30,Y+62
+ 819 04f2 FFAD      		ldd r31,Y+63
+ 820 04f4 2B97      		sbiw r28,73-62
+ 821 04f6 0082      		st Z,r0
+ 822 04f8 2B96      		adiw r28,73-62
+ 823 04fa 8EAD      		ldd r24,Y+62
+ 824 04fc 9FAD      		ldd r25,Y+63
+ 825 04fe 2B97      		sbiw r28,73-62
+ 826 0500 0196      		adiw r24,1
+ 827 0502 2B96      		adiw r28,73-62
+ 828 0504 9FAF      		std Y+63,r25
+ 829 0506 8EAF      		std Y+62,r24
+ 830 0508 2B97      		sbiw r28,73-62
+ 831 050a 2E96      		adiw r28,77-63
+ 832 050c 9FAD      		ldd r25,Y+63
+ 833 050e 2E97      		sbiw r28,77-63
+ 834 0510 9150      		subi r25,lo8(-(-1))
+ 835 0512 2E96      		adiw r28,77-63
+ 836 0514 9FAF      		std Y+63,r25
+ 837 0516 2E97      		sbiw r28,77-63
+ 838 0518 2E96      		adiw r28,77-63
+ 839 051a EFAD      		ldd r30,Y+63
+ 840 051c 2E97      		sbiw r28,77-63
+ 841 051e EE23      		tst r30
+ 842 0520 01F4      		brne .L50
+ 843 0522 CE01      		movw r24,r28
+ 844 0524 C196      		adiw r24,49
+ 845 0526 6096      		adiw r28,78-62
+ 846 0528 9FAF      		std Y+63,r25
+ 847 052a 8EAF      		std Y+62,r24
+ 848 052c 6097      		sbiw r28,78-62
+ 849 052e E0E0      		ldi r30,lo8(C.7.1945)
+ 850 0530 F0E0      		ldi r31,hi8(C.7.1945)
+ 851 0532 6296      		adiw r28,80-62
+ 852 0534 FFAF      		std Y+63,r31
+ 853 0536 EEAF      		std Y+62,r30
+ 854 0538 6297      		sbiw r28,80-62
+ 855 053a F4E1      		ldi r31,lo8(20)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 16
+
+
+ 856 053c 6396      		adiw r28,82-63
+ 857 053e FFAF      		std Y+63,r31
+ 858 0540 6397      		sbiw r28,82-63
+ 859               	.L51:
+ 860 0542 6296      		adiw r28,80-62
+ 861 0544 EEAD      		ldd r30,Y+62
+ 862 0546 FFAD      		ldd r31,Y+63
+ 863 0548 6297      		sbiw r28,80-62
+ 864 054a 0080      		ld r0,Z
+ 865 054c 6296      		adiw r28,80-62
+ 866 054e 8EAD      		ldd r24,Y+62
+ 867 0550 9FAD      		ldd r25,Y+63
+ 868 0552 6297      		sbiw r28,80-62
+ 869 0554 0196      		adiw r24,1
+ 870 0556 6296      		adiw r28,80-62
+ 871 0558 9FAF      		std Y+63,r25
+ 872 055a 8EAF      		std Y+62,r24
+ 873 055c 6297      		sbiw r28,80-62
+ 874 055e 6096      		adiw r28,78-62
+ 875 0560 EEAD      		ldd r30,Y+62
+ 876 0562 FFAD      		ldd r31,Y+63
+ 877 0564 6097      		sbiw r28,78-62
+ 878 0566 0082      		st Z,r0
+ 879 0568 6096      		adiw r28,78-62
+ 880 056a 8EAD      		ldd r24,Y+62
+ 881 056c 9FAD      		ldd r25,Y+63
+ 882 056e 6097      		sbiw r28,78-62
+ 883 0570 0196      		adiw r24,1
+ 884 0572 6096      		adiw r28,78-62
+ 885 0574 9FAF      		std Y+63,r25
+ 886 0576 8EAF      		std Y+62,r24
+ 887 0578 6097      		sbiw r28,78-62
+ 888 057a 6396      		adiw r28,82-63
+ 889 057c 9FAD      		ldd r25,Y+63
+ 890 057e 6397      		sbiw r28,82-63
+ 891 0580 9150      		subi r25,lo8(-(-1))
+ 892 0582 6396      		adiw r28,82-63
+ 893 0584 9FAF      		std Y+63,r25
+ 894 0586 6397      		sbiw r28,82-63
+ 895 0588 6396      		adiw r28,82-63
+ 896 058a EFAD      		ldd r30,Y+63
+ 897 058c 6397      		sbiw r28,82-63
+ 898 058e EE23      		tst r30
+ 899 0590 01F4      		brne .L51
+ 900 0592 EAE9      		ldi r30,lo8(154)
+ 901 0594 F0E0      		ldi r31,hi8(154)
+ 902 0596 88E1      		ldi r24,lo8(24)
+ 903 0598 8083      		st Z,r24
+ 904 059a EDE9      		ldi r30,lo8(157)
+ 905 059c F0E0      		ldi r31,hi8(157)
+ 906 059e 86E0      		ldi r24,lo8(6)
+ 907 05a0 8083      		st Z,r24
+ 908 05a2 1886      		std Y+8,__zero_reg__
+ 909 05a4 1F82      		std Y+7,__zero_reg__
+ 910 05a6 00C0      		rjmp .L52
+ 911               	.L53:
+ 912 05a8 8F81      		ldd r24,Y+7
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 17
+
+
+ 913 05aa 9885      		ldd r25,Y+8
+ 914 05ac 9C01      		movw r18,r24
+ 915 05ae 220F      		lsl r18
+ 916 05b0 331F      		rol r19
+ 917 05b2 220F      		lsl r18
+ 918 05b4 331F      		rol r19
+ 919 05b6 CE01      		movw r24,r28
+ 920 05b8 0196      		adiw r24,1
+ 921 05ba 820F      		add r24,r18
+ 922 05bc 931F      		adc r25,r19
+ 923 05be FC01      		movw r30,r24
+ 924 05c0 3896      		adiw r30,8
+ 925 05c2 2081      		ld r18,Z
+ 926 05c4 3181      		ldd r19,Z+1
+ 927 05c6 4281      		ldd r20,Z+2
+ 928 05c8 5381      		ldd r21,Z+3
+ 929 05ca FE01      		movw r30,r28
+ 930 05cc EB5B      		subi r30,lo8(-(69))
+ 931 05ce FF4F      		sbci r31,hi8(-(69))
+ 932 05d0 8081      		ld r24,Z
+ 933 05d2 9181      		ldd r25,Z+1
+ 934 05d4 A281      		ldd r26,Z+2
+ 935 05d6 B381      		ldd r27,Z+3
+ 936 05d8 2817      		cp r18,r24
+ 937 05da 3907      		cpc r19,r25
+ 938 05dc 4A07      		cpc r20,r26
+ 939 05de 5B07      		cpc r21,r27
+ 940 05e0 01F4      		brne .L54
+ 941 05e2 8F81      		ldd r24,Y+7
+ 942 05e4 9885      		ldd r25,Y+8
+ 943 05e6 9C01      		movw r18,r24
+ 944 05e8 220F      		lsl r18
+ 945 05ea 331F      		rol r19
+ 946 05ec CE01      		movw r24,r28
+ 947 05ee 0196      		adiw r24,1
+ 948 05f0 820F      		add r24,r18
+ 949 05f2 931F      		adc r25,r19
+ 950 05f4 FC01      		movw r30,r24
+ 951 05f6 F096      		adiw r30,48
+ 952 05f8 8081      		ld r24,Z
+ 953 05fa 9181      		ldd r25,Z+1
+ 954 05fc 9E83      		std Y+6,r25
+ 955 05fe 8D83      		std Y+5,r24
+ 956               	.L54:
+ 957 0600 8F81      		ldd r24,Y+7
+ 958 0602 9885      		ldd r25,Y+8
+ 959 0604 0196      		adiw r24,1
+ 960 0606 9887      		std Y+8,r25
+ 961 0608 8F83      		std Y+7,r24
+ 962               	.L52:
+ 963 060a 8F81      		ldd r24,Y+7
+ 964 060c 9885      		ldd r25,Y+8
+ 965 060e 8A30      		cpi r24,10
+ 966 0610 9105      		cpc r25,__zero_reg__
+ 967 0612 04F0      		brlt .L53
+ 968 0614 8D81      		ldd r24,Y+5
+ 969 0616 9E81      		ldd r25,Y+6
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 18
+
+
+ 970 0618 892F      		mov r24,r25
+ 971 061a 9927      		clr r25
+ 972 061c 9A83      		std Y+2,r25
+ 973 061e 8983      		std Y+1,r24
+ 974 0620 8D81      		ldd r24,Y+5
+ 975 0622 9E81      		ldd r25,Y+6
+ 976 0624 9070      		andi r25,hi8(255)
+ 977 0626 9C83      		std Y+4,r25
+ 978 0628 8B83      		std Y+3,r24
+ 979 062a E9E9      		ldi r30,lo8(153)
+ 980 062c F0E0      		ldi r31,hi8(153)
+ 981 062e 8B81      		ldd r24,Y+3
+ 982 0630 8083      		st Z,r24
+ 983 0632 E8E9      		ldi r30,lo8(152)
+ 984 0634 F0E0      		ldi r31,hi8(152)
+ 985 0636 8981      		ldd r24,Y+1
+ 986 0638 8083      		st Z,r24
+ 987 063a 8B81      		ldd r24,Y+3
+ 988 063c 9C81      		ldd r25,Y+4
+ 989               	/* epilogue: frame size=82 */
+ 990 063e CE5A      		subi r28,lo8(-82)
+ 991 0640 DF4F      		sbci r29,hi8(-82)
+ 992 0642 0FB6      		in __tmp_reg__,__SREG__
+ 993 0644 F894      		cli
+ 994 0646 DEBF      		out __SP_H__,r29
+ 995 0648 0FBE      		out __SREG__,__tmp_reg__
+ 996 064a CDBF      		out __SP_L__,r28
+ 997 064c DF91      		pop r29
+ 998 064e CF91      		pop r28
+ 999 0650 0895      		ret
+ 1000               	/* epilogue end (size=10) */
+ 1001               	/* function UART_config size 229 (208) */
+ 1002               		.size	UART_config, .-UART_config
+ 1003               	.global	UART_Transmit_char
+ 1004               		.type	UART_Transmit_char, @function
+ 1005               	UART_Transmit_char:
+ 1006               	/* prologue: frame size=1 */
+ 1007 0652 CF93      		push r28
+ 1008 0654 DF93      		push r29
+ 1009 0656 CDB7      		in r28,__SP_L__
+ 1010 0658 DEB7      		in r29,__SP_H__
+ 1011 065a 2197      		sbiw r28,1
+ 1012 065c 0FB6      		in __tmp_reg__,__SREG__
+ 1013 065e F894      		cli
+ 1014 0660 DEBF      		out __SP_H__,r29
+ 1015 0662 0FBE      		out __SREG__,__tmp_reg__
+ 1016 0664 CDBF      		out __SP_L__,r28
+ 1017               	/* prologue end (size=10) */
+ 1018 0666 8983      		std Y+1,r24
+ 1019 0668 ECE9      		ldi r30,lo8(156)
+ 1020 066a F0E0      		ldi r31,hi8(156)
+ 1021 066c 8981      		ldd r24,Y+1
+ 1022 066e 8083      		st Z,r24
+ 1023               	.L59:
+ 1024 0670 EBE9      		ldi r30,lo8(155)
+ 1025 0672 F0E0      		ldi r31,hi8(155)
+ 1026 0674 8081      		ld r24,Z
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 19
+
+
+ 1027 0676 882F      		mov r24,r24
+ 1028 0678 90E0      		ldi r25,lo8(0)
+ 1029 067a 8076      		andi r24,lo8(96)
+ 1030 067c 9070      		andi r25,hi8(96)
+ 1031 067e 8036      		cpi r24,96
+ 1032 0680 9105      		cpc r25,__zero_reg__
+ 1033 0682 01F4      		brne .L59
+ 1034               	/* epilogue: frame size=1 */
+ 1035 0684 2196      		adiw r28,1
+ 1036 0686 0FB6      		in __tmp_reg__,__SREG__
+ 1037 0688 F894      		cli
+ 1038 068a DEBF      		out __SP_H__,r29
+ 1039 068c 0FBE      		out __SREG__,__tmp_reg__
+ 1040 068e CDBF      		out __SP_L__,r28
+ 1041 0690 DF91      		pop r29
+ 1042 0692 CF91      		pop r28
+ 1043 0694 0895      		ret
+ 1044               	/* epilogue end (size=9) */
+ 1045               	/* function UART_Transmit_char size 34 (15) */
+ 1046               		.size	UART_Transmit_char, .-UART_Transmit_char
+ 1047               	.global	UART_Transmit_string
+ 1048               		.type	UART_Transmit_string, @function
+ 1049               	UART_Transmit_string:
+ 1050               	/* prologue: frame size=2 */
+ 1051 0696 CF93      		push r28
+ 1052 0698 DF93      		push r29
+ 1053 069a CDB7      		in r28,__SP_L__
+ 1054 069c DEB7      		in r29,__SP_H__
+ 1055 069e 2297      		sbiw r28,2
+ 1056 06a0 0FB6      		in __tmp_reg__,__SREG__
+ 1057 06a2 F894      		cli
+ 1058 06a4 DEBF      		out __SP_H__,r29
+ 1059 06a6 0FBE      		out __SREG__,__tmp_reg__
+ 1060 06a8 CDBF      		out __SP_L__,r28
+ 1061               	/* prologue end (size=10) */
+ 1062 06aa 9A83      		std Y+2,r25
+ 1063 06ac 8983      		std Y+1,r24
+ 1064 06ae 00C0      		rjmp .L63
+ 1065               	.L64:
+ 1066 06b0 E981      		ldd r30,Y+1
+ 1067 06b2 FA81      		ldd r31,Y+2
+ 1068 06b4 2081      		ld r18,Z
+ 1069 06b6 8981      		ldd r24,Y+1
+ 1070 06b8 9A81      		ldd r25,Y+2
+ 1071 06ba 0196      		adiw r24,1
+ 1072 06bc 9A83      		std Y+2,r25
+ 1073 06be 8983      		std Y+1,r24
+ 1074 06c0 822F      		mov r24,r18
+ 1075 06c2 0E94 0000 		call UART_Transmit_char
+ 1076               	.L63:
+ 1077 06c6 E981      		ldd r30,Y+1
+ 1078 06c8 FA81      		ldd r31,Y+2
+ 1079 06ca 8081      		ld r24,Z
+ 1080 06cc 8823      		tst r24
+ 1081 06ce 01F4      		brne .L64
+ 1082               	/* epilogue: frame size=2 */
+ 1083 06d0 2296      		adiw r28,2
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 20
+
+
+ 1084 06d2 0FB6      		in __tmp_reg__,__SREG__
+ 1085 06d4 F894      		cli
+ 1086 06d6 DEBF      		out __SP_H__,r29
+ 1087 06d8 0FBE      		out __SREG__,__tmp_reg__
+ 1088 06da CDBF      		out __SP_L__,r28
+ 1089 06dc DF91      		pop r29
+ 1090 06de CF91      		pop r28
+ 1091 06e0 0895      		ret
+ 1092               	/* epilogue end (size=9) */
+ 1093               	/* function UART_Transmit_string size 38 (19) */
+ 1094               		.size	UART_Transmit_string, .-UART_Transmit_string
+ 1095               	.global	UART_Transmit_num
+ 1096               		.type	UART_Transmit_num, @function
+ 1097               	UART_Transmit_num:
+ 1098               	/* prologue: frame size=3 */
+ 1099 06e2 CF93      		push r28
+ 1100 06e4 DF93      		push r29
+ 1101 06e6 CDB7      		in r28,__SP_L__
+ 1102 06e8 DEB7      		in r29,__SP_H__
+ 1103 06ea 2397      		sbiw r28,3
+ 1104 06ec 0FB6      		in __tmp_reg__,__SREG__
+ 1105 06ee F894      		cli
+ 1106 06f0 DEBF      		out __SP_H__,r29
+ 1107 06f2 0FBE      		out __SREG__,__tmp_reg__
+ 1108 06f4 CDBF      		out __SP_L__,r28
+ 1109               	/* prologue end (size=10) */
+ 1110 06f6 8B83      		std Y+3,r24
+ 1111 06f8 8B81      		ldd r24,Y+3
+ 1112 06fa 9AE0      		ldi r25,lo8(10)
+ 1113 06fc 692F      		mov r22,r25
+ 1114 06fe 0E94 0000 		call __udivmodqi4
+ 1115 0702 892F      		mov r24,r25
+ 1116 0704 8A83      		std Y+2,r24
+ 1117 0706 8B81      		ldd r24,Y+3
+ 1118 0708 9AE0      		ldi r25,lo8(10)
+ 1119 070a 692F      		mov r22,r25
+ 1120 070c 0E94 0000 		call __udivmodqi4
+ 1121 0710 8B83      		std Y+3,r24
+ 1122 0712 8B81      		ldd r24,Y+3
+ 1123 0714 9AE0      		ldi r25,lo8(10)
+ 1124 0716 692F      		mov r22,r25
+ 1125 0718 0E94 0000 		call __udivmodqi4
+ 1126 071c 892F      		mov r24,r25
+ 1127 071e 8983      		std Y+1,r24
+ 1128 0720 8B81      		ldd r24,Y+3
+ 1129 0722 9AE0      		ldi r25,lo8(10)
+ 1130 0724 692F      		mov r22,r25
+ 1131 0726 0E94 0000 		call __udivmodqi4
+ 1132 072a 8B83      		std Y+3,r24
+ 1133 072c 8B81      		ldd r24,Y+3
+ 1134 072e 8823      		tst r24
+ 1135 0730 01F0      		breq .L68
+ 1136 0732 8B81      		ldd r24,Y+3
+ 1137 0734 805D      		subi r24,lo8(-(48))
+ 1138 0736 0E94 0000 		call UART_Transmit_char
+ 1139               	.L68:
+ 1140 073a 8B81      		ldd r24,Y+3
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 21
+
+
+ 1141 073c 8823      		tst r24
+ 1142 073e 01F4      		brne .L70
+ 1143 0740 8981      		ldd r24,Y+1
+ 1144 0742 8823      		tst r24
+ 1145 0744 01F0      		breq .L72
+ 1146               	.L70:
+ 1147 0746 8981      		ldd r24,Y+1
+ 1148 0748 805D      		subi r24,lo8(-(48))
+ 1149 074a 0E94 0000 		call UART_Transmit_char
+ 1150               	.L72:
+ 1151 074e 8A81      		ldd r24,Y+2
+ 1152 0750 805D      		subi r24,lo8(-(48))
+ 1153 0752 0E94 0000 		call UART_Transmit_char
+ 1154               	.L73:
+ 1155 0756 EBE9      		ldi r30,lo8(155)
+ 1156 0758 F0E0      		ldi r31,hi8(155)
+ 1157 075a 8081      		ld r24,Z
+ 1158 075c 882F      		mov r24,r24
+ 1159 075e 90E0      		ldi r25,lo8(0)
+ 1160 0760 8076      		andi r24,lo8(96)
+ 1161 0762 9070      		andi r25,hi8(96)
+ 1162 0764 8036      		cpi r24,96
+ 1163 0766 9105      		cpc r25,__zero_reg__
+ 1164 0768 01F4      		brne .L73
+ 1165               	/* epilogue: frame size=3 */
+ 1166 076a 2396      		adiw r28,3
+ 1167 076c 0FB6      		in __tmp_reg__,__SREG__
+ 1168 076e F894      		cli
+ 1169 0770 DEBF      		out __SP_H__,r29
+ 1170 0772 0FBE      		out __SREG__,__tmp_reg__
+ 1171 0774 CDBF      		out __SP_L__,r28
+ 1172 0776 DF91      		pop r29
+ 1173 0778 CF91      		pop r28
+ 1174 077a 0895      		ret
+ 1175               	/* epilogue end (size=9) */
+ 1176               	/* function UART_Transmit_num size 77 (58) */
+ 1177               		.size	UART_Transmit_num, .-UART_Transmit_num
+ 1178               	.global	UART_Receive
+ 1179               		.type	UART_Receive, @function
+ 1180               	UART_Receive:
+ 1181               	/* prologue: frame size=0 */
+ 1182 077c CF93      		push r28
+ 1183 077e DF93      		push r29
+ 1184 0780 CDB7      		in r28,__SP_L__
+ 1185 0782 DEB7      		in r29,__SP_H__
+ 1186               	/* prologue end (size=4) */
+ 1187               	.L77:
+ 1188 0784 EBE9      		ldi r30,lo8(155)
+ 1189 0786 F0E0      		ldi r31,hi8(155)
+ 1190 0788 8081      		ld r24,Z
+ 1191 078a 8823      		tst r24
+ 1192 078c 04F4      		brge .L77
+ 1193 078e ECE9      		ldi r30,lo8(156)
+ 1194 0790 F0E0      		ldi r31,hi8(156)
+ 1195 0792 8081      		ld r24,Z
+ 1196 0794 882F      		mov r24,r24
+ 1197 0796 90E0      		ldi r25,lo8(0)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 22
+
+
+ 1198               	/* epilogue: frame size=0 */
+ 1199 0798 DF91      		pop r29
+ 1200 079a CF91      		pop r28
+ 1201 079c 0895      		ret
+ 1202               	/* epilogue end (size=3) */
+ 1203               	/* function UART_Receive size 17 (10) */
+ 1204               		.size	UART_Receive, .-UART_Receive
+ 1205               	.global	RFID
+ 1206               	.global	RFID
+ 1207               		.section .bss
+ 1208               		.type	RFID, @object
+ 1209               		.size	RFID, 1
+ 1210               	RFID:
+ 1211 0003 00        		.skip 1,0
+ 1212               	.global	buffer_count
+ 1213               	.global	buffer_count
+ 1214               		.type	buffer_count, @object
+ 1215               		.size	buffer_count, 2
+ 1216               	buffer_count:
+ 1217 0004 0000      		.skip 2,0
+ 1218               		.text
+ 1219               	.global	main
+ 1220               		.type	main, @function
+ 1221               	main:
+ 1222               	/* prologue: frame size=0 */
+ 1223 079e CF93      		push r28
+ 1224 07a0 DF93      		push r29
+ 1225 07a2 CDB7      		in r28,__SP_L__
+ 1226 07a4 DEB7      		in r29,__SP_H__
+ 1227               	/* prologue end (size=4) */
+ 1228 07a6 0E94 0000 		call OSInit
+ 1229               	/* #APP */
+ 1230 07aa F894      		cli
+ 1231               	/* #NOAPP */
+ 1232 07ac E3E5      		ldi r30,lo8(83)
+ 1233 07ae F0E0      		ldi r31,hi8(83)
+ 1234 07b0 87E0      		ldi r24,lo8(7)
+ 1235 07b2 8083      		st Z,r24
+ 1236 07b4 E7E5      		ldi r30,lo8(87)
+ 1237 07b6 F0E0      		ldi r31,hi8(87)
+ 1238 07b8 81E0      		ldi r24,lo8(1)
+ 1239 07ba 8083      		st Z,r24
+ 1240 07bc E2E5      		ldi r30,lo8(82)
+ 1241 07be F0E0      		ldi r31,hi8(82)
+ 1242 07c0 1082      		st Z,__zero_reg__
+ 1243               	/* #APP */
+ 1244 07c2 7894      		sei
+ 1245               	/* #NOAPP */
+ 1246 07c4 E9E9      		ldi r30,lo8(153)
+ 1247 07c6 F0E0      		ldi r31,hi8(153)
+ 1248 07c8 87E6      		ldi r24,lo8(103)
+ 1249 07ca 8083      		st Z,r24
+ 1250 07cc E8E9      		ldi r30,lo8(152)
+ 1251 07ce F0E0      		ldi r31,hi8(152)
+ 1252 07d0 1082      		st Z,__zero_reg__
+ 1253 07d2 EAE9      		ldi r30,lo8(154)
+ 1254 07d4 F0E0      		ldi r31,hi8(154)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 23
+
+
+ 1255 07d6 88E1      		ldi r24,lo8(24)
+ 1256 07d8 8083      		st Z,r24
+ 1257 07da E9E2      		ldi r30,lo8(41)
+ 1258 07dc F0E0      		ldi r31,hi8(41)
+ 1259 07de 87E6      		ldi r24,lo8(103)
+ 1260 07e0 8083      		st Z,r24
+ 1261 07e2 E0E9      		ldi r30,lo8(144)
+ 1262 07e4 F0E0      		ldi r31,hi8(144)
+ 1263 07e6 1082      		st Z,__zero_reg__
+ 1264 07e8 EAE2      		ldi r30,lo8(42)
+ 1265 07ea F0E0      		ldi r31,hi8(42)
+ 1266 07ec 88E1      		ldi r24,lo8(24)
+ 1267 07ee 8083      		st Z,r24
+ 1268 07f0 E4E3      		ldi r30,lo8(52)
+ 1269 07f2 F0E0      		ldi r31,hi8(52)
+ 1270 07f4 8FEF      		ldi r24,lo8(-1)
+ 1271 07f6 8083      		st Z,r24
+ 1272 07f8 E5E3      		ldi r30,lo8(53)
+ 1273 07fa F0E0      		ldi r31,hi8(53)
+ 1274 07fc 8FEF      		ldi r24,lo8(-1)
+ 1275 07fe 8083      		st Z,r24
+ 1276 0800 A5E3      		ldi r26,lo8(53)
+ 1277 0802 B0E0      		ldi r27,hi8(53)
+ 1278 0804 E5E3      		ldi r30,lo8(53)
+ 1279 0806 F0E0      		ldi r31,hi8(53)
+ 1280 0808 8081      		ld r24,Z
+ 1281 080a 982F      		mov r25,r24
+ 1282 080c 9F73      		andi r25,lo8(63)
+ 1283 080e 80E8      		ldi r24,lo8(-128)
+ 1284 0810 892B      		or r24,r25
+ 1285 0812 8C93      		st X,r24
+ 1286 0814 E7E3      		ldi r30,lo8(55)
+ 1287 0816 F0E0      		ldi r31,hi8(55)
+ 1288 0818 8FEF      		ldi r24,lo8(-1)
+ 1289 081a 8083      		st Z,r24
+ 1290 081c E8E3      		ldi r30,lo8(56)
+ 1291 081e F0E0      		ldi r31,hi8(56)
+ 1292 0820 1082      		st Z,__zero_reg__
+ 1293 0822 0E94 0000 		call lcd_init
+ 1294 0826 80E0      		ldi r24,lo8(MyTaskStack2+511)
+ 1295 0828 90E0      		ldi r25,hi8(MyTaskStack2+511)
+ 1296 082a E0E0      		ldi r30,lo8(gs(task2))
+ 1297 082c F0E0      		ldi r31,hi8(gs(task2))
+ 1298 082e 22E0      		ldi r18,lo8(2)
+ 1299 0830 AC01      		movw r20,r24
+ 1300 0832 60E0      		ldi r22,lo8(0)
+ 1301 0834 70E0      		ldi r23,hi8(0)
+ 1302 0836 CF01      		movw r24,r30
+ 1303 0838 0E94 0000 		call OSTaskCreate
+ 1304 083c 0E94 0000 		call OSStart
+ 1305 0840 80E0      		ldi r24,lo8(0)
+ 1306 0842 90E0      		ldi r25,hi8(0)
+ 1307               	/* epilogue: frame size=0 */
+ 1308 0844 DF91      		pop r29
+ 1309 0846 CF91      		pop r28
+ 1310 0848 0895      		ret
+ 1311               	/* epilogue end (size=3) */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 24
+
+
+ 1312               	/* function main size 88 (81) */
+ 1313               		.size	main, .-main
+ 1314               		.data
+ 1315               		.type	C.10.2058, @object
+ 1316               		.size	C.10.2058, 15
+ 1317               	C.10.2058:
+ 1318 003c 03        		.byte	3
+ 1319 003d 31        		.byte	49
+ 1320 003e 43        		.byte	67
+ 1321 003f 30        		.byte	48
+ 1322 0040 30        		.byte	48
+ 1323 0041 46        		.byte	70
+ 1324 0042 46        		.byte	70
+ 1325 0043 44        		.byte	68
+ 1326 0044 31        		.byte	49
+ 1327 0045 35        		.byte	53
+ 1328 0046 41        		.byte	65
+ 1329 0047 36        		.byte	54
+ 1330 0048 38        		.byte	56
+ 1331 0049 0A        		.byte	10
+ 1332 004a 0D        		.byte	13
+ 1333               		.text
+ 1334               	.global	task1
+ 1335               		.type	task1, @function
+ 1336               	task1:
+ 1337               	/* prologue: frame size=40 */
+ 1338 084a CF93      		push r28
+ 1339 084c DF93      		push r29
+ 1340 084e CDB7      		in r28,__SP_L__
+ 1341 0850 DEB7      		in r29,__SP_H__
+ 1342 0852 A897      		sbiw r28,40
+ 1343 0854 0FB6      		in __tmp_reg__,__SREG__
+ 1344 0856 F894      		cli
+ 1345 0858 DEBF      		out __SP_H__,r29
+ 1346 085a 0FBE      		out __SREG__,__tmp_reg__
+ 1347 085c CDBF      		out __SP_L__,r28
+ 1348               	/* prologue end (size=10) */
+ 1349 085e CE01      		movw r24,r28
+ 1350 0860 4596      		adiw r24,21
+ 1351 0862 9DA3      		std Y+37,r25
+ 1352 0864 8CA3      		std Y+36,r24
+ 1353 0866 E0E0      		ldi r30,lo8(C.10.2058)
+ 1354 0868 F0E0      		ldi r31,hi8(C.10.2058)
+ 1355 086a FFA3      		std Y+39,r31
+ 1356 086c EEA3      		std Y+38,r30
+ 1357 086e FFE0      		ldi r31,lo8(15)
+ 1358 0870 F8A7      		std Y+40,r31
+ 1359               	.L83:
+ 1360 0872 EEA1      		ldd r30,Y+38
+ 1361 0874 FFA1      		ldd r31,Y+39
+ 1362 0876 0080      		ld r0,Z
+ 1363 0878 8EA1      		ldd r24,Y+38
+ 1364 087a 9FA1      		ldd r25,Y+39
+ 1365 087c 0196      		adiw r24,1
+ 1366 087e 9FA3      		std Y+39,r25
+ 1367 0880 8EA3      		std Y+38,r24
+ 1368 0882 ECA1      		ldd r30,Y+36
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 25
+
+
+ 1369 0884 FDA1      		ldd r31,Y+37
+ 1370 0886 0082      		st Z,r0
+ 1371 0888 8CA1      		ldd r24,Y+36
+ 1372 088a 9DA1      		ldd r25,Y+37
+ 1373 088c 0196      		adiw r24,1
+ 1374 088e 9DA3      		std Y+37,r25
+ 1375 0890 8CA3      		std Y+36,r24
+ 1376 0892 98A5      		ldd r25,Y+40
+ 1377 0894 9150      		subi r25,lo8(-(-1))
+ 1378 0896 98A7      		std Y+40,r25
+ 1379 0898 E8A5      		ldd r30,Y+40
+ 1380 089a EE23      		tst r30
+ 1381 089c 01F4      		brne .L83
+ 1382 089e 1C8A      		std Y+20,__zero_reg__
+ 1383 08a0 1B8A      		std Y+19,__zero_reg__
+ 1384 08a2 80E0      		ldi r24,lo8(0)
+ 1385 08a4 90E0      		ldi r25,hi8(0)
+ 1386 08a6 0E94 0000 		call OSSemCreate
+ 1387 08aa 9093 0000 		sts (uart_rec_sem)+1,r25
+ 1388 08ae 8093 0000 		sts uart_rec_sem,r24
+ 1389 08b2 E7E2      		ldi r30,lo8(39)
+ 1390 08b4 F0E0      		ldi r31,hi8(39)
+ 1391 08b6 81EC      		ldi r24,lo8(-63)
+ 1392 08b8 8083      		st Z,r24
+ 1393 08ba E6E2      		ldi r30,lo8(38)
+ 1394 08bc F0E0      		ldi r31,hi8(38)
+ 1395 08be 87EE      		ldi r24,lo8(-25)
+ 1396 08c0 8083      		st Z,r24
+ 1397               	.L84:
+ 1398 08c2 E6E2      		ldi r30,lo8(38)
+ 1399 08c4 F0E0      		ldi r31,hi8(38)
+ 1400 08c6 8081      		ld r24,Z
+ 1401 08c8 882F      		mov r24,r24
+ 1402 08ca 90E0      		ldi r25,lo8(0)
+ 1403 08cc 8071      		andi r24,lo8(16)
+ 1404 08ce 9070      		andi r25,hi8(16)
+ 1405 08d0 0097      		sbiw r24,0
+ 1406 08d2 01F0      		breq .L84
+ 1407 08d4 E4E2      		ldi r30,lo8(36)
+ 1408 08d6 F0E0      		ldi r31,hi8(36)
+ 1409 08d8 8081      		ld r24,Z
+ 1410 08da 882F      		mov r24,r24
+ 1411 08dc 90E0      		ldi r25,lo8(0)
+ 1412 08de 9A8B      		std Y+18,r25
+ 1413 08e0 898B      		std Y+17,r24
+ 1414 08e2 E5E2      		ldi r30,lo8(37)
+ 1415 08e4 F0E0      		ldi r31,hi8(37)
+ 1416 08e6 8081      		ld r24,Z
+ 1417 08e8 882F      		mov r24,r24
+ 1418 08ea 90E0      		ldi r25,lo8(0)
+ 1419 08ec 988B      		std Y+16,r25
+ 1420 08ee 8F87      		std Y+15,r24
+ 1421 08f0 8989      		ldd r24,Y+17
+ 1422 08f2 0E94 0000 		call lcd_showvalue
+ 1423 08f6 8989      		ldd r24,Y+17
+ 1424 08f8 9A89      		ldd r25,Y+18
+ 1425 08fa 8139      		cpi r24,145
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 26
+
+
+ 1426 08fc 9105      		cpc r25,__zero_reg__
+ 1427 08fe 04F4      		brge .L86
+ 1428 0900 A5E3      		ldi r26,lo8(53)
+ 1429 0902 B0E0      		ldi r27,hi8(53)
+ 1430 0904 E5E3      		ldi r30,lo8(53)
+ 1431 0906 F0E0      		ldi r31,hi8(53)
+ 1432 0908 8081      		ld r24,Z
+ 1433 090a 982F      		mov r25,r24
+ 1434 090c 83EC      		ldi r24,lo8(-61)
+ 1435 090e 8923      		and r24,r25
+ 1436 0910 8863      		ori r24,lo8(56)
+ 1437 0912 8C93      		st X,r24
+ 1438 0914 00C0      		rjmp .L88
+ 1439               	.L86:
+ 1440 0916 8989      		ldd r24,Y+17
+ 1441 0918 9A89      		ldd r25,Y+18
+ 1442 091a 8239      		cpi r24,146
+ 1443 091c 9105      		cpc r25,__zero_reg__
+ 1444 091e 04F0      		brlt .L89
+ 1445 0920 8989      		ldd r24,Y+17
+ 1446 0922 9A89      		ldd r25,Y+18
+ 1447 0924 813B      		cpi r24,177
+ 1448 0926 9105      		cpc r25,__zero_reg__
+ 1449 0928 04F4      		brge .L89
+ 1450 092a A5E3      		ldi r26,lo8(53)
+ 1451 092c B0E0      		ldi r27,hi8(53)
+ 1452 092e E5E3      		ldi r30,lo8(53)
+ 1453 0930 F0E0      		ldi r31,hi8(53)
+ 1454 0932 8081      		ld r24,Z
+ 1455 0934 982F      		mov r25,r24
+ 1456 0936 83EC      		ldi r24,lo8(-61)
+ 1457 0938 8923      		and r24,r25
+ 1458 093a 8463      		ori r24,lo8(52)
+ 1459 093c 8C93      		st X,r24
+ 1460 093e 00C0      		rjmp .L88
+ 1461               	.L89:
+ 1462 0940 8989      		ldd r24,Y+17
+ 1463 0942 9A89      		ldd r25,Y+18
+ 1464 0944 863B      		cpi r24,182
+ 1465 0946 9105      		cpc r25,__zero_reg__
+ 1466 0948 04F0      		brlt .L88
+ 1467 094a A5E3      		ldi r26,lo8(53)
+ 1468 094c B0E0      		ldi r27,hi8(53)
+ 1469 094e E5E3      		ldi r30,lo8(53)
+ 1470 0950 F0E0      		ldi r31,hi8(53)
+ 1471 0952 8081      		ld r24,Z
+ 1472 0954 982F      		mov r25,r24
+ 1473 0956 83EC      		ldi r24,lo8(-61)
+ 1474 0958 8923      		and r24,r25
+ 1475 095a 8C62      		ori r24,lo8(44)
+ 1476 095c 8C93      		st X,r24
+ 1477               	.L88:
+ 1478 095e 80E0      		ldi r24,lo8(0x42c80000)
+ 1479 0960 90E0      		ldi r25,hi8(0x42c80000)
+ 1480 0962 A8EC      		ldi r26,hlo8(0x42c80000)
+ 1481 0964 B2E4      		ldi r27,hhi8(0x42c80000)
+ 1482 0966 8B87      		std Y+11,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 27
+
+
+ 1483 0968 9C87      		std Y+12,r25
+ 1484 096a AD87      		std Y+13,r26
+ 1485 096c BE87      		std Y+14,r27
+ 1486 096e 20E0      		ldi r18,lo8(0x437a0000)
+ 1487 0970 30E0      		ldi r19,hi8(0x437a0000)
+ 1488 0972 4AE7      		ldi r20,hlo8(0x437a0000)
+ 1489 0974 53E4      		ldi r21,hhi8(0x437a0000)
+ 1490 0976 6B85      		ldd r22,Y+11
+ 1491 0978 7C85      		ldd r23,Y+12
+ 1492 097a 8D85      		ldd r24,Y+13
+ 1493 097c 9E85      		ldd r25,Y+14
+ 1494 097e 0E94 0000 		call __mulsf3
+ 1495 0982 DC01      		movw r26,r24
+ 1496 0984 CB01      		movw r24,r22
+ 1497 0986 8F83      		std Y+7,r24
+ 1498 0988 9887      		std Y+8,r25
+ 1499 098a A987      		std Y+9,r26
+ 1500 098c BA87      		std Y+10,r27
+ 1501 098e 20E0      		ldi r18,lo8(0x3f800000)
+ 1502 0990 30E0      		ldi r19,hi8(0x3f800000)
+ 1503 0992 40E8      		ldi r20,hlo8(0x3f800000)
+ 1504 0994 5FE3      		ldi r21,hhi8(0x3f800000)
+ 1505 0996 6F81      		ldd r22,Y+7
+ 1506 0998 7885      		ldd r23,Y+8
+ 1507 099a 8985      		ldd r24,Y+9
+ 1508 099c 9A85      		ldd r25,Y+10
+ 1509 099e 0E94 0000 		call __ltsf2
+ 1510 09a2 8823      		tst r24
+ 1511 09a4 04F0      		brlt .L95
+ 1512 09a6 00C0      		rjmp .L93
+ 1513               	.L95:
+ 1514 09a8 81E0      		ldi r24,lo8(1)
+ 1515 09aa 90E0      		ldi r25,hi8(1)
+ 1516 09ac 9E83      		std Y+6,r25
+ 1517 09ae 8D83      		std Y+5,r24
+ 1518 09b0 00C0      		rjmp .L96
+ 1519               	.L93:
+ 1520 09b2 20E0      		ldi r18,lo8(0x477fff00)
+ 1521 09b4 3FEF      		ldi r19,hi8(0x477fff00)
+ 1522 09b6 4FE7      		ldi r20,hlo8(0x477fff00)
+ 1523 09b8 57E4      		ldi r21,hhi8(0x477fff00)
+ 1524 09ba 6F81      		ldd r22,Y+7
+ 1525 09bc 7885      		ldd r23,Y+8
+ 1526 09be 8985      		ldd r24,Y+9
+ 1527 09c0 9A85      		ldd r25,Y+10
+ 1528 09c2 0E94 0000 		call __gtsf2
+ 1529 09c6 1816      		cp __zero_reg__,r24
+ 1530 09c8 04F0      		brlt .L99
+ 1531 09ca 00C0      		rjmp .L97
+ 1532               	.L99:
+ 1533 09cc 20E0      		ldi r18,lo8(0x41200000)
+ 1534 09ce 30E0      		ldi r19,hi8(0x41200000)
+ 1535 09d0 40E2      		ldi r20,hlo8(0x41200000)
+ 1536 09d2 51E4      		ldi r21,hhi8(0x41200000)
+ 1537 09d4 6B85      		ldd r22,Y+11
+ 1538 09d6 7C85      		ldd r23,Y+12
+ 1539 09d8 8D85      		ldd r24,Y+13
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 28
+
+
+ 1540 09da 9E85      		ldd r25,Y+14
+ 1541 09dc 0E94 0000 		call __mulsf3
+ 1542 09e0 DC01      		movw r26,r24
+ 1543 09e2 CB01      		movw r24,r22
+ 1544 09e4 BC01      		movw r22,r24
+ 1545 09e6 CD01      		movw r24,r26
+ 1546 09e8 0E94 0000 		call __fixunssfsi
+ 1547 09ec DC01      		movw r26,r24
+ 1548 09ee CB01      		movw r24,r22
+ 1549 09f0 9E83      		std Y+6,r25
+ 1550 09f2 8D83      		std Y+5,r24
+ 1551 09f4 00C0      		rjmp .L100
+ 1552               	.L101:
+ 1553 09f6 89E1      		ldi r24,lo8(25)
+ 1554 09f8 90E0      		ldi r25,hi8(25)
+ 1555 09fa 9C83      		std Y+4,r25
+ 1556 09fc 8B83      		std Y+3,r24
+ 1557 09fe 8B81      		ldd r24,Y+3
+ 1558 0a00 9C81      		ldd r25,Y+4
+ 1559               	/* #APP */
+ 1560 0a02 0197      		1: sbiw r24,1
+ 1561 0a04 01F4      		brne 1b
+ 1562               	/* #NOAPP */
+ 1563 0a06 9C83      		std Y+4,r25
+ 1564 0a08 8B83      		std Y+3,r24
+ 1565 0a0a 8D81      		ldd r24,Y+5
+ 1566 0a0c 9E81      		ldd r25,Y+6
+ 1567 0a0e 0197      		sbiw r24,1
+ 1568 0a10 9E83      		std Y+6,r25
+ 1569 0a12 8D83      		std Y+5,r24
+ 1570               	.L100:
+ 1571 0a14 8D81      		ldd r24,Y+5
+ 1572 0a16 9E81      		ldd r25,Y+6
+ 1573 0a18 0097      		sbiw r24,0
+ 1574 0a1a 01F4      		brne .L101
+ 1575 0a1c 00C0      		rjmp .L103
+ 1576               	.L97:
+ 1577 0a1e 6F81      		ldd r22,Y+7
+ 1578 0a20 7885      		ldd r23,Y+8
+ 1579 0a22 8985      		ldd r24,Y+9
+ 1580 0a24 9A85      		ldd r25,Y+10
+ 1581 0a26 0E94 0000 		call __fixunssfsi
+ 1582 0a2a DC01      		movw r26,r24
+ 1583 0a2c CB01      		movw r24,r22
+ 1584 0a2e 9E83      		std Y+6,r25
+ 1585 0a30 8D83      		std Y+5,r24
+ 1586               	.L96:
+ 1587 0a32 8D81      		ldd r24,Y+5
+ 1588 0a34 9E81      		ldd r25,Y+6
+ 1589 0a36 9A83      		std Y+2,r25
+ 1590 0a38 8983      		std Y+1,r24
+ 1591 0a3a 8981      		ldd r24,Y+1
+ 1592 0a3c 9A81      		ldd r25,Y+2
+ 1593               	/* #APP */
+ 1594 0a3e 0197      		1: sbiw r24,1
+ 1595 0a40 01F4      		brne 1b
+ 1596               	/* #NOAPP */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 29
+
+
+ 1597 0a42 9A83      		std Y+2,r25
+ 1598 0a44 8983      		std Y+1,r24
+ 1599               	.L103:
+ 1600 0a46 20E0      		ldi r18,lo8(0)
+ 1601 0a48 30E0      		ldi r19,hi8(0)
+ 1602 0a4a 45E0      		ldi r20,lo8(5)
+ 1603 0a4c 60E0      		ldi r22,lo8(0)
+ 1604 0a4e 80E0      		ldi r24,lo8(0)
+ 1605 0a50 0E94 0000 		call OSTimeDlyHMSM
+ 1606 0a54 00C0      		rjmp .L84
+ 1607               	/* epilogue: frame size=40 */
+ 1608               	/* epilogue: noreturn */
+ 1609               	/* epilogue end (size=0) */
+ 1610               	/* function task1 size 266 (256) */
+ 1611               		.size	task1, .-task1
+ 1612               		.data
+ 1613               	.LC0:
+ 1614 004b 5465 6D70 		.string	"Temperature "
+ 1614      6572 6174 
+ 1614      7572 6520 
+ 1614      00
+ 1615               	.LC1:
+ 1616 0058 5072 6573 		.string	"Pressure "
+ 1616      7375 7265 
+ 1616      2000 
+ 1617               		.text
+ 1618               	.global	task2
+ 1619               		.type	task2, @function
+ 1620               	task2:
+ 1621               	/* prologue: frame size=54 */
+ 1622 0a56 CF93      		push r28
+ 1623 0a58 DF93      		push r29
+ 1624 0a5a CDB7      		in r28,__SP_L__
+ 1625 0a5c DEB7      		in r29,__SP_H__
+ 1626 0a5e E697      		sbiw r28,54
+ 1627 0a60 0FB6      		in __tmp_reg__,__SREG__
+ 1628 0a62 F894      		cli
+ 1629 0a64 DEBF      		out __SP_H__,r29
+ 1630 0a66 0FBE      		out __SREG__,__tmp_reg__
+ 1631 0a68 CDBF      		out __SP_L__,r28
+ 1632               	/* prologue end (size=10) */
+ 1633 0a6a E7E2      		ldi r30,lo8(39)
+ 1634 0a6c F0E0      		ldi r31,hi8(39)
+ 1635 0a6e 81EC      		ldi r24,lo8(-63)
+ 1636 0a70 8083      		st Z,r24
+ 1637 0a72 E6E2      		ldi r30,lo8(38)
+ 1638 0a74 F0E0      		ldi r31,hi8(38)
+ 1639 0a76 87EE      		ldi r24,lo8(-25)
+ 1640 0a78 8083      		st Z,r24
+ 1641               	.L106:
+ 1642 0a7a EBE2      		ldi r30,lo8(43)
+ 1643 0a7c F0E0      		ldi r31,hi8(43)
+ 1644 0a7e 8081      		ld r24,Z
+ 1645 0a80 8823      		tst r24
+ 1646 0a82 04F4      		brge .L106
+ 1647 0a84 ECE2      		ldi r30,lo8(44)
+ 1648 0a86 F0E0      		ldi r31,hi8(44)
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 30
+
+
+ 1649 0a88 8081      		ld r24,Z
+ 1650 0a8a 8B8B      		std Y+19,r24
+ 1651 0a8c 8B89      		ldd r24,Y+19
+ 1652 0a8e 8432      		cpi r24,lo8(36)
+ 1653 0a90 01F0      		breq .+2
+ 1654 0a92 00C0      		rjmp .L108
+ 1655               	.L109:
+ 1656 0a94 EBE2      		ldi r30,lo8(43)
+ 1657 0a96 F0E0      		ldi r31,hi8(43)
+ 1658 0a98 8081      		ld r24,Z
+ 1659 0a9a 8823      		tst r24
+ 1660 0a9c 04F4      		brge .L109
+ 1661 0a9e ECE2      		ldi r30,lo8(44)
+ 1662 0aa0 F0E0      		ldi r31,hi8(44)
+ 1663 0aa2 8081      		ld r24,Z
+ 1664 0aa4 8B8B      		std Y+19,r24
+ 1665 0aa6 8B89      		ldd r24,Y+19
+ 1666 0aa8 8734      		cpi r24,lo8(71)
+ 1667 0aaa 01F0      		breq .+2
+ 1668 0aac 00C0      		rjmp .L108
+ 1669               	.L111:
+ 1670 0aae EBE2      		ldi r30,lo8(43)
+ 1671 0ab0 F0E0      		ldi r31,hi8(43)
+ 1672 0ab2 8081      		ld r24,Z
+ 1673 0ab4 8823      		tst r24
+ 1674 0ab6 04F4      		brge .L111
+ 1675 0ab8 ECE2      		ldi r30,lo8(44)
+ 1676 0aba F0E0      		ldi r31,hi8(44)
+ 1677 0abc 8081      		ld r24,Z
+ 1678 0abe 8B8B      		std Y+19,r24
+ 1679 0ac0 8B89      		ldd r24,Y+19
+ 1680 0ac2 8035      		cpi r24,lo8(80)
+ 1681 0ac4 01F0      		breq .+2
+ 1682 0ac6 00C0      		rjmp .L108
+ 1683               	.L113:
+ 1684 0ac8 EBE2      		ldi r30,lo8(43)
+ 1685 0aca F0E0      		ldi r31,hi8(43)
+ 1686 0acc 8081      		ld r24,Z
+ 1687 0ace 8823      		tst r24
+ 1688 0ad0 04F4      		brge .L113
+ 1689 0ad2 ECE2      		ldi r30,lo8(44)
+ 1690 0ad4 F0E0      		ldi r31,hi8(44)
+ 1691 0ad6 8081      		ld r24,Z
+ 1692 0ad8 8B8B      		std Y+19,r24
+ 1693 0ada 8B89      		ldd r24,Y+19
+ 1694 0adc 8235      		cpi r24,lo8(82)
+ 1695 0ade 01F0      		breq .+2
+ 1696 0ae0 00C0      		rjmp .L108
+ 1697               	.L115:
+ 1698 0ae2 EBE2      		ldi r30,lo8(43)
+ 1699 0ae4 F0E0      		ldi r31,hi8(43)
+ 1700 0ae6 8081      		ld r24,Z
+ 1701 0ae8 8823      		tst r24
+ 1702 0aea 04F4      		brge .L115
+ 1703 0aec ECE2      		ldi r30,lo8(44)
+ 1704 0aee F0E0      		ldi r31,hi8(44)
+ 1705 0af0 8081      		ld r24,Z
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 31
+
+
+ 1706 0af2 8B8B      		std Y+19,r24
+ 1707 0af4 8B89      		ldd r24,Y+19
+ 1708 0af6 8D34      		cpi r24,lo8(77)
+ 1709 0af8 01F0      		breq .+2
+ 1710 0afa 00C0      		rjmp .L108
+ 1711               	.L117:
+ 1712 0afc EBE2      		ldi r30,lo8(43)
+ 1713 0afe F0E0      		ldi r31,hi8(43)
+ 1714 0b00 8081      		ld r24,Z
+ 1715 0b02 8823      		tst r24
+ 1716 0b04 04F4      		brge .L117
+ 1717 0b06 ECE2      		ldi r30,lo8(44)
+ 1718 0b08 F0E0      		ldi r31,hi8(44)
+ 1719 0b0a 8081      		ld r24,Z
+ 1720 0b0c 8B8B      		std Y+19,r24
+ 1721 0b0e 8B89      		ldd r24,Y+19
+ 1722 0b10 8334      		cpi r24,lo8(67)
+ 1723 0b12 01F4      		brne .L108
+ 1724               	.L119:
+ 1725 0b14 EBE2      		ldi r30,lo8(43)
+ 1726 0b16 F0E0      		ldi r31,hi8(43)
+ 1727 0b18 8081      		ld r24,Z
+ 1728 0b1a 8823      		tst r24
+ 1729 0b1c 04F4      		brge .L119
+ 1730 0b1e ECE2      		ldi r30,lo8(44)
+ 1731 0b20 F0E0      		ldi r31,hi8(44)
+ 1732 0b22 8081      		ld r24,Z
+ 1733 0b24 8B8B      		std Y+19,r24
+ 1734 0b26 8B89      		ldd r24,Y+19
+ 1735 0b28 8C32      		cpi r24,lo8(44)
+ 1736 0b2a 01F4      		brne .L108
+ 1737 0b2c 1A8A      		std Y+18,__zero_reg__
+ 1738 0b2e 00C0      		rjmp .L122
+ 1739               	.L123:
+ 1740 0b30 EBE2      		ldi r30,lo8(43)
+ 1741 0b32 F0E0      		ldi r31,hi8(43)
+ 1742 0b34 8081      		ld r24,Z
+ 1743 0b36 8823      		tst r24
+ 1744 0b38 04F4      		brge .L123
+ 1745 0b3a ECE2      		ldi r30,lo8(44)
+ 1746 0b3c F0E0      		ldi r31,hi8(44)
+ 1747 0b3e 8081      		ld r24,Z
+ 1748 0b40 8B8B      		std Y+19,r24
+ 1749 0b42 8A89      		ldd r24,Y+18
+ 1750 0b44 282F      		mov r18,r24
+ 1751 0b46 30E0      		ldi r19,lo8(0)
+ 1752 0b48 CE01      		movw r24,r28
+ 1753 0b4a 4496      		adiw r24,20
+ 1754 0b4c FC01      		movw r30,r24
+ 1755 0b4e E20F      		add r30,r18
+ 1756 0b50 F31F      		adc r31,r19
+ 1757 0b52 8B89      		ldd r24,Y+19
+ 1758 0b54 8083      		st Z,r24
+ 1759               	.L125:
+ 1760 0b56 EBE9      		ldi r30,lo8(155)
+ 1761 0b58 F0E0      		ldi r31,hi8(155)
+ 1762 0b5a 8081      		ld r24,Z
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 32
+
+
+ 1763 0b5c 882F      		mov r24,r24
+ 1764 0b5e 90E0      		ldi r25,lo8(0)
+ 1765 0b60 8072      		andi r24,lo8(32)
+ 1766 0b62 9070      		andi r25,hi8(32)
+ 1767 0b64 0097      		sbiw r24,0
+ 1768 0b66 01F0      		breq .L125
+ 1769 0b68 ACE9      		ldi r26,lo8(156)
+ 1770 0b6a B0E0      		ldi r27,hi8(156)
+ 1771 0b6c 8A89      		ldd r24,Y+18
+ 1772 0b6e 282F      		mov r18,r24
+ 1773 0b70 30E0      		ldi r19,lo8(0)
+ 1774 0b72 CE01      		movw r24,r28
+ 1775 0b74 4496      		adiw r24,20
+ 1776 0b76 FC01      		movw r30,r24
+ 1777 0b78 E20F      		add r30,r18
+ 1778 0b7a F31F      		adc r31,r19
+ 1779 0b7c 8081      		ld r24,Z
+ 1780 0b7e 8C93      		st X,r24
+ 1781 0b80 8A89      		ldd r24,Y+18
+ 1782 0b82 8F5F      		subi r24,lo8(-(1))
+ 1783 0b84 8A8B      		std Y+18,r24
+ 1784               	.L122:
+ 1785 0b86 8A89      		ldd r24,Y+18
+ 1786 0b88 8F31      		cpi r24,lo8(31)
+ 1787 0b8a 00F0      		brlo .L123
+ 1788               	.L108:
+ 1789 0b8c E6E2      		ldi r30,lo8(38)
+ 1790 0b8e F0E0      		ldi r31,hi8(38)
+ 1791 0b90 8081      		ld r24,Z
+ 1792 0b92 882F      		mov r24,r24
+ 1793 0b94 90E0      		ldi r25,lo8(0)
+ 1794 0b96 8071      		andi r24,lo8(16)
+ 1795 0b98 9070      		andi r25,hi8(16)
+ 1796 0b9a 0097      		sbiw r24,0
+ 1797 0b9c 01F0      		breq .L108
+ 1798 0b9e E4E2      		ldi r30,lo8(36)
+ 1799 0ba0 F0E0      		ldi r31,hi8(36)
+ 1800 0ba2 8081      		ld r24,Z
+ 1801 0ba4 888B      		std Y+16,r24
+ 1802 0ba6 E5E2      		ldi r30,lo8(37)
+ 1803 0ba8 F0E0      		ldi r31,hi8(37)
+ 1804 0baa 8081      		ld r24,Z
+ 1805 0bac 8F87      		std Y+15,r24
+ 1806 0bae 80E0      		ldi r24,lo8(.LC0)
+ 1807 0bb0 90E0      		ldi r25,hi8(.LC0)
+ 1808 0bb2 0E94 0000 		call lcd_string
+ 1809 0bb6 8889      		ldd r24,Y+16
+ 1810 0bb8 93E0      		ldi r25,lo8(3)
+ 1811 0bba 692F      		mov r22,r25
+ 1812 0bbc 0E94 0000 		call __udivmodqi4
+ 1813 0bc0 888B      		std Y+16,r24
+ 1814 0bc2 8889      		ldd r24,Y+16
+ 1815 0bc4 0E94 0000 		call lcd_showvalue
+ 1816 0bc8 E7E2      		ldi r30,lo8(39)
+ 1817 0bca F0E0      		ldi r31,hi8(39)
+ 1818 0bcc 80EC      		ldi r24,lo8(-64)
+ 1819 0bce 8083      		st Z,r24
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 33
+
+
+ 1820 0bd0 E6E2      		ldi r30,lo8(38)
+ 1821 0bd2 F0E0      		ldi r31,hi8(38)
+ 1822 0bd4 87EE      		ldi r24,lo8(-25)
+ 1823 0bd6 8083      		st Z,r24
+ 1824               	.L128:
+ 1825 0bd8 E6E2      		ldi r30,lo8(38)
+ 1826 0bda F0E0      		ldi r31,hi8(38)
+ 1827 0bdc 8081      		ld r24,Z
+ 1828 0bde 882F      		mov r24,r24
+ 1829 0be0 90E0      		ldi r25,lo8(0)
+ 1830 0be2 8071      		andi r24,lo8(16)
+ 1831 0be4 9070      		andi r25,hi8(16)
+ 1832 0be6 0097      		sbiw r24,0
+ 1833 0be8 01F0      		breq .L128
+ 1834 0bea E4E2      		ldi r30,lo8(36)
+ 1835 0bec F0E0      		ldi r31,hi8(36)
+ 1836 0bee 8081      		ld r24,Z
+ 1837 0bf0 888B      		std Y+16,r24
+ 1838 0bf2 E5E2      		ldi r30,lo8(37)
+ 1839 0bf4 F0E0      		ldi r31,hi8(37)
+ 1840 0bf6 8081      		ld r24,Z
+ 1841 0bf8 8F87      		std Y+15,r24
+ 1842 0bfa 80EC      		ldi r24,lo8(-64)
+ 1843 0bfc 0E94 0000 		call lcd_cmd
+ 1844 0c00 80E0      		ldi r24,lo8(.LC1)
+ 1845 0c02 90E0      		ldi r25,hi8(.LC1)
+ 1846 0c04 0E94 0000 		call lcd_string
+ 1847 0c08 8889      		ldd r24,Y+16
+ 1848 0c0a 0E94 0000 		call lcd_showvalue
+ 1849 0c0e 80E0      		ldi r24,lo8(0x42c80000)
+ 1850 0c10 90E0      		ldi r25,hi8(0x42c80000)
+ 1851 0c12 A8EC      		ldi r26,hlo8(0x42c80000)
+ 1852 0c14 B2E4      		ldi r27,hhi8(0x42c80000)
+ 1853 0c16 8B87      		std Y+11,r24
+ 1854 0c18 9C87      		std Y+12,r25
+ 1855 0c1a AD87      		std Y+13,r26
+ 1856 0c1c BE87      		std Y+14,r27
+ 1857 0c1e 20E0      		ldi r18,lo8(0x437a0000)
+ 1858 0c20 30E0      		ldi r19,hi8(0x437a0000)
+ 1859 0c22 4AE7      		ldi r20,hlo8(0x437a0000)
+ 1860 0c24 53E4      		ldi r21,hhi8(0x437a0000)
+ 1861 0c26 6B85      		ldd r22,Y+11
+ 1862 0c28 7C85      		ldd r23,Y+12
+ 1863 0c2a 8D85      		ldd r24,Y+13
+ 1864 0c2c 9E85      		ldd r25,Y+14
+ 1865 0c2e 0E94 0000 		call __mulsf3
+ 1866 0c32 DC01      		movw r26,r24
+ 1867 0c34 CB01      		movw r24,r22
+ 1868 0c36 8F83      		std Y+7,r24
+ 1869 0c38 9887      		std Y+8,r25
+ 1870 0c3a A987      		std Y+9,r26
+ 1871 0c3c BA87      		std Y+10,r27
+ 1872 0c3e 20E0      		ldi r18,lo8(0x3f800000)
+ 1873 0c40 30E0      		ldi r19,hi8(0x3f800000)
+ 1874 0c42 40E8      		ldi r20,hlo8(0x3f800000)
+ 1875 0c44 5FE3      		ldi r21,hhi8(0x3f800000)
+ 1876 0c46 6F81      		ldd r22,Y+7
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 34
+
+
+ 1877 0c48 7885      		ldd r23,Y+8
+ 1878 0c4a 8985      		ldd r24,Y+9
+ 1879 0c4c 9A85      		ldd r25,Y+10
+ 1880 0c4e 0E94 0000 		call __ltsf2
+ 1881 0c52 8823      		tst r24
+ 1882 0c54 04F0      		brlt .L132
+ 1883 0c56 00C0      		rjmp .L130
+ 1884               	.L132:
+ 1885 0c58 81E0      		ldi r24,lo8(1)
+ 1886 0c5a 90E0      		ldi r25,hi8(1)
+ 1887 0c5c 9E83      		std Y+6,r25
+ 1888 0c5e 8D83      		std Y+5,r24
+ 1889 0c60 00C0      		rjmp .L133
+ 1890               	.L130:
+ 1891 0c62 20E0      		ldi r18,lo8(0x477fff00)
+ 1892 0c64 3FEF      		ldi r19,hi8(0x477fff00)
+ 1893 0c66 4FE7      		ldi r20,hlo8(0x477fff00)
+ 1894 0c68 57E4      		ldi r21,hhi8(0x477fff00)
+ 1895 0c6a 6F81      		ldd r22,Y+7
+ 1896 0c6c 7885      		ldd r23,Y+8
+ 1897 0c6e 8985      		ldd r24,Y+9
+ 1898 0c70 9A85      		ldd r25,Y+10
+ 1899 0c72 0E94 0000 		call __gtsf2
+ 1900 0c76 1816      		cp __zero_reg__,r24
+ 1901 0c78 04F0      		brlt .L136
+ 1902 0c7a 00C0      		rjmp .L134
+ 1903               	.L136:
+ 1904 0c7c 20E0      		ldi r18,lo8(0x41200000)
+ 1905 0c7e 30E0      		ldi r19,hi8(0x41200000)
+ 1906 0c80 40E2      		ldi r20,hlo8(0x41200000)
+ 1907 0c82 51E4      		ldi r21,hhi8(0x41200000)
+ 1908 0c84 6B85      		ldd r22,Y+11
+ 1909 0c86 7C85      		ldd r23,Y+12
+ 1910 0c88 8D85      		ldd r24,Y+13
+ 1911 0c8a 9E85      		ldd r25,Y+14
+ 1912 0c8c 0E94 0000 		call __mulsf3
+ 1913 0c90 DC01      		movw r26,r24
+ 1914 0c92 CB01      		movw r24,r22
+ 1915 0c94 BC01      		movw r22,r24
+ 1916 0c96 CD01      		movw r24,r26
+ 1917 0c98 0E94 0000 		call __fixunssfsi
+ 1918 0c9c DC01      		movw r26,r24
+ 1919 0c9e CB01      		movw r24,r22
+ 1920 0ca0 9E83      		std Y+6,r25
+ 1921 0ca2 8D83      		std Y+5,r24
+ 1922 0ca4 00C0      		rjmp .L137
+ 1923               	.L138:
+ 1924 0ca6 89E1      		ldi r24,lo8(25)
+ 1925 0ca8 90E0      		ldi r25,hi8(25)
+ 1926 0caa 9C83      		std Y+4,r25
+ 1927 0cac 8B83      		std Y+3,r24
+ 1928 0cae 8B81      		ldd r24,Y+3
+ 1929 0cb0 9C81      		ldd r25,Y+4
+ 1930               	/* #APP */
+ 1931 0cb2 0197      		1: sbiw r24,1
+ 1932 0cb4 01F4      		brne 1b
+ 1933               	/* #NOAPP */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 35
+
+
+ 1934 0cb6 9C83      		std Y+4,r25
+ 1935 0cb8 8B83      		std Y+3,r24
+ 1936 0cba 8D81      		ldd r24,Y+5
+ 1937 0cbc 9E81      		ldd r25,Y+6
+ 1938 0cbe 0197      		sbiw r24,1
+ 1939 0cc0 9E83      		std Y+6,r25
+ 1940 0cc2 8D83      		std Y+5,r24
+ 1941               	.L137:
+ 1942 0cc4 8D81      		ldd r24,Y+5
+ 1943 0cc6 9E81      		ldd r25,Y+6
+ 1944 0cc8 0097      		sbiw r24,0
+ 1945 0cca 01F4      		brne .L138
+ 1946 0ccc 00C0      		rjmp .L140
+ 1947               	.L134:
+ 1948 0cce 6F81      		ldd r22,Y+7
+ 1949 0cd0 7885      		ldd r23,Y+8
+ 1950 0cd2 8985      		ldd r24,Y+9
+ 1951 0cd4 9A85      		ldd r25,Y+10
+ 1952 0cd6 0E94 0000 		call __fixunssfsi
+ 1953 0cda DC01      		movw r26,r24
+ 1954 0cdc CB01      		movw r24,r22
+ 1955 0cde 9E83      		std Y+6,r25
+ 1956 0ce0 8D83      		std Y+5,r24
+ 1957               	.L133:
+ 1958 0ce2 8D81      		ldd r24,Y+5
+ 1959 0ce4 9E81      		ldd r25,Y+6
+ 1960 0ce6 9A83      		std Y+2,r25
+ 1961 0ce8 8983      		std Y+1,r24
+ 1962 0cea 8981      		ldd r24,Y+1
+ 1963 0cec 9A81      		ldd r25,Y+2
+ 1964               	/* #APP */
+ 1965 0cee 0197      		1: sbiw r24,1
+ 1966 0cf0 01F4      		brne 1b
+ 1967               	/* #NOAPP */
+ 1968 0cf2 9A83      		std Y+2,r25
+ 1969 0cf4 8983      		std Y+1,r24
+ 1970               	.L140:
+ 1971 0cf6 80E0      		ldi r24,lo8(0)
+ 1972 0cf8 0E94 0000 		call lcd_gotoxy1
+ 1973 0cfc 00C0      		rjmp .L106
+ 1974               	/* epilogue: frame size=54 */
+ 1975               	/* epilogue: noreturn */
+ 1976               	/* epilogue end (size=0) */
+ 1977               	/* function task2 size 345 (335) */
+ 1978               		.size	task2, .-task2
+ 1979               	.global	delay
+ 1980               		.type	delay, @function
+ 1981               	delay:
+ 1982               	/* prologue: frame size=6 */
+ 1983 0cfe CF93      		push r28
+ 1984 0d00 DF93      		push r29
+ 1985 0d02 CDB7      		in r28,__SP_L__
+ 1986 0d04 DEB7      		in r29,__SP_H__
+ 1987 0d06 2697      		sbiw r28,6
+ 1988 0d08 0FB6      		in __tmp_reg__,__SREG__
+ 1989 0d0a F894      		cli
+ 1990 0d0c DEBF      		out __SP_H__,r29
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 36
+
+
+ 1991 0d0e 0FBE      		out __SREG__,__tmp_reg__
+ 1992 0d10 CDBF      		out __SP_L__,r28
+ 1993               	/* prologue end (size=10) */
+ 1994 0d12 9E83      		std Y+6,r25
+ 1995 0d14 8D83      		std Y+5,r24
+ 1996 0d16 1C82      		std Y+4,__zero_reg__
+ 1997 0d18 1B82      		std Y+3,__zero_reg__
+ 1998 0d1a 00C0      		rjmp .L143
+ 1999               	.L144:
+ 2000 0d1c 1A82      		std Y+2,__zero_reg__
+ 2001 0d1e 1982      		std Y+1,__zero_reg__
+ 2002 0d20 00C0      		rjmp .L145
+ 2003               	.L146:
+ 2004 0d22 8981      		ldd r24,Y+1
+ 2005 0d24 9A81      		ldd r25,Y+2
+ 2006 0d26 0196      		adiw r24,1
+ 2007 0d28 9A83      		std Y+2,r25
+ 2008 0d2a 8983      		std Y+1,r24
+ 2009               	.L145:
+ 2010 0d2c 8981      		ldd r24,Y+1
+ 2011 0d2e 9A81      		ldd r25,Y+2
+ 2012 0d30 2FEF      		ldi r18,hi8(-1)
+ 2013 0d32 8F3F      		cpi r24,lo8(-1)
+ 2014 0d34 9207      		cpc r25,r18
+ 2015 0d36 01F4      		brne .L146
+ 2016 0d38 8B81      		ldd r24,Y+3
+ 2017 0d3a 9C81      		ldd r25,Y+4
+ 2018 0d3c 0196      		adiw r24,1
+ 2019 0d3e 9C83      		std Y+4,r25
+ 2020 0d40 8B83      		std Y+3,r24
+ 2021               	.L143:
+ 2022 0d42 2B81      		ldd r18,Y+3
+ 2023 0d44 3C81      		ldd r19,Y+4
+ 2024 0d46 8D81      		ldd r24,Y+5
+ 2025 0d48 9E81      		ldd r25,Y+6
+ 2026 0d4a 2817      		cp r18,r24
+ 2027 0d4c 3907      		cpc r19,r25
+ 2028 0d4e 04F0      		brlt .L144
+ 2029               	/* epilogue: frame size=6 */
+ 2030 0d50 2696      		adiw r28,6
+ 2031 0d52 0FB6      		in __tmp_reg__,__SREG__
+ 2032 0d54 F894      		cli
+ 2033 0d56 DEBF      		out __SP_H__,r29
+ 2034 0d58 0FBE      		out __SREG__,__tmp_reg__
+ 2035 0d5a CDBF      		out __SP_L__,r28
+ 2036 0d5c DF91      		pop r29
+ 2037 0d5e CF91      		pop r28
+ 2038 0d60 0895      		ret
+ 2039               	/* epilogue end (size=9) */
+ 2040               	/* function delay size 50 (31) */
+ 2041               		.size	delay, .-delay
+ 2042               		.comm buffer,15,1
+ 2043               		.comm uart_rec_sem,2,1
+ 2044               		.comm err,1,1
+ 2045               		.comm MyTaskStack1,512,1
+ 2046               		.comm MyTaskStack2,512,1
+ 2047               	/* File "iam.c": code 1726 = 0x06be (1403), prologues 181, epilogues 142 */
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 37
+
+
+GAS LISTING C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s 			page 38
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 iam.c
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:2      *ABS*:0000003f __SREG__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:3      *ABS*:0000003e __SP_H__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:4      *ABS*:0000003d __SP_L__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:5      *ABS*:00000000 __tmp_reg__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:6      *ABS*:00000001 __zero_reg__
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:14     .bss:00000000 k
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:20     .bss:00000001 j
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:26     .bss:00000002 save
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:31     .text:00000000 lcd_init
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:642    .text:0000042a WaitMs
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:159    .text:000000e0 lcd_cmd
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:77     .text:00000056 toggleE
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:109    .text:00000086 dely_ns
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:217    .text:00000146 lcd_putchar
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:281    .text:000001b8 lcd_char
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:590    .text:000003e2 lcd_gotoxy2
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:342    .text:0000021c lcd_string
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:452    .text:000002e6 lcd_showvalue
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:558    .text:000003b2 lcd_gotoxy1
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:622    .text:00000412 lcd_exit
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:706    .data:00000000 C.7.1945
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:719    .data:00000014 C.6.1944
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:763    .text:0000048a UART_config
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1005   .text:00000652 UART_Transmit_char
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1049   .text:00000696 UART_Transmit_string
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1097   .text:000006e2 UART_Transmit_num
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1180   .text:0000077c UART_Receive
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1210   .bss:00000003 RFID
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1216   .bss:00000004 buffer_count
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1221   .text:0000079e main
+                            *COM*:00000200 MyTaskStack2
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1620   .text:00000a56 task2
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1317   .data:0000003c C.10.2058
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1336   .text:0000084a task1
+                            *COM*:00000002 uart_rec_sem
+C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp/ccJP2TRS.s:1981   .text:00000cfe delay
+                            *COM*:0000000f buffer
+                            *COM*:00000001 err
+                            *COM*:00000200 MyTaskStack1
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__udivmodqi4
+__divmodhi4
+OSInit
+OSTaskCreate
+OSStart
+OSSemCreate
+__mulsf3
+__ltsf2
+__gtsf2
+__fixunssfsi
+OSTimeDlyHMSM

@@ -1,0 +1,5 @@
+--cpu ARM7TDMI "startup.o" "name_enter.o" 
+--strict --scatter "name_enter.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\name_enter.map" -o name_enter.axf

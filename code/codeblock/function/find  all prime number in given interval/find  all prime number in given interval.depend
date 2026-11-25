@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1725426638 source:d:\codeblock\function\find  all prime number in given interval\main.c
+	<stdio.h>
+	<stdlib.h>
+

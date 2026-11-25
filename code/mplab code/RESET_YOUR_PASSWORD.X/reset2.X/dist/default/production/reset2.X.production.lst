@@ -1,0 +1,1384 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.36 build -262312587 
+                                                                                               Sat Nov 09 06:03:40 2024
+
+Microchip Technology Omniscient Code Generator v1.36 (Free mode) build 201601150325
+     1                           	processor	16F876A
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	idataBANK0,global,class=CODE,delta=2
+     5                           	psect	strings,global,class=STRING,delta=2
+     6                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     7                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+     8                           	psect	inittext,global,class=CODE,delta=2
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    10                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    11                           	psect	maintext,global,class=CODE,split=1,delta=2
+    12                           	psect	text1,local,class=CODE,merge=1,delta=2
+    13                           	psect	text2,local,class=CODE,merge=1,delta=2
+    14                           	psect	text3,local,class=CODE,merge=1,delta=2
+    15                           	psect	text4,local,class=CODE,merge=1,delta=2
+    16                           	psect	text5,local,class=CODE,merge=1,delta=2
+    17                           	psect	text6,local,class=CODE,merge=1,delta=2
+    18                           	dabs	1,0x7E,2
+    19  0000                     	;# 
+    20  0001                     	;# 
+    21  0002                     	;# 
+    22  0003                     	;# 
+    23  0004                     	;# 
+    24  0005                     	;# 
+    25  0006                     	;# 
+    26  0007                     	;# 
+    27  000A                     	;# 
+    28  000B                     	;# 
+    29  000C                     	;# 
+    30  000D                     	;# 
+    31  000E                     	;# 
+    32  000E                     	;# 
+    33  000F                     	;# 
+    34  0010                     	;# 
+    35  0011                     	;# 
+    36  0012                     	;# 
+    37  0013                     	;# 
+    38  0014                     	;# 
+    39  0015                     	;# 
+    40  0015                     	;# 
+    41  0016                     	;# 
+    42  0017                     	;# 
+    43  0018                     	;# 
+    44  0019                     	;# 
+    45  001A                     	;# 
+    46  001B                     	;# 
+    47  001B                     	;# 
+    48  001C                     	;# 
+    49  001D                     	;# 
+    50  001E                     	;# 
+    51  001F                     	;# 
+    52  0081                     	;# 
+    53  0085                     	;# 
+    54  0086                     	;# 
+    55  0087                     	;# 
+    56  008C                     	;# 
+    57  008D                     	;# 
+    58  008E                     	;# 
+    59  0091                     	;# 
+    60  0092                     	;# 
+    61  0093                     	;# 
+    62  0094                     	;# 
+    63  0098                     	;# 
+    64  0099                     	;# 
+    65  009C                     	;# 
+    66  009D                     	;# 
+    67  009E                     	;# 
+    68  009F                     	;# 
+    69  010C                     	;# 
+    70  010D                     	;# 
+    71  010E                     	;# 
+    72  010F                     	;# 
+    73  018C                     	;# 
+    74  018D                     	;# 
+    75                           
+    76                           	psect	idataBANK0
+    77  0688                     __pidataBANK0:	
+    78                           
+    79                           ;initializer for main@F1091
+    80  0688  3448               	retlw	72
+    81  0689  3452               	retlw	82
+    82  068A  3449               	retlw	73
+    83  068B  3454               	retlw	84
+    84  068C  3448               	retlw	72
+    85  068D  3457               	retlw	87
+    86  068E  3449               	retlw	73
+    87  068F  344B               	retlw	75
+    88  0690  3400               	retlw	0
+    89  0691  3400               	retlw	0
+    90                           
+    91                           ;initializer for _confirm_pass_msg
+    92  0692  342B               	retlw	low ((STR_5-__stringbase)| (0+32768))
+    93                           
+    94                           ;initializer for _enter_pass_msg
+    95  0693  344D               	retlw	low ((STR_3-__stringbase)| (0+32768))
+    96                           
+    97                           ;initializer for _fail_msg
+    98  0694  3465               	retlw	low ((STR_2-__stringbase)| (0+32768))
+    99                           
+   100                           ;initializer for _reset_pass_msg
+   101  0695  3417               	retlw	low ((STR_4-__stringbase)| (0+32768))
+   102                           
+   103                           ;initializer for _reset_success_msg
+   104  0696  343D               	retlw	low ((STR_6-__stringbase)| (0+32768))
+   105                           
+   106                           ;initializer for _size
+   107  0697  3401               	retlw	low ((STR_7-__stringbase)| (0+32768))
+   108                           
+   109                           ;initializer for _success_msg
+   110  0698  345D               	retlw	low ((STR_1-__stringbase)| (0+32768))
+   111  001A                     _RCREG	set	26
+   112  0018                     _RCSTA	set	24
+   113  0019                     _TXREG	set	25
+   114  0065                     _RCIF	set	101
+   115  0099                     _SPBRG	set	153
+   116  0087                     _TRISC	set	135
+   117  0098                     _TXSTA	set	152
+   118  04C1                     _TRMT	set	1217
+   119                           
+   120                           	psect	strings
+   121  0003                     __pstrings:	
+   122  0003                     stringtab:	
+   123  0003                     __stringtab:	
+   124  0003                     stringcode:	
+   125                           ;	String table - string pointers are 1 byte each
+   126                           
+   127  0003                     stringdir:	
+   128  0003  3000               	movlw	high stringdir
+   129  0004  008A               	movwf	10
+   130  0005  0804               	movf	4,w
+   131  0006  0A84               	incf	4,f
+   132  0007  0782               	addwf	2,f
+   133  0008                     __stringbase:	
+   134  0008  3400               	retlw	0
+   135  0009                     __end_of__stringtab:	
+   136  0009                     STR_7:	
+   137  0009  346D               	retlw	109	;'m'
+   138  000A  3461               	retlw	97	;'a'
+   139  000B  3478               	retlw	120	;'x'
+   140  000C  3420               	retlw	32	;' '
+   141  000D  346F               	retlw	111	;'o'
+   142  000E  346E               	retlw	110	;'n'
+   143  000F  346C               	retlw	108	;'l'
+   144  0010  3479               	retlw	121	;'y'
+   145  0011  3420               	retlw	32	;' '
+   146  0012  3431               	retlw	49	;'1'
+   147  0013  3430               	retlw	48	;'0'
+   148  0014  3420               	retlw	32	;' '
+   149  0015  3463               	retlw	99	;'c'
+   150  0016  3468               	retlw	104	;'h'
+   151  0017  3461               	retlw	97	;'a'
+   152  0018  3472               	retlw	114	;'r'
+   153  0019  3461               	retlw	97	;'a'
+   154  001A  3463               	retlw	99	;'c'
+   155  001B  3474               	retlw	116	;'t'
+   156  001C  3465               	retlw	101	;'e'
+   157  001D  3472               	retlw	114	;'r'
+   158  001E  3400               	retlw	0
+   159  001F                     STR_4:	
+   160  001F  3445               	retlw	69	;'E'
+   161  0020  346E               	retlw	110	;'n'
+   162  0021  3474               	retlw	116	;'t'
+   163  0022  3465               	retlw	101	;'e'
+   164  0023  3472               	retlw	114	;'r'
+   165  0024  3420               	retlw	32	;' '
+   166  0025  346E               	retlw	110	;'n'
+   167  0026  3465               	retlw	101	;'e'
+   168  0027  3477               	retlw	119	;'w'
+   169  0028  3420               	retlw	32	;' '
+   170  0029  3470               	retlw	112	;'p'
+   171  002A  3461               	retlw	97	;'a'
+   172  002B  3473               	retlw	115	;'s'
+   173  002C  3473               	retlw	115	;'s'
+   174  002D  3477               	retlw	119	;'w'
+   175  002E  346F               	retlw	111	;'o'
+   176  002F  3472               	retlw	114	;'r'
+   177  0030  3464               	retlw	100	;'d'
+   178  0031  343A               	retlw	58	;':'
+   179  0032  3400               	retlw	0
+   180  0033                     STR_5:	
+   181  0033  3443               	retlw	67	;'C'
+   182  0034  346F               	retlw	111	;'o'
+   183  0035  346E               	retlw	110	;'n'
+   184  0036  3466               	retlw	102	;'f'
+   185  0037  3469               	retlw	105	;'i'
+   186  0038  3472               	retlw	114	;'r'
+   187  0039  346D               	retlw	109	;'m'
+   188  003A  3420               	retlw	32	;' '
+   189  003B  3470               	retlw	112	;'p'
+   190  003C  3461               	retlw	97	;'a'
+   191  003D  3473               	retlw	115	;'s'
+   192  003E  3473               	retlw	115	;'s'
+   193  003F  3477               	retlw	119	;'w'
+   194  0040  346F               	retlw	111	;'o'
+   195  0041  3472               	retlw	114	;'r'
+   196  0042  3464               	retlw	100	;'d'
+   197  0043  343A               	retlw	58	;':'
+   198  0044  3400               	retlw	0
+   199  0045                     STR_6:	
+   200  0045  3450               	retlw	80	;'P'
+   201  0046  3461               	retlw	97	;'a'
+   202  0047  3473               	retlw	115	;'s'
+   203  0048  3473               	retlw	115	;'s'
+   204  0049  3477               	retlw	119	;'w'
+   205  004A  346F               	retlw	111	;'o'
+   206  004B  3472               	retlw	114	;'r'
+   207  004C  3464               	retlw	100	;'d'
+   208  004D  3420               	retlw	32	;' '
+   209  004E  3452               	retlw	82	;'R'
+   210  004F  3465               	retlw	101	;'e'
+   211  0050  3473               	retlw	115	;'s'
+   212  0051  3465               	retlw	101	;'e'
+   213  0052  3474               	retlw	116	;'t'
+   214  0053  3421               	retlw	33	;'!'
+   215  0054  3400               	retlw	0
+   216  0055                     STR_3:	
+   217  0055  3445               	retlw	69	;'E'
+   218  0056  344E               	retlw	78	;'N'
+   219  0057  3454               	retlw	84	;'T'
+   220  0058  3445               	retlw	69	;'E'
+   221  0059  3452               	retlw	82	;'R'
+   222  005A  3420               	retlw	32	;' '
+   223  005B  3450               	retlw	80	;'P'
+   224  005C  3441               	retlw	65	;'A'
+   225  005D  3453               	retlw	83	;'S'
+   226  005E  3453               	retlw	83	;'S'
+   227  005F  3457               	retlw	87	;'W'
+   228  0060  344F               	retlw	79	;'O'
+   229  0061  3452               	retlw	82	;'R'
+   230  0062  3444               	retlw	68	;'D'
+   231  0063  343A               	retlw	58	;':'
+   232  0064  3400               	retlw	0
+   233  0065                     STR_1:	
+   234  0065  3453               	retlw	83	;'S'
+   235  0066  3475               	retlw	117	;'u'
+   236  0067  3463               	retlw	99	;'c'
+   237  0068  3463               	retlw	99	;'c'
+   238  0069  3465               	retlw	101	;'e'
+   239  006A  3473               	retlw	115	;'s'
+   240  006B  3473               	retlw	115	;'s'
+   241  006C  3400               	retlw	0
+   242  006D                     STR_2:	
+   243  006D  3446               	retlw	70	;'F'
+   244  006E  3441               	retlw	65	;'A'
+   245  006F  3449               	retlw	73	;'I'
+   246  0070  344C               	retlw	76	;'L'
+   247  0071  3400               	retlw	0
+   248                           
+   249                           ; #config settings
+   250  0000                     
+   251                           	psect	cinit
+   252  07F0                     start_initialization:	
+   253  07F0                     __initialization:	
+   254                           
+   255                           ; Initialize objects allocated to BANK0
+   256  07F0  1383               	bcf	3,7	;select IRP bank0
+   257  07F1  305C               	movlw	low (__pdataBANK0+17)
+   258  07F2  00FD               	movwf	btemp+-1
+   259  07F3  3006               	movlw	high __pidataBANK0
+   260  07F4  00FE               	movwf	btemp
+   261  07F5  3088               	movlw	low __pidataBANK0
+   262  07F6  00FF               	movwf	btemp+1
+   263  07F7  304B               	movlw	low __pdataBANK0
+   264  07F8  0084               	movwf	4
+   265  07F9  120A  118A  267B   	fcall	init_ram0
+   266  07FC                     end_of_initialization:	
+   267                           ;End of C runtime variable initialization code
+   268                           
+   269  07FC                     __end_of__initialization:	
+   270  07FC  0183               	clrf	3
+   271  07FD  120A  118A  2F99   	ljmp	_main	;jump to C main() function
+   272                           
+   273                           	psect	dataBANK0
+   274  004B                     __pdataBANK0:	
+   275  004B                     main@F1091:	
+   276  004B                     	ds	10
+   277  0055                     _confirm_pass_msg:	
+   278  0055                     	ds	1
+   279  0056                     _enter_pass_msg:	
+   280  0056                     	ds	1
+   281  0057                     _fail_msg:	
+   282  0057                     	ds	1
+   283  0058                     _reset_pass_msg:	
+   284  0058                     	ds	1
+   285  0059                     _reset_success_msg:	
+   286  0059                     	ds	1
+   287  005A                     _size:	
+   288  005A                     	ds	1
+   289  005B                     _success_msg:	
+   290  005B                     	ds	1
+   291                           
+   292                           	psect	inittext
+   293  0677                     init_fetch0:	
+   294                           ;	Called with low address in FSR and high address in W
+   295                           
+   296  0677  087E               	movf	126,w
+   297  0678  008A               	movwf	10
+   298  0679  087F               	movf	127,w
+   299  067A  0082               	movwf	2
+   300  067B                     init_ram0:	
+   301                           ;Called with:
+   302                           ;	high address of idata address in btemp 
+   303                           ;	low address of idata address in btemp+1 
+   304                           ;	low address of data in FSR
+   305                           ;	high address + 1 of data in btemp-1
+   306                           
+   307  067B  2677  120A  118A   	fcall	init_fetch0
+   308  067E  0080               	movwf	0
+   309  067F  0A84               	incf	4,f
+   310  0680  0804               	movf	4,w
+   311  0681  067D               	xorwf	125,w
+   312  0682  1903               	btfsc	3,2
+   313  0683  3400               	retlw	0
+   314  0684  0AFF               	incf	127,f
+   315  0685  1903               	btfsc	3,2
+   316  0686  0AFE               	incf	126,f
+   317  0687  2E7B               	goto	init_ram0
+   318                           
+   319                           	psect	cstackCOMMON
+   320  0070                     __pcstackCOMMON:	
+   321  0070                     ?_strcpy:	
+   322  0070                     ?_next:	
+   323                           ; 1 bytes @ 0x0
+   324                           
+   325  0070                     ??_next:	
+   326                           ; 1 bytes @ 0x0
+   327                           
+   328  0070                     ?_print:	
+   329                           ; 1 bytes @ 0x0
+   330                           
+   331  0070                     ??_print:	
+   332                           ; 1 bytes @ 0x0
+   333                           
+   334  0070                     ?_get_input:	
+   335                           ; 1 bytes @ 0x0
+   336                           
+   337  0070                     ??_get_input:	
+   338                           ; 1 bytes @ 0x0
+   339                           
+   340  0070                     ?_reset_password:	
+   341                           ; 1 bytes @ 0x0
+   342                           
+   343  0070                     ?_main:	
+   344                           ; 1 bytes @ 0x0
+   345                           
+   346  0070                     ?_strcmp:	
+   347                           ; 1 bytes @ 0x0
+   348                           
+   349  0070                     strcmp@s2:	
+   350                           ; 2 bytes @ 0x0
+   351                           
+   352  0070                     strcpy@from:	
+   353                           ; 1 bytes @ 0x0
+   354                           
+   355                           
+   356                           ; 1 bytes @ 0x0
+   357  0070                     	ds	1
+   358  0071                     ??_strcpy:	
+   359                           
+   360                           ; 1 bytes @ 0x1
+   361  0071                     	ds	1
+   362  0072                     ??_strcmp:	
+   363  0072                     print@s:	
+   364                           ; 1 bytes @ 0x2
+   365                           
+   366  0072                     strcpy@to:	
+   367                           ; 1 bytes @ 0x2
+   368                           
+   369  0072                     get_input@i:	
+   370                           ; 1 bytes @ 0x2
+   371                           
+   372                           
+   373                           ; 2 bytes @ 0x2
+   374  0072                     	ds	1
+   375  0073                     strcpy@cp:	
+   376                           
+   377                           ; 1 bytes @ 0x3
+   378  0073                     	ds	1
+   379  0074                     get_input@buffer:	
+   380  0074                     strcmp@r:	
+   381                           ; 1 bytes @ 0x4
+   382                           
+   383                           
+   384                           ; 1 bytes @ 0x4
+   385  0074                     	ds	1
+   386  0075                     strcmp@s1:	
+   387                           
+   388                           ; 1 bytes @ 0x5
+   389  0075                     	ds	1
+   390  0076                     ??_reset_password:	
+   391                           
+   392                           ; 1 bytes @ 0x6
+   393  0076                     	ds	1
+   394  0077                     ??_main:	
+   395                           
+   396                           ; 1 bytes @ 0x7
+   397  0077                     	ds	4
+   398                           
+   399                           	psect	cstackBANK0
+   400  0020                     __pcstackBANK0:	
+   401  0020                     reset_password@confirm_pass:	
+   402                           
+   403                           ; 11 bytes @ 0x0
+   404  0020                     	ds	11
+   405  002B                     reset_password@new_pass:	
+   406                           
+   407                           ; 11 bytes @ 0xB
+   408  002B                     	ds	11
+   409  0036                     reset_password@password:	
+   410                           
+   411                           ; 1 bytes @ 0x16
+   412  0036                     	ds	1
+   413  0037                     main@password:	
+   414                           
+   415                           ; 10 bytes @ 0x17
+   416  0037                     	ds	10
+   417  0041                     main@input:	
+   418                           
+   419                           ; 10 bytes @ 0x21
+   420  0041                     	ds	10
+   421                           
+   422                           	psect	maintext
+   423  0799                     __pmaintext:	
+   424 ;;
+   425 ;;Main: autosize = 0, tempsize = 4, incstack = 0, save=0
+   426 ;;
+   427 ;; *************** function _main *****************
+   428 ;; Defined at:
+   429 ;;		line 62 in file "newmain.c"
+   430 ;; Parameters:    Size  Location     Type
+   431 ;;		None
+   432 ;; Auto vars:     Size  Location     Type
+   433 ;;  input          10   33[BANK0 ] unsigned char [10]
+   434 ;;  password       10   23[BANK0 ] unsigned char [10]
+   435 ;; Return value:  Size  Location     Type
+   436 ;;                  1    wreg      void 
+   437 ;; Registers used:
+   438 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   439 ;; Tracked objects:
+   440 ;;		On entry : B00/0
+   441 ;;		On exit  : 0/0
+   442 ;;		Unchanged: 0/0
+   443 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   444 ;;      Params:         0       0       0       0       0
+   445 ;;      Locals:         0      20       0       0       0
+   446 ;;      Temps:          4       0       0       0       0
+   447 ;;      Totals:         4      20       0       0       0
+   448 ;;Total ram usage:       24 bytes
+   449 ;; Hardware stack levels required when called:    3
+   450 ;; This function calls:
+   451 ;;		_get_input
+   452 ;;		_print
+   453 ;;		_reset_password
+   454 ;;		_strcmp
+   455 ;; This function is called by:
+   456 ;;		Startup code after reset
+   457 ;; This function uses a non-reentrant model
+   458 ;;
+   459                           
+   460                           
+   461                           ;psect for function _main
+   462  0799                     _main:	
+   463                           
+   464                           ;newmain.c: 63: char password[10] = "HRITHWIK", input[10];
+   465                           
+   466                           ;incstack = 0
+   467                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   468  0799  3037               	movlw	main@password& (0+255)
+   469  079A  0084               	movwf	4
+   470  079B  304B               	movlw	low main@F1091
+   471  079C  00F7               	movwf	??_main
+   472  079D  0804               	movf	4,w
+   473  079E  00F8               	movwf	??_main+1
+   474  079F  300A               	movlw	10
+   475  07A0  00F9               	movwf	??_main+2
+   476  07A1                     u250:	
+   477  07A1  0877               	movf	??_main,w
+   478  07A2  0084               	movwf	4
+   479  07A3  1383               	bcf	3,7	;select IRP bank0
+   480  07A4  0800               	movf	0,w
+   481  07A5  00FA               	movwf	??_main+3
+   482  07A6  0AF7               	incf	??_main,f
+   483  07A7  0878               	movf	??_main+1,w
+   484  07A8  0084               	movwf	4
+   485  07A9  087A               	movf	??_main+3,w
+   486  07AA  0080               	movwf	0
+   487  07AB  0AF8               	incf	??_main+1,f
+   488  07AC  0BF9               	decfsz	??_main+2,f
+   489  07AD  2FA1               	goto	u250
+   490                           
+   491                           ;newmain.c: 64: TRISC = 0x80; RCSTA = 0x90; SPBRG = 25; TXSTA = 0x24;
+   492  07AE  3080               	movlw	128
+   493  07AF  1683               	bsf	3,5	;RP0=1, select bank1
+   494  07B0  1303               	bcf	3,6	;RP1=0, select bank1
+   495  07B1  0087               	movwf	7	;volatile
+   496  07B2  3090               	movlw	144
+   497  07B3  1283               	bcf	3,5	;RP0=0, select bank0
+   498  07B4  1303               	bcf	3,6	;RP1=0, select bank0
+   499  07B5  0098               	movwf	24	;volatile
+   500  07B6  3019               	movlw	25
+   501  07B7  1683               	bsf	3,5	;RP0=1, select bank1
+   502  07B8  1303               	bcf	3,6	;RP1=0, select bank1
+   503  07B9  0099               	movwf	25	;volatile
+   504  07BA  3024               	movlw	36
+   505  07BB  0098               	movwf	24	;volatile
+   506  07BC  2FC5               	goto	l708
+   507  07BD                     l714:	
+   508                           
+   509                           ;newmain.c: 70: print(success_msg);
+   510  07BD  1283               	bcf	3,5	;RP0=0, select bank0
+   511  07BE  1303               	bcf	3,6	;RP1=0, select bank0
+   512  07BF  085B               	movf	_success_msg,w
+   513  07C0  120A  118A  26D8  120A  118A  	fcall	_print
+   514  07C5                     l708:	
+   515                           ;newmain.c: 66: while (1) {
+   516                           
+   517                           ;newmain.c: 71: } else {
+   518                           
+   519                           
+   520                           ;newmain.c: 67: print(enter_pass_msg);
+   521  07C5  1283               	bcf	3,5	;RP0=0, select bank0
+   522  07C6  1303               	bcf	3,6	;RP1=0, select bank0
+   523  07C7  0856               	movf	_enter_pass_msg,w
+   524  07C8  120A  118A  26D8  120A  118A  	fcall	_print
+   525                           
+   526                           ;newmain.c: 68: get_input(input);
+   527  07CD  3041               	movlw	(low (main@input| 0))& (0+255)
+   528  07CE  120A  118A  2707  120A  118A  	fcall	_get_input
+   529                           
+   530                           ;newmain.c: 69: if (strcmp(password, input) == 0) {
+   531  07D3  3041               	movlw	(low (main@input| 0))& (0+255)
+   532  07D4  00F7               	movwf	??_main
+   533  07D5  0877               	movf	??_main,w
+   534  07D6  00F0               	movwf	strcmp@s2
+   535  07D7  3037               	movlw	(low (main@password| 0))& (0+255)
+   536  07D8  120A  118A  26B3  120A  118A  	fcall	_strcmp
+   537  07DD  0870               	movf	?_strcmp,w
+   538  07DE  0471               	iorwf	?_strcmp+1,w
+   539  07DF  1903               	btfsc	3,2
+   540  07E0  2FBD               	goto	l714
+   541                           
+   542                           ;newmain.c: 72: print(fail_msg);
+   543  07E1  1283               	bcf	3,5	;RP0=0, select bank0
+   544  07E2  1303               	bcf	3,6	;RP1=0, select bank0
+   545  07E3  0857               	movf	_fail_msg,w
+   546  07E4  120A  118A  26D8  120A  118A  	fcall	_print
+   547                           
+   548                           ;newmain.c: 73: reset_password(password);
+   549  07E9  3037               	movlw	(low (main@password| 0))& (0+255)
+   550  07EA  120A  118A  274A  120A  118A  	fcall	_reset_password
+   551  07EF  2FC5               	goto	l708
+   552  07F0                     __end_of_main:	
+   553                           
+   554                           	psect	text1
+   555  074A                     __ptext1:	
+   556 ;; *************** function _reset_password *****************
+   557 ;; Defined at:
+   558 ;;		line 46 in file "newmain.c"
+   559 ;; Parameters:    Size  Location     Type
+   560 ;;  password        1    wreg     PTR unsigned char 
+   561 ;;		 -> main@password(10), 
+   562 ;; Auto vars:     Size  Location     Type
+   563 ;;  password        1   22[BANK0 ] PTR unsigned char 
+   564 ;;		 -> main@password(10), 
+   565 ;;  new_pass       11   11[BANK0 ] unsigned char [11]
+   566 ;;  confirm_pass   11    0[BANK0 ] unsigned char [11]
+   567 ;; Return value:  Size  Location     Type
+   568 ;;                  1    wreg      void 
+   569 ;; Registers used:
+   570 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   571 ;; Tracked objects:
+   572 ;;		On entry : 0/0
+   573 ;;		On exit  : 0/0
+   574 ;;		Unchanged: 0/0
+   575 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   576 ;;      Params:         0       0       0       0       0
+   577 ;;      Locals:         0      23       0       0       0
+   578 ;;      Temps:          1       0       0       0       0
+   579 ;;      Totals:         1      23       0       0       0
+   580 ;;Total ram usage:       24 bytes
+   581 ;; Hardware stack levels used:    1
+   582 ;; Hardware stack levels required when called:    2
+   583 ;; This function calls:
+   584 ;;		_get_input
+   585 ;;		_print
+   586 ;;		_strcmp
+   587 ;;		_strcpy
+   588 ;; This function is called by:
+   589 ;;		_main
+   590 ;; This function uses a non-reentrant model
+   591 ;;
+   592                           
+   593                           
+   594                           ;psect for function _reset_password
+   595  074A                     _reset_password:	
+   596                           
+   597                           ;incstack = 0
+   598                           ; Regs used in _reset_password: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   599                           ;reset_password@password stored from wreg
+   600  074A  1283               	bcf	3,5	;RP0=0, select bank0
+   601  074B  1303               	bcf	3,6	;RP1=0, select bank0
+   602  074C  00B6               	movwf	reset_password@password
+   603                           
+   604                           ;newmain.c: 47: char new_pass[11], confirm_pass[11];
+   605                           ;newmain.c: 48: print(reset_pass_msg);
+   606  074D  0858               	movf	_reset_pass_msg,w
+   607  074E  120A  118A  26D8  120A  118A  	fcall	_print
+   608                           
+   609                           ;newmain.c: 49: print(size);
+   610  0753  1283               	bcf	3,5	;RP0=0, select bank0
+   611  0754  1303               	bcf	3,6	;RP1=0, select bank0
+   612  0755  085A               	movf	_size,w
+   613  0756  120A  118A  26D8  120A  118A  	fcall	_print
+   614                           
+   615                           ;newmain.c: 50: get_input(new_pass);
+   616  075B  302B               	movlw	(low (reset_password@new_pass| 0))& (0+255)
+   617  075C  120A  118A  2707  120A  118A  	fcall	_get_input
+   618                           
+   619                           ;newmain.c: 51: print(confirm_pass_msg);
+   620  0761  1283               	bcf	3,5	;RP0=0, select bank0
+   621  0762  1303               	bcf	3,6	;RP1=0, select bank0
+   622  0763  0855               	movf	_confirm_pass_msg,w
+   623  0764  120A  118A  26D8  120A  118A  	fcall	_print
+   624                           
+   625                           ;newmain.c: 52: get_input(confirm_pass);
+   626  0769  3020               	movlw	(low (reset_password@confirm_pass| 0))& (0+255)
+   627  076A  120A  118A  2707  120A  118A  	fcall	_get_input
+   628                           
+   629                           ;newmain.c: 53: if (strcmp(new_pass, confirm_pass) == 0) {
+   630  076F  3020               	movlw	(low (reset_password@confirm_pass| 0))& (0+255)
+   631  0770  00F6               	movwf	??_reset_password
+   632  0771  0876               	movf	??_reset_password,w
+   633  0772  00F0               	movwf	strcmp@s2
+   634  0773  302B               	movlw	(low (reset_password@new_pass| 0))& (0+255)
+   635  0774  120A  118A  26B3  120A  118A  	fcall	_strcmp
+   636  0779  0870               	movf	?_strcmp,w
+   637  077A  0471               	iorwf	?_strcmp+1,w
+   638  077B  1D03               	btfss	3,2
+   639  077C  2F92               	goto	l696
+   640                           
+   641                           ;newmain.c: 54: strcpy(password, new_pass);
+   642  077D  302B               	movlw	(low (reset_password@new_pass| 0))& (0+255)
+   643  077E  00F6               	movwf	??_reset_password
+   644  077F  0876               	movf	??_reset_password,w
+   645  0780  00F0               	movwf	strcpy@from
+   646  0781  1283               	bcf	3,5	;RP0=0, select bank0
+   647  0782  1303               	bcf	3,6	;RP1=0, select bank0
+   648  0783  0836               	movf	reset_password@password,w
+   649  0784  120A  118A  2699  120A  118A  	fcall	_strcpy
+   650                           
+   651                           ;newmain.c: 55: print(reset_success_msg);
+   652  0789  1283               	bcf	3,5	;RP0=0, select bank0
+   653  078A  1303               	bcf	3,6	;RP1=0, select bank0
+   654  078B  0859               	movf	_reset_success_msg,w
+   655  078C  120A  118A  26D8  120A  118A  	fcall	_print
+   656  0791                     l70:	
+   657                           ;newmain.c: 56: while(1);
+   658                           
+   659  0791  2F91               	goto	l70
+   660  0792                     l696:	
+   661                           ;newmain.c: 57: } else {
+   662                           
+   663                           
+   664                           ;newmain.c: 58: print(fail_msg);
+   665  0792  1283               	bcf	3,5	;RP0=0, select bank0
+   666  0793  1303               	bcf	3,6	;RP1=0, select bank0
+   667  0794  0857               	movf	_fail_msg,w
+   668  0795  120A  118A  26D8   	fcall	_print
+   669  0798  0008               	return
+   670  0799                     __end_of_reset_password:	
+   671                           
+   672                           	psect	text2
+   673  0699                     __ptext2:	
+   674 ;; *************** function _strcpy *****************
+   675 ;; Defined at:
+   676 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\strcpy.c"
+   677 ;; Parameters:    Size  Location     Type
+   678 ;;  to              1    wreg     PTR unsigned char 
+   679 ;;		 -> main@password(10), 
+   680 ;;  from            1    0[COMMON] PTR const unsigned char 
+   681 ;;		 -> reset_password@new_pass(11), 
+   682 ;; Auto vars:     Size  Location     Type
+   683 ;;  to              1    2[COMMON] PTR unsigned char 
+   684 ;;		 -> main@password(10), 
+   685 ;;  cp              1    3[COMMON] PTR unsigned char 
+   686 ;;		 -> main@password(10), 
+   687 ;; Return value:  Size  Location     Type
+   688 ;;                  1    wreg      PTR unsigned char 
+   689 ;; Registers used:
+   690 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   691 ;; Tracked objects:
+   692 ;;		On entry : 0/0
+   693 ;;		On exit  : 0/0
+   694 ;;		Unchanged: 0/0
+   695 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   696 ;;      Params:         1       0       0       0       0
+   697 ;;      Locals:         2       0       0       0       0
+   698 ;;      Temps:          1       0       0       0       0
+   699 ;;      Totals:         4       0       0       0       0
+   700 ;;Total ram usage:        4 bytes
+   701 ;; Hardware stack levels used:    1
+   702 ;; This function calls:
+   703 ;;		Nothing
+   704 ;; This function is called by:
+   705 ;;		_reset_password
+   706 ;; This function uses a non-reentrant model
+   707 ;;
+   708                           
+   709                           
+   710                           ;psect for function _strcpy
+   711  0699                     _strcpy:	
+   712                           
+   713                           ;incstack = 0
+   714                           ; Regs used in _strcpy: [wreg-fsr0h+status,2+status,0]
+   715                           ;strcpy@to stored from wreg
+   716  0699  00F2               	movwf	strcpy@to
+   717  069A  0872               	movf	strcpy@to,w
+   718  069B  00F1               	movwf	??_strcpy
+   719  069C  0871               	movf	??_strcpy,w
+   720  069D  00F3               	movwf	strcpy@cp
+   721  069E                     l690:	
+   722  069E  0870               	movf	strcpy@from,w
+   723  069F  0084               	movwf	4
+   724  06A0  1383               	bcf	3,7	;select IRP bank0
+   725  06A1  0800               	movf	0,w
+   726  06A2  00F1               	movwf	??_strcpy
+   727  06A3  0873               	movf	strcpy@cp,w
+   728  06A4  0084               	movwf	4
+   729  06A5  0871               	movf	??_strcpy,w
+   730  06A6  0080               	movwf	0
+   731  06A7  0800               	movf	0,w
+   732  06A8  1903               	btfsc	3,2
+   733  06A9  0008               	return
+   734  06AA  3001               	movlw	1
+   735  06AB  00F1               	movwf	??_strcpy
+   736  06AC  0871               	movf	??_strcpy,w
+   737  06AD  07F3               	addwf	strcpy@cp,f
+   738  06AE  3001               	movlw	1
+   739  06AF  00F1               	movwf	??_strcpy
+   740  06B0  0871               	movf	??_strcpy,w
+   741  06B1  07F0               	addwf	strcpy@from,f
+   742  06B2  2E9E               	goto	l690
+   743  06B3                     __end_of_strcpy:	
+   744                           ;	Return value of _strcpy is never used
+   745                           
+   746                           
+   747                           	psect	text3
+   748  06B3                     __ptext3:	
+   749 ;; *************** function _strcmp *****************
+   750 ;; Defined at:
+   751 ;;		line 33 in file "C:\Program Files (x86)\Microchip\xc8\v1.36\sources\common\strcmp.c"
+   752 ;; Parameters:    Size  Location     Type
+   753 ;;  s1              1    wreg     PTR const unsigned char 
+   754 ;;		 -> main@password(10), reset_password@new_pass(11), 
+   755 ;;  s2              1    0[COMMON] PTR const unsigned char 
+   756 ;;		 -> main@input(10), reset_password@confirm_pass(11), 
+   757 ;; Auto vars:     Size  Location     Type
+   758 ;;  s1              1    5[COMMON] PTR const unsigned char 
+   759 ;;		 -> main@password(10), reset_password@new_pass(11), 
+   760 ;;  r               1    4[COMMON] char 
+   761 ;; Return value:  Size  Location     Type
+   762 ;;                  2    0[COMMON] int 
+   763 ;; Registers used:
+   764 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   765 ;; Tracked objects:
+   766 ;;		On entry : 0/0
+   767 ;;		On exit  : 0/0
+   768 ;;		Unchanged: 0/0
+   769 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   770 ;;      Params:         2       0       0       0       0
+   771 ;;      Locals:         2       0       0       0       0
+   772 ;;      Temps:          2       0       0       0       0
+   773 ;;      Totals:         6       0       0       0       0
+   774 ;;Total ram usage:        6 bytes
+   775 ;; Hardware stack levels used:    1
+   776 ;; This function calls:
+   777 ;;		Nothing
+   778 ;; This function is called by:
+   779 ;;		_reset_password
+   780 ;;		_main
+   781 ;; This function uses a non-reentrant model
+   782 ;;
+   783                           
+   784                           
+   785                           ;psect for function _strcmp
+   786  06B3                     _strcmp:	
+   787                           
+   788                           ;incstack = 0
+   789                           ; Regs used in _strcmp: [wreg-fsr0h+status,2+status,0]
+   790                           ;strcmp@s1 stored from wreg
+   791  06B3  00F5               	movwf	strcmp@s1
+   792  06B4  2EBD               	goto	l678
+   793  06B5                     l674:	
+   794  06B5  3001               	movlw	1
+   795  06B6  00F2               	movwf	??_strcmp
+   796  06B7  0872               	movf	??_strcmp,w
+   797  06B8  07F5               	addwf	strcmp@s1,f
+   798  06B9  3001               	movlw	1
+   799  06BA  00F2               	movwf	??_strcmp
+   800  06BB  0872               	movf	??_strcmp,w
+   801  06BC  07F0               	addwf	strcmp@s2,f
+   802  06BD                     l678:	
+   803  06BD  0875               	movf	strcmp@s1,w
+   804  06BE  0084               	movwf	4
+   805  06BF  1383               	bcf	3,7	;select IRP bank0
+   806  06C0  0800               	movf	0,w
+   807  06C1  00F2               	movwf	??_strcmp
+   808  06C2  0870               	movf	strcmp@s2,w
+   809  06C3  0084               	movwf	4
+   810  06C4  0300               	decf	0,w
+   811  06C5  3AFF               	xorlw	255
+   812  06C6  0772               	addwf	??_strcmp,w
+   813  06C7  00F3               	movwf	??_strcmp+1
+   814  06C8  0873               	movf	??_strcmp+1,w
+   815  06C9  00F4               	movwf	strcmp@r
+   816  06CA  0874               	movf	strcmp@r,w
+   817  06CB  1D03               	btfss	3,2
+   818  06CC  2ED2               	goto	l682
+   819  06CD  0875               	movf	strcmp@s1,w
+   820  06CE  0084               	movwf	4
+   821  06CF  0800               	movf	0,w
+   822  06D0  1D03               	btfss	3,2
+   823  06D1  2EB5               	goto	l674
+   824  06D2                     l682:	
+   825  06D2  0874               	movf	strcmp@r,w
+   826  06D3  00F0               	movwf	?_strcmp
+   827  06D4  01F1               	clrf	?_strcmp+1
+   828  06D5  1BF0               	btfsc	?_strcmp,7
+   829  06D6  03F1               	decf	?_strcmp+1,f
+   830  06D7  0008               	return
+   831  06D8                     __end_of_strcmp:	
+   832                           
+   833                           	psect	text4
+   834  06D8                     __ptext4:	
+   835 ;; *************** function _print *****************
+   836 ;; Defined at:
+   837 ;;		line 20 in file "newmain.c"
+   838 ;; Parameters:    Size  Location     Type
+   839 ;;  s               1    wreg     PTR const unsigned char 
+   840 ;;		 -> STR_7(22), STR_6(16), STR_5(18), STR_4(20), 
+   841 ;;		 -> STR_3(16), STR_2(5), STR_1(8), 
+   842 ;; Auto vars:     Size  Location     Type
+   843 ;;  s               1    2[COMMON] PTR const unsigned char 
+   844 ;;		 -> STR_7(22), STR_6(16), STR_5(18), STR_4(20), 
+   845 ;;		 -> STR_3(16), STR_2(5), STR_1(8), 
+   846 ;; Return value:  Size  Location     Type
+   847 ;;                  1    wreg      void 
+   848 ;; Registers used:
+   849 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   850 ;; Tracked objects:
+   851 ;;		On entry : 0/0
+   852 ;;		On exit  : 0/0
+   853 ;;		Unchanged: 0/0
+   854 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   855 ;;      Params:         0       0       0       0       0
+   856 ;;      Locals:         1       0       0       0       0
+   857 ;;      Temps:          2       0       0       0       0
+   858 ;;      Totals:         3       0       0       0       0
+   859 ;;Total ram usage:        3 bytes
+   860 ;; Hardware stack levels used:    1
+   861 ;; Hardware stack levels required when called:    1
+   862 ;; This function calls:
+   863 ;;		_next
+   864 ;; This function is called by:
+   865 ;;		_reset_password
+   866 ;;		_main
+   867 ;; This function uses a non-reentrant model
+   868 ;;
+   869                           
+   870                           
+   871                           ;psect for function _print
+   872  06D8                     _print:	
+   873                           
+   874                           ;incstack = 0
+   875                           ; Regs used in _print: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   876                           ;print@s stored from wreg
+   877  06D8  00F2               	movwf	print@s
+   878  06D9                     l652:	
+   879                           ;newmain.c: 21: while (*s) {
+   880                           
+   881  06D9  0872               	movf	print@s,w
+   882  06DA  0084               	movwf	4
+   883  06DB  120A  118A  2003  120A  118A  	fcall	stringdir
+   884  06E0  3A00               	xorlw	0
+   885  06E1  1903               	btfsc	3,2
+   886  06E2  2EFF               	goto	l51
+   887                           
+   888                           ;newmain.c: 22: TXREG = *s++;
+   889  06E3  0872               	movf	print@s,w
+   890  06E4  0084               	movwf	4
+   891  06E5  120A  118A  2003  120A  118A  	fcall	stringdir
+   892  06EA  1283               	bcf	3,5	;RP0=0, select bank0
+   893  06EB  1303               	bcf	3,6	;RP1=0, select bank0
+   894  06EC  0099               	movwf	25	;volatile
+   895  06ED  3001               	movlw	1
+   896  06EE  00F0               	movwf	??_print
+   897  06EF  0870               	movf	??_print,w
+   898  06F0  07F2               	addwf	print@s,f
+   899  06F1                     l47:	
+   900                           ;newmain.c: 23: while (!TRMT);
+   901                           
+   902  06F1  1683               	bsf	3,5	;RP0=1, select bank1
+   903  06F2  1303               	bcf	3,6	;RP1=0, select bank1
+   904  06F3  1C98               	btfss	24,1	;volatile
+   905  06F4  2EF1               	goto	l47
+   906                           
+   907                           ;newmain.c: 24: _delay((unsigned long)((50)*(4000000/4000.0)));
+   908  06F5  3041               	movlw	65
+   909  06F6  00F1               	movwf	??_print+1
+   910  06F7  30EE               	movlw	238
+   911  06F8  00F0               	movwf	??_print
+   912  06F9                     u277:	
+   913  06F9  0BF0               	decfsz	??_print,f
+   914  06FA  2EF9               	goto	u277
+   915  06FB  0BF1               	decfsz	??_print+1,f
+   916  06FC  2EF9               	goto	u277
+   917  06FD  0000               	nop
+   918  06FE  2ED9               	goto	l652
+   919  06FF                     l51:	
+   920                           ;newmain.c: 25: }
+   921                           ;newmain.c: 26: while (!TRMT);
+   922                           
+   923  06FF  1683               	bsf	3,5	;RP0=1, select bank1
+   924  0700  1303               	bcf	3,6	;RP1=0, select bank1
+   925  0701  1C98               	btfss	24,1	;volatile
+   926  0702  2EFF               	goto	l51
+   927                           
+   928                           ;newmain.c: 27: next();
+   929  0703  120A  118A  266A   	fcall	_next
+   930  0706  0008               	return
+   931  0707                     __end_of_print:	
+   932                           
+   933                           	psect	text5
+   934  0707                     __ptext5:	
+   935 ;; *************** function _get_input *****************
+   936 ;; Defined at:
+   937 ;;		line 30 in file "newmain.c"
+   938 ;; Parameters:    Size  Location     Type
+   939 ;;  buffer          1    wreg     PTR unsigned char 
+   940 ;;		 -> main@input(10), reset_password@confirm_pass(11), reset_password@new_pass(11), 
+   941 ;; Auto vars:     Size  Location     Type
+   942 ;;  buffer          1    4[COMMON] PTR unsigned char 
+   943 ;;		 -> main@input(10), reset_password@confirm_pass(11), reset_password@new_pass(11), 
+   944 ;;  i               2    2[COMMON] int 
+   945 ;; Return value:  Size  Location     Type
+   946 ;;                  1    wreg      void 
+   947 ;; Registers used:
+   948 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   949 ;; Tracked objects:
+   950 ;;		On entry : 0/0
+   951 ;;		On exit  : 0/0
+   952 ;;		Unchanged: 0/0
+   953 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   954 ;;      Params:         0       0       0       0       0
+   955 ;;      Locals:         3       0       0       0       0
+   956 ;;      Temps:          2       0       0       0       0
+   957 ;;      Totals:         5       0       0       0       0
+   958 ;;Total ram usage:        5 bytes
+   959 ;; Hardware stack levels used:    1
+   960 ;; Hardware stack levels required when called:    1
+   961 ;; This function calls:
+   962 ;;		_next
+   963 ;; This function is called by:
+   964 ;;		_reset_password
+   965 ;;		_main
+   966 ;; This function uses a non-reentrant model
+   967 ;;
+   968                           
+   969                           
+   970                           ;psect for function _get_input
+   971  0707                     _get_input:	
+   972                           
+   973                           ;incstack = 0
+   974                           ; Regs used in _get_input: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   975                           ;get_input@buffer stored from wreg
+   976  0707  00F4               	movwf	get_input@buffer
+   977                           
+   978                           ;newmain.c: 31: int i;
+   979                           ;newmain.c: 32: for( i=0;;i++)
+   980  0708  01F2               	clrf	get_input@i
+   981  0709  01F3               	clrf	get_input@i+1
+   982                           
+   983                           ;newmain.c: 38: break;
+   984  070A  2F22               	goto	l58
+   985  070B                     l662:	
+   986                           
+   987                           ;newmain.c: 39: }
+   988                           ;newmain.c: 40: TXREG = buffer[i++];
+   989  070B  0872               	movf	get_input@i,w
+   990  070C  0774               	addwf	get_input@buffer,w
+   991  070D  00F0               	movwf	??_get_input
+   992  070E  0870               	movf	??_get_input,w
+   993  070F  0084               	movwf	4
+   994  0710  0800               	movf	0,w
+   995  0711  0099               	movwf	25	;volatile
+   996  0712  3001               	movlw	1
+   997  0713  07F2               	addwf	get_input@i,f
+   998  0714  1803               	skipnc
+   999  0715  0AF3               	incf	get_input@i+1,f
+  1000  0716  3000               	movlw	0
+  1001  0717  07F3               	addwf	get_input@i+1,f
+  1002  0718                     l63:	
+  1003                           ;newmain.c: 41: while (!TRMT);
+  1004                           
+  1005  0718  1683               	bsf	3,5	;RP0=1, select bank1
+  1006  0719  1303               	bcf	3,6	;RP1=0, select bank1
+  1007  071A  1C98               	btfss	24,1	;volatile
+  1008  071B  2F18               	goto	l63
+  1009  071C  3001               	movlw	1
+  1010  071D  07F2               	addwf	get_input@i,f
+  1011  071E  1803               	skipnc
+  1012  071F  0AF3               	incf	get_input@i+1,f
+  1013  0720  3000               	movlw	0
+  1014  0721  07F3               	addwf	get_input@i+1,f
+  1015  0722                     l58:	
+  1016                           ;newmain.c: 33: {
+  1017                           ;newmain.c: 34: while (!RCIF);
+  1018                           
+  1019  0722  1283               	bcf	3,5	;RP0=0, select bank0
+  1020  0723  1303               	bcf	3,6	;RP1=0, select bank0
+  1021  0724  1E8C               	btfss	12,5	;volatile
+  1022  0725  2F22               	goto	l58
+  1023                           
+  1024                           ;newmain.c: 35: buffer[i] = RCREG;
+  1025  0726  081A               	movf	26,w	;volatile
+  1026  0727  00F0               	movwf	??_get_input
+  1027  0728  0872               	movf	get_input@i,w
+  1028  0729  0774               	addwf	get_input@buffer,w
+  1029  072A  00F1               	movwf	??_get_input+1
+  1030  072B  0871               	movf	??_get_input+1,w
+  1031  072C  0084               	movwf	4
+  1032  072D  0870               	movf	??_get_input,w
+  1033  072E  1383               	bcf	3,7	;select IRP bank0
+  1034  072F  0080               	movwf	0
+  1035                           
+  1036                           ;newmain.c: 36: if (buffer[i] == '\r')
+  1037  0730  0872               	movf	get_input@i,w
+  1038  0731  0774               	addwf	get_input@buffer,w
+  1039  0732  00F0               	movwf	??_get_input
+  1040  0733  0870               	movf	??_get_input,w
+  1041  0734  0084               	movwf	4
+  1042  0735  300D               	movlw	13
+  1043  0736  0600               	xorwf	0,w
+  1044  0737  1D03               	btfss	3,2
+  1045  0738  2F0B               	goto	l662
+  1046                           
+  1047                           ;newmain.c: 37: { buffer[i] = '\0';
+  1048  0739  0872               	movf	get_input@i,w
+  1049  073A  0774               	addwf	get_input@buffer,w
+  1050  073B  00F0               	movwf	??_get_input
+  1051  073C  0870               	movf	??_get_input,w
+  1052  073D  0084               	movwf	4
+  1053  073E  0180               	clrf	0
+  1054                           
+  1055                           ;newmain.c: 42: }
+  1056                           ;newmain.c: 43: buffer[i] = '\0';
+  1057  073F  0872               	movf	get_input@i,w
+  1058  0740  0774               	addwf	get_input@buffer,w
+  1059  0741  00F0               	movwf	??_get_input
+  1060  0742  0870               	movf	??_get_input,w
+  1061  0743  0084               	movwf	4
+  1062  0744  1383               	bcf	3,7	;select IRP bank0
+  1063  0745  0180               	clrf	0
+  1064                           
+  1065                           ;newmain.c: 44: next();
+  1066  0746  120A  118A  266A   	fcall	_next
+  1067  0749  0008               	return
+  1068  074A                     __end_of_get_input:	
+  1069                           
+  1070                           	psect	text6
+  1071  066A                     __ptext6:	
+  1072 ;; *************** function _next *****************
+  1073 ;; Defined at:
+  1074 ;;		line 13 in file "newmain.c"
+  1075 ;; Parameters:    Size  Location     Type
+  1076 ;;		None
+  1077 ;; Auto vars:     Size  Location     Type
+  1078 ;;		None
+  1079 ;; Return value:  Size  Location     Type
+  1080 ;;                  1    wreg      void 
+  1081 ;; Registers used:
+  1082 ;;		wreg
+  1083 ;; Tracked objects:
+  1084 ;;		On entry : 0/0
+  1085 ;;		On exit  : 0/0
+  1086 ;;		Unchanged: 0/0
+  1087 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1088 ;;      Params:         0       0       0       0       0
+  1089 ;;      Locals:         0       0       0       0       0
+  1090 ;;      Temps:          0       0       0       0       0
+  1091 ;;      Totals:         0       0       0       0       0
+  1092 ;;Total ram usage:        0 bytes
+  1093 ;; Hardware stack levels used:    1
+  1094 ;; This function calls:
+  1095 ;;		Nothing
+  1096 ;; This function is called by:
+  1097 ;;		_print
+  1098 ;;		_get_input
+  1099 ;; This function uses a non-reentrant model
+  1100 ;;
+  1101                           
+  1102                           
+  1103                           ;psect for function _next
+  1104  066A                     _next:	
+  1105                           
+  1106                           ;newmain.c: 15: TXREG='\r';
+  1107                           
+  1108                           ;incstack = 0
+  1109                           ; Regs used in _next: [wreg]
+  1110  066A  300D               	movlw	13
+  1111  066B  1283               	bcf	3,5	;RP0=0, select bank0
+  1112  066C  1303               	bcf	3,6	;RP1=0, select bank0
+  1113  066D  0099               	movwf	25	;volatile
+  1114  066E                     l39:	
+  1115                           ;newmain.c: 16: while(!(TRMT));
+  1116                           
+  1117  066E  1683               	bsf	3,5	;RP0=1, select bank1
+  1118  066F  1303               	bcf	3,6	;RP1=0, select bank1
+  1119  0670  1C98               	btfss	24,1	;volatile
+  1120  0671  2E6E               	goto	l39
+  1121                           
+  1122                           ;newmain.c: 17: TXREG='\n';
+  1123  0672  300A               	movlw	10
+  1124  0673  1283               	bcf	3,5	;RP0=0, select bank0
+  1125  0674  1303               	bcf	3,6	;RP1=0, select bank0
+  1126  0675  0099               	movwf	25	;volatile
+  1127  0676  0008               	return
+  1128  0677                     __end_of_next:	
+  1129                           ;newmain.c: 18: return;
+  1130                           
+  1131  007E                     btemp	set	126	;btemp
+  1132  007E                     wtemp	set	126
+  1133  007E                     wtemp0	set	126
+  1134  0080                     wtemp1	set	128
+  1135  0082                     wtemp2	set	130
+  1136  0084                     wtemp3	set	132
+  1137  0086                     wtemp4	set	134
+  1138  0088                     wtemp5	set	136
+  1139  007F                     wtemp6	set	127
+  1140  007E                     ttemp	set	126
+  1141  007E                     ttemp0	set	126
+  1142  0081                     ttemp1	set	129
+  1143  0084                     ttemp2	set	132
+  1144  0087                     ttemp3	set	135
+  1145  007F                     ttemp4	set	127
+  1146  007E                     ltemp	set	126
+  1147  007E                     ltemp0	set	126
+  1148  0082                     ltemp1	set	130
+  1149  0086                     ltemp2	set	134
+  1150  0080                     ltemp3	set	128
+
+
+Data Sizes:
+    Strings     105
+    Constant    0
+    Data        17
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     11      11
+    BANK0            80     43      60
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    strcpy@from	PTR const unsigned char  size(1) Largest target is 11
+		 -> reset_password@new_pass(BANK0[11]), 
+
+    strcpy@to	PTR unsigned char  size(1) Largest target is 10
+		 -> main@password(BANK0[10]), 
+
+    strcpy@cp	PTR unsigned char  size(1) Largest target is 10
+		 -> main@password(BANK0[10]), 
+
+    strcmp@s2	PTR const unsigned char  size(1) Largest target is 11
+		 -> main@input(BANK0[10]), reset_password@confirm_pass(BANK0[11]), 
+
+    strcmp@s1	PTR const unsigned char  size(1) Largest target is 11
+		 -> main@password(BANK0[10]), reset_password@new_pass(BANK0[11]), 
+
+    sp__strcpy	PTR unsigned char  size(1) Largest target is 10
+		 -> main@password(BANK0[10]), 
+
+    reset_password@password	PTR unsigned char  size(1) Largest target is 10
+		 -> main@password(BANK0[10]), 
+
+    get_input@buffer	PTR unsigned char  size(1) Largest target is 11
+		 -> main@input(BANK0[10]), reset_password@confirm_pass(BANK0[11]), reset_password@new_pass(BANK0[11]), 
+
+    print@s	PTR const unsigned char  size(1) Largest target is 22
+		 -> STR_7(CODE[22]), STR_6(CODE[16]), STR_5(CODE[18]), STR_4(CODE[20]), 
+		 -> STR_3(CODE[16]), STR_2(CODE[5]), STR_1(CODE[8]), 
+
+    size	PTR unsigned char  size(1) Largest target is 22
+		 -> STR_7(CODE[22]), 
+
+    reset_success_msg	PTR unsigned char  size(1) Largest target is 16
+		 -> STR_6(CODE[16]), 
+
+    confirm_pass_msg	PTR unsigned char  size(1) Largest target is 18
+		 -> STR_5(CODE[18]), 
+
+    reset_pass_msg	PTR unsigned char  size(1) Largest target is 20
+		 -> STR_4(CODE[20]), 
+
+    enter_pass_msg	PTR unsigned char  size(1) Largest target is 16
+		 -> STR_3(CODE[16]), 
+
+    fail_msg	PTR unsigned char  size(1) Largest target is 5
+		 -> STR_2(CODE[5]), 
+
+    success_msg	PTR unsigned char  size(1) Largest target is 8
+		 -> STR_1(CODE[8]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_reset_password
+    _reset_password->_strcmp
+
+Critical Paths under _main in BANK0
+
+    _main->_reset_password
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                24    24      0    2068
+                                              7 COMMON     4     4      0
+                                             23 BANK0     20    20      0
+                          _get_input
+                              _print
+                     _reset_password
+                             _strcmp
+ ---------------------------------------------------------------------------------
+ (1) _reset_password                                      24    24      0    1150
+                                              6 COMMON     1     1      0
+                                              0 BANK0     23    23      0
+                          _get_input
+                              _print
+                             _strcmp
+                             _strcpy
+ ---------------------------------------------------------------------------------
+ (2) _strcpy                                               4     3      1     155
+                                              0 COMMON     4     3      1
+ ---------------------------------------------------------------------------------
+ (1) _strcmp                                               6     4      2     251
+                                              0 COMMON     6     4      2
+ ---------------------------------------------------------------------------------
+ (2) _print                                                3     3      0     261
+                                              0 COMMON     3     3      0
+                               _next
+ ---------------------------------------------------------------------------------
+ (2) _get_input                                            5     5      0     304
+                                              0 COMMON     5     5      0
+                               _next
+ ---------------------------------------------------------------------------------
+ (3) _next                                                 0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _get_input
+     _next
+   _print
+     _next
+   _reset_password
+     _get_input
+       _next
+     _print
+       _next
+     _strcmp
+     _strcpy
+   _strcmp
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BANK3               60      0       0       9        0.0%
+BITBANK3            60      0       0       8        0.0%
+SFR3                 0      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+BANK2               60      0       0      11        0.0%
+BITBANK2            60      0       0      10        0.0%
+SFR2                 0      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK1            50      0       0       6        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               50     2B      3C       5       75.0%
+BITBANK0            50      0       0       4        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               E      B       B       1       78.6%
+BITCOMMON            E      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0      47      12        0.0%
+ABS                  0      0      47       3        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA             100      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.36 build -262312587 
+Symbol Table                                                                                   Sat Nov 09 06:03:40 2024
+
+               _success_msg 005B                           pc 0002                 __CFG_CP$OFF 0000  
+                        l51 06FF                          l70 0791                          l39 066E  
+                        l63 0718                          l47 06F1                          l58 0722  
+                        fsr 0004                         l714 07BD                         l652 06D9  
+                       l708 07C5                         l662 070B                         l682 06D2  
+                       l674 06B5                         l690 069E                         l678 06BD  
+                       l696 0792                         u250 07A1                __CFG_CPD$OFF 0000  
+                       u277 06F9                         fsr0 0004                         indf 0000  
+              __CFG_FOSC$XT 0000                __CFG_LVP$OFF 0000                        STR_1 0065  
+                      STR_2 006D                        STR_3 0055                        STR_4 001F  
+                      STR_5 0033                        STR_6 0045                        STR_7 0009  
+                      _RCIF 0065                        _TRMT 04C1                __CFG_WRT$OFF 0000  
+                      _main 0799                        _next 066A                        _size 005A  
+                      btemp 007E                        ltemp 007E                        start 0000  
+                      ttemp 007E                        wtemp 007E                       ?_main 0070  
+                     ?_next 0070               __CFG_WDTE$OFF 0000                       _RCREG 001A  
+                     _RCSTA 0018                       _SPBRG 0099                       _TRISC 0087  
+                     _TXREG 0019                       _TXSTA 0098                main@password 0037  
+                     _print 06D8              __CFG_BOREN$OFF 0000                       pclath 000A  
+                     ltemp0 007E                       ltemp1 0082                       ltemp2 0086  
+                     ltemp3 0080                       ttemp0 007E                       ttemp1 0081  
+                     ttemp2 0084                       ttemp3 0087                       ttemp4 007F  
+                     status 0003                       wtemp0 007E                       wtemp1 0080  
+                     wtemp2 0082                       wtemp3 0084                       wtemp4 0086  
+                     wtemp5 0088                       wtemp6 007F             __initialization 07F0  
+              __end_of_main 07F0                __end_of_next 0677                      ??_main 0077  
+                    ??_next 0070                      ?_print 0070              __CFG_PWRTE$OFF 0000  
+                    _strcmp 06B3                      _strcpy 0699  reset_password@confirm_pass 0020  
+                    print@s 0072     __end_of__initialization 07FC     __size_of_reset_password 004F  
+            __pcstackCOMMON 0070                __pidataBANK0 0688               __end_of_print 0707  
+        __size_of_get_input 0043                     ??_print 0070              _enter_pass_msg 0056  
+                __pmaintext 0799                     ?_strcmp 0070                     ?_strcpy 0070  
+                __stringtab 0003           __end_of_get_input 074A                     __ptext1 074A  
+                   __ptext2 0699                     __ptext3 06B3                     __ptext4 06D8  
+                   __ptext5 0707                     __ptext6 066A             __size_of_strcmp 0025  
+           __size_of_strcpy 001A        end_of_initialization 07FC              _reset_pass_msg 0058  
+            _reset_password 074A                     strcmp@r 0074      __end_of_reset_password 0799  
+                get_input@i 0072              __end_of_strcmp 06D8              __end_of_strcpy 06B3  
+       start_initialization 07F0             get_input@buffer 0074             ?_reset_password 0070  
+                init_fetch0 0677                 __pdataBANK0 004B                    ??_strcmp 0072  
+                  ??_strcpy 0071                   ___latbits 0002               __pcstackBANK0 0020  
+          _confirm_pass_msg 0055                   _get_input 0707                   __pstrings 0003  
+            __size_of_print 002F                   main@F1091 004B           _reset_success_msg 0059  
+                ?_get_input 0070                 __stringbase 0008                   main@input 0041  
+        __end_of__stringtab 0009                    _fail_msg 0057            ??_reset_password 0076  
+                strcpy@from 0070               __size_of_main 0057               __size_of_next 000D  
+    reset_password@new_pass 002B      reset_password@password 0036                 ??_get_input 0070  
+                  init_ram0 067B                   stringcode 0003                    strcmp@s1 0075  
+                  strcmp@s2 0070                    strcpy@cp 0073                    strcpy@to 0072  
+                  stringdir 0003                    stringtab 0003  

@@ -1,0 +1,5 @@
+install win avr
+
+copy the micrium files to c drive
+
+copy the dll file to----------- C:\WinAVR-20071221\utils\bin

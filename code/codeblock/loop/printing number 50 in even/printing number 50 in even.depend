@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1722403006 source:d:\codeblock\loop\printing number 50 in even\main.c
+	<stdio.h>
+	<stdlib.h>
+

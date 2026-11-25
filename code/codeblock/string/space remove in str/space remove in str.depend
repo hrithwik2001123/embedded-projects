@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1724907184 source:d:\codeblock\string\space remove in str\main.c
+	<stdio.h>
+	<stdlib.h>
+

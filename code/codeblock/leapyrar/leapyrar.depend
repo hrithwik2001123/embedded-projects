@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1721366760 source:d:\leapyrar\main.c
+	<stdio.h>
+	<stdlib.h>
+

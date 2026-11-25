@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>51MmbFC2E5L-_AC_SX522__jpg.rf.0bfd75dcb9ac91e4706d8facfe1991d4.jpg</filename>
+	<path>D:\nexus\learn\data\train\images\51MmbFC2E5L-_AC_SX522__jpg.rf.0bfd75dcb9ac91e4706d8facfe1991d4.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>ORANGE</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>60</xmin>
+			<ymin>35</ymin>
+			<xmax>342</xmax>
+			<ymax>384</ymax>
+		</bndbox>
+	</object>
+</annotation>

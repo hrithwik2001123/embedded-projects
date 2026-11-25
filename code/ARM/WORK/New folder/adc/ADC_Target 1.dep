@@ -1,0 +1,5 @@
+Dependencies for Project 'ADC', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x4F5858F0)(--cpu ARM7TDMI -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\Philips --list "Startup.lst" --xref -o "Startup.o" --depend "Startup.d")
+F (.\ADC.C)(0x67761CEC)(-c --cpu ARM7TDMI -g -O0 --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\Philips -o "adc.o" --omf_browse "adc.crf" --depend "adc.d")
+I (C:\Keil\ARM\Inc\Philips\lpc214x.h)(0x4F585AA4)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0F5AE)

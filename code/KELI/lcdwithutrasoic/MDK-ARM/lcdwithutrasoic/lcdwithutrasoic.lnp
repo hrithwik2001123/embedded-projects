@@ -1,0 +1,25 @@
+--cpu=Cortex-M4.fp.sp
+"lcdwithutrasoic\startup_stm32f401xc.o"
+"lcdwithutrasoic\main.o"
+"lcdwithutrasoic\stm32f4xx_it.o"
+"lcdwithutrasoic\stm32f4xx_hal_msp.o"
+"lcdwithutrasoic\stm32f4xx_hal_tim.o"
+"lcdwithutrasoic\stm32f4xx_hal_tim_ex.o"
+"lcdwithutrasoic\stm32f4xx_hal_rcc.o"
+"lcdwithutrasoic\stm32f4xx_hal_rcc_ex.o"
+"lcdwithutrasoic\stm32f4xx_hal_flash.o"
+"lcdwithutrasoic\stm32f4xx_hal_flash_ex.o"
+"lcdwithutrasoic\stm32f4xx_hal_flash_ramfunc.o"
+"lcdwithutrasoic\stm32f4xx_hal_gpio.o"
+"lcdwithutrasoic\stm32f4xx_hal_dma_ex.o"
+"lcdwithutrasoic\stm32f4xx_hal_dma.o"
+"lcdwithutrasoic\stm32f4xx_hal_pwr.o"
+"lcdwithutrasoic\stm32f4xx_hal_pwr_ex.o"
+"lcdwithutrasoic\stm32f4xx_hal_cortex.o"
+"lcdwithutrasoic\stm32f4xx_hal.o"
+"lcdwithutrasoic\stm32f4xx_hal_exti.o"
+"lcdwithutrasoic\system_stm32f4xx.o"
+--strict --scatter "lcdwithutrasoic\lcdwithutrasoic.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "lcdwithutrasoic.map" -o lcdwithutrasoic\lcdwithutrasoic.axf

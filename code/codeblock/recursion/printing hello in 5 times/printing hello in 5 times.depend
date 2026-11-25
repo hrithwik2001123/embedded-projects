@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1725859594 source:d:\codeblock\recursion\printing hello in 5 times\main.c
+	<stdio.h>
+	<stdlib.h>
+

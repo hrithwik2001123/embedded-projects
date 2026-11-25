@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    auto int x=10;
+    {
+        auto int x=20;
+        printf("%d\n",x);
+    }
+    printf("%d\n",x);
+    return 0;
+}

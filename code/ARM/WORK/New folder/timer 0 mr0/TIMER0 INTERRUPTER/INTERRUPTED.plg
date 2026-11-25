@@ -1,0 +1,26 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ARM\WORK\New folder\timer 0 mr0\TIMER0 INTERRUPTER\INTERRUPTED.uvproj
+Project File Date:  01/10/2025
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling interrupt.c...
+interrupt.c(46): error:  #65: expected a ";"
+Target not created
+Build target 'Target 1'
+compiling interrupt.c...
+linking...
+Program Size: Code=1012 RO-data=16 RW-data=0 ZI-data=1256  
+FromELF: creating hex file...
+"INTERRUPTED.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling interrupt.c...
+linking...
+Program Size: Code=1016 RO-data=16 RW-data=0 ZI-data=1256  
+FromELF: creating hex file...
+"INTERRUPTED.axf" - 0 Error(s), 0 Warning(s).

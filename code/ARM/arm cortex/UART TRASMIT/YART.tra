@@ -1,0 +1,21 @@
+*** Creating Trace Output File 'YART.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup_lpc17xx.o"'
+### List of Objects: adding '"uart1.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "startup_lpc17xx.o" "uart1.o" 
+--strict --scatter "YART.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\YART.map" -o YART.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'YART.axf'
+### ADS-LD Command File: 'YART.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'YART.lnp', Handle=0x000014E4
+### Writing '.lnp' file
+### ADS-LD Command file 'YART.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

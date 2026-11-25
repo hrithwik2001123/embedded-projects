@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1722573986 source:d:\codeblock\loop\1+2+3= using for\main.c
+	<stdio.h>
+	<stdlib.h>
+

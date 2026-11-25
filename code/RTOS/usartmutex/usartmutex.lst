@@ -1,0 +1,371 @@
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s 			page 1
+
+
+   1               		.file	"usartmutex.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               	.global	CH
+   9               		.data
+  10               		.type	CH, @object
+  11               		.size	CH, 14
+  12               	CH:
+  13 0000 4852 4954 		.string	"HRITHWIK\r\n"
+  13      4857 494B 
+  13      0D0A 00
+  14 000b 0000 00   		.skip 3,0
+  15               	.global	H
+  16               		.type	H, @object
+  17               		.size	H, 10
+  18               	H:
+  19 000e 6861 690D 		.string	"hai\r\n"
+  19      0A00 
+  20 0014 0000 0000 		.skip 4,0
+  21               	.global	r
+  22               		.type	r, @object
+  23               		.size	r, 10
+  24               	r:
+  25 0018 6279 650D 		.string	"bye\r\n"
+  25      0A00 
+  26 001e 0000 0000 		.skip 4,0
+  27               		.text
+  28               	.global	main
+  29               		.type	main, @function
+  30               	main:
+  31 0000 DF93      		push r29
+  32 0002 CF93      		push r28
+  33 0004 CDB7      		in r28,__SP_L__
+  34 0006 DEB7      		in r29,__SP_H__
+  35               	/* prologue: function */
+  36               	/* frame size = 0 */
+  37 0008 E3E5      		ldi r30,lo8(83)
+  38 000a F0E0      		ldi r31,hi8(83)
+  39 000c 87E0      		ldi r24,lo8(7)
+  40 000e 8083      		st Z,r24
+  41 0010 E7E5      		ldi r30,lo8(87)
+  42 0012 F0E0      		ldi r31,hi8(87)
+  43 0014 81E0      		ldi r24,lo8(1)
+  44 0016 8083      		st Z,r24
+  45 0018 E2E2      		ldi r30,lo8(34)
+  46 001a F0E0      		ldi r31,hi8(34)
+  47 001c 82E0      		ldi r24,lo8(2)
+  48 001e 8083      		st Z,r24
+  49 0020 EBE2      		ldi r30,lo8(43)
+  50 0022 F0E0      		ldi r31,hi8(43)
+  51 0024 1082      		st Z,__zero_reg__
+  52 0026 EAE2      		ldi r30,lo8(42)
+  53 0028 F0E0      		ldi r31,hi8(42)
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s 			page 2
+
+
+  54 002a 88E1      		ldi r24,lo8(24)
+  55 002c 8083      		st Z,r24
+  56 002e E5E9      		ldi r30,lo8(149)
+  57 0030 F0E0      		ldi r31,hi8(149)
+  58 0032 86E0      		ldi r24,lo8(6)
+  59 0034 8083      		st Z,r24
+  60 0036 E9E2      		ldi r30,lo8(41)
+  61 0038 F0E0      		ldi r31,hi8(41)
+  62 003a 87E6      		ldi r24,lo8(103)
+  63 003c 8083      		st Z,r24
+  64 003e 0E94 0000 		call OSInit
+  65 0042 8091 0000 		lds r24,error
+  66 0046 9091 0000 		lds r25,(error)+1
+  67 004a 9C01      		movw r18,r24
+  68 004c 84E0      		ldi r24,lo8(4)
+  69 004e B901      		movw r22,r18
+  70 0050 0E94 0000 		call OSMutexCreate
+  71 0054 9093 0000 		sts (data)+1,r25
+  72 0058 8093 0000 		sts data,r24
+  73 005c 80E0      		ldi r24,lo8(gs(uart))
+  74 005e 90E0      		ldi r25,hi8(gs(uart))
+  75 0060 20E0      		ldi r18,lo8(S1+127)
+  76 0062 30E0      		ldi r19,hi8(S1+127)
+  77 0064 6FEF      		ldi r22,lo8(255)
+  78 0066 70E0      		ldi r23,hi8(255)
+  79 0068 A901      		movw r20,r18
+  80 006a 25E0      		ldi r18,lo8(5)
+  81 006c 0E94 0000 		call OSTaskCreate
+  82 0070 80E0      		ldi r24,lo8(gs(uart1))
+  83 0072 90E0      		ldi r25,hi8(gs(uart1))
+  84 0074 20E0      		ldi r18,lo8(S2+127)
+  85 0076 30E0      		ldi r19,hi8(S2+127)
+  86 0078 6FEF      		ldi r22,lo8(255)
+  87 007a 70E0      		ldi r23,hi8(255)
+  88 007c A901      		movw r20,r18
+  89 007e 26E0      		ldi r18,lo8(6)
+  90 0080 0E94 0000 		call OSTaskCreate
+  91 0084 80E0      		ldi r24,lo8(gs(uart2))
+  92 0086 90E0      		ldi r25,hi8(gs(uart2))
+  93 0088 20E0      		ldi r18,lo8(S3+127)
+  94 008a 30E0      		ldi r19,hi8(S3+127)
+  95 008c 6FEF      		ldi r22,lo8(255)
+  96 008e 70E0      		ldi r23,hi8(255)
+  97 0090 A901      		movw r20,r18
+  98 0092 27E0      		ldi r18,lo8(7)
+  99 0094 0E94 0000 		call OSTaskCreate
+ 100 0098 0E94 0000 		call OSStart
+ 101 009c 80E0      		ldi r24,lo8(0)
+ 102 009e 90E0      		ldi r25,hi8(0)
+ 103               	/* epilogue start */
+ 104 00a0 CF91      		pop r28
+ 105 00a2 DF91      		pop r29
+ 106 00a4 0895      		ret
+ 107               		.size	main, .-main
+ 108               	.global	uart
+ 109               		.type	uart, @function
+ 110               	uart:
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s 			page 3
+
+
+ 111 00a6 DF93      		push r29
+ 112 00a8 CF93      		push r28
+ 113 00aa 00D0      		rcall .
+ 114 00ac CDB7      		in r28,__SP_L__
+ 115 00ae DEB7      		in r29,__SP_H__
+ 116               	/* prologue: function */
+ 117               	/* frame size = 2 */
+ 118               	.L7:
+ 119 00b0 8091 0000 		lds r24,data
+ 120 00b4 9091 0000 		lds r25,(data)+1
+ 121 00b8 2091 0000 		lds r18,error
+ 122 00bc 3091 0000 		lds r19,(error)+1
+ 123 00c0 60E0      		ldi r22,lo8(0)
+ 124 00c2 70E0      		ldi r23,hi8(0)
+ 125 00c4 A901      		movw r20,r18
+ 126 00c6 0E94 0000 		call OSMutexPend
+ 127 00ca 1A82      		std Y+2,__zero_reg__
+ 128 00cc 1982      		std Y+1,__zero_reg__
+ 129 00ce 00C0      		rjmp .L4
+ 130               	.L6:
+ 131 00d0 ACE2      		ldi r26,lo8(44)
+ 132 00d2 B0E0      		ldi r27,hi8(44)
+ 133 00d4 8981      		ldd r24,Y+1
+ 134 00d6 9A81      		ldd r25,Y+2
+ 135 00d8 FC01      		movw r30,r24
+ 136 00da E050      		subi r30,lo8(-(CH))
+ 137 00dc F040      		sbci r31,hi8(-(CH))
+ 138 00de 8081      		ld r24,Z
+ 139 00e0 8C93      		st X,r24
+ 140               	.L5:
+ 141 00e2 EBE2      		ldi r30,lo8(43)
+ 142 00e4 F0E0      		ldi r31,hi8(43)
+ 143 00e6 8081      		ld r24,Z
+ 144 00e8 882F      		mov r24,r24
+ 145 00ea 90E0      		ldi r25,lo8(0)
+ 146 00ec 8074      		andi r24,lo8(64)
+ 147 00ee 9070      		andi r25,hi8(64)
+ 148 00f0 0097      		sbiw r24,0
+ 149 00f2 01F0      		breq .L5
+ 150 00f4 8981      		ldd r24,Y+1
+ 151 00f6 9A81      		ldd r25,Y+2
+ 152 00f8 0196      		adiw r24,1
+ 153 00fa 9A83      		std Y+2,r25
+ 154 00fc 8983      		std Y+1,r24
+ 155               	.L4:
+ 156 00fe 8981      		ldd r24,Y+1
+ 157 0100 9A81      		ldd r25,Y+2
+ 158 0102 FC01      		movw r30,r24
+ 159 0104 E050      		subi r30,lo8(-(CH))
+ 160 0106 F040      		sbci r31,hi8(-(CH))
+ 161 0108 8081      		ld r24,Z
+ 162 010a 8823      		tst r24
+ 163 010c 01F4      		brne .L6
+ 164 010e 8091 0000 		lds r24,data
+ 165 0112 9091 0000 		lds r25,(data)+1
+ 166 0116 0E94 0000 		call OSMutexPost
+ 167 011a 80E0      		ldi r24,lo8(0)
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s 			page 4
+
+
+ 168 011c 60E0      		ldi r22,lo8(0)
+ 169 011e 41E0      		ldi r20,lo8(1)
+ 170 0120 20E0      		ldi r18,lo8(0)
+ 171 0122 30E0      		ldi r19,hi8(0)
+ 172 0124 0E94 0000 		call OSTimeDlyHMSM
+ 173 0128 00C0      		rjmp .L7
+ 174               		.size	uart, .-uart
+ 175               	.global	uart1
+ 176               		.type	uart1, @function
+ 177               	uart1:
+ 178 012a DF93      		push r29
+ 179 012c CF93      		push r28
+ 180 012e 00D0      		rcall .
+ 181 0130 CDB7      		in r28,__SP_L__
+ 182 0132 DEB7      		in r29,__SP_H__
+ 183               	/* prologue: function */
+ 184               	/* frame size = 2 */
+ 185               	.L13:
+ 186 0134 8091 0000 		lds r24,data
+ 187 0138 9091 0000 		lds r25,(data)+1
+ 188 013c 2091 0000 		lds r18,error
+ 189 0140 3091 0000 		lds r19,(error)+1
+ 190 0144 60E0      		ldi r22,lo8(0)
+ 191 0146 70E0      		ldi r23,hi8(0)
+ 192 0148 A901      		movw r20,r18
+ 193 014a 0E94 0000 		call OSMutexPend
+ 194 014e 1A82      		std Y+2,__zero_reg__
+ 195 0150 1982      		std Y+1,__zero_reg__
+ 196 0152 00C0      		rjmp .L10
+ 197               	.L12:
+ 198 0154 ACE2      		ldi r26,lo8(44)
+ 199 0156 B0E0      		ldi r27,hi8(44)
+ 200 0158 8981      		ldd r24,Y+1
+ 201 015a 9A81      		ldd r25,Y+2
+ 202 015c FC01      		movw r30,r24
+ 203 015e E050      		subi r30,lo8(-(H))
+ 204 0160 F040      		sbci r31,hi8(-(H))
+ 205 0162 8081      		ld r24,Z
+ 206 0164 8C93      		st X,r24
+ 207               	.L11:
+ 208 0166 EBE2      		ldi r30,lo8(43)
+ 209 0168 F0E0      		ldi r31,hi8(43)
+ 210 016a 8081      		ld r24,Z
+ 211 016c 882F      		mov r24,r24
+ 212 016e 90E0      		ldi r25,lo8(0)
+ 213 0170 8074      		andi r24,lo8(64)
+ 214 0172 9070      		andi r25,hi8(64)
+ 215 0174 0097      		sbiw r24,0
+ 216 0176 01F0      		breq .L11
+ 217 0178 8981      		ldd r24,Y+1
+ 218 017a 9A81      		ldd r25,Y+2
+ 219 017c 0196      		adiw r24,1
+ 220 017e 9A83      		std Y+2,r25
+ 221 0180 8983      		std Y+1,r24
+ 222               	.L10:
+ 223 0182 8981      		ldd r24,Y+1
+ 224 0184 9A81      		ldd r25,Y+2
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s 			page 5
+
+
+ 225 0186 FC01      		movw r30,r24
+ 226 0188 E050      		subi r30,lo8(-(H))
+ 227 018a F040      		sbci r31,hi8(-(H))
+ 228 018c 8081      		ld r24,Z
+ 229 018e 8823      		tst r24
+ 230 0190 01F4      		brne .L12
+ 231 0192 8091 0000 		lds r24,data
+ 232 0196 9091 0000 		lds r25,(data)+1
+ 233 019a 0E94 0000 		call OSMutexPost
+ 234 019e 80E0      		ldi r24,lo8(0)
+ 235 01a0 60E0      		ldi r22,lo8(0)
+ 236 01a2 41E0      		ldi r20,lo8(1)
+ 237 01a4 20E0      		ldi r18,lo8(0)
+ 238 01a6 30E0      		ldi r19,hi8(0)
+ 239 01a8 0E94 0000 		call OSTimeDlyHMSM
+ 240 01ac 00C0      		rjmp .L13
+ 241               		.size	uart1, .-uart1
+ 242               	.global	uart2
+ 243               		.type	uart2, @function
+ 244               	uart2:
+ 245 01ae DF93      		push r29
+ 246 01b0 CF93      		push r28
+ 247 01b2 00D0      		rcall .
+ 248 01b4 CDB7      		in r28,__SP_L__
+ 249 01b6 DEB7      		in r29,__SP_H__
+ 250               	/* prologue: function */
+ 251               	/* frame size = 2 */
+ 252               	.L19:
+ 253 01b8 8091 0000 		lds r24,data
+ 254 01bc 9091 0000 		lds r25,(data)+1
+ 255 01c0 2091 0000 		lds r18,error
+ 256 01c4 3091 0000 		lds r19,(error)+1
+ 257 01c8 60E0      		ldi r22,lo8(0)
+ 258 01ca 70E0      		ldi r23,hi8(0)
+ 259 01cc A901      		movw r20,r18
+ 260 01ce 0E94 0000 		call OSMutexPend
+ 261 01d2 1A82      		std Y+2,__zero_reg__
+ 262 01d4 1982      		std Y+1,__zero_reg__
+ 263 01d6 00C0      		rjmp .L16
+ 264               	.L18:
+ 265 01d8 ACE2      		ldi r26,lo8(44)
+ 266 01da B0E0      		ldi r27,hi8(44)
+ 267 01dc 8981      		ldd r24,Y+1
+ 268 01de 9A81      		ldd r25,Y+2
+ 269 01e0 FC01      		movw r30,r24
+ 270 01e2 E050      		subi r30,lo8(-(r))
+ 271 01e4 F040      		sbci r31,hi8(-(r))
+ 272 01e6 8081      		ld r24,Z
+ 273 01e8 8C93      		st X,r24
+ 274               	.L17:
+ 275 01ea EBE2      		ldi r30,lo8(43)
+ 276 01ec F0E0      		ldi r31,hi8(43)
+ 277 01ee 8081      		ld r24,Z
+ 278 01f0 882F      		mov r24,r24
+ 279 01f2 90E0      		ldi r25,lo8(0)
+ 280 01f4 8074      		andi r24,lo8(64)
+ 281 01f6 9070      		andi r25,hi8(64)
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s 			page 6
+
+
+ 282 01f8 0097      		sbiw r24,0
+ 283 01fa 01F0      		breq .L17
+ 284 01fc 8981      		ldd r24,Y+1
+ 285 01fe 9A81      		ldd r25,Y+2
+ 286 0200 0196      		adiw r24,1
+ 287 0202 9A83      		std Y+2,r25
+ 288 0204 8983      		std Y+1,r24
+ 289               	.L16:
+ 290 0206 8981      		ldd r24,Y+1
+ 291 0208 9A81      		ldd r25,Y+2
+ 292 020a FC01      		movw r30,r24
+ 293 020c E050      		subi r30,lo8(-(r))
+ 294 020e F040      		sbci r31,hi8(-(r))
+ 295 0210 8081      		ld r24,Z
+ 296 0212 8823      		tst r24
+ 297 0214 01F4      		brne .L18
+ 298 0216 8091 0000 		lds r24,data
+ 299 021a 9091 0000 		lds r25,(data)+1
+ 300 021e 0E94 0000 		call OSMutexPost
+ 301 0222 80E0      		ldi r24,lo8(0)
+ 302 0224 60E0      		ldi r22,lo8(0)
+ 303 0226 41E0      		ldi r20,lo8(1)
+ 304 0228 20E0      		ldi r18,lo8(0)
+ 305 022a 30E0      		ldi r19,hi8(0)
+ 306 022c 0E94 0000 		call OSTimeDlyHMSM
+ 307 0230 00C0      		rjmp .L19
+ 308               		.size	uart2, .-uart2
+ 309               		.comm S1,128,1
+ 310               		.comm S2,128,1
+ 311               		.comm S3,128,1
+ 312               		.comm data,2,1
+ 313               		.comm error,2,1
+ 314               	.global __do_copy_data
+ 315               	.global __do_clear_bss
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 usartmutex.c
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:2      *ABS*:0000003f __SREG__
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:3      *ABS*:0000003e __SP_H__
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:4      *ABS*:0000003d __SP_L__
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:5      *ABS*:00000034 __CCP__
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:12     .data:00000000 CH
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:18     .data:0000000e H
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:24     .data:00000018 r
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:30     .text:00000000 main
+                            *COM*:00000002 error
+                            *COM*:00000002 data
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:110    .text:000000a6 uart
+                            *COM*:00000080 S1
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:177    .text:0000012a uart1
+                            *COM*:00000080 S2
+C:\Users\user\AppData\Local\Temp/ccVgK6CQ.s:244    .text:000001ae uart2
+                            *COM*:00000080 S3
+
+UNDEFINED SYMBOLS
+OSInit
+OSMutexCreate
+OSTaskCreate
+OSStart
+OSMutexPend
+OSMutexPost
+OSTimeDlyHMSM
+__do_copy_data
+__do_clear_bss

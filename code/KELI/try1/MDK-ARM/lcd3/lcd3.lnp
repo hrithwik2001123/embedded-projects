@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp.sp
+"lcd3\startup_stm32f401xc.o"
+"lcd3\main.o"
+"lcd3\stm32f4xx_it.o"
+"lcd3\stm32f4xx_hal_msp.o"
+"lcd3\stm32f4xx_hal_i2c.o"
+"lcd3\stm32f4xx_hal_i2c_ex.o"
+"lcd3\stm32f4xx_hal_rcc.o"
+"lcd3\stm32f4xx_hal_rcc_ex.o"
+"lcd3\stm32f4xx_hal_flash.o"
+"lcd3\stm32f4xx_hal_flash_ex.o"
+"lcd3\stm32f4xx_hal_flash_ramfunc.o"
+"lcd3\stm32f4xx_hal_gpio.o"
+"lcd3\stm32f4xx_hal_dma_ex.o"
+"lcd3\stm32f4xx_hal_dma.o"
+"lcd3\stm32f4xx_hal_pwr.o"
+"lcd3\stm32f4xx_hal_pwr_ex.o"
+"lcd3\stm32f4xx_hal_cortex.o"
+"lcd3\stm32f4xx_hal.o"
+"lcd3\stm32f4xx_hal_exti.o"
+"lcd3\system_stm32f4xx.o"
+"lcd3\lcd_i2c.o"
+--strict --scatter "lcd3\lcd3.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "lcd3.map" -o lcd3\lcd3.axf

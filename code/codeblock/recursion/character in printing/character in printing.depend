@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1726810120 source:d:\codeblock\recursion\character in printing\main.c
+	<stdio.h>
+	<stdlib.h>
+

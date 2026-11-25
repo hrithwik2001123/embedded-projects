@@ -1,0 +1,546 @@
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 1
+
+
+   1               		.file	"os_cpu_c.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.text
+   9               	.global	OSTaskStkInit
+  10               		.type	OSTaskStkInit, @function
+  11               	OSTaskStkInit:
+  12 0000 DF93      		push r29
+  13 0002 CF93      		push r28
+  14 0004 CDB7      		in r28,__SP_L__
+  15 0006 DEB7      		in r29,__SP_H__
+  16 0008 2C97      		sbiw r28,12
+  17 000a 0FB6      		in __tmp_reg__,__SREG__
+  18 000c F894      		cli
+  19 000e DEBF      		out __SP_H__,r29
+  20 0010 0FBE      		out __SREG__,__tmp_reg__
+  21 0012 CDBF      		out __SP_L__,r28
+  22               	/* prologue: function */
+  23               	/* frame size = 12 */
+  24 0014 9E83      		std Y+6,r25
+  25 0016 8D83      		std Y+5,r24
+  26 0018 7887      		std Y+8,r23
+  27 001a 6F83      		std Y+7,r22
+  28 001c 5A87      		std Y+10,r21
+  29 001e 4987      		std Y+9,r20
+  30 0020 3C87      		std Y+12,r19
+  31 0022 2B87      		std Y+11,r18
+  32 0024 8985      		ldd r24,Y+9
+  33 0026 9A85      		ldd r25,Y+10
+  34 0028 9C83      		std Y+4,r25
+  35 002a 8B83      		std Y+3,r24
+  36 002c 8D81      		ldd r24,Y+5
+  37 002e 9E81      		ldd r25,Y+6
+  38 0030 9A83      		std Y+2,r25
+  39 0032 8983      		std Y+1,r24
+  40 0034 8981      		ldd r24,Y+1
+  41 0036 EB81      		ldd r30,Y+3
+  42 0038 FC81      		ldd r31,Y+4
+  43 003a 8083      		st Z,r24
+  44 003c 8B81      		ldd r24,Y+3
+  45 003e 9C81      		ldd r25,Y+4
+  46 0040 0197      		sbiw r24,1
+  47 0042 9C83      		std Y+4,r25
+  48 0044 8B83      		std Y+3,r24
+  49 0046 8981      		ldd r24,Y+1
+  50 0048 9A81      		ldd r25,Y+2
+  51 004a 892F      		mov r24,r25
+  52 004c 9927      		clr r25
+  53 004e EB81      		ldd r30,Y+3
+  54 0050 FC81      		ldd r31,Y+4
+  55 0052 8083      		st Z,r24
+  56 0054 8B81      		ldd r24,Y+3
+  57 0056 9C81      		ldd r25,Y+4
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 2
+
+
+  58 0058 0197      		sbiw r24,1
+  59 005a 9C83      		std Y+4,r25
+  60 005c 8B83      		std Y+3,r24
+  61 005e EB81      		ldd r30,Y+3
+  62 0060 FC81      		ldd r31,Y+4
+  63 0062 1082      		st Z,__zero_reg__
+  64 0064 8B81      		ldd r24,Y+3
+  65 0066 9C81      		ldd r25,Y+4
+  66 0068 0197      		sbiw r24,1
+  67 006a 9C83      		std Y+4,r25
+  68 006c 8B83      		std Y+3,r24
+  69 006e EB81      		ldd r30,Y+3
+  70 0070 FC81      		ldd r31,Y+4
+  71 0072 1082      		st Z,__zero_reg__
+  72 0074 8B81      		ldd r24,Y+3
+  73 0076 9C81      		ldd r25,Y+4
+  74 0078 0197      		sbiw r24,1
+  75 007a 9C83      		std Y+4,r25
+  76 007c 8B83      		std Y+3,r24
+  77 007e EB81      		ldd r30,Y+3
+  78 0080 FC81      		ldd r31,Y+4
+  79 0082 1082      		st Z,__zero_reg__
+  80 0084 8B81      		ldd r24,Y+3
+  81 0086 9C81      		ldd r25,Y+4
+  82 0088 0197      		sbiw r24,1
+  83 008a 9C83      		std Y+4,r25
+  84 008c 8B83      		std Y+3,r24
+  85 008e EB81      		ldd r30,Y+3
+  86 0090 FC81      		ldd r31,Y+4
+  87 0092 1082      		st Z,__zero_reg__
+  88 0094 8B81      		ldd r24,Y+3
+  89 0096 9C81      		ldd r25,Y+4
+  90 0098 0197      		sbiw r24,1
+  91 009a 9C83      		std Y+4,r25
+  92 009c 8B83      		std Y+3,r24
+  93 009e EB81      		ldd r30,Y+3
+  94 00a0 FC81      		ldd r31,Y+4
+  95 00a2 1082      		st Z,__zero_reg__
+  96 00a4 8B81      		ldd r24,Y+3
+  97 00a6 9C81      		ldd r25,Y+4
+  98 00a8 0197      		sbiw r24,1
+  99 00aa 9C83      		std Y+4,r25
+ 100 00ac 8B83      		std Y+3,r24
+ 101 00ae EB81      		ldd r30,Y+3
+ 102 00b0 FC81      		ldd r31,Y+4
+ 103 00b2 1082      		st Z,__zero_reg__
+ 104 00b4 8B81      		ldd r24,Y+3
+ 105 00b6 9C81      		ldd r25,Y+4
+ 106 00b8 0197      		sbiw r24,1
+ 107 00ba 9C83      		std Y+4,r25
+ 108 00bc 8B83      		std Y+3,r24
+ 109 00be EB81      		ldd r30,Y+3
+ 110 00c0 FC81      		ldd r31,Y+4
+ 111 00c2 1082      		st Z,__zero_reg__
+ 112 00c4 8B81      		ldd r24,Y+3
+ 113 00c6 9C81      		ldd r25,Y+4
+ 114 00c8 0197      		sbiw r24,1
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 3
+
+
+ 115 00ca 9C83      		std Y+4,r25
+ 116 00cc 8B83      		std Y+3,r24
+ 117 00ce EB81      		ldd r30,Y+3
+ 118 00d0 FC81      		ldd r31,Y+4
+ 119 00d2 1082      		st Z,__zero_reg__
+ 120 00d4 8B81      		ldd r24,Y+3
+ 121 00d6 9C81      		ldd r25,Y+4
+ 122 00d8 0197      		sbiw r24,1
+ 123 00da 9C83      		std Y+4,r25
+ 124 00dc 8B83      		std Y+3,r24
+ 125 00de EB81      		ldd r30,Y+3
+ 126 00e0 FC81      		ldd r31,Y+4
+ 127 00e2 1082      		st Z,__zero_reg__
+ 128 00e4 8B81      		ldd r24,Y+3
+ 129 00e6 9C81      		ldd r25,Y+4
+ 130 00e8 0197      		sbiw r24,1
+ 131 00ea 9C83      		std Y+4,r25
+ 132 00ec 8B83      		std Y+3,r24
+ 133 00ee EB81      		ldd r30,Y+3
+ 134 00f0 FC81      		ldd r31,Y+4
+ 135 00f2 1082      		st Z,__zero_reg__
+ 136 00f4 8B81      		ldd r24,Y+3
+ 137 00f6 9C81      		ldd r25,Y+4
+ 138 00f8 0197      		sbiw r24,1
+ 139 00fa 9C83      		std Y+4,r25
+ 140 00fc 8B83      		std Y+3,r24
+ 141 00fe EB81      		ldd r30,Y+3
+ 142 0100 FC81      		ldd r31,Y+4
+ 143 0102 1082      		st Z,__zero_reg__
+ 144 0104 8B81      		ldd r24,Y+3
+ 145 0106 9C81      		ldd r25,Y+4
+ 146 0108 0197      		sbiw r24,1
+ 147 010a 9C83      		std Y+4,r25
+ 148 010c 8B83      		std Y+3,r24
+ 149 010e EB81      		ldd r30,Y+3
+ 150 0110 FC81      		ldd r31,Y+4
+ 151 0112 1082      		st Z,__zero_reg__
+ 152 0114 8B81      		ldd r24,Y+3
+ 153 0116 9C81      		ldd r25,Y+4
+ 154 0118 0197      		sbiw r24,1
+ 155 011a 9C83      		std Y+4,r25
+ 156 011c 8B83      		std Y+3,r24
+ 157 011e EB81      		ldd r30,Y+3
+ 158 0120 FC81      		ldd r31,Y+4
+ 159 0122 1082      		st Z,__zero_reg__
+ 160 0124 8B81      		ldd r24,Y+3
+ 161 0126 9C81      		ldd r25,Y+4
+ 162 0128 0197      		sbiw r24,1
+ 163 012a 9C83      		std Y+4,r25
+ 164 012c 8B83      		std Y+3,r24
+ 165 012e EB81      		ldd r30,Y+3
+ 166 0130 FC81      		ldd r31,Y+4
+ 167 0132 1082      		st Z,__zero_reg__
+ 168 0134 8B81      		ldd r24,Y+3
+ 169 0136 9C81      		ldd r25,Y+4
+ 170 0138 0197      		sbiw r24,1
+ 171 013a 9C83      		std Y+4,r25
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 4
+
+
+ 172 013c 8B83      		std Y+3,r24
+ 173 013e EB81      		ldd r30,Y+3
+ 174 0140 FC81      		ldd r31,Y+4
+ 175 0142 1082      		st Z,__zero_reg__
+ 176 0144 8B81      		ldd r24,Y+3
+ 177 0146 9C81      		ldd r25,Y+4
+ 178 0148 0197      		sbiw r24,1
+ 179 014a 9C83      		std Y+4,r25
+ 180 014c 8B83      		std Y+3,r24
+ 181 014e EB81      		ldd r30,Y+3
+ 182 0150 FC81      		ldd r31,Y+4
+ 183 0152 1082      		st Z,__zero_reg__
+ 184 0154 8B81      		ldd r24,Y+3
+ 185 0156 9C81      		ldd r25,Y+4
+ 186 0158 0197      		sbiw r24,1
+ 187 015a 9C83      		std Y+4,r25
+ 188 015c 8B83      		std Y+3,r24
+ 189 015e EB81      		ldd r30,Y+3
+ 190 0160 FC81      		ldd r31,Y+4
+ 191 0162 1082      		st Z,__zero_reg__
+ 192 0164 8B81      		ldd r24,Y+3
+ 193 0166 9C81      		ldd r25,Y+4
+ 194 0168 0197      		sbiw r24,1
+ 195 016a 9C83      		std Y+4,r25
+ 196 016c 8B83      		std Y+3,r24
+ 197 016e EB81      		ldd r30,Y+3
+ 198 0170 FC81      		ldd r31,Y+4
+ 199 0172 1082      		st Z,__zero_reg__
+ 200 0174 8B81      		ldd r24,Y+3
+ 201 0176 9C81      		ldd r25,Y+4
+ 202 0178 0197      		sbiw r24,1
+ 203 017a 9C83      		std Y+4,r25
+ 204 017c 8B83      		std Y+3,r24
+ 205 017e EB81      		ldd r30,Y+3
+ 206 0180 FC81      		ldd r31,Y+4
+ 207 0182 1082      		st Z,__zero_reg__
+ 208 0184 8B81      		ldd r24,Y+3
+ 209 0186 9C81      		ldd r25,Y+4
+ 210 0188 0197      		sbiw r24,1
+ 211 018a 9C83      		std Y+4,r25
+ 212 018c 8B83      		std Y+3,r24
+ 213 018e EB81      		ldd r30,Y+3
+ 214 0190 FC81      		ldd r31,Y+4
+ 215 0192 1082      		st Z,__zero_reg__
+ 216 0194 8B81      		ldd r24,Y+3
+ 217 0196 9C81      		ldd r25,Y+4
+ 218 0198 0197      		sbiw r24,1
+ 219 019a 9C83      		std Y+4,r25
+ 220 019c 8B83      		std Y+3,r24
+ 221 019e EB81      		ldd r30,Y+3
+ 222 01a0 FC81      		ldd r31,Y+4
+ 223 01a2 1082      		st Z,__zero_reg__
+ 224 01a4 8B81      		ldd r24,Y+3
+ 225 01a6 9C81      		ldd r25,Y+4
+ 226 01a8 0197      		sbiw r24,1
+ 227 01aa 9C83      		std Y+4,r25
+ 228 01ac 8B83      		std Y+3,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 5
+
+
+ 229 01ae EB81      		ldd r30,Y+3
+ 230 01b0 FC81      		ldd r31,Y+4
+ 231 01b2 1082      		st Z,__zero_reg__
+ 232 01b4 8B81      		ldd r24,Y+3
+ 233 01b6 9C81      		ldd r25,Y+4
+ 234 01b8 0197      		sbiw r24,1
+ 235 01ba 9C83      		std Y+4,r25
+ 236 01bc 8B83      		std Y+3,r24
+ 237 01be EB81      		ldd r30,Y+3
+ 238 01c0 FC81      		ldd r31,Y+4
+ 239 01c2 1082      		st Z,__zero_reg__
+ 240 01c4 8B81      		ldd r24,Y+3
+ 241 01c6 9C81      		ldd r25,Y+4
+ 242 01c8 0197      		sbiw r24,1
+ 243 01ca 9C83      		std Y+4,r25
+ 244 01cc 8B83      		std Y+3,r24
+ 245 01ce EB81      		ldd r30,Y+3
+ 246 01d0 FC81      		ldd r31,Y+4
+ 247 01d2 1082      		st Z,__zero_reg__
+ 248 01d4 8B81      		ldd r24,Y+3
+ 249 01d6 9C81      		ldd r25,Y+4
+ 250 01d8 0197      		sbiw r24,1
+ 251 01da 9C83      		std Y+4,r25
+ 252 01dc 8B83      		std Y+3,r24
+ 253 01de 8F81      		ldd r24,Y+7
+ 254 01e0 9885      		ldd r25,Y+8
+ 255 01e2 9A83      		std Y+2,r25
+ 256 01e4 8983      		std Y+1,r24
+ 257 01e6 8981      		ldd r24,Y+1
+ 258 01e8 EB81      		ldd r30,Y+3
+ 259 01ea FC81      		ldd r31,Y+4
+ 260 01ec 8083      		st Z,r24
+ 261 01ee 8B81      		ldd r24,Y+3
+ 262 01f0 9C81      		ldd r25,Y+4
+ 263 01f2 0197      		sbiw r24,1
+ 264 01f4 9C83      		std Y+4,r25
+ 265 01f6 8B83      		std Y+3,r24
+ 266 01f8 8981      		ldd r24,Y+1
+ 267 01fa 9A81      		ldd r25,Y+2
+ 268 01fc 892F      		mov r24,r25
+ 269 01fe 9927      		clr r25
+ 270 0200 EB81      		ldd r30,Y+3
+ 271 0202 FC81      		ldd r31,Y+4
+ 272 0204 8083      		st Z,r24
+ 273 0206 8B81      		ldd r24,Y+3
+ 274 0208 9C81      		ldd r25,Y+4
+ 275 020a 0197      		sbiw r24,1
+ 276 020c 9C83      		std Y+4,r25
+ 277 020e 8B83      		std Y+3,r24
+ 278 0210 EB81      		ldd r30,Y+3
+ 279 0212 FC81      		ldd r31,Y+4
+ 280 0214 1082      		st Z,__zero_reg__
+ 281 0216 8B81      		ldd r24,Y+3
+ 282 0218 9C81      		ldd r25,Y+4
+ 283 021a 0197      		sbiw r24,1
+ 284 021c 9C83      		std Y+4,r25
+ 285 021e 8B83      		std Y+3,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 6
+
+
+ 286 0220 EB81      		ldd r30,Y+3
+ 287 0222 FC81      		ldd r31,Y+4
+ 288 0224 1082      		st Z,__zero_reg__
+ 289 0226 8B81      		ldd r24,Y+3
+ 290 0228 9C81      		ldd r25,Y+4
+ 291 022a 0197      		sbiw r24,1
+ 292 022c 9C83      		std Y+4,r25
+ 293 022e 8B83      		std Y+3,r24
+ 294 0230 EB81      		ldd r30,Y+3
+ 295 0232 FC81      		ldd r31,Y+4
+ 296 0234 1082      		st Z,__zero_reg__
+ 297 0236 8B81      		ldd r24,Y+3
+ 298 0238 9C81      		ldd r25,Y+4
+ 299 023a 0197      		sbiw r24,1
+ 300 023c 9C83      		std Y+4,r25
+ 301 023e 8B83      		std Y+3,r24
+ 302 0240 EB81      		ldd r30,Y+3
+ 303 0242 FC81      		ldd r31,Y+4
+ 304 0244 1082      		st Z,__zero_reg__
+ 305 0246 8B81      		ldd r24,Y+3
+ 306 0248 9C81      		ldd r25,Y+4
+ 307 024a 0197      		sbiw r24,1
+ 308 024c 9C83      		std Y+4,r25
+ 309 024e 8B83      		std Y+3,r24
+ 310 0250 EB81      		ldd r30,Y+3
+ 311 0252 FC81      		ldd r31,Y+4
+ 312 0254 1082      		st Z,__zero_reg__
+ 313 0256 8B81      		ldd r24,Y+3
+ 314 0258 9C81      		ldd r25,Y+4
+ 315 025a 0197      		sbiw r24,1
+ 316 025c 9C83      		std Y+4,r25
+ 317 025e 8B83      		std Y+3,r24
+ 318 0260 EB81      		ldd r30,Y+3
+ 319 0262 FC81      		ldd r31,Y+4
+ 320 0264 1082      		st Z,__zero_reg__
+ 321 0266 8B81      		ldd r24,Y+3
+ 322 0268 9C81      		ldd r25,Y+4
+ 323 026a 0197      		sbiw r24,1
+ 324 026c 9C83      		std Y+4,r25
+ 325 026e 8B83      		std Y+3,r24
+ 326 0270 EB81      		ldd r30,Y+3
+ 327 0272 FC81      		ldd r31,Y+4
+ 328 0274 1082      		st Z,__zero_reg__
+ 329 0276 8B81      		ldd r24,Y+3
+ 330 0278 9C81      		ldd r25,Y+4
+ 331 027a 0197      		sbiw r24,1
+ 332 027c 9C83      		std Y+4,r25
+ 333 027e 8B83      		std Y+3,r24
+ 334 0280 EB81      		ldd r30,Y+3
+ 335 0282 FC81      		ldd r31,Y+4
+ 336 0284 80E8      		ldi r24,lo8(-128)
+ 337 0286 8083      		st Z,r24
+ 338 0288 8B81      		ldd r24,Y+3
+ 339 028a 9C81      		ldd r25,Y+4
+ 340 028c 0197      		sbiw r24,1
+ 341 028e 9C83      		std Y+4,r25
+ 342 0290 8B83      		std Y+3,r24
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 7
+
+
+ 343 0292 8B81      		ldd r24,Y+3
+ 344 0294 9C81      		ldd r25,Y+4
+ 345               	/* epilogue start */
+ 346 0296 2C96      		adiw r28,12
+ 347 0298 0FB6      		in __tmp_reg__,__SREG__
+ 348 029a F894      		cli
+ 349 029c DEBF      		out __SP_H__,r29
+ 350 029e 0FBE      		out __SREG__,__tmp_reg__
+ 351 02a0 CDBF      		out __SP_L__,r28
+ 352 02a2 CF91      		pop r28
+ 353 02a4 DF91      		pop r29
+ 354 02a6 0895      		ret
+ 355               		.size	OSTaskStkInit, .-OSTaskStkInit
+ 356               	.global	OSTaskCreateHook
+ 357               		.type	OSTaskCreateHook, @function
+ 358               	OSTaskCreateHook:
+ 359 02a8 DF93      		push r29
+ 360 02aa CF93      		push r28
+ 361 02ac 00D0      		rcall .
+ 362 02ae CDB7      		in r28,__SP_L__
+ 363 02b0 DEB7      		in r29,__SP_H__
+ 364               	/* prologue: function */
+ 365               	/* frame size = 2 */
+ 366 02b2 9A83      		std Y+2,r25
+ 367 02b4 8983      		std Y+1,r24
+ 368               	/* epilogue start */
+ 369 02b6 0F90      		pop __tmp_reg__
+ 370 02b8 0F90      		pop __tmp_reg__
+ 371 02ba CF91      		pop r28
+ 372 02bc DF91      		pop r29
+ 373 02be 0895      		ret
+ 374               		.size	OSTaskCreateHook, .-OSTaskCreateHook
+ 375               	.global	OSTaskDelHook
+ 376               		.type	OSTaskDelHook, @function
+ 377               	OSTaskDelHook:
+ 378 02c0 DF93      		push r29
+ 379 02c2 CF93      		push r28
+ 380 02c4 00D0      		rcall .
+ 381 02c6 CDB7      		in r28,__SP_L__
+ 382 02c8 DEB7      		in r29,__SP_H__
+ 383               	/* prologue: function */
+ 384               	/* frame size = 2 */
+ 385 02ca 9A83      		std Y+2,r25
+ 386 02cc 8983      		std Y+1,r24
+ 387               	/* epilogue start */
+ 388 02ce 0F90      		pop __tmp_reg__
+ 389 02d0 0F90      		pop __tmp_reg__
+ 390 02d2 CF91      		pop r28
+ 391 02d4 DF91      		pop r29
+ 392 02d6 0895      		ret
+ 393               		.size	OSTaskDelHook, .-OSTaskDelHook
+ 394               	.global	OSTaskSwHook
+ 395               		.type	OSTaskSwHook, @function
+ 396               	OSTaskSwHook:
+ 397 02d8 DF93      		push r29
+ 398 02da CF93      		push r28
+ 399 02dc CDB7      		in r28,__SP_L__
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 8
+
+
+ 400 02de DEB7      		in r29,__SP_H__
+ 401               	/* prologue: function */
+ 402               	/* frame size = 0 */
+ 403               	/* epilogue start */
+ 404 02e0 CF91      		pop r28
+ 405 02e2 DF91      		pop r29
+ 406 02e4 0895      		ret
+ 407               		.size	OSTaskSwHook, .-OSTaskSwHook
+ 408               	.global	OSTaskStatHook
+ 409               		.type	OSTaskStatHook, @function
+ 410               	OSTaskStatHook:
+ 411 02e6 DF93      		push r29
+ 412 02e8 CF93      		push r28
+ 413 02ea CDB7      		in r28,__SP_L__
+ 414 02ec DEB7      		in r29,__SP_H__
+ 415               	/* prologue: function */
+ 416               	/* frame size = 0 */
+ 417               	/* epilogue start */
+ 418 02ee CF91      		pop r28
+ 419 02f0 DF91      		pop r29
+ 420 02f2 0895      		ret
+ 421               		.size	OSTaskStatHook, .-OSTaskStatHook
+ 422               	.global	OSTimeTickHook
+ 423               		.type	OSTimeTickHook, @function
+ 424               	OSTimeTickHook:
+ 425 02f4 DF93      		push r29
+ 426 02f6 CF93      		push r28
+ 427 02f8 CDB7      		in r28,__SP_L__
+ 428 02fa DEB7      		in r29,__SP_H__
+ 429               	/* prologue: function */
+ 430               	/* frame size = 0 */
+ 431               	/* epilogue start */
+ 432 02fc CF91      		pop r28
+ 433 02fe DF91      		pop r29
+ 434 0300 0895      		ret
+ 435               		.size	OSTimeTickHook, .-OSTimeTickHook
+ 436               	.global	OSInitHookBegin
+ 437               		.type	OSInitHookBegin, @function
+ 438               	OSInitHookBegin:
+ 439 0302 DF93      		push r29
+ 440 0304 CF93      		push r28
+ 441 0306 CDB7      		in r28,__SP_L__
+ 442 0308 DEB7      		in r29,__SP_H__
+ 443               	/* prologue: function */
+ 444               	/* frame size = 0 */
+ 445               	/* epilogue start */
+ 446 030a CF91      		pop r28
+ 447 030c DF91      		pop r29
+ 448 030e 0895      		ret
+ 449               		.size	OSInitHookBegin, .-OSInitHookBegin
+ 450               	.global	OSInitHookEnd
+ 451               		.type	OSInitHookEnd, @function
+ 452               	OSInitHookEnd:
+ 453 0310 DF93      		push r29
+ 454 0312 CF93      		push r28
+ 455 0314 CDB7      		in r28,__SP_L__
+ 456 0316 DEB7      		in r29,__SP_H__
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 9
+
+
+ 457               	/* prologue: function */
+ 458               	/* frame size = 0 */
+ 459               	/* epilogue start */
+ 460 0318 CF91      		pop r28
+ 461 031a DF91      		pop r29
+ 462 031c 0895      		ret
+ 463               		.size	OSInitHookEnd, .-OSInitHookEnd
+ 464               	.global	OSTaskIdleHook
+ 465               		.type	OSTaskIdleHook, @function
+ 466               	OSTaskIdleHook:
+ 467 031e DF93      		push r29
+ 468 0320 CF93      		push r28
+ 469 0322 CDB7      		in r28,__SP_L__
+ 470 0324 DEB7      		in r29,__SP_H__
+ 471               	/* prologue: function */
+ 472               	/* frame size = 0 */
+ 473               	/* epilogue start */
+ 474 0326 CF91      		pop r28
+ 475 0328 DF91      		pop r29
+ 476 032a 0895      		ret
+ 477               		.size	OSTaskIdleHook, .-OSTaskIdleHook
+ 478               	.global	OSTCBInitHook
+ 479               		.type	OSTCBInitHook, @function
+ 480               	OSTCBInitHook:
+ 481 032c DF93      		push r29
+ 482 032e CF93      		push r28
+ 483 0330 00D0      		rcall .
+ 484 0332 CDB7      		in r28,__SP_L__
+ 485 0334 DEB7      		in r29,__SP_H__
+ 486               	/* prologue: function */
+ 487               	/* frame size = 2 */
+ 488 0336 9A83      		std Y+2,r25
+ 489 0338 8983      		std Y+1,r24
+ 490               	/* epilogue start */
+ 491 033a 0F90      		pop __tmp_reg__
+ 492 033c 0F90      		pop __tmp_reg__
+ 493 033e CF91      		pop r28
+ 494 0340 DF91      		pop r29
+ 495 0342 0895      		ret
+ 496               		.size	OSTCBInitHook, .-OSTCBInitHook
+GAS LISTING C:\Users\user\AppData\Local\Temp/ccL3U8gq.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 os_cpu_c.c
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:2      *ABS*:0000003f __SREG__
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:3      *ABS*:0000003e __SP_H__
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:4      *ABS*:0000003d __SP_L__
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:5      *ABS*:00000034 __CCP__
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:11     .text:00000000 OSTaskStkInit
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:358    .text:000002a8 OSTaskCreateHook
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:377    .text:000002c0 OSTaskDelHook
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:396    .text:000002d8 OSTaskSwHook
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:410    .text:000002e6 OSTaskStatHook
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:424    .text:000002f4 OSTimeTickHook
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:438    .text:00000302 OSInitHookBegin
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:452    .text:00000310 OSInitHookEnd
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:466    .text:0000031e OSTaskIdleHook
+C:\Users\user\AppData\Local\Temp/ccL3U8gq.s:480    .text:0000032c OSTCBInitHook
+
+NO UNDEFINED SYMBOLS

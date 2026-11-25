@@ -1,0 +1,269 @@
+GAS LISTING C:\Users\user\AppData\Local\Temp/cc8O3Okl.s 			page 1
+
+
+   1               		.file	"string.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               	.global	CH
+   9               		.data
+  10               		.type	CH, @object
+  11               		.size	CH, 14
+  12               	CH:
+  13 0000 4852 4954 		.string	"HRITHWIK\r\n"
+  13      4857 494B 
+  13      0D0A 00
+  14 000b 0000 00   		.skip 3,0
+  15               	.global	H
+  16               		.type	H, @object
+  17               		.size	H, 10
+  18               	H:
+  19 000e 6861 690D 		.string	"hai\r\n"
+  19      0A00 
+  20 0014 0000 0000 		.skip 4,0
+  21               		.text
+  22               	.global	main
+  23               		.type	main, @function
+  24               	main:
+  25 0000 DF93      		push r29
+  26 0002 CF93      		push r28
+  27 0004 CDB7      		in r28,__SP_L__
+  28 0006 DEB7      		in r29,__SP_H__
+  29               	/* prologue: function */
+  30               	/* frame size = 0 */
+  31 0008 E3E5      		ldi r30,lo8(83)
+  32 000a F0E0      		ldi r31,hi8(83)
+  33 000c 87E0      		ldi r24,lo8(7)
+  34 000e 8083      		st Z,r24
+  35 0010 E7E5      		ldi r30,lo8(87)
+  36 0012 F0E0      		ldi r31,hi8(87)
+  37 0014 81E0      		ldi r24,lo8(1)
+  38 0016 8083      		st Z,r24
+  39 0018 E2E2      		ldi r30,lo8(34)
+  40 001a F0E0      		ldi r31,hi8(34)
+  41 001c 82E0      		ldi r24,lo8(2)
+  42 001e 8083      		st Z,r24
+  43 0020 EBE2      		ldi r30,lo8(43)
+  44 0022 F0E0      		ldi r31,hi8(43)
+  45 0024 1082      		st Z,__zero_reg__
+  46 0026 EAE2      		ldi r30,lo8(42)
+  47 0028 F0E0      		ldi r31,hi8(42)
+  48 002a 88E1      		ldi r24,lo8(24)
+  49 002c 8083      		st Z,r24
+  50 002e E5E9      		ldi r30,lo8(149)
+  51 0030 F0E0      		ldi r31,hi8(149)
+  52 0032 86E0      		ldi r24,lo8(6)
+  53 0034 8083      		st Z,r24
+  54 0036 E9E2      		ldi r30,lo8(41)
+GAS LISTING C:\Users\user\AppData\Local\Temp/cc8O3Okl.s 			page 2
+
+
+  55 0038 F0E0      		ldi r31,hi8(41)
+  56 003a 87E6      		ldi r24,lo8(103)
+  57 003c 8083      		st Z,r24
+  58 003e 0E94 0000 		call OSInit
+  59 0042 81E0      		ldi r24,lo8(1)
+  60 0044 90E0      		ldi r25,hi8(1)
+  61 0046 0E94 0000 		call OSSemCreate
+  62 004a 9093 0000 		sts (data)+1,r25
+  63 004e 8093 0000 		sts data,r24
+  64 0052 80E0      		ldi r24,lo8(gs(uart))
+  65 0054 90E0      		ldi r25,hi8(gs(uart))
+  66 0056 20E0      		ldi r18,lo8(S1+127)
+  67 0058 30E0      		ldi r19,hi8(S1+127)
+  68 005a 6FEF      		ldi r22,lo8(255)
+  69 005c 70E0      		ldi r23,hi8(255)
+  70 005e A901      		movw r20,r18
+  71 0060 24E0      		ldi r18,lo8(4)
+  72 0062 0E94 0000 		call OSTaskCreate
+  73 0066 80E0      		ldi r24,lo8(gs(uart1))
+  74 0068 90E0      		ldi r25,hi8(gs(uart1))
+  75 006a 20E0      		ldi r18,lo8(S2+127)
+  76 006c 30E0      		ldi r19,hi8(S2+127)
+  77 006e 6FEF      		ldi r22,lo8(255)
+  78 0070 70E0      		ldi r23,hi8(255)
+  79 0072 A901      		movw r20,r18
+  80 0074 25E0      		ldi r18,lo8(5)
+  81 0076 0E94 0000 		call OSTaskCreate
+  82 007a 0E94 0000 		call OSStart
+  83 007e 80E0      		ldi r24,lo8(0)
+  84 0080 90E0      		ldi r25,hi8(0)
+  85               	/* epilogue start */
+  86 0082 CF91      		pop r28
+  87 0084 DF91      		pop r29
+  88 0086 0895      		ret
+  89               		.size	main, .-main
+  90               	.global	uart
+  91               		.type	uart, @function
+  92               	uart:
+  93 0088 DF93      		push r29
+  94 008a CF93      		push r28
+  95 008c 00D0      		rcall .
+  96 008e CDB7      		in r28,__SP_L__
+  97 0090 DEB7      		in r29,__SP_H__
+  98               	/* prologue: function */
+  99               	/* frame size = 2 */
+ 100               	.L7:
+ 101 0092 8091 0000 		lds r24,data
+ 102 0096 9091 0000 		lds r25,(data)+1
+ 103 009a 2091 0000 		lds r18,error
+ 104 009e 3091 0000 		lds r19,(error)+1
+ 105 00a2 60E0      		ldi r22,lo8(0)
+ 106 00a4 70E0      		ldi r23,hi8(0)
+ 107 00a6 A901      		movw r20,r18
+ 108 00a8 0E94 0000 		call OSSemPend
+ 109 00ac 1A82      		std Y+2,__zero_reg__
+ 110 00ae 1982      		std Y+1,__zero_reg__
+ 111 00b0 00C0      		rjmp .L4
+GAS LISTING C:\Users\user\AppData\Local\Temp/cc8O3Okl.s 			page 3
+
+
+ 112               	.L6:
+ 113 00b2 ACE2      		ldi r26,lo8(44)
+ 114 00b4 B0E0      		ldi r27,hi8(44)
+ 115 00b6 8981      		ldd r24,Y+1
+ 116 00b8 9A81      		ldd r25,Y+2
+ 117 00ba FC01      		movw r30,r24
+ 118 00bc E050      		subi r30,lo8(-(CH))
+ 119 00be F040      		sbci r31,hi8(-(CH))
+ 120 00c0 8081      		ld r24,Z
+ 121 00c2 8C93      		st X,r24
+ 122 00c4 82E3      		ldi r24,lo8(50)
+ 123 00c6 90E0      		ldi r25,hi8(50)
+ 124 00c8 0E94 0000 		call OSTimeDly
+ 125               	.L5:
+ 126 00cc EBE2      		ldi r30,lo8(43)
+ 127 00ce F0E0      		ldi r31,hi8(43)
+ 128 00d0 8081      		ld r24,Z
+ 129 00d2 882F      		mov r24,r24
+ 130 00d4 90E0      		ldi r25,lo8(0)
+ 131 00d6 8074      		andi r24,lo8(64)
+ 132 00d8 9070      		andi r25,hi8(64)
+ 133 00da 0097      		sbiw r24,0
+ 134 00dc 01F0      		breq .L5
+ 135 00de 8981      		ldd r24,Y+1
+ 136 00e0 9A81      		ldd r25,Y+2
+ 137 00e2 0196      		adiw r24,1
+ 138 00e4 9A83      		std Y+2,r25
+ 139 00e6 8983      		std Y+1,r24
+ 140               	.L4:
+ 141 00e8 8981      		ldd r24,Y+1
+ 142 00ea 9A81      		ldd r25,Y+2
+ 143 00ec FC01      		movw r30,r24
+ 144 00ee E050      		subi r30,lo8(-(CH))
+ 145 00f0 F040      		sbci r31,hi8(-(CH))
+ 146 00f2 8081      		ld r24,Z
+ 147 00f4 8823      		tst r24
+ 148 00f6 01F4      		brne .L6
+ 149 00f8 8091 0000 		lds r24,data
+ 150 00fc 9091 0000 		lds r25,(data)+1
+ 151 0100 0E94 0000 		call OSSemPost
+ 152 0104 00C0      		rjmp .L7
+ 153               		.size	uart, .-uart
+ 154               	.global	uart1
+ 155               		.type	uart1, @function
+ 156               	uart1:
+ 157 0106 DF93      		push r29
+ 158 0108 CF93      		push r28
+ 159 010a 00D0      		rcall .
+ 160 010c CDB7      		in r28,__SP_L__
+ 161 010e DEB7      		in r29,__SP_H__
+ 162               	/* prologue: function */
+ 163               	/* frame size = 2 */
+ 164               	.L13:
+ 165 0110 8091 0000 		lds r24,data
+ 166 0114 9091 0000 		lds r25,(data)+1
+ 167 0118 2091 0000 		lds r18,error
+ 168 011c 3091 0000 		lds r19,(error)+1
+GAS LISTING C:\Users\user\AppData\Local\Temp/cc8O3Okl.s 			page 4
+
+
+ 169 0120 60E0      		ldi r22,lo8(0)
+ 170 0122 70E0      		ldi r23,hi8(0)
+ 171 0124 A901      		movw r20,r18
+ 172 0126 0E94 0000 		call OSSemPend
+ 173 012a 1A82      		std Y+2,__zero_reg__
+ 174 012c 1982      		std Y+1,__zero_reg__
+ 175 012e 00C0      		rjmp .L10
+ 176               	.L12:
+ 177 0130 ACE2      		ldi r26,lo8(44)
+ 178 0132 B0E0      		ldi r27,hi8(44)
+ 179 0134 8981      		ldd r24,Y+1
+ 180 0136 9A81      		ldd r25,Y+2
+ 181 0138 FC01      		movw r30,r24
+ 182 013a E050      		subi r30,lo8(-(H))
+ 183 013c F040      		sbci r31,hi8(-(H))
+ 184 013e 8081      		ld r24,Z
+ 185 0140 8C93      		st X,r24
+ 186 0142 8EE1      		ldi r24,lo8(30)
+ 187 0144 90E0      		ldi r25,hi8(30)
+ 188 0146 0E94 0000 		call OSTimeDly
+ 189               	.L11:
+ 190 014a EBE2      		ldi r30,lo8(43)
+ 191 014c F0E0      		ldi r31,hi8(43)
+ 192 014e 8081      		ld r24,Z
+ 193 0150 882F      		mov r24,r24
+ 194 0152 90E0      		ldi r25,lo8(0)
+ 195 0154 8074      		andi r24,lo8(64)
+ 196 0156 9070      		andi r25,hi8(64)
+ 197 0158 0097      		sbiw r24,0
+ 198 015a 01F0      		breq .L11
+ 199 015c 8981      		ldd r24,Y+1
+ 200 015e 9A81      		ldd r25,Y+2
+ 201 0160 0196      		adiw r24,1
+ 202 0162 9A83      		std Y+2,r25
+ 203 0164 8983      		std Y+1,r24
+ 204               	.L10:
+ 205 0166 8981      		ldd r24,Y+1
+ 206 0168 9A81      		ldd r25,Y+2
+ 207 016a FC01      		movw r30,r24
+ 208 016c E050      		subi r30,lo8(-(H))
+ 209 016e F040      		sbci r31,hi8(-(H))
+ 210 0170 8081      		ld r24,Z
+ 211 0172 8823      		tst r24
+ 212 0174 01F4      		brne .L12
+ 213 0176 8091 0000 		lds r24,data
+ 214 017a 9091 0000 		lds r25,(data)+1
+ 215 017e 0E94 0000 		call OSSemPost
+ 216 0182 00C0      		rjmp .L13
+ 217               		.size	uart1, .-uart1
+ 218               		.comm S1,128,1
+ 219               		.comm S2,128,1
+ 220               		.comm data,2,1
+ 221               		.comm error,2,1
+ 222               	.global __do_copy_data
+ 223               	.global __do_clear_bss
+GAS LISTING C:\Users\user\AppData\Local\Temp/cc8O3Okl.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 string.c
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:2      *ABS*:0000003f __SREG__
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:3      *ABS*:0000003e __SP_H__
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:4      *ABS*:0000003d __SP_L__
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:5      *ABS*:00000034 __CCP__
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:12     .data:00000000 CH
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:18     .data:0000000e H
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:24     .text:00000000 main
+                            *COM*:00000002 data
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:92     .text:00000088 uart
+                            *COM*:00000080 S1
+C:\Users\user\AppData\Local\Temp/cc8O3Okl.s:156    .text:00000106 uart1
+                            *COM*:00000080 S2
+                            *COM*:00000002 error
+
+UNDEFINED SYMBOLS
+OSInit
+OSSemCreate
+OSTaskCreate
+OSStart
+OSSemPend
+OSTimeDly
+OSSemPost
+__do_copy_data
+__do_clear_bss

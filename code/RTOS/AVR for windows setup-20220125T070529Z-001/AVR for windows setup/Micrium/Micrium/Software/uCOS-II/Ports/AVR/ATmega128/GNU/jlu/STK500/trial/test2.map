@@ -1,0 +1,674 @@
+Archive member included because of file (symbol)
+
+/usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o)
+                              test2.o (__divmodhi4)
+/usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o (exit)
+/usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+                              test2.o (__do_clear_bss)
+/usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_udivmodhi4.o)
+                              /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o) (__udivmodhi4)
+
+Allocating common symbols
+Common symbol       size              file
+
+OSLockNesting       0x1               ucos_ii.o
+OSRunning           0x1               ucos_ii.o
+OSIdleCtr           0x4               ucos_ii.o
+Task2Sem            0x2               test2.o
+OSPrioHighRdy       0x1               ucos_ii.o
+OSPrioCur           0x1               ucos_ii.o
+OSTCBList           0x2               ucos_ii.o
+OSCtxSwCtr          0x4               ucos_ii.o
+OSTCBFreeList       0x2               ucos_ii.o
+Task2Stk            0x80              test2.o
+OSTaskCtr           0x1               ucos_ii.o
+OSTCBHighRdy        0x2               ucos_ii.o
+OSRdyGrp            0x1               ucos_ii.o
+Task1Stk            0x80              test2.o
+OSRdyTbl            0x2               ucos_ii.o
+OSEventFreeList     0x2               ucos_ii.o
+PortBSem            0x2               test2.o
+OSIntExitY          0x1               ucos_ii.o
+OSIntNesting        0x1               ucos_ii.o
+TaskStartStk        0x80              test2.o
+OSTCBCur            0x2               ucos_ii.o
+OSTaskIdleStk       0x80              ucos_ii.o
+OSEventTbl          0x18              ucos_ii.o
+OSTCBTbl            0xcc              ucos_ii.o
+OSTCBPrioTbl        0x16              ucos_ii.o
+Task1Sem            0x2               test2.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x0000000000000000 0x0000000000020000 xr
+data             0x0000000000800060 0x000000000000ffa0 rw !x
+eeprom           0x0000000000810000 0x0000000000010000 rw !x
+fuse             0x0000000000820000 0x0000000000000400 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+LOAD test2.o
+LOAD os_cpu_c.o
+LOAD os_dbg.o
+LOAD ucos_ii.o
+LOAD os_cpu_a.o
+LOAD /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a
+LOAD /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/libc.a
+LOAD /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x0000000000000000     0x1194
+ *(.vectors)
+ .vectors       0x0000000000000000       0x8c /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+                0x0000000000000000                __vectors
+                0x0000000000000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x000000000000008c        0x2 os_dbg.o
+                0x000000000000008c                OSDebugEn
+                0x000000000000008e                . = ALIGN (0x2)
+                0x000000000000008e                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000000000008e        0x0 linker stubs
+ *(.trampolines*)
+                0x000000000000008e                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x000000000000008e                __ctors_start = .
+ *(.ctors)
+                0x000000000000008e                __ctors_end = .
+                0x000000000000008e                __dtors_start = .
+ *(.dtors)
+                0x000000000000008e                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x000000000000008e        0x0 /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+                0x000000000000008e                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x000000000000008e        0xc /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x000000000000009a       0x1a /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+                0x000000000000009a                __do_copy_data
+ .init4         0x00000000000000b4       0x10 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+                0x00000000000000b4                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000000000000c4        0x8 /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+ *(.init9)
+ *(.text)
+ .text          0x00000000000000cc        0x4 /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+                0x00000000000000cc                __vector_22
+                0x00000000000000cc                __vector_28
+                0x00000000000000cc                __vector_1
+                0x00000000000000cc                __vector_32
+                0x00000000000000cc                __vector_34
+                0x00000000000000cc                __vector_24
+                0x00000000000000cc                __vector_12
+                0x00000000000000cc                __bad_interrupt
+                0x00000000000000cc                __vector_6
+                0x00000000000000cc                __vector_31
+                0x00000000000000cc                __vector_3
+                0x00000000000000cc                __vector_23
+                0x00000000000000cc                __vector_30
+                0x00000000000000cc                __vector_25
+                0x00000000000000cc                __vector_11
+                0x00000000000000cc                __vector_13
+                0x00000000000000cc                __vector_17
+                0x00000000000000cc                __vector_19
+                0x00000000000000cc                __vector_7
+                0x00000000000000cc                __vector_27
+                0x00000000000000cc                __vector_5
+                0x00000000000000cc                __vector_33
+                0x00000000000000cc                __vector_4
+                0x00000000000000cc                __vector_9
+                0x00000000000000cc                __vector_2
+                0x00000000000000cc                __vector_21
+                0x00000000000000cc                __vector_15
+                0x00000000000000cc                __vector_29
+                0x00000000000000cc                __vector_8
+                0x00000000000000cc                __vector_26
+                0x00000000000000cc                __vector_14
+                0x00000000000000cc                __vector_10
+                0x00000000000000cc                __vector_18
+                0x00000000000000cc                __vector_20
+ .text          0x00000000000000d0      0x2e8 test2.o
+                0x0000000000000140                tx_num
+                0x00000000000001d8                rx_num
+                0x0000000000000324                Task1
+                0x00000000000000de                rx_strng
+                0x0000000000000124                uart_init
+                0x00000000000000fa                tx_strng
+                0x0000000000000352                main
+                0x0000000000000302                Task2
+                0x0000000000000114                tx_char
+                0x00000000000000d0                rx_char
+ .text          0x00000000000003b8       0x64 os_cpu_c.o
+                0x000000000000040a                OSTaskCreateHook
+                0x0000000000000410                OSTaskStatHook
+                0x0000000000000414                OSInitHookBegin
+                0x000000000000040c                OSTaskDelHook
+                0x0000000000000412                OSTimeTickHook
+                0x000000000000041a                OSTCBInitHook
+                0x00000000000003b8                OSTaskStkInit
+                0x0000000000000416                OSInitHookEnd
+                0x000000000000040e                OSTaskSwHook
+                0x0000000000000418                OSTaskIdleHook
+ .text          0x000000000000041c        0x0 os_dbg.o
+ .text          0x000000000000041c      0xac4 ucos_ii.o
+                0x000000000000041c                OSIntEnter
+                0x0000000000000640                OS_TCBInit
+                0x0000000000000a40                OSTaskCreate
+                0x0000000000000918                OSTaskDel
+                0x0000000000000d50                OSIntExit
+                0x0000000000000738                OS_Sched
+                0x0000000000000b24                OSSemPend
+                0x0000000000000458                OS_EventTaskRdy
+                0x00000000000007c6                OSTimeDly
+                0x0000000000000ae8                OSSemPost
+                0x0000000000000c38                OSSchedUnlock
+                0x0000000000000456                OS_Dummy
+                0x0000000000000500                OS_EventTaskWait
+                0x0000000000000606                OSTaskDelReq
+                0x0000000000000cf6                OSStart
+                0x00000000000008a0                OSTaskResume
+                0x0000000000000c6c                OSTimeTick
+                0x00000000000005c0                OSSemCreate
+                0x0000000000000434                OSSchedLock
+                0x0000000000000dfa                OSInit
+                0x0000000000000568                OS_EventTO
+                0x0000000000000450                OSVersion
+                0x00000000000005b6                OS_EventWaitListInit
+                0x0000000000000816                OSTaskSuspend
+                0x0000000000000708                OS_TaskIdle
+ .text          0x0000000000000ee0      0x262 os_cpu_a.o
+                0x0000000000000ee0                OSStartHighRdy
+                0x0000000000000f48                OSCtxSw
+                0x000000000000100e                OSIntCtxSw
+                0x000000000000107c                OSTickISR
+                0x000000000000107c                __vector_16
+ .text          0x0000000000001142        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o)
+ .text          0x0000000000001142        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+ .text          0x0000000000001142        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+ .text          0x0000000000001142        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_udivmodhi4.o)
+                0x0000000000001142                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x0000000000001142       0x26 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o)
+                0x0000000000001142                __divmodhi4
+                0x0000000000001142                _div
+ .text.libgcc   0x0000000000001168        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000001168        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000001168       0x28 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_udivmodhi4.o)
+                0x0000000000001168                __udivmodhi4
+                0x0000000000001190                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000000000001190        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+                0x0000000000001190                exit
+                0x0000000000001190                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000000000001190        0x4 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000000000001194                _etext = .
+
+.data           0x0000000000800100      0x12a load address 0x0000000000001194
+                0x0000000000800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x0000000000800100        0x0 /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+ .data          0x0000000000800100       0x21 test2.o
+ .data          0x0000000000800121        0x0 os_cpu_c.o
+ .data          0x0000000000800121        0x0 os_dbg.o
+ .data          0x0000000000800121      0x108 ucos_ii.o
+                0x0000000000800121                OSMapTbl
+                0x0000000000800129                OSUnMapTbl
+ .data          0x0000000000800229        0x0 os_cpu_a.o
+ .data          0x0000000000800229        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o)
+ .data          0x0000000000800229        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+ .data          0x0000000000800229        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+ .data          0x0000000000800229        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_udivmodhi4.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x000000000080022a                . = ALIGN (0x2)
+ *fill*         0x0000000000800229        0x1 00
+                0x000000000080022a                _edata = .
+                0x000000000080022a                PROVIDE (__data_end, .)
+
+.bss            0x000000000080022a      0x31c load address 0x00000000000012be
+                0x000000000080022a                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x000000000080022a        0x0 /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+ .bss           0x000000000080022a        0x0 test2.o
+ .bss           0x000000000080022a        0x0 os_cpu_c.o
+ .bss           0x000000000080022a        0x0 os_dbg.o
+ .bss           0x000000000080022a        0x0 ucos_ii.o
+ .bss           0x000000000080022a        0x0 os_cpu_a.o
+ .bss           0x000000000080022a        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o)
+ .bss           0x000000000080022a        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+ .bss           0x000000000080022a        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+ .bss           0x000000000080022a        0x0 /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_udivmodhi4.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x000000000080022a      0x186 test2.o
+                0x000000000080022a                Task2Sem
+                0x000000000080022c                Task2Stk
+                0x00000000008002ac                Task1Stk
+                0x000000000080032c                PortBSem
+                0x000000000080032e                TaskStartStk
+                0x00000000008003ae                Task1Sem
+ COMMON         0x00000000008003b0      0x196 ucos_ii.o
+                0x00000000008003b0                OSLockNesting
+                0x00000000008003b1                OSRunning
+                0x00000000008003b2                OSIdleCtr
+                0x00000000008003b6                OSPrioHighRdy
+                0x00000000008003b7                OSPrioCur
+                0x00000000008003b8                OSTCBList
+                0x00000000008003ba                OSCtxSwCtr
+                0x00000000008003be                OSTCBFreeList
+                0x00000000008003c0                OSTaskCtr
+                0x00000000008003c1                OSTCBHighRdy
+                0x00000000008003c3                OSRdyGrp
+                0x00000000008003c4                OSRdyTbl
+                0x00000000008003c6                OSEventFreeList
+                0x00000000008003c8                OSIntExitY
+                0x00000000008003c9                OSIntNesting
+                0x00000000008003ca                OSTCBCur
+                0x00000000008003cc                OSTaskIdleStk
+                0x000000000080044c                OSEventTbl
+                0x0000000000800464                OSTCBTbl
+                0x0000000000800530                OSTCBPrioTbl
+                0x0000000000800546                PROVIDE (__bss_end, .)
+                0x0000000000001194                __data_load_start = LOADADDR (.data)
+                0x00000000000012be                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0000000000800546        0x0
+                0x0000000000800546                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0000000000800546                PROVIDE (__noinit_end, .)
+                0x0000000000800546                _end = .
+                0x0000000000800546                PROVIDE (__heap_start, .)
+
+.eeprom         0x0000000000810000        0x0
+ *(.eeprom*)
+                0x0000000000810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x0000000000000000      0xad4
+ *(.stab)
+ .stab          0x0000000000000000      0x750 /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+ .stab          0x0000000000000750      0x384 os_cpu_a.o
+                                        0x390 (size before relaxing)
+
+.stabstr        0x0000000000000000       0xb0
+ *(.stabstr)
+ .stabstr       0x0000000000000000       0xb0 /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(test2.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+OSCtxSw                                           os_cpu_a.o
+                                                  ucos_ii.o
+OSCtxSwCtr                                        ucos_ii.o
+OSDebugEn                                         os_dbg.o
+OSEventFreeList                                   ucos_ii.o
+OSEventTbl                                        ucos_ii.o
+OSIdleCtr                                         ucos_ii.o
+OSInit                                            ucos_ii.o
+                                                  test2.o
+OSInitHookBegin                                   os_cpu_c.o
+                                                  ucos_ii.o
+OSInitHookEnd                                     os_cpu_c.o
+                                                  ucos_ii.o
+OSIntCtxSw                                        os_cpu_a.o
+                                                  ucos_ii.o
+OSIntEnter                                        ucos_ii.o
+OSIntExit                                         ucos_ii.o
+                                                  os_cpu_a.o
+OSIntExitY                                        ucos_ii.o
+OSIntNesting                                      os_cpu_a.o
+                                                  ucos_ii.o
+OSLockNesting                                     ucos_ii.o
+OSMapTbl                                          ucos_ii.o
+OSPrioCur                                         os_cpu_a.o
+                                                  ucos_ii.o
+OSPrioHighRdy                                     os_cpu_a.o
+                                                  ucos_ii.o
+OSRdyGrp                                          ucos_ii.o
+OSRdyTbl                                          ucos_ii.o
+OSRunning                                         os_cpu_a.o
+                                                  ucos_ii.o
+OSSchedLock                                       ucos_ii.o
+OSSchedUnlock                                     ucos_ii.o
+OSSemCreate                                       ucos_ii.o
+OSSemPend                                         ucos_ii.o
+OSSemPost                                         ucos_ii.o
+OSStart                                           ucos_ii.o
+                                                  test2.o
+OSStartHighRdy                                    os_cpu_a.o
+                                                  ucos_ii.o
+OSTCBCur                                          os_cpu_a.o
+                                                  ucos_ii.o
+OSTCBFreeList                                     ucos_ii.o
+OSTCBHighRdy                                      os_cpu_a.o
+                                                  ucos_ii.o
+OSTCBInitHook                                     os_cpu_c.o
+                                                  ucos_ii.o
+OSTCBList                                         ucos_ii.o
+OSTCBPrioTbl                                      ucos_ii.o
+OSTCBTbl                                          ucos_ii.o
+OSTaskCreate                                      ucos_ii.o
+                                                  test2.o
+OSTaskCreateHook                                  os_cpu_c.o
+                                                  ucos_ii.o
+OSTaskCtr                                         ucos_ii.o
+OSTaskDel                                         ucos_ii.o
+OSTaskDelHook                                     os_cpu_c.o
+                                                  ucos_ii.o
+OSTaskDelReq                                      ucos_ii.o
+OSTaskIdleHook                                    os_cpu_c.o
+                                                  ucos_ii.o
+OSTaskIdleStk                                     ucos_ii.o
+OSTaskResume                                      ucos_ii.o
+                                                  test2.o
+OSTaskStatHook                                    os_cpu_c.o
+OSTaskStkInit                                     os_cpu_c.o
+                                                  ucos_ii.o
+OSTaskSuspend                                     ucos_ii.o
+                                                  test2.o
+OSTaskSwHook                                      os_cpu_c.o
+                                                  os_cpu_a.o
+OSTickISR                                         os_cpu_a.o
+OSTimeDly                                         ucos_ii.o
+OSTimeTick                                        ucos_ii.o
+                                                  os_cpu_a.o
+OSTimeTickHook                                    os_cpu_c.o
+                                                  ucos_ii.o
+OSUnMapTbl                                        ucos_ii.o
+OSVersion                                         ucos_ii.o
+OS_Dummy                                          ucos_ii.o
+OS_EventTO                                        ucos_ii.o
+OS_EventTaskRdy                                   ucos_ii.o
+OS_EventTaskWait                                  ucos_ii.o
+OS_EventWaitListInit                              ucos_ii.o
+OS_Sched                                          ucos_ii.o
+OS_TCBInit                                        ucos_ii.o
+OS_TaskIdle                                       ucos_ii.o
+PortBSem                                          test2.o
+Task1                                             test2.o
+Task1Sem                                          test2.o
+Task1Stk                                          test2.o
+Task2                                             test2.o
+Task2Sem                                          test2.o
+Task2Stk                                          test2.o
+TaskStartStk                                      test2.o
+__bad_interrupt                                   /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__bss_end                                         /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+__data_end                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__data_load_start                                 /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__data_start                                      /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__divmodhi4                                       /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o)
+                                                  test2.o
+__do_clear_bss                                    /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_clear_bss.o)
+                                                  ucos_ii.o
+                                                  os_dbg.o
+                                                  os_cpu_c.o
+                                                  test2.o
+__do_copy_data                                    /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+                                                  ucos_ii.o
+                                                  os_dbg.o
+                                                  os_cpu_c.o
+                                                  test2.o
+__heap_end                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__init                                            /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__stack                                           /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__udivmodhi4                                      /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_udivmodhi4.o)
+                                                  /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o)
+__vector_1                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_10                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_11                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_12                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_13                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_14                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_15                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_16                                       os_cpu_a.o
+                                                  /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_17                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_18                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_19                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_2                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_20                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_21                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_22                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_23                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_24                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_25                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_26                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_27                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_28                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_29                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_3                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_30                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_31                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_32                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_33                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_34                                       /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_4                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_5                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_6                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_7                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_8                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_9                                        /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vector_default                                  /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+__vectors                                         /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+_div                                              /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_divmodhi4.o)
+_exit                                             /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+exit                                              /usr/lib/gcc/avr/4.3.2/avr51/libgcc.a(_exit.o)
+                                                  /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+main                                              test2.o
+                                                  /usr/lib/gcc/avr/4.3.2/../../../avr/lib/avr51/crtm128.o
+rx_char                                           test2.o
+rx_num                                            test2.o
+rx_strng                                          test2.o
+tx_char                                           test2.o
+tx_num                                            test2.o
+tx_strng                                          test2.o
+uart_init                                         test2.o

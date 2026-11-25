@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>realistic-orange-3d-model-low-poly-obj-mtl-fbx-ply-3-_jpg.rf.11bc953fc954aa5a9bd1afa2a8eb6c4b.jpg</filename>
+	<path>D:\nexus\learn\data\valid\images\realistic-orange-3d-model-low-poly-obj-mtl-fbx-ply-3-_jpg.rf.11bc953fc954aa5a9bd1afa2a8eb6c4b.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>ORANGE</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>121</xmin>
+			<ymin>66</ymin>
+			<xmax>545</xmax>
+			<ymax>607</ymax>
+		</bndbox>
+	</object>
+</annotation>
