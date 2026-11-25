@@ -1,0 +1,177 @@
+from flask import Flask, request, render_template_string, Response
+import threading
+import cv2
+import time
+from ultralytics import YOLO
+
+app = Flask(__name__)
+
+# ================= CONFIG =================
+MODEL_PATH = r"D:\nexus\p\runs\detect\train\weights\best.pt"
+CAMERA_SOURCE = 0  # laptop camera
+
+# ================= GLOBAL =================
+command = "stop"
+output_frame = None
+sensor = {
+    "temp": 0,
+    "hum": 0,
+    "soil": 0
+}
+
+# ================= CAMERA =================
+camera = cv2.VideoCapture(CAMERA_SOURCE)
+
+def generate_frames():
+    global camera
+
+    while True:
+        success, frame = camera.read()
+        if not success:
+            continue
+
+        _, buffer = cv2.imencode('.jpg', frame)
+        frame = buffer.tobytes()
+
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+def yolo_loop():
+    global command, camera, output_frame
+
+    print("Loading YOLO...")
+    model = YOLO(MODEL_PATH)
+
+    threshold = 0.5
+    detect_count = 0
+
+    while True:
+        success, frame = camera.read()
+        if not success:
+            continue
+
+        results = model(frame)[0]
+
+        disease_detected = False
+
+        if results.boxes is not None:
+            for result in results.boxes.data.tolist():
+                x1, y1, x2, y2, score, class_id = result
+
+                if score > threshold:
+                    disease_detected = True
+
+                    label = results.names[int(class_id)]
+
+                    cv2.rectangle(frame, (int(x1), int(y1)),
+                                  (int(x2), int(y2)), (0,255,0), 2)
+
+                    cv2.putText(frame,
+                                f"{label} {score:.2f}",
+                                (int(x1), int(y1-10)),
+                                cv2.FONT_HERSHEY_SIMPLEX,
+                                0.7, (0,255,0), 2)
+
+        # stability
+        if disease_detected:
+            detect_count += 1
+        else:
+            detect_count = 0
+
+        if detect_count >= 3:
+            command = "disease_on"
+        else:
+            command = "stop"
+
+        # ✅ SAVE FRAME FOR WEB
+        output_frame = frame
+# ================= WEB =================
+@app.route('/')
+def home():
+    return render_template_string("""
+    <html>
+    <body style="text-align:center; background:black; color:white;">
+
+    <h1>ESP32 CONTROL</h1>
+
+    <button onclick="send('forward')">Forward</button><br><br>
+    <button onclick="send('left')">Left</button>
+    <button onclick="send('stop')">Stop</button>
+    <button onclick="send('right')">Right</button><br><br>
+    <button onclick="send('backward')">Backward</button>
+
+    <h2>SENSOR</h2>
+    <p>Temp: <span id="t">--</span></p>
+    <p>Hum: <span id="h">--</span></p>
+    <p>Soil: <span id="s">--</span></p>
+
+    <h3>Camera</h3>
+    <img src="/video" width="400">
+
+    <script>
+    function send(cmd){
+        fetch('/set/' + cmd);
+    }
+
+    setInterval(()=>{
+        fetch('/data')
+        .then(r=>r.json())
+        .then(d=>{
+            document.getElementById('t').innerText = d.temp;
+            document.getElementById('h').innerText = d.hum;
+            document.getElementById('s').innerText = d.soil;
+        });
+    },2000);
+    </script>
+
+    </body>
+    </html>
+    """)
+
+# ================= COMMAND =================
+@app.route('/set/<cmd>')
+def set_cmd(cmd):
+    global command
+    command = cmd
+    print("👉 SET:", command)
+    return "OK"
+
+@app.route('/get_command')
+def get_command():
+    global command
+    print("📤 SEND:", command)
+    return command
+
+# ================= VIDEO =================
+@app.route('/video')
+def video():
+    return Response(generate_frames(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+# ================= SENSOR =================
+@app.route('/update', methods=['POST'])
+def update():
+    global sensor, command
+
+    data = request.get_json(force=True)
+
+    sensor["temp"] = data["temp"]
+    sensor["hum"] = data["hum"]
+    sensor["soil"] = data["soil"]
+
+    print("📥 SENSOR:", sensor)
+      # ===== SOIL LOGIC =====
+    if sensor["soil"] >= 4000:
+        print("🌱 Soil dry → relay")
+        command = "soil_on"
+    else:
+        command = "soil_off"
+
+    return "OK" 
+@app.route('/data')
+def data():
+    return sensor
+
+# ================= RUN =================
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
